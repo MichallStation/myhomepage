@@ -49,6 +49,7 @@ function LanguageButton({ lang = 'en' }) {
             value={i}
             style={style.option}
             onClick={handleChangeLang}
+            mt={1}
           >
             {i}
           </MenuItem>

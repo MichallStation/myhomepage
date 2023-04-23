@@ -25,13 +25,12 @@ function Brand(props) {
       display="flex"
       alignItems="center"
       tabIndex={-1}
-      title="⚽"
       {...props}
     >
       <Image
         className="brand-img"
         src="/blue.png"
-        alt="⚽"
+        alt="Blue"
         style={style.img}
         width="44px"
       />

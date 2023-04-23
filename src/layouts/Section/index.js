@@ -1,9 +1,9 @@
 import { Box, Heading } from '@chakra-ui/react';
 import React from 'react';
 
-function Section({ title, children, icon, sep = 8 }) {
+function Section({ title, children, icon, sep = 8, ...props }) {
   return (
-    <Box className="section" as="section" mt={6}>
+    <Box className="section" as="section" mt={6} {...props}>
       <Box className="section-title">
         <Heading
           display="inline-flex"

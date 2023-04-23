@@ -1,26 +1,33 @@
 export default {
   Home: {
     title: 'My homepage',
+    name: 'Home',
   },
   Work: {
     title: 'Workpage - Portfolio',
+    name: 'Workpage',
     projs: {
       title: 'Projects',
-      content: 'Projects highlight that I built.',
+      content: 'The projects highlight that I built.',
     },
     works: {
       title: 'Works',
-      content: 'All of jobs that I applied.',
+      content: 'The jobs that I worked.',
     },
     collabs: {
       title: 'Collaborations',
-      content: 'All of collaborations/partners on my developer journey.',
+      content: 'The collaborations/partners on my developer journey.',
     },
+  },
+  ProjectDetail: {
+    title: 'Project Detail',
+    desc: 'Description',
+    preview: 'Preview',
   },
   $404: {
     title: 'Not found 404 - ⚽',
     head: 'Oopss, Error!!!!',
-    msg: 'There is something wrong, that you should come back...',
+    msg: 'There is something wrong, you found something not have. So, you should go home...',
     btn: 'Go home',
   },
   Navbar: {

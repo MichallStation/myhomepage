@@ -19,3 +19,11 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   border-radius: 12px;
 }
+
+#__next {
+  overflow: hidden;
+}
+
+.chakra-breadcrumb::-webkit-scrollbar {
+  width: 0px;
+}

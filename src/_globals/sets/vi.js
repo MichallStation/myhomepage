@@ -1,9 +1,11 @@
 export default {
   Home: {
     title: 'Nhà của tôi',
+    name: 'Nhà',
   },
   Work: {
     title: 'Công việc - Hồ sơ',
+    name: 'Công việc',
     projs: {
       title: 'Dự án nổi bật',
       content: 'Điểm qua các dự án nổi bật mà tôi đã từng xây dựng.',
@@ -14,8 +16,11 @@ export default {
     },
     collabs: {
       title: 'Đối tác',
-      content: 'Tất cả đối tác trong cuộc hành trình kỹ sư của tôi.',
+      content: 'Những đối tác trong cuộc hành trình kỹ sư của tôi.',
     },
+  },
+  ProjectDetail: {
+    title: 'Chi tiết dự án',
   },
   $404: {
     title: 'Không tìm thấy 404 - ⚽',
@@ -24,7 +29,7 @@ export default {
     btn: 'Về nhà',
   },
   Navbar: {
-    Home: 'Trang chủ',
+    Home: 'Nhà',
     Work: 'Công việc',
     Use: 'Đồ dùng',
     Source: 'Nguồn',
