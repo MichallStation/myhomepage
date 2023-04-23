@@ -1,18 +1,41 @@
 export default {
+  Home: {
+    title: 'Nhà của tôi',
+  },
+  Work: {
+    title: 'Công việc - Hồ sơ',
+    projs: {
+      title: 'Dự án nổi bật',
+      content: 'Điểm qua các dự án nổi bật mà tôi đã từng xây dựng.',
+    },
+    works: {
+      title: 'Công việc',
+      content: 'Những công việc tôi đã và đang tham gia.',
+    },
+    collabs: {
+      title: 'Đối tác',
+      content: 'Tất cả đối tác trong cuộc hành trình kỹ sư của tôi.',
+    },
+  },
   $404: {
     title: 'Không tìm thấy 404 - ⚽',
     head: 'Ối, Lỗi rồi!!!!',
-    msg: 'Có một điều gì đó sai sai, nên bạn ơi! Hãy quay lại...',
-    btn: 'Về trang chủ',
+    msg: 'Có một điều gì đó sai sai, bạn đang tìm kiếm một điều không hề có. Nên bạn ơi! bạn nên về nhà...',
+    btn: 'Về nhà',
   },
-  Navbar: {},
+  Navbar: {
+    Home: 'Trang chủ',
+    Work: 'Công việc',
+    Use: 'Đồ dùng',
+    Source: 'Nguồn',
+  },
   Author: {
     welcome: 'Xin chào, Tôi là nhà phát triển ứng dụng tại Việt Nam!',
     name: 'Lê Trần Ngọc Đạt',
     desc: 'Nhà phát triển (Front End / Back End / Fullstack)',
     worktitle: 'Công việc',
     workcontent:
-      'Đạt là một nhà phát triển ứng dụng fullstack tại TP Hồ Chí Minh với niềm đam mê xây dựng các sản phẩm/dịch vụ kỹ thuật số. Anh ấy có sở trường về việc lên ý tưởng, thiết kế và tạo ra các sản phẩm để giải quyết các vấn đề thực tế với code. Khi ngoài công việc, anh ấy ưa thích được ngồi bên cây đàn guitar/piano của mình.',
+      'Đạt là một nhà phát triển ứng dụng fullstack tại TP Hồ Chí Minh với niềm đam mê xây dựng các sản phẩm/dịch vụ kỹ thuật số. Anh ấy có sở trường về việc lập kế hoạch, thiết kế và tạo ra các sản phẩm để giải quyết các vấn đề thực tế với code. Khi ngoài công việc, anh ấy ưa thích được ngồi bên cây đàn guitar/piano của mình.',
     workbtn: 'Hồ sơ',
   },
   Bio: {

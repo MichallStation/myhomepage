@@ -2,13 +2,11 @@ import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Ball3d from '@/components/Ball3d';
 import Navbar from '@/components/Navbar';
-import SEO from '../SEO';
 
 /** @param {{children: import('react').ReactElement}}  */
 function Page({ lang = 'en', children }) {
   return (
     <>
-      <SEO />
       <Navbar lang={lang} />
       <Ball3d />
       <AnimatePresence

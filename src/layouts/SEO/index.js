@@ -1,7 +1,5 @@
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import React from 'react';
-import sets from './sets';
 
 function SEO({ lang = 'en', title }) {
   title = title ? `Ltndat - ${title}` : 'Ltndat - Homepage';

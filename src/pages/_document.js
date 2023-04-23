@@ -7,7 +7,7 @@ import createFeaturesStorage from '@/features';
 export default function Document({ storage }) {
   const { lang } = storage;
   return (
-    <Html>
+    <Html lang={lang}>
       <Head>
         <link
           rel="stylesheet"

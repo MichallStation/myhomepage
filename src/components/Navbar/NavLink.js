@@ -12,9 +12,9 @@ import {
   MenuList,
   Text,
 } from '@chakra-ui/react';
-import sets from './sets';
 import envs from './envs';
 import data from './data';
+import { getSet } from '@/_globals/sets';
 
 export const props = {
   Home: {
@@ -38,7 +38,8 @@ const pagesRendered = Object.entries(data);
 
 /** @param {{path: string}}  */
 function NavLink({ lang = 'en', path }) {
-  const set = sets?.[lang] || sets.en;
+  // const set = sets?.[lang] || sets.en;
+  const set = getSet('Navbar', lang);
   const isActive = useCallback(
     /** @param {string} p  */
     (p) => {

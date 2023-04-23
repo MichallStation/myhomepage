@@ -1,7 +1,7 @@
 import { Box, Heading } from '@chakra-ui/react';
 import React from 'react';
 
-function Section({ title, children, icon }) {
+function Section({ title, children, icon, sep = 8 }) {
   return (
     <Box className="section" as="section" mt={6}>
       <Box className="section-title">
@@ -15,7 +15,7 @@ function Section({ title, children, icon }) {
             content: '""',
             display: 'block',
             pos: 'absolute',
-            height: '8px',
+            height: `${sep}px`,
             backgroundColor: 'currentColor',
             borderRadius: '2px',
             width: '100%',

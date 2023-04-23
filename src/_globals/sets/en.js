@@ -1,18 +1,41 @@
 export default {
+  Home: {
+    title: 'My homepage',
+  },
+  Work: {
+    title: 'Workpage - Portfolio',
+    projs: {
+      title: 'Projects',
+      content: 'Projects highlight that I built.',
+    },
+    works: {
+      title: 'Works',
+      content: 'All of jobs that I applied.',
+    },
+    collabs: {
+      title: 'Collaborations',
+      content: 'All of collaborations/partners on my developer journey.',
+    },
+  },
   $404: {
     title: 'Not found 404 - ⚽',
     head: 'Oopss, Error!!!!',
     msg: 'There is something wrong, that you should come back...',
     btn: 'Go home',
   },
-  Navbar: {},
+  Navbar: {
+    Home: 'Home',
+    Work: 'Work',
+    Use: 'Use',
+    Source: 'Source',
+  },
   Author: {
     welcome: "Hello, I'm app developer based in Vietnam!",
     name: 'Le Tran Ngoc Dat',
     desc: 'Developer (Front End / Back End / Fullstack)',
     worktitle: 'Work',
     workcontent:
-      'Dat is a fullstack developer based in Ho Chi Minh with a passion for building digital services/stuff he wants. He has a knack for all things launching products, from planning and designing all the way to solving real-life problems with code. When not online, he loves hanging out with his guitar/piano.',
+      'Dat is a fullstack developer based in Ho Chi Minh with a passion for building digital services/stuff he wants. He has a knack for all things for planning, designing, and creating products all the way to solving real-life problems with code. When outside of work, he loves hanging out with his guitar/piano.',
     workbtn: 'My portfolio',
   },
   Bio: {
