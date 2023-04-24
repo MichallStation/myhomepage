@@ -1,12 +1,14 @@
 export const projs = [
   {
     id: 'homepage',
+    thumbnail: '/images/work/homepage.png',
+    preview: [],
     en: {
       name: 'My homepage',
-      desc: 'Desc',
-      thumbnail: '/images/work/homepage.png',
+      desc: '',
       info: [
         {
+          id: 'platform',
           name: 'Platform',
           content: [
             {
@@ -15,16 +17,18 @@ export const projs = [
           ],
         },
         {
+          id: 'stack',
           name: 'Stack',
           content: [
             {
               title: 'Nextjs',
               desc: 'I use for my homepage site to build fullstack.',
-              href: 'https://nextjs.org/en',
+              href: 'https://nextjs.org',
             },
           ],
         },
         {
+          id: 'flow',
           name: 'Flow',
           content: [
             {
@@ -65,37 +69,116 @@ export const projs = [
           ],
         },
       ],
-      preview: {},
     },
     vi: {
       name: 'Nhà của tôi',
-      desc: '',
-      thumbnail: '/images/work/homepage.png',
-      info: {
-        platform: ['Web'],
-        stack: {
-          Nextjs: 'I use for my homepage site to build fullstack.',
+      desc: 'Lấy cảm hứng từ biệt danh của tôi, đồng thời thu nhận ý kiến từ những người cố vấn. Tôi làm tất cả các từ việc lên ý tưởng, thiết kế và vẽ 3d.',
+      info: [
+        {
+          id: 'platform',
+          name: 'Nền tảng',
+          content: [
+            {
+              title: 'Web',
+            },
+          ],
         },
-      },
-      preview: {},
+        {
+          id: 'stack',
+          name: 'Công nghệ',
+          content: [
+            {
+              title: 'Nextjs',
+              desc: 'Tôi dùng để xây dựng nên trang này fullstack.',
+              href: 'https://nextjs.org',
+            },
+          ],
+        },
+        {
+          id: 'flow',
+          name: 'Quy trình',
+          content: [
+            {
+              title: 'Trello',
+              desc: 'Tôi dùng để quản lý quy trình và kế hoạch.',
+              href: 'https://trello.com/vi',
+            },
+            {
+              title: 'Adobe Photoshop',
+              desc: 'Tôi dùng để chỉnh sửa và xử lý cho hình ảnh raster.',
+              href: 'https://www.adobe.com/vn_en/products/photoshop.html',
+            },
+            {
+              title: 'Adobe Illustrator',
+              desc: 'Tôi dùng để thiết kế và chỉnh sửa hình ảnh vector.',
+              href: 'https://www.adobe.com/vn_en/products/illustrator.html',
+            },
+            {
+              title: 'Blender',
+              desc: 'Tôi dùng để dựng 3D.',
+              href: 'https://www.blender.org/',
+            },
+            {
+              title: 'Paint 3D',
+              desc: 'Tôi dùng để vẽ những nét 3D cơ bản.',
+              href: 'https://apps.microsoft.com/store/detail/paint-3d/9NBLGGH5FV99',
+            },
+            {
+              title: 'Vscode',
+              desc: 'Tôi dùng làm công cụ lập trình chính.',
+              href: 'https://code.visualstudio.com/',
+            },
+            {
+              title: 'Neovim',
+              desc: 'Tôi dùng để chỉnh sửa từng têp riêng lẻ.',
+              href: 'https://neovim.io/',
+            },
+          ],
+        },
+      ],
     },
   },
   {
     id: 'homebusiness',
+    thumbnail: '/images/work/homebusiness.png',
+    preview: [],
     en: {
       name: 'My business',
-      thumbnail: '/images/work/homebusiness.png',
-      info: {},
+      info: [],
     },
     vi: {
-      name: 'My business',
-      thumbnail: '/images/work/homebusiness.png',
-      info: {},
+      name: 'Doanh nghiệp của tôi',
+      info: [],
     },
   },
 ];
 
+export const collabs = [
+  {
+    name: 'Blue',
+    thumbnail: '/blue.png',
+  },
+];
+
+export const works = [];
+
 export const getProjectsByLang = (lang = 'en') =>
-  projs.map((p) => ({ id: p.id, ...p?.[lang] }));
+  projs.map((p) => {
+    const data = p?.[lang] || p.en;
+    return {
+      id: p.id,
+      thumbnail: p.thumbnail,
+      preview: p.preview,
+      ...data,
+    };
+  });
+
+export const getWorksByLang = (lang = 'en') =>
+  works.map((p) => ({
+    id: p.id,
+    thumbnail: p.thumbnail,
+    preview: p.preview,
+    ...p?.[lang],
+  }));
 
 export default {};

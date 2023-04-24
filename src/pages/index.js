@@ -8,7 +8,7 @@ import { getSet } from '@/_globals/sets';
 
 /** @param {{storage: import('@/features/@features').FeaturesStorage}} */
 function Home({ storage }) {
-  const { lang } = storage;
+  const { lang } = storage.current;
   const set = getSet(Home.name, lang);
   return (
     <>

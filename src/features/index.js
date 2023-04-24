@@ -7,10 +7,10 @@
 import { expiresDay } from '@/utils/cookie';
 import { isDefaultLocale, setCookieForResponse } from '@/lib/next';
 
-/** @type {import('./@features').FeaturesStorage} */
+// /** @type {import('./@features').FeaturesStorage} */
 export const initialValues = {
   lang: 'en',
-  cookie: '',
+  latest: Date(),
 };
 
 /** @param {import('next').NextPageContext} ctx */
@@ -35,11 +35,12 @@ export default function createFeaturesStorage(context) {
   const result = initialValues;
   if (!req || !res) return result;
 
+  result.latest = Date();
   /** @type {[import('@/lib/next/@next').Cookie]} */
   const data = [
     {
       name: 'latest',
-      value: Date(),
+      value: result.latest,
       options: {
         path: '/',
         expires: expiresDay(365),
@@ -79,7 +80,8 @@ export default function createFeaturesStorage(context) {
   setCookieForResponse(res, data);
 
   return {
-    ...result,
-    ...extractDataFromRequest(req),
+    // ...result,
+    current: result,
+    prev: extractDataFromRequest(req),
   };
 }

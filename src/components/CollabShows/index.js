@@ -1,9 +1,9 @@
 import { Avatar, Wrap, WrapItem } from '@chakra-ui/react';
 import React from 'react';
-import data from './data';
+import { collabs } from '@/_globals/db';
+// import data from './data';
 
 function CollabShows({ lang = 'en', ...props }) {
-  const collabs = data;
   return (
     <Wrap className="project-shows" {...props}>
       {collabs.map((i) => (

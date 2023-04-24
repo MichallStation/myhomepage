@@ -1,5 +1,10 @@
 import React, { useCallback } from 'react';
-import { AiFillGithub, AiOutlineMenu } from 'react-icons/ai';
+import {
+  AiFillGithub,
+  AiOutlineHome,
+  AiOutlineMenu,
+  AiOutlineVideoCamera,
+} from 'react-icons/ai';
 import Link from 'next/link';
 import {
   Box,
@@ -12,6 +17,7 @@ import {
   MenuList,
   Text,
 } from '@chakra-ui/react';
+import { MdWorkOutline } from 'react-icons/md';
 import envs from './envs';
 import data from './data';
 import { getSet } from '@/_globals/sets';
@@ -34,11 +40,30 @@ export const props = {
   },
 };
 
+export const mobileProps = {
+  Home: {
+    icon: <AiOutlineHome />,
+  },
+  Work: {
+    icon: <MdWorkOutline />,
+  },
+  Use: {
+    icon: <AiOutlineVideoCamera />,
+  },
+  Source: {
+    props: {
+      target: '_blank',
+    },
+    icon: <AiFillGithub />,
+  },
+};
+
 const pagesRendered = Object.entries(data);
 
-/** @param {{path: string}}  */
-function NavLink({ lang = 'en', path }) {
-  // const set = sets?.[lang] || sets.en;
+/** @param {{router: import('next/router').NextRouter}}  */
+function NavLink({ lang = 'en', router }) {
+  const { route: path } = router;
+  const locale = router.locale === router.defaultLocale ? 'en' : router.locale;
   const set = getSet('Navbar', lang);
   const isActive = useCallback(
     /** @param {string} p  */
@@ -50,6 +75,7 @@ function NavLink({ lang = 'en', path }) {
     },
     [path],
   );
+
   return (
     <Box display="flex" alignItems="center" ml={1}>
       <List display={{ base: 'none', md: 'flex' }}>
@@ -66,6 +92,7 @@ function NavLink({ lang = 'en', path }) {
             <Box
               className={isActive(item.href) && 'second-btn'}
               as={Link}
+              locale={locale}
               p={2}
               minWidth="60px"
               display="flex"
@@ -73,7 +100,6 @@ function NavLink({ lang = 'en', path }) {
               justifyContent="center"
               fontSize="md"
               href={item.href}
-              locale={false}
               borderRadius="4px"
               {...props[id]?.props}
             >
@@ -102,8 +128,8 @@ function NavLink({ lang = 'en', path }) {
                 <Box
                   className={isActive(item.href) && 'second-btn'}
                   as={Link}
-                  locale={false}
                   // p={0}
+                  locale={locale}
                   minWidth="100%"
                   height="100%"
                   display="flex"
@@ -112,10 +138,10 @@ function NavLink({ lang = 'en', path }) {
                   fontSize="md"
                   href={item.href}
                   borderRadius="4px"
-                  {...props[id]?.props}
+                  {...mobileProps[id]?.mobileProps}
                 >
-                  {props[id]?.icon}
-                  <Text ml={props[id]?.icon && 2}>{set[id]}</Text>
+                  {mobileProps[id]?.icon}
+                  <Text ml={mobileProps[id]?.icon && 2}>{set[id]}</Text>
                 </Box>
               </MenuItem>
             ))}

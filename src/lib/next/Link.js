@@ -1,8 +1,10 @@
-import React from "react";
+import { useRouter } from 'next/router';
+import React from 'react';
 
-function Link() {
-  return (
-  );
-};
+/** @param {import("next/link").LinkProps} props */
+function Link({ children }) {
+  const { locale } = useRouter();
+  return <Link />;
+}
 
 export default Link;

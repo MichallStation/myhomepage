@@ -15,10 +15,11 @@ let store;
 
 /** @param {{storage: import('@/features/@features').FeaturesStorage}}  */
 export default function App({ Component, pageProps, router, storage }) {
+  const { lang } = storage.current;
   const getLayout =
-    Component.getLayout || ((page) => <Page lang={storage.lang}>{page}</Page>);
+    Component.getLayout || ((page) => <Page storage={storage}>{page}</Page>);
   store = store || createStore(storage);
-  const { cookie } = storage;
+  const { cookie } = storage.prev;
 
   return (
     <Provider store={store}>

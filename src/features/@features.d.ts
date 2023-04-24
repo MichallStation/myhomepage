@@ -1,17 +1,9 @@
-import { NextApiRequestCookies } from "next/dist/server/api-utils";
-import { NextRequest } from "next/server";
-
-// export declare type StorageContextItem = {
-//   raw?: string;
-//   obj?: object;
-// };
-
-// export interface StorageContext {
-//   cookies?: StorageContextItem;
-//   authorization: StorageContextItem;
-// }
+export declare type FeaturesStorageItem = {
+  latest?: string;
+  lang?: string;
+}
 
 export interface FeaturesStorage {
-  lang?: string;
-  cookie?: string;
+  current?: FeaturesStorageItem,
+  prev?: FeaturesStorageItem,
 }

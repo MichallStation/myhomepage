@@ -10,6 +10,16 @@
   animation: heartbeat 2s ease-in-out infinite both;
 }
 
+.slide-out-right {
+  -webkit-animation: slide-out-right 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) infinite both;
+  animation: slide-out-right 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) infinite both;
+}
+
+.bounce-in-top {
+  -webkit-animation: bounce-in-top 1.5s steps(2, end) infinite both;
+  animation: bounce-in-top 1.5s steps(2, end) infinite both;
+}
+
 /* * {
   transition: background-color 0.3s linear;
 } */

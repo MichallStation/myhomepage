@@ -21,6 +21,8 @@ export default {
   },
   ProjectDetail: {
     title: 'Chi tiết dự án',
+    desc: 'Mô tả',
+    preview: 'Xem trước',
   },
   $404: {
     title: 'Không tìm thấy 404 - ⚽',
@@ -66,5 +68,13 @@ export default {
   },
   Footer: {
     title: '© 2023 Ltndat. Đã đăng ký bản quyền.',
+  },
+  Welcome: {
+    newbie: {
+      desc: 'Hú, xin chào bạn gì ơi.',
+    },
+    old: {
+      desc: 'Hú, chào mừng bạn trở lại.',
+    },
   },
 };

@@ -19,7 +19,7 @@ import Footer from '@/components/Footer';
 import DetailInfo from '@/components/DetailInfo';
 
 function ProjectDetail({ id, storage }) {
-  const { lang } = storage;
+  const { lang } = storage.current;
   const projs = getProjectsByLang(lang);
   const item = projs.find((i) => i.id === id);
   if (!item) return <E404 />;

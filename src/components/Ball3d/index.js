@@ -2,9 +2,11 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { Box } from '@chakra-ui/react';
+import { useDispatch, useSelector } from 'react-redux';
 import BallSpinner from '../BallSpinner';
 import { loadGLTFModel } from '@/lib/three';
 import data from './data';
+import { ball3dDone, selectball3dStatus } from '@/features/slices/ui';
 
 const easeOutCirc = (x) => Math.sqrt(1 - (x - 1) ** 4);
 
@@ -12,6 +14,7 @@ function Ball3d() {
   const refContainer = useRef();
   const refRenderer = useRef();
   const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
 
   const handleWindowResize = useCallback(() => {
     const { current: rendererEl } = refRenderer;
@@ -95,6 +98,7 @@ function Ball3d() {
       castShadow: false,
     }).then(() => {
       setLoading(false);
+      dispatch(ball3dDone());
       animate();
     });
 

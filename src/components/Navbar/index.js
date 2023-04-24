@@ -1,6 +1,7 @@
 import { Router, useRouter } from 'next/router';
 import React, { useEffect } from 'react';
-import { Box, Container } from '@chakra-ui/react';
+import { Box, Container, Image, useToast } from '@chakra-ui/react';
+import { useSelector } from 'react-redux';
 import Logo from '../Brand';
 import ThemeButton from '../ThemeButton';
 import LanguageButton from '../LanguageButton';
@@ -8,6 +9,7 @@ import BallProgress from '../BallProgress';
 import useProgress from '@/features/hooks/useProgress';
 import NavLink from './NavLink';
 import envs from './envs';
+import { DONE, selectball3dStatus } from '@/features/slices/ui';
 
 /** @type {Object.<string, import('react').CSSProperties>} */
 const style = {
@@ -33,7 +35,9 @@ const style = {
   },
 };
 
-function Navbar({ lang = 'en' }) {
+/** @param {{storage: import('@/features/@features').FeaturesStorage}}  */
+function Navbar({ storage }) {
+  const { lang = 'en' } = storage.current;
   const router = useRouter();
   const { setLoading, setDone } = useProgress();
 
@@ -52,7 +56,7 @@ function Navbar({ lang = 'en' }) {
   return (
     <Box
       id="navbar"
-      path={router.pathname}
+      path={router.route}
       as="nav"
       style={style.nav}
       zIndex="docked"
@@ -64,7 +68,7 @@ function Navbar({ lang = 'en' }) {
             <LanguageButton lang={lang} />
             <ThemeButton lang={lang} ml={2} />
           </Box>
-          <NavLink lang={lang} path={router.pathname} />
+          <NavLink lang={lang} router={router} />
         </Box>
       </Container>
       <BallProgress />

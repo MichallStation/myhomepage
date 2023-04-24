@@ -69,4 +69,12 @@ export default {
   Footer: {
     title: '© 2023 Ltndat. All Rights Reserved.',
   },
+  Welcome: {
+    newbie: {
+      desc: 'Welcome to my homepage.',
+    },
+    old: {
+      desc: 'Welcome back guys.',
+    },
+  },
 };

@@ -59,6 +59,7 @@ const theme = extendTheme({
     body: "'Source Sans Pro', sans-serif",
     mono: "'Fira Code', monospace",
     deco: "'Lobster Two', cursive",
+    serif: "'Source Serif Pro', serif",
   },
   colors: {
     prim: '#009edc',
