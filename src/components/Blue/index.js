@@ -25,10 +25,13 @@ const variants = {
     },
   },
   say: {
+    scale: 1.6,
+    // transition: {
+    //   duration: 0.6,
+    // },
+  },
+  look: {
     scale: 1.4,
-    transition: {
-      duration: 0.2,
-    },
   },
 };
 
@@ -58,10 +61,10 @@ function Blue({ storage, width = 48 }) {
   // Welcome
   useEffect(() => {
     if (!inTimeWelcome) return;
-    const t = setTimeout(() => {
-      controls.start('say');
+    const t = setTimeout(async () => {
+      await controls.start('say');
       toast({
-        duration: 5000000,
+        duration: 5000,
         render: (props) => (
           <Message {...props}>
             {isOldguy ? set.welcome.old : set.welcome.newbie}
@@ -93,9 +96,12 @@ function Blue({ storage, width = 48 }) {
   return (
     <Box
       pos="fixed"
-      zIndex="toast"
+      // zIndex="toast"
       bottom={['12px', '24px', '32px']}
       right={['12px', '24px', '32px']}
+      style={{
+        zIndex: '10000',
+      }}
     >
       <motion.button
         id="blue"
@@ -107,29 +113,29 @@ function Blue({ storage, width = 48 }) {
           left: 0,
           bottom: 0,
         }}
-        whileHover="say"
+        whileHover="look"
         whileTap={{ scale: 0.9 }}
         variants={variants}
         animate={controls}
         onClick={handleClick}
         title={set.name}
       >
-        {/* <Box boxShadow="base" borderRadius="50%" overflow="hidden"> */}
-        {/* <Image
+        <Box boxShadow="base" borderRadius="50%" overflow="hidden">
+          <Image
             className="brand-img"
             src="/blue.png"
             alt="Blue"
             width={`${width}px`}
           />
-        </Box> */}
-        <Avatar
+        </Box>
+        {/* <Avatar
           className="brand-img"
           src="/blue.png"
           alt="Blue"
           width={`${width}px`}
-        >
-          {/* <AvatarBadge boxSize="1em" bg="green.500" /> */}
-        </Avatar>
+        > */}
+        {/* <AvatarBadge boxSize="1em" bg="green.500" /> */}
+        {/* </Avatar> */}
         {/* <Box
           borderRadius="32px"
           backgroundColor={useColorModeValue(

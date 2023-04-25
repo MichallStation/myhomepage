@@ -1,4 +1,5 @@
 @import './animations.css';
+@import './chakraCustom.css';
 
 html {
   touch-action: none;

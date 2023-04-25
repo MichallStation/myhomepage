@@ -53,6 +53,7 @@ const config = {
   useSystemColorMode: true,
 };
 
+/** @type {import('@chakra-ui/react').Theme} */
 const theme = extendTheme({
   config,
   styles,
@@ -79,4 +80,5 @@ const theme = extendTheme({
   },
 });
 
+// console.log(theme.components.);
 export default theme;

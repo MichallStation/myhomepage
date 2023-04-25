@@ -7,7 +7,7 @@ function Message({ children, id, onClose }) {
   return (
     <BallChat
       onClick={() => toast.close(id)}
-      mr={['', '80px']}
+      // mr={['', '80px']}
       // mb={['56px', '12px', '24px']}
       // mb={['12px', '24px', '32px']}
       // bottom="48px"

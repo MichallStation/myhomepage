@@ -1,4 +1,4 @@
-import { MdWork } from 'react-icons/md';
+import { MdWork, MdWorkOutline } from 'react-icons/md';
 import {
   Box,
   Button,
@@ -59,7 +59,7 @@ function Author({ lang = 'en' }) {
           <Image src="/images/avatar.jpg" alt="🙄" width="120px" />
         </Box>
       </Box>
-      <Section title={set.worktitle} icon={<MdWork />}>
+      <Section title={set.worktitle} icon={<MdWorkOutline />}>
         <Text textAlign="justify">{set.workcontent}</Text>
         <Box mt={4} display="flex" justifyContent="center">
           <Button

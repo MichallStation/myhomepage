@@ -9,6 +9,9 @@ import Footer from '@/components/Footer';
 import ProjectShows from '@/components/ProjectShows';
 import CollabShows from '@/components/CollabShows';
 import WorkShows from '@/components/WorkShows';
+import { AiOutlineProject } from 'react-icons/ai';
+import { BsCodeSlash } from 'react-icons/bs';
+import { MdWorkOutline } from 'react-icons/md';
 
 /** @param {{storage: import('@/features/@features').FeaturesStorage}} */
 function Work({ storage }) {
@@ -22,7 +25,13 @@ function Work({ storage }) {
         pos="relative"
         // overflow="hidden"
       >
-        <Section id="projs" title={set.projs.title} sep={3} mt={0}>
+        <Section
+          id="projs"
+          title={set.projs.title}
+          sep={3}
+          mt={0}
+          icon={<AiOutlineProject />}
+        >
           {set.projs.content}
           <ProjectShows lang={lang} mt={4} />
         </Section>
