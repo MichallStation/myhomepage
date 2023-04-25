@@ -2,7 +2,7 @@ export const projs = [
   {
     id: 'homepage',
     thumbnail: '/images/work/homepage.png',
-    preview: [],
+    preview: ['/images/work/homepage.png'],
     en: {
       name: 'My homepage',
       desc: '',

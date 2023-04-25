@@ -11,6 +11,9 @@ const styles = {
   global: (props) => ({
     body: {
       bg: mode('#f1e7db', '#192227')(props),
+      // bg: mode('#f8f9f4', '#192227')(props),
+      // bg: mode('#edefee', '#192227')(props),
+      // bg: mode('#f7efed', '#192227')(props),
     },
     'body .prim-btn': {
       bg: mode(
@@ -47,7 +50,6 @@ const styles = {
 
 const config = {
   initialColorMode: 'dark',
-  // initialColorMode: colorMode,
   useSystemColorMode: true,
 };
 
@@ -73,6 +75,7 @@ const theme = extendTheme({
     },
     second: '#a99281',
     seconddark: '#a99281',
+    pop: '#fdf6ec',
   },
 });
 

@@ -1,15 +1,5 @@
-import {
-  Box,
-  Heading,
-  Image,
-  Text,
-  useColorModeValue,
-  useToast,
-} from '@chakra-ui/react';
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { DONE, selectball3dStatus } from '@/features/slices/ui';
-import { getSet } from '@/_globals/sets';
+import { Box, Heading, Image, Text, useColorModeValue } from '@chakra-ui/react';
+import React from 'react';
 
 /** @type {import('@chakra-ui/react').UseToastOptions}  */
 const style = {
@@ -20,7 +10,7 @@ const style = {
 };
 
 /** @param {{title: string | React.ReactNode, description: string | React.ReactNode}}  */
-function Toast({ title, description, color, id, onClose }) {
+export function BallToast({ title, description, color, id, onClose }) {
   title =
     typeof title === 'string' ? (
       <Heading fontSize="lg">{title}</Heading>
@@ -59,45 +49,6 @@ function Toast({ title, description, color, id, onClose }) {
       </Box>
     </Box>
   );
-}
-
-/** @param {{storage: import('@/features/@features').FeaturesStorage}}  */
-function BallToast({ storage }) {
-  const { lang = 'en' } = storage.current;
-  const status = useSelector(selectball3dStatus);
-  const toast = useToast();
-  const set = getSet(BallToast.name, lang);
-  const isOldguy = storage.prev?.latest;
-  let setWelcome = getSet('Welcome', lang);
-  setWelcome = isOldguy ? setWelcome.old : setWelcome.newbie;
-
-  useEffect(() => {
-    let t;
-    if (status === DONE) {
-      t = setTimeout(() => {
-        toast({
-          duration: 10000,
-          render: (props) => (
-            <Toast
-              color="second"
-              title={
-                <Heading fontFamily="deco" fontSize="lg">
-                  Blue
-                </Heading>
-              }
-              description={setWelcome.desc}
-              {...props}
-            />
-          ),
-          position: 'bottom-right',
-          isClosable: true,
-        });
-      }, 2000);
-    }
-    return () => t && clearTimeout(t);
-  }, [status]);
-
-  return React.Fragment;
 }
 
 export default BallToast;

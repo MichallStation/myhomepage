@@ -69,12 +69,12 @@ export default {
   Footer: {
     title: '© 2023 Ltndat. Đã đăng ký bản quyền.',
   },
-  Welcome: {
-    newbie: {
-      desc: 'Hú, xin chào bạn gì ơi.',
+  Blue: {
+    name: 'Blue',
+    welcome: {
+      newbie: 'Hú, xin chào bạn gì ơi.',
+      old: 'Hú, chào mừng bạn trở lại.',
     },
-    old: {
-      desc: 'Hú, chào mừng bạn trở lại.',
-    },
+    intro: 'Hi, Tôi là Blue. Tôi là trợ lý của Đạt.',
   },
 };

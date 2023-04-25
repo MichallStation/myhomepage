@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
   Box,
   Breadcrumb,
@@ -17,6 +17,7 @@ import { getSet } from '@/_globals/sets';
 import Section from '@/layouts/Section';
 import Footer from '@/components/Footer';
 import DetailInfo from '@/components/DetailInfo';
+import PreviewInfo from '@/components/PreviewInfo';
 
 function ProjectDetail({ id, storage }) {
   const { lang } = storage.current;
@@ -24,8 +25,16 @@ function ProjectDetail({ id, storage }) {
   const item = projs.find((i) => i.id === id);
   if (!item) return <E404 />;
 
+  const refBread = useRef();
   const set = getSet(ProjectDetail.name, lang);
   const setWork = getSet('Work', lang);
+
+  useEffect(() => {
+    const { current: breadEl } = refBread;
+    if (!breadEl) return;
+    breadEl.scrollLeft = breadEl.offsetWidth;
+  }, []);
+
   return (
     <>
       <SEO lang={lang} title={`${set.title} - ${item.name}`} />
@@ -38,6 +47,7 @@ function ProjectDetail({ id, storage }) {
           separator={<IoIosArrowForward color="gray.500" />}
           overflowX="scroll"
           className="breadcrumb"
+          ref={refBread}
         >
           <BreadcrumbItem>
             <Button as={Link} href="/work">
@@ -69,7 +79,7 @@ function ProjectDetail({ id, storage }) {
             <DetailInfo data={item.info} mt={2} />
           </Section>
           <Section title={set.preview} id="preview" sep={4}>
-            {}
+            <PreviewInfo data={item.preview} />
           </Section>
         </Box>
         <Footer />

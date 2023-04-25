@@ -63,7 +63,7 @@ function Ball3d() {
       10,
       20 * Math.cos(0.2 * Math.PI),
     );
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
     const directionalLight = new THREE.DirectionalLight(0xf1e7db, 3);
     scene.add(ambientLight);
     scene.add(directionalLight);
@@ -117,7 +117,7 @@ function Ball3d() {
       m="auto"
       // mt={['0', '-60px', '-60px']}
       mt={['20px', 0]}
-      mb={['-60px', '-180px', '-200px']}
+      mb={['-60px', '-160px', '-180px']}
       w={[280, 480, 560]}
       h={[280, 480, 560]}
       overflow="hidden"

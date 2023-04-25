@@ -14,6 +14,7 @@ function ProjectShows({ lang = 'en', ...props }) {
           as={Link}
           height="130px"
           maxW="280px"
+          w="100%"
           title={i.name}
           href={`/work/projs/${i.id}`}
           img={i.thumbnail}

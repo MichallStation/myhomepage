@@ -1,11 +1,18 @@
-import { Box, Button, Image, Text, useColorModeValue } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Heading,
+  Image,
+  Text,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import React from 'react';
 
 /** @param {{props: import('@chakra-ui/react').ButtonProps}}  */
 function Card({ children, title, img, ...props }) {
   return (
-    <Box display="flex" justifyContent={['flex-start', 'center']}>
+    <Box display="flex" justifyContent={['center', 'flex-start']}>
       <motion.div
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
@@ -23,27 +30,25 @@ function Card({ children, title, img, ...props }) {
           borderRadius="lg"
           {...props}
         >
-          <Box
+          {/* <Box
             pos="absolute"
-            backgroundColor={useColorModeValue(
-              'blackAlpha.200',
-              'whiteAlpha.300',
-            )}
-            // backdropFilter="blur(10px)"
-            top={0}
+            // backgroundColor="blackAlpha.200"
+            backdropFilter="blur(10px)"
+            bottom={0}
             left={0}
             right={0}
             p="0.5"
           >
-            <Text
+            <Heading
               textAlign="center"
-              fontFamily="serif"
+              // fontFamily="serif"
               fontSize="sm"
+              fontWeight="normal"
               color="GrayText"
             >
               {title}
-            </Text>
-          </Box>
+            </Heading>
+          </Box> */}
           <Image
             width="100%"
             height="100%"

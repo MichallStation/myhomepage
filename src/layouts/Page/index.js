@@ -2,16 +2,16 @@ import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Ball3d from '@/components/Ball3d';
 import Navbar from '@/components/Navbar';
-import BallToast from '@/components/BallToast';
+import Floating from '@/components/Floating';
 
 /** @param {{children: import('react').ReactElement, storage: import('@/features/@features').FeaturesStorage}}  */
 function Page({  children, storage }) {
-  const { lang = 'en' } = storage.current
+  // const { lang = 'en' } = storage.current
   return(
     <>
       <Navbar storage={storage} />
       <Ball3d />
-      <BallToast storage={storage} />
+      <Floating storage={storage} />
       <AnimatePresence
         initial={false}
         mode="wait"

@@ -3,7 +3,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 export function loadGLTFModel(
   scene,
   glbPath,
-  options = { receiveShadow: true, castShadow: true, name: 'glb' }
+  options = { receiveShadow: true, castShadow: true, name: 'glb' },
 ) {
   const { receiveShadow, castShadow, name } = options;
   return new Promise((resolve, reject) => {
@@ -31,7 +31,7 @@ export function loadGLTFModel(
       undefined,
       (error) => {
         reject(error);
-      }
+      },
     );
   });
 }

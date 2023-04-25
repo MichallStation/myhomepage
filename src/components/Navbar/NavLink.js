@@ -24,13 +24,13 @@ import { getSet } from '@/_globals/sets';
 
 export const props = {
   Home: {
-    // icon: <AiFillHome />,
+    icon: <AiOutlineHome />,
   },
   Work: {
-    // icon: <MdWork />,
+    icon: <MdWorkOutline />,
   },
   Use: {
-    // icon: <MdWork />,
+    icon: <AiOutlineVideoCamera />,
   },
   Source: {
     props: {
