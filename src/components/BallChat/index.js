@@ -21,13 +21,11 @@ function BallChat({ children, id, onClose, ...props }) {
       py={2}
       px={4}
       m={0}
-      // cursor="unset"
+      cursor="unset"
       boxShadow="base"
       {...props}
     >
-      <Text textAlign="center" fontWeight="normal">
-        {children}
-      </Text>
+      <Text fontWeight="normal">{children}</Text>
     </Box>
   );
 }

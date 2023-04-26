@@ -1,3 +1,9 @@
+/**
+ * Base on
+ * Nextjs: https://nextjs.org/docs
+ * Client side rendering
+ */
+
 import { useDispatch, useSelector } from 'react-redux';
 import {
   DONE,

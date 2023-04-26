@@ -5,7 +5,7 @@ import { Box } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import BallSpinner from '../BallSpinner';
 import { loadGLTFModel } from '@/lib/three';
-import data from './data';
+import data from './envs';
 import { ball3dDone, selectball3dStatus } from '@/features/slices/ui';
 
 const easeOutCirc = (x) => Math.sqrt(1 - (x - 1) ** 4);
@@ -103,6 +103,7 @@ function Ball3d() {
     });
 
     container.appendChild(renderer.domElement);
+    // eslint-disable-next-line consistent-return
     return () => {
       cancelAnimationFrame(req);
       renderer.domElement.remove();

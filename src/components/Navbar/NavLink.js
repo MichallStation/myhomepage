@@ -18,8 +18,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import { MdWorkOutline } from 'react-icons/md';
-import envs from './envs';
-import data from './data';
+import envs, { links } from './envs';
 import { getSet } from '@/_globals/sets';
 
 export const props = {
@@ -58,7 +57,7 @@ export const mobileProps = {
   },
 };
 
-const pagesRendered = Object.entries(data);
+const pagesRendered = Object.entries(links);
 
 /** @param {{router: import('next/router').NextRouter}}  */
 function NavLink({ lang = 'en', router }) {

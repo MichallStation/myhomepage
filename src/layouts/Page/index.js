@@ -4,10 +4,15 @@ import Ball3d from '@/components/Ball3d';
 import Navbar from '@/components/Navbar';
 import Floating from '@/components/Floating';
 
-/** @param {{children: import('react').ReactElement, storage: import('@/features/@features').FeaturesStorage}}  */
-function Page({  children, storage }) {
+/**
+ * @param {{
+ * children: import('react').ReactElement,
+ * storage: import('@/features/@features').FeaturesStorage
+ * }}
+ * */
+function Page({ children, storage }) {
   // const { lang = 'en' } = storage.current
-  return(
+  return (
     <>
       <Navbar storage={storage} />
       <Ball3d />
@@ -29,7 +34,7 @@ function Page({  children, storage }) {
           {children}
         </motion.main>
       </AnimatePresence>
-    </>,
+    </>
   );
 }
 

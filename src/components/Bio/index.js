@@ -5,7 +5,7 @@ import { IoShareSocialOutline } from 'react-icons/io5';
 import Link from 'next/link';
 import { AiOutlineHeart } from 'react-icons/ai';
 import Section from '@/layouts/Section';
-import data from './data';
+import data from './envs';
 // import sets from './sets';
 import { getSet } from '@/_globals/sets';
 

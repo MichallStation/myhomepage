@@ -73,8 +73,9 @@ export default {
     name: 'Blue',
     welcome: {
       newbie: 'Hi, Welcome guys.',
-      old: 'Hi, Welcome back guys.',
+      old: ['Hi, Welcome back guys.'],
     },
     intro: "Hi, I'm Blue. I'm Dat's assistant.",
+    joke: "You'll see me everywhere Dat's worked.",
   },
 };

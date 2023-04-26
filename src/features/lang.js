@@ -1,3 +1,0 @@
-export getLangFromRouter
-
-export default {}

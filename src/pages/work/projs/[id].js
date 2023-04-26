@@ -23,7 +23,6 @@ function ProjectDetail({ id, storage }) {
   const { lang } = storage.current;
   const projs = getProjectsByLang(lang);
   const item = projs.find((i) => i.id === id);
-  if (!item) return <E404 />;
 
   const refBread = useRef();
   const set = getSet(ProjectDetail.name, lang);
@@ -34,6 +33,8 @@ function ProjectDetail({ id, storage }) {
     if (!breadEl) return;
     breadEl.scrollLeft = breadEl.offsetWidth;
   }, []);
+
+  if (!item) return <E404 />;
 
   return (
     <>

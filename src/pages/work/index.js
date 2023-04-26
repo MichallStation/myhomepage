@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Text } from '@chakra-ui/react';
+import { Container } from '@chakra-ui/react';
+import { AiOutlineProject } from 'react-icons/ai';
 import createFeaturesStorage from '@/features';
 import { getSet } from '@/_globals/sets';
 import SEO from '@/layouts/SEO';
@@ -9,9 +10,6 @@ import Footer from '@/components/Footer';
 import ProjectShows from '@/components/ProjectShows';
 import CollabShows from '@/components/CollabShows';
 import WorkShows from '@/components/WorkShows';
-import { AiOutlineProject } from 'react-icons/ai';
-import { BsCodeSlash } from 'react-icons/bs';
-import { MdWorkOutline } from 'react-icons/md';
 
 /** @param {{storage: import('@/features/@features').FeaturesStorage}} */
 function Work({ storage }) {

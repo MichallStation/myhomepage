@@ -72,9 +72,10 @@ export default {
   Blue: {
     name: 'Blue',
     welcome: {
-      newbie: 'Hú, xin chào bạn gì ơi.',
+      newbie: 'Hú, xin chào bạn mới.',
       old: 'Hú, chào mừng bạn trở lại.',
     },
     intro: 'Hi, Tôi là Blue. Tôi là trợ lý của Đạt.',
+    joke: 'Bạn sẽ thấy tôi ở mọi nơi mà Đạt từng làm việc.',
   },
 };

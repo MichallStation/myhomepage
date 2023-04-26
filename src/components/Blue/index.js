@@ -15,48 +15,44 @@ import {
 import { DONE, selectball3dStatus } from '@/features/slices/ui';
 import { getSet } from '@/_globals/sets';
 import Message from './Message';
+import useLang from '@/features/hooks/useLang';
+import styles from './styles';
 
-/** @type {Object.<string, import('framer-motion').TargetAndTransition>} */
+/** @type {Object<string, import('framer-motion').TargetAndTransition>} * */
 const variants = {
   nothing: {
     scale: 1,
+    rotate: 0,
     transition: {
       duration: 0.4,
     },
   },
   say: {
     scale: 1.6,
-    // transition: {
-    //   duration: 0.6,
-    // },
   },
   look: {
     scale: 1.4,
   },
+  joke: {
+    rotate: '-45deg',
+  },
+};
+
+const actions = {
+  welcome: 'welcome',
+  intro: 'intro',
+  joke: 'joke',
 };
 
 /** @param {{storage: import('@/features/@features').FeaturesStorage}}  */
 function Blue({ storage, width = 48 }) {
-  // const { lang = 'en' } = storage.current;
-  const [lang, setLang] = useState(storage.current);
-  const { locale, defaultLocale } = useRouter();
+  const lang = useLang(storage.current.lang);
   const inTimeWelcome = useSelector(selectball3dStatus) === DONE;
   const toast = useToast();
   const controls = useAnimationControls();
 
   const isOldguy = storage.prev?.latest;
   const set = getSet(Blue.name, lang);
-  const introMesId = 'intro';
-
-  useEffect(() => {
-    let l;
-    if (locale !== defaultLocale) {
-      l = locale;
-    } else {
-      l = Cookies.get('lang') || 'en';
-    }
-    if (l !== lang) setLang(l);
-  }, [locale]);
 
   // Welcome
   useEffect(() => {
@@ -73,25 +69,41 @@ function Blue({ storage, width = 48 }) {
         position: 'bottom-right',
         isClosable: true,
       });
-      controls.start('nothing');
-
-      // controls.stop();
+      await controls.start('nothing');
+      controls.stop();
     }, 3000);
     // }, 0);
+    // eslint-disable-next-line consistent-return
     return () => t && clearTimeout(t);
   }, [inTimeWelcome]);
 
   const handleClick = useCallback(() => {
     // Blue introduction
-    if (toast.isActive(introMesId)) return;
+    if (toast.isActive(actions.intro)) return;
     toast({
-      id: introMesId,
+      id: actions.intro,
       duration: 5000,
       render: (props) => <Message {...props}>{set.intro}</Message>,
       position: 'bottom-right',
       isClosable: true,
     });
   }, [set]);
+
+  const handleDrag = useCallback(() => {
+    // Blue joke
+    if (toast.isActive(actions.joke)) return;
+    // console.log('drag');
+    // await controls.start('joke');
+    toast({
+      id: actions.joke,
+      duration: 5000,
+      render: (props) => <Message {...props}>{set.joke}</Message>,
+      position: 'bottom-right',
+      isClosable: true,
+    });
+    // await controls.start('nothing');
+    // controls.stop();
+  }, []);
 
   return (
     <Box
@@ -115,10 +127,12 @@ function Blue({ storage, width = 48 }) {
         }}
         whileHover="look"
         whileTap={{ scale: 0.9 }}
+        whileDrag={handleDrag}
         variants={variants}
         animate={controls}
         onClick={handleClick}
         title={set.name}
+        style={styles.blue}
       >
         <Box boxShadow="base" borderRadius="50%" overflow="hidden">
           <Image
@@ -128,25 +142,6 @@ function Blue({ storage, width = 48 }) {
             width={`${width}px`}
           />
         </Box>
-        {/* <Avatar
-          className="brand-img"
-          src="/blue.png"
-          alt="Blue"
-          width={`${width}px`}
-        > */}
-        {/* <AvatarBadge boxSize="1em" bg="green.500" /> */}
-        {/* </Avatar> */}
-        {/* <Box
-          borderRadius="32px"
-          backgroundColor={useColorModeValue(
-            'blackAlpha.100',
-            'whiteAlpha.100',
-          )}
-        >
-          <Heading textAlign="center" fontSize="sm" fontFamily="deco">
-            {set.name}
-          </Heading>
-        </Box> */}
       </motion.button>
     </Box>
   );
