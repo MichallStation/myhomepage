@@ -10,11 +10,12 @@ import Footer from '@/components/Footer';
 import ProjectShows from '@/components/ProjectShows';
 import CollabShows from '@/components/CollabShows';
 import WorkShows from '@/components/WorkShows';
+import { workId } from '@/_globals/envs';
 
 /** @param {{storage: import('@/features/@features').FeaturesStorage}} */
 function Work({ storage }) {
   const { lang } = storage.current;
-  const set = getSet(Work.name, lang);
+  const set = getSet(workId, lang);
   return (
     <>
       <SEO lang={lang} title={set.title} />

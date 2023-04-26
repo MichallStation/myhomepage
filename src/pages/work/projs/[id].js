@@ -18,6 +18,7 @@ import Section from '@/layouts/Section';
 import Footer from '@/components/Footer';
 import DetailInfo from '@/components/DetailInfo';
 import PreviewInfo from '@/components/PreviewInfo';
+import { projectId, workId } from '@/_globals/envs';
 
 function ProjectDetail({ id, storage }) {
   const { lang } = storage.current;
@@ -25,8 +26,8 @@ function ProjectDetail({ id, storage }) {
   const item = projs.find((i) => i.id === id);
 
   const refBread = useRef();
-  const set = getSet(ProjectDetail.name, lang);
-  const setWork = getSet('Work', lang);
+  const set = getSet(projectId, lang);
+  const setWork = getSet(workId, lang);
 
   useEffect(() => {
     const { current: breadEl } = refBread;

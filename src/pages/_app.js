@@ -13,25 +13,27 @@ if (typeof window !== 'undefined') {
 
 let store;
 
-/** @param {{storage: import('@/features/@features').FeaturesStorage}}  */
-export default function App({ Component, pageProps, router, storage }) {
+/** @param {{pageProps: {storage: import('@/features/@features').FeaturesStorage}}}  */
+export default function App({ Component, pageProps, router }) {
   // const { lang } = storage.current;
+  const { storage = {} } = pageProps;
   const getLayout =
     Component.getLayout || ((page) => <Page storage={storage}>{page}</Page>);
   store = store || createStore(storage);
-  const { cookie } = storage.prev;
+  // const { cookie } = storage.prev;
 
   return (
     <Provider store={store}>
-      <ChakraManager cookie={cookie} theme={theme}>
+      {/* <ChakraManager cookie={cookie} theme={theme}> */}
+      <ChakraManager theme={theme}>
         {getLayout(<Component {...pageProps} key={router.route} />)}
       </ChakraManager>
     </Provider>
   );
 }
 
-/** @param {{ctx: import('next').NextPageContext}} */
-App.getInitialProps = async ({ ctx }) => {
-  const storage = createFeaturesStorage(ctx);
-  return { storage };
-};
+// /** @param {{ctx: import('next').NextPageContext}} */
+// App.getInitialProps = async ({ ctx }) => {
+//   const storage = createFeaturesStorage(ctx);
+//   return { storage };
+// };

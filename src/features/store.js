@@ -9,7 +9,7 @@ import uiReducer from './slices/ui';
 
 /** @param {import('./@features').FeaturesStorage} storage */
 export default function createStore(storage) {
-  console.log('Create store');
+  // console.log('Create store');
   // console.log(storage);
   return configureStore({
     reducer: {

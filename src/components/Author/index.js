@@ -12,9 +12,10 @@ import React from 'react';
 import { BsBoxArrowInRight } from 'react-icons/bs';
 import Section from '@/layouts/Section';
 import { getSet } from '@/_globals/sets';
+import { AuthorId } from '@/_globals/envs';
 
 function Author({ lang = 'en' }) {
-  const set = getSet(Author.name, lang);
+  const set = getSet(AuthorId, lang);
   return (
     <Box className="author">
       <Heading

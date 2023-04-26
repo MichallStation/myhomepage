@@ -2,10 +2,11 @@ import { Box, Heading, Image, Text } from '@chakra-ui/react';
 import React from 'react';
 import { getSet } from '@/_globals/sets';
 import Brand from '../Brand';
+import { FooterId } from '@/_globals/envs';
 
 function Footer({ lang = 'en' }) {
   // const set = sets?.[lang] || sets.en;
-  const set = getSet(Footer.name, lang);
+  const set = getSet(FooterId, lang);
   return (
     <Box as="footer" py={6}>
       <Text as="h3" textAlign="center" fontSize="lg" color="GrayText">

@@ -5,11 +5,12 @@ import Bio from '@/components/Bio';
 import Footer from '@/components/Footer';
 import SEO from '@/layouts/SEO';
 import { getSet } from '@/_globals/sets';
+import { homeId } from '@/_globals/envs';
 
 /** @param {{storage: import('@/features/@features').FeaturesStorage}} */
 function Home({ storage }) {
   const { lang } = storage.current;
-  const set = getSet(Home.name, lang);
+  const set = getSet(homeId, lang);
   return (
     <>
       <SEO lang={lang} title={set.title} />

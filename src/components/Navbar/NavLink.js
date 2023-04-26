@@ -20,6 +20,7 @@ import {
 import { MdWorkOutline } from 'react-icons/md';
 import envs, { links } from './envs';
 import { getSet } from '@/_globals/sets';
+import { NavbarId } from '@/_globals/envs';
 
 export const props = {
   Home: {
@@ -62,8 +63,9 @@ const pagesRendered = Object.entries(links);
 /** @param {{router: import('next/router').NextRouter}}  */
 function NavLink({ lang = 'en', router }) {
   const { route: path } = router;
-  const locale = router.locale === router.defaultLocale ? 'en' : router.locale;
-  const set = getSet('Navbar', lang);
+  // const locale = router.locale === router.defaultLocale ? 'en' : router.locale;
+  lang = lang === router.defaultLocale ? 'en' : lang;
+  const set = getSet(NavbarId, lang);
   const isActive = useCallback(
     /** @param {string} p  */
     (p) => {
@@ -91,7 +93,7 @@ function NavLink({ lang = 'en', router }) {
             <Box
               className={isActive(item.href) && 'second-btn'}
               as={Link}
-              locale={locale}
+              locale={lang}
               p={2}
               minWidth="60px"
               display="flex"
@@ -128,7 +130,7 @@ function NavLink({ lang = 'en', router }) {
                   className={isActive(item.href) && 'second-btn'}
                   as={Link}
                   // p={0}
-                  locale={locale}
+                  locale={lang}
                   minWidth="100%"
                   height="100%"
                   display="flex"

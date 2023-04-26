@@ -2,6 +2,7 @@
  * Base on
  * Manage: Cookies & LocalStorage & Session Storage (In Application Tab)
  * Nextjs: https://nextjs.org/docs
+ * Server side rendering
  */
 
 import { expiresDay } from '@/utils/cookie';

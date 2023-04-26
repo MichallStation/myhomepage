@@ -1,9 +1,11 @@
+import { errorId, homeId, projectId, workId } from '../envs';
+
 export default {
-  Home: {
+  [homeId]: {
     title: 'Nhà của tôi',
     name: 'Nhà',
   },
-  Work: {
+  [workId]: {
     title: 'Công việc - Hồ sơ',
     name: 'Công việc',
     projs: {
@@ -19,12 +21,12 @@ export default {
       content: 'Những đối tác trong cuộc hành trình kỹ sư của tôi.',
     },
   },
-  ProjectDetail: {
+  [projectId]: {
     title: 'Chi tiết dự án',
     desc: 'Mô tả',
     preview: 'Xem trước',
   },
-  $404: {
+  [errorId]: {
     title: 'Không tìm thấy 404 - ⚽',
     head: 'Ối, Lỗi rồi!!!!',
     msg: 'Có một điều gì đó sai sai, bạn đang tìm kiếm một điều không hề có. Nên bạn ơi! bạn nên về nhà...',

@@ -8,6 +8,7 @@ import Section from '@/layouts/Section';
 import data from './envs';
 // import sets from './sets';
 import { getSet } from '@/_globals/sets';
+import { BioId } from '@/_globals/envs';
 
 /** @type {Object.<string, import('react').CSSProperties>} */
 const style = {
@@ -18,7 +19,7 @@ const style = {
 };
 
 function Bio({ lang = 'en' }) {
-  const set = getSet(Bio.name, lang);
+  const set = getSet(BioId, lang);
   return (
     <>
       <Section title={set.bio.title} icon={<BiObjectsHorizontalCenter />}>

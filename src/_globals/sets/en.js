@@ -1,9 +1,11 @@
+import { errorId, homeId, projectId, workId } from '../envs';
+
 export default {
-  Home: {
+  [homeId]: {
     title: 'My homepage',
     name: 'Home',
   },
-  Work: {
+  [workId]: {
     title: 'Workpage - Portfolio',
     name: 'Workpage',
     projs: {
@@ -19,12 +21,12 @@ export default {
       content: 'The collaborations/partners on my developer journey.',
     },
   },
-  ProjectDetail: {
+  [projectId]: {
     title: 'Project Detail',
     desc: 'Description',
     preview: 'Preview',
   },
-  $404: {
+  [errorId]: {
     title: 'Not found 404 - ⚽',
     head: 'Oopss, Error!!!!',
     msg: 'There is something wrong, you found something not have. So, you should go home...',

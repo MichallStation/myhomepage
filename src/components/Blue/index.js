@@ -17,6 +17,7 @@ import { getSet } from '@/_globals/sets';
 import Message from './Message';
 import useLang from '@/features/hooks/useLang';
 import styles from './styles';
+import { BlueId } from '@/_globals/envs';
 
 /** @type {Object<string, import('framer-motion').TargetAndTransition>} * */
 const variants = {
@@ -52,7 +53,7 @@ function Blue({ storage, width = 48 }) {
   const controls = useAnimationControls();
 
   const isOldguy = storage.prev?.latest;
-  const set = getSet(Blue.name, lang);
+  const set = getSet(BlueId, lang);
 
   // Welcome
   useEffect(() => {
@@ -103,7 +104,7 @@ function Blue({ storage, width = 48 }) {
     });
     // await controls.start('nothing');
     // controls.stop();
-  }, []);
+  }, [set]);
 
   return (
     <Box

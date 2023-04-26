@@ -12,8 +12,8 @@ function ProjectShows({ lang = 'en', ...props }) {
         <Card
           key={i.id}
           as={Link}
-          height="130px"
-          maxW="280px"
+          height="160px"
+          maxW="320px"
           w="100%"
           title={i.name}
           href={`/work/projs/${i.id}`}

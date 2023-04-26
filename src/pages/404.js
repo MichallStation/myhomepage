@@ -8,13 +8,16 @@ import ErrorBanner from '@/components/ErrorBanner';
 import SEO from '@/layouts/SEO';
 import { getSet } from '@/_globals/sets';
 import Footer from '@/components/Footer';
+import { errorId } from '@/_globals/envs';
+import useFeaturesStorage from '@/features/hooks/useFeaturesStorage';
+import Page from '@/layouts/Page';
 
-function $404() {
+function Error() {
   const [lang, setLang] = useState('en');
   useEffect(() => {
     setLang(Cookies.get('lang') || 'en');
   }, []);
-  const set = getSet($404.name, lang);
+  const set = getSet(errorId, lang);
 
   return (
     <>
@@ -60,4 +63,20 @@ function $404() {
   );
 }
 
-export default $404;
+Error.getLayout = (page) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const storage = useFeaturesStorage();
+  // return <PageStatic>{page}</PageStatic>;
+  return <Page storage={storage}>{page}</Page>;
+};
+
+/** @param {import('next').GetStaticPropsContext} context */
+export async function getStaticProps(context) {
+  // console.log(context);
+  return {
+    // props: { storage: createFeaturesStorage(context) },
+    props: context,
+  };
+}
+
+export default Error;
