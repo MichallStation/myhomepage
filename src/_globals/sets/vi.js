@@ -1,4 +1,4 @@
-import { errorId, homeId, projectId, workId } from '../envs';
+import { errorId, homeId, detailId, workId } from '../envs';
 
 export default {
   [homeId]: {
@@ -7,9 +7,10 @@ export default {
   },
   [workId]: {
     title: 'Công việc - Hồ sơ',
-    name: 'Công việc',
+    name: 'Hồ sơ công việc',
     projs: {
-      title: 'Dự án nổi bật',
+      // title: 'Dự án nổi bật',
+      title: 'Dự án',
       content: 'Điểm qua các dự án nổi bật mà tôi đã từng xây dựng.',
     },
     works: {
@@ -21,8 +22,8 @@ export default {
       content: 'Những đối tác trong cuộc hành trình kỹ sư của tôi.',
     },
   },
-  [projectId]: {
-    title: 'Chi tiết dự án',
+  [detailId]: {
+    title: 'Chi tiết',
     desc: 'Mô tả',
     preview: 'Xem trước',
   },
@@ -35,7 +36,8 @@ export default {
   Navbar: {
     Home: 'Nhà',
     Work: 'Công việc',
-    Use: 'Đồ dùng',
+    // Use: 'Đồ dùng',
+    Use: 'Đạo cụ',
     Source: 'Nguồn',
   },
   Author: {
@@ -61,8 +63,16 @@ export default {
     },
     love: {
       title: 'Tôi',
-      content:
-        'Nghệ thuật, Âm nhạc, Bóng đá, Guitar, Piano, Nhiếp ảnh, Thiết kế, Học máy.',
+      content: [
+        { name: 'Nghệ thuật' },
+        { name: 'Âm nhạc' },
+        { name: 'Bóng đá' },
+        { name: 'Guitar' },
+        { name: 'Piano' },
+        { name: 'Nhiếp ảnh' },
+        { name: 'Thiết kế' },
+        { name: 'Học máy' },
+      ],
     },
     social: {
       title: 'Mạng xã hội',
@@ -77,7 +87,10 @@ export default {
       newbie: 'Hú, xin chào bạn mới.',
       old: 'Hú, chào mừng bạn trở lại.',
     },
-    intro: 'Hi, Tôi là Blue. Tôi là trợ lý của Đạt.',
+    intro: [
+      'Hi, Tôi là Blue. Tôi là trợ lý của Đạt.',
+      'Bạn sẽ thấy tôi ở mọi nơi mà Đạt từng làm việc.',
+    ],
     joke: 'Bạn sẽ thấy tôi ở mọi nơi mà Đạt từng làm việc.',
   },
 };

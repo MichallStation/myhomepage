@@ -1,8 +1,9 @@
 import en from './en';
 import vi from './vi';
-import zh from './zh';
+// import zh from './zh';
 
-export const langs = ['en', 'vi', 'zh'];
+// export const langs = ['en', 'vi', 'zh'];
+export const langs = ['en', 'vi'];
 export const sets = {
   en,
   vi,

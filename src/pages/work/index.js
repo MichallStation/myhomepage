@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Container } from '@chakra-ui/react';
 import { AiOutlineProject } from 'react-icons/ai';
 import createFeaturesStorage from '@/features';
@@ -7,40 +7,58 @@ import SEO from '@/layouts/SEO';
 import Section from '@/layouts/Section';
 import BallDivider from '@/components/BallDivider';
 import Footer from '@/components/Footer';
-import ProjectShows from '@/components/ProjectShows';
+import ThumbnailShows from '@/components/ThumbnailShows';
 import CollabShows from '@/components/CollabShows';
-import WorkShows from '@/components/WorkShows';
-import { workId } from '@/_globals/envs';
+import {
+  detailCollabType,
+  detailProjectType,
+  detailWorkType,
+  workId,
+} from '@/_globals/envs';
+import { getProjectsByLang, getWorksByLang } from '@/_globals/db';
 
 /** @param {{storage: import('@/features/@features').FeaturesStorage}} */
 function Work({ storage }) {
   const { lang } = storage.current;
   const set = getSet(workId, lang);
+  const projects = useMemo(() => getProjectsByLang(lang), [lang]);
+  const works = useMemo(() => getWorksByLang(lang), [lang]);
+
   return (
     <>
       <SEO lang={lang} title={set.title} />
       <Container
-        maxW={{ sm: 'full', md: '2xl' }}
+        maxW={{ sm: 'full', md: '3xl' }}
         pos="relative"
         // overflow="hidden"
       >
         <Section
-          id="projs"
+          id={detailProjectType}
           title={set.projs.title}
           sep={3}
           mt={0}
           icon={<AiOutlineProject />}
         >
           {set.projs.content}
-          <ProjectShows lang={lang} mt={4} />
+          <ThumbnailShows
+            data={projects}
+            type={detailProjectType}
+            lang={lang}
+            mt={4}
+          />
         </Section>
         <BallDivider mt={4} />
-        <Section id="works" title={set.works.title} sep={3}>
+        <Section id={detailWorkType} title={set.works.title} sep={3}>
           {set.works.content}
-          <WorkShows lang={lang} />
+          <ThumbnailShows
+            data={works}
+            type={detailWorkType}
+            lang={lang}
+            mt={4}
+          />
         </Section>
         <BallDivider mt={4} />
-        <Section id="collabs" title={set.collabs.title} sep={3}>
+        <Section id={detailCollabType} title={set.collabs.title} sep={3}>
           {set.collabs.content}
           <CollabShows lang={lang} mt={4} />
         </Section>

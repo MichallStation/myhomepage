@@ -5,7 +5,10 @@ import BallChat from '../BallChat';
 function Message({ children, id, onClose }) {
   // children = typeof children === 'string' ? [children] : children;
   const toast = useToast();
-  return <BallChat onClick={() => toast.close(id)}>{children}</BallChat>;
+  return (
+    // <BallChat borderRadius="2px 32px 32px 2px" onClick={() => toast.close(id)}>
+    <BallChat onClick={() => toast.close(id)}>{children}</BallChat>
+  );
 }
 
 export default Message;

@@ -23,7 +23,7 @@ function Error() {
     <>
       <SEO lang={lang} title={set.title} />
       <Container
-        maxW={{ sm: 'full', md: '2xl' }}
+        maxW={{ sm: 'full', md: '3xl' }}
         pos="relative"
         overflow="hidden"
       >
@@ -66,13 +66,11 @@ function Error() {
 Error.getLayout = (page) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const storage = useFeaturesStorage();
-  // return <PageStatic>{page}</PageStatic>;
   return <Page storage={storage}>{page}</Page>;
 };
 
 /** @param {import('next').GetStaticPropsContext} context */
 export async function getStaticProps(context) {
-  // console.log(context);
   return {
     // props: { storage: createFeaturesStorage(context) },
     props: context,

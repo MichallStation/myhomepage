@@ -15,7 +15,7 @@ function Home({ storage }) {
     <>
       <SEO lang={lang} title={set.title} />
       <Container
-        maxW={{ sm: 'full', md: '2xl' }}
+        maxW={{ sm: 'full', md: '3xl' }}
         pos="relative"
         overflow="hidden"
       >

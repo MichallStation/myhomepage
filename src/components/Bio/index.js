@@ -9,6 +9,7 @@ import data from './envs';
 // import sets from './sets';
 import { getSet } from '@/_globals/sets';
 import { BioId } from '@/_globals/envs';
+import TextLink from '../TextLink';
 
 /** @type {Object.<string, import('react').CSSProperties>} */
 const style = {
@@ -33,7 +34,12 @@ function Bio({ lang = 'en' }) {
         ))}
       </Section>
       <Section title={set.love.title} icon={<AiOutlineHeart />}>
-        <Text textAlign="justify">{set.love.content}</Text>
+        {set.love.content.map(({ name, href }) => (
+          <TextLink key={name} href={href} mr={2}>
+            {name}
+          </TextLink>
+        ))}
+        ...
       </Section>
       <Section title={set.social.title} icon={<IoShareSocialOutline />}>
         {data.map((i) => (

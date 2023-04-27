@@ -1,4 +1,9 @@
-import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from 'react-icons/ai';
+import {
+  AiFillFacebook,
+  AiFillGithub,
+  AiFillInstagram,
+  AiFillLinkedin,
+} from 'react-icons/ai';
 import { BsTwitter } from 'react-icons/bs';
 import author from '@/author';
 
@@ -28,8 +33,8 @@ export default [
     href: author.LINKEDIN,
   },
   // {
-  // name: 'facebook',
-  //   name: '@ltndat',
+  //   name: 'facebook',
+  //   username: '@ltndat',
   //   icon: <AiFillFacebook />,
   //   href: author.FACEBOOK,
   // },

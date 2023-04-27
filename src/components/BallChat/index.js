@@ -16,8 +16,9 @@ function BallChat({ children, id, onClose, ...props }) {
       color="blackAlpha.800"
       backgroundColor="pop"
       // pos="relative"
-      borderRadius="32px"
       overflow="hidden"
+      borderRadius="32px"
+      border=""
       py={2}
       px={4}
       m={0}

@@ -27,14 +27,15 @@ function Brand(props) {
       tabIndex={-1}
       {...props}
     >
-      <Image
+      {/* <Image
         className="brand-img"
         src="/blue.png"
         alt="Blue"
         style={style.img}
         width="44px"
-      />
-      <Heading fontFamily="deco" fontSize="3xl" ml={2} style={style.heading}>
+      /> */}
+      {/* <Heading fontFamily="deco" fontSize="3xl" ml={2} style={style.heading}> */}
+      <Heading fontFamily="deco" fontSize="3xl" style={style.heading}>
         Ltndat
       </Heading>
     </Box>

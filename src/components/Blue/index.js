@@ -1,23 +1,15 @@
 import { motion, useAnimationControls } from 'framer-motion';
-import Cookies from 'js-cookie';
-import { useRouter } from 'next/router';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import {
-  Avatar,
-  AvatarBadge,
-  Box,
-  Heading,
-  Image,
-  useColorModeValue,
-  useToast,
-} from '@chakra-ui/react';
+import { Box, Image, useToast } from '@chakra-ui/react';
 import { DONE, selectball3dStatus } from '@/features/slices/ui';
 import { getSet } from '@/_globals/sets';
 import Message from './Message';
 import useLang from '@/features/hooks/useLang';
 import styles from './styles';
 import { BlueId } from '@/_globals/envs';
+import envs from '../Navbar/envs';
+import actions from './actions';
 
 /** @type {Object<string, import('framer-motion').TargetAndTransition>} * */
 const variants = {
@@ -39,7 +31,7 @@ const variants = {
   },
 };
 
-const actions = {
+const actionIds = {
   welcome: 'welcome',
   intro: 'intro',
   joke: 'joke',
@@ -58,48 +50,54 @@ function Blue({ storage, width = 48 }) {
   // Welcome
   useEffect(() => {
     if (!inTimeWelcome) return;
-    const t = setTimeout(async () => {
-      await controls.start('say');
-      toast({
-        duration: 5000,
-        render: (props) => (
-          <Message {...props}>
-            {isOldguy ? set.welcome.old : set.welcome.newbie}
-          </Message>
-        ),
-        position: 'bottom-right',
-        isClosable: true,
+    const t = setTimeout(() => {
+      actions.say({
+        id: actionIds.welcome,
+        mes: isOldguy ? set.welcome.old : set.welcome.newbie,
+        controls,
+        toast,
       });
-      await controls.start('nothing');
-      controls.stop();
+      actions.say({
+        id: actionIds.welcome,
+        mes: isOldguy ? set.welcome.old : set.welcome.newbie,
+        controls,
+        toast,
+      });
     }, 3000);
     // }, 0);
     // eslint-disable-next-line consistent-return
     return () => t && clearTimeout(t);
-  }, [inTimeWelcome]);
+  }, [inTimeWelcome, set]);
 
   const handleClick = useCallback(() => {
     // Blue introduction
-    if (toast.isActive(actions.intro)) return;
-    toast({
-      id: actions.intro,
-      duration: 5000,
-      render: (props) => <Message {...props}>{set.intro}</Message>,
-      position: 'bottom-right',
-      isClosable: true,
+    // if (toast.isActive(actionIds.intro)) return;
+    // toast({
+    //   id: actionIds.intro,
+    //   duration: 5000,
+    //   render: (props) => <Message {...props}>{set.intro}</Message>,
+    //   position: 'top-left',
+    //   isClosable: true,
+    // });
+    actions.says({
+      id: actionIds.intro,
+      mes: set.intro,
+      controls,
+      toast,
+      delay: 3000,
     });
   }, [set]);
 
   const handleDrag = useCallback(() => {
     // Blue joke
-    if (toast.isActive(actions.joke)) return;
+    if (toast.isActive(actionIds.joke)) return;
     // console.log('drag');
     // await controls.start('joke');
     toast({
-      id: actions.joke,
+      id: actionIds.joke,
       duration: 5000,
       render: (props) => <Message {...props}>{set.joke}</Message>,
-      position: 'bottom-right',
+      position: 'top-left',
       isClosable: true,
     });
     // await controls.start('nothing');
@@ -110,8 +108,9 @@ function Blue({ storage, width = 48 }) {
     <Box
       pos="fixed"
       // zIndex="toast"
-      bottom={['12px', '24px', '32px']}
-      right={['12px', '24px', '32px']}
+      marginTop={`${envs.height}px`}
+      top={['12px', '24px', '32px']}
+      left={['12px', '24px', '32px']}
       style={{
         zIndex: '10000',
       }}

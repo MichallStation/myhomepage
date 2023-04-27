@@ -1,4 +1,4 @@
-import { errorId, homeId, projectId, workId } from '../envs';
+import { errorId, homeId, detailId, workId } from '../envs';
 
 export default {
   [homeId]: {
@@ -10,19 +10,19 @@ export default {
     name: 'Workpage',
     projs: {
       title: 'Projects',
-      content: 'The projects highlight that I built.',
+      content: 'The projects highlight that I have been building.',
     },
     works: {
       title: 'Works',
-      content: 'The jobs that I worked.',
+      content: 'The jobs that I have been working.',
     },
     collabs: {
       title: 'Collaborations',
       content: 'The collaborations/partners on my developer journey.',
     },
   },
-  [projectId]: {
-    title: 'Project Detail',
+  [detailId]: {
+    title: 'Detail',
     desc: 'Description',
     preview: 'Preview',
   },
@@ -61,8 +61,16 @@ export default {
     },
     love: {
       title: 'I',
-      content:
-        'Art, Music, Football, Playing Guitar, Playing Piano, Photography, Design, Machine Learning.',
+      content: [
+        { name: 'Art' },
+        { name: 'Music' },
+        { name: 'Football' },
+        { name: 'Playing Guitar' },
+        { name: 'Playing Piano' },
+        { name: 'Photography' },
+        { name: 'Design' },
+        { name: 'Machine Learning' },
+      ],
     },
     social: {
       title: 'Social',
@@ -75,9 +83,12 @@ export default {
     name: 'Blue',
     welcome: {
       newbie: 'Hi, Welcome guys.',
-      old: ['Hi, Welcome back guys.'],
+      old: 'Hi, Welcome back guys.',
     },
-    intro: "Hi, I'm Blue. I'm Dat's assistant.",
+    intro: [
+      "Hi, I'm Blue. I'm Dat's assistant.",
+      "You'll see me everywhere that Dat worked.",
+    ],
     joke: "You'll see me everywhere Dat's worked.",
   },
 };

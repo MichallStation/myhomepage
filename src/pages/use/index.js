@@ -5,7 +5,7 @@ import createFeaturesStorage from '@/features';
 /** @param {{storage: import('@/features/@features').FeaturesStorage}} */
 function Use({ storage }) {
   return (
-    <Container maxW={{ sm: 'full', md: '2xl' }} overflow="hidden">
+    <Container maxW={{ sm: 'full', md: '3xl' }} overflow="hidden">
       123
     </Container>
   );

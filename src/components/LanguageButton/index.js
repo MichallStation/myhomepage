@@ -21,8 +21,8 @@ function LanguageButton({ lang = 'en' }) {
   const handleChangeLang = useCallback(
     /** @param {Event} e */
     (e) => {
-      const value = Cookies.get('lang');
-      if (value === e.target.value) return;
+      // const value = Cookies.get('lang');
+      if (lang === e.target.value) return;
 
       router.push(router.asPath, '', {
         locale: e.target.value,
@@ -33,7 +33,7 @@ function LanguageButton({ lang = 'en' }) {
         expires: expiresDay(365),
       });
     },
-    [router],
+    [lang, router],
   );
 
   return (

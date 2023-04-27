@@ -36,7 +36,11 @@ function DetailInfo({ data, ...props }) {
                   {title}
                 </Code>
                 {desc && <Icon as={FaArrowsAltH} mr={2} />}
-                {desc && <Text display="contents">{desc}</Text>}
+                {desc && (
+                  <Text display="contents" textAlign="justify">
+                    {desc}
+                  </Text>
+                )}
               </Box>
             ))}
           </Box>

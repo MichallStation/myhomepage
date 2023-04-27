@@ -2,7 +2,7 @@ export const useId = 'use';
 export const workId = 'work';
 export const homeId = 'home';
 export const errorId = 'error';
-export const projectId = 'project';
+export const detailId = 'detail';
 export const AuthorId = 'Author';
 export const Ball3dId = 'Ball3d';
 export const BallChatId = 'BallChat';
@@ -25,5 +25,9 @@ export const PreviewInfoId = 'PreviewInfo';
 export const ProjectShowsId = 'ProjectShows';
 export const ThemeButtonId = 'ThemeButton';
 export const WorkShowsId = 'WorkShows';
+
+export const detailProjectType = 'projs';
+export const detailWorkType = 'works';
+export const detailCollabType = 'collabs';
 
 export default {};

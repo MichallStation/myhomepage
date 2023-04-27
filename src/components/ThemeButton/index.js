@@ -3,11 +3,6 @@ import { Box, Button, useColorMode, useColorModeValue } from '@chakra-ui/react';
 import { BsMoonFill, BsSunFill } from 'react-icons/bs';
 import { motion } from 'framer-motion';
 
-export const constants = {
-  height: 48,
-  logoHeight: 40,
-};
-
 /** @type {Object.<string, import('react').CSSProperties>} */
 const style = {
   btn: {

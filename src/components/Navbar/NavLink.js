@@ -64,7 +64,7 @@ const pagesRendered = Object.entries(links);
 function NavLink({ lang = 'en', router }) {
   const { route: path } = router;
   // const locale = router.locale === router.defaultLocale ? 'en' : router.locale;
-  lang = lang === router.defaultLocale ? 'en' : lang;
+  // lang = lang === router.defaultLocale ? 'en' : lang;
   const set = getSet(NavbarId, lang);
   const isActive = useCallback(
     /** @param {string} p  */
@@ -93,7 +93,7 @@ function NavLink({ lang = 'en', router }) {
             <Box
               className={isActive(item.href) && 'second-btn'}
               as={Link}
-              locale={lang}
+              // locale={lang}
               p={2}
               minWidth="60px"
               display="flex"
@@ -130,7 +130,7 @@ function NavLink({ lang = 'en', router }) {
                   className={isActive(item.href) && 'second-btn'}
                   as={Link}
                   // p={0}
-                  locale={lang}
+                  // locale={lang}
                   minWidth="100%"
                   height="100%"
                   display="flex"

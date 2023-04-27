@@ -1,14 +1,12 @@
 import { SimpleGrid } from '@chakra-ui/react';
 import Link from 'next/link';
 import React from 'react';
-import { getProjectsByLang } from '@/_globals/db';
 import Card from '../Card';
 
-function ProjectShows({ lang = 'en', ...props }) {
-  const projects = getProjectsByLang(lang);
+function ThumbnailShows({ data, type }) {
   return (
     <SimpleGrid columns={[1, 2, 3]} mt={4} spacing={4}>
-      {projects.map((i) => (
+      {data.map((i) => (
         <Card
           key={i.id}
           as={Link}
@@ -16,7 +14,7 @@ function ProjectShows({ lang = 'en', ...props }) {
           maxW="320px"
           w="100%"
           title={i.name}
-          href={`/work/projs/${i.id}`}
+          href={`/work/${type}/${i.id}`}
           img={i.thumbnail}
         />
       ))}
@@ -24,4 +22,4 @@ function ProjectShows({ lang = 'en', ...props }) {
   );
 }
 
-export default ProjectShows;
+export default ThumbnailShows;

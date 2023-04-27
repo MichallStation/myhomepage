@@ -61,7 +61,7 @@ function Navbar({ storage }) {
       style={style.nav}
       zIndex="docked"
     >
-      <Container maxW={{ sm: 'full', md: '3xl' }} style={style.container}>
+      <Container maxW={{ sm: 'full', md: '4xl' }} style={style.container}>
         <Logo width={envs.logoHeight} />
         <Box display="flex">
           <Box display="flex" alignItems="center">

@@ -1,23 +1,27 @@
-#chakra-toast-manager-bottom-right {
-  margin-bottom: 60px;
-  margin-right: 0;
+#chakra-toast-manager-top-left {
+  margin-top: calc(60px + 48px);
+  margin-left: 0;
 }
 
 @media screen and (min-width: 30em) {
-  #chakra-toast-manager-bottom-right {
-    margin-bottom: 24px;
-    margin-right: 72px;
+  #chakra-toast-manager-top-left {
+    margin-top: calc(24px + 48px);
+    margin-left: 72px;
   }
 }
 
 @media screen and (min-width: 48em) {
-  #chakra-toast-manager-bottom-right {
-    margin-bottom: 32px;
-    margin-right: 80px;
+  #chakra-toast-manager-top-left {
+    margin-top: calc(32px + 48px);
+    margin-left: 80px;
   }
 }
 
 .chakra-toast .chakra-toast__inner {
   min-width: 0;
   max-width: 320px;
+}
+
+.chakra-popover__popper .chakra-popover__content {
+  max-width: 280px;
 }
