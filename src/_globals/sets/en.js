@@ -1,4 +1,4 @@
-import { errorId, homeId, detailId, workId } from '../envs';
+import { errorId, homeId, detailId, workId, useId } from '../envs';
 
 export default {
   [homeId]: {
@@ -26,11 +26,23 @@ export default {
     desc: 'Description',
     preview: 'Preview',
   },
+  [useId]: {
+    title: 'Usepage - Passion',
+    name: 'Use',
+  },
   [errorId]: {
-    title: 'Not found 404 - ⚽',
-    head: 'Oopss, Error!!!!',
-    msg: 'There is something wrong, you found something not have. So, you should go home...',
-    btn: 'Go home',
+    c404: {
+      title: 'Not found 404 - ⚽',
+      head: 'Oopss, Error!!!!',
+      msg: 'There is something wrong, you found something not have. So, you should go home...',
+      btn: 'Go home',
+    },
+    c500: {
+      title: 'Server problem 500 - ⚽',
+      head: 'Oopss, Server Error!!!!',
+      msg: 'This situation mean server have something wrong. So, you can reload this page...',
+      btn: 'Go home',
+    },
   },
   Navbar: {
     Home: 'Home',

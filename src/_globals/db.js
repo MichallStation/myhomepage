@@ -1,8 +1,24 @@
 export const projs = [
   {
     id: 'homepage',
-    thumbnail: '/images/work/homepage.png',
-    preview: ['/images/work/homepage.png'],
+    thumbnail: '/images/works/homepage.png',
+    preview: [
+      {
+        title: '',
+        thumbnail:
+          'https://thumbs.dreamstime.com/b/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.jpg',
+      },
+      {
+        title: '',
+        thumbnail:
+          'https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=612x612&w=0&k=20&c=A63koPKaCyIwQWOTFBRWXj_PwCrR4cEoOw2S9Q7yVl8=',
+      },
+      {
+        title: '',
+        thumbnail:
+          'https://media.istockphoto.com/id/1322277517/photo/wild-grass-in-the-mountains-at-sunset.jpg?s=612x612&w=0&k=20&c=6mItwwFFGqKNKEAzv0mv6TaxhLN3zSE43bWmFN--J5w=',
+      },
+    ],
     en: {
       name: 'My homepage',
       desc: '',
@@ -140,7 +156,7 @@ export const projs = [
   },
   {
     id: 'homebusiness',
-    thumbnail: '/images/work/homebusiness.png',
+    thumbnail: '/images/works/homebusiness.png',
     preview: [],
     en: {
       name: 'My business',
@@ -153,7 +169,7 @@ export const projs = [
   },
   {
     id: 'homebusiness2',
-    thumbnail: '/images/work/homebusiness.png',
+    thumbnail: '/images/works/homebusiness.png',
     preview: [],
     en: {
       name: 'My business',
@@ -166,7 +182,7 @@ export const projs = [
   },
   {
     id: 'homebusiness3',
-    thumbnail: '/images/work/homebusiness.png',
+    thumbnail: '/images/works/homebusiness.png',
     preview: [],
     en: {
       name: 'My business',
@@ -182,8 +198,8 @@ export const projs = [
 export const works = [
   {
     id: 'free',
-    thumbnail: '/images/work/homepage.png',
-    preview: ['/images/work/homepage.png'],
+    thumbnail: '/images/works/homepage.png',
+    preview: ['/images/works/homepage.png'],
     en: {
       name: 'My homepage',
       desc: '',

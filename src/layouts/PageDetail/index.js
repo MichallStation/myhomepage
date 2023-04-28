@@ -5,14 +5,13 @@ import {
   BreadcrumbItem,
   Button,
   Container,
+  Heading,
   Image,
   Text,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { IoIosArrowForward } from 'react-icons/io';
 import Link from 'next/link';
-import createFeaturesStorage from '@/features';
-import E404 from '@/pages/404';
-import { getProjectsByLang } from '@/_globals/db';
 import SEO from '@/layouts/SEO';
 import { getSet } from '@/_globals/sets';
 import Section from '@/layouts/Section';
@@ -41,7 +40,7 @@ function PageDetail({ lang = 'en', type = detailProjectType, detail: item }) {
       <Container
         maxW={{ sm: 'full', md: '3xl' }}
         pos="relative"
-        overflow="hidden"
+        // overflow="hidden"
       >
         <Breadcrumb
           separator={<IoIosArrowForward color="gray.500" />}
@@ -71,8 +70,36 @@ function PageDetail({ lang = 'en', type = detailProjectType, detail: item }) {
           </BreadcrumbItem>
         </Breadcrumb>
         <Box as="article" title={item.name} id={item.id} mt={4}>
-          <Box id="thumbnail" overflow="hidden" borderRadius="lg">
-            <Image width="100%" src={item.thumbnail} alt={item.name} />
+          <Box
+            id="thumbnail"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            flexDirection="column"
+            // overflow="hidden"
+          >
+            <Heading
+              // backgroundColor={useColorModeValue('second', 'seconddark')}
+              py={2}
+              px={5}
+              // borderRadius="32px 32px 0 0"
+              borderRadius="32px"
+              textAlign="center"
+              // textAlign="right"
+              fontSize="3xl"
+              fontFamily="deco"
+              display="block"
+              mb={4}
+            >
+              {item.name}
+            </Heading>
+            <Image
+              // width="xl"
+              borderRadius="lg"
+              src={item.thumbnail}
+              alt={item.name}
+              // mt={6}
+            />
           </Box>
           <Section title={set.desc} id="desc" sep={4}>
             <Text textAlign="justify">{item.desc}</Text>

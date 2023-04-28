@@ -1,4 +1,4 @@
-import { errorId, homeId, detailId, workId } from '../envs';
+import { errorId, homeId, detailId, workId, useId } from '../envs';
 
 export default {
   [homeId]: {
@@ -27,17 +27,37 @@ export default {
     desc: 'Mô tả',
     preview: 'Xem trước',
   },
+  [useId]: {
+    title: 'Đồ nghề - Đam mê',
+    name: 'Đồ nghề',
+    // slogan: 'Phương châm của tôi là tận dụng tối đa hóa từng đồ dùng nhỏ nhất.',
+    slogan: 'Lối sống di động, tôi đi mọi nơi cùng với một chiếc balo.',
+    workflow: {
+      title: 'Máy tính của tôi',
+      content:
+        'Tôi đã làm tất cả mọi thứ trong một chiếc máy tính xách tay duy nhất. Tôi đã cấu hình chiếc máy tính xách tay sử dụng hệ điều hành Windows, MacOS, Ubuntu Linux, ChromeOS để xây dựng các dự án ứng dụng trên mọi nền tảng hệ điều hành.',
+    },
+  },
   [errorId]: {
-    title: 'Không tìm thấy 404 - ⚽',
-    head: 'Ối, Lỗi rồi!!!!',
-    msg: 'Có một điều gì đó sai sai, bạn đang tìm kiếm một điều không hề có. Nên bạn ơi! bạn nên về nhà...',
-    btn: 'Về nhà',
+    c404: {
+      title: 'Không tìm thấy 404 - ⚽',
+      head: 'Ối, Lỗi rồi!!!!',
+      msg: 'Có một điều gì đó sai sai, bạn đang tìm kiếm một điều không hề có. Nên bạn ơi! bạn nên về nhà...',
+      btn: 'Về nhà',
+    },
+    c500: {
+      title: 'Lỗi máy chủ 500 - ⚽',
+      head: 'Ối, Sự cố máy chủ!!!!',
+      msg: 'Tình hình có một vài sự cố ở phía chủ. Nên bạn có thể tải lại trang...',
+      btn: 'Về nhà',
+    },
   },
   Navbar: {
     Home: 'Nhà',
     Work: 'Công việc',
     // Use: 'Đồ dùng',
-    Use: 'Đạo cụ',
+    // Use: 'Đạo cụ',
+    Use: 'Đồ nghề',
     Source: 'Nguồn',
   },
   Author: {

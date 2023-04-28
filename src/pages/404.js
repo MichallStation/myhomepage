@@ -17,7 +17,7 @@ function Error() {
   useEffect(() => {
     setLang(Cookies.get('lang') || 'en');
   }, []);
-  const set = getSet(errorId, lang);
+  const set = getSet(errorId, lang)?.c404;
 
   return (
     <>

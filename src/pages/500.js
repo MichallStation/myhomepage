@@ -11,13 +11,14 @@ import Footer from '@/components/Footer';
 import { errorId } from '@/_globals/envs';
 import useFeaturesStorage from '@/features/hooks/useFeaturesStorage';
 import Page from '@/layouts/Page';
+import Banner500 from '@/components/ErrorBanner/Banner500';
 
 function Error() {
   const [lang, setLang] = useState('en');
   useEffect(() => {
     setLang(Cookies.get('lang') || 'en');
   }, []);
-  const set = getSet(errorId, lang);
+  const set = getSet(errorId, lang)?.c500;
 
   return (
     <>
@@ -35,7 +36,7 @@ function Error() {
         </Heading>
         <Box>
           <Box mt={2} color="second">
-            <ErrorBanner />
+            <Banner500 />
           </Box>
           <Heading
             mt={[0, -4]}

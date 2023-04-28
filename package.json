@@ -20,9 +20,11 @@
     "framer-motion": "^10.11.2",
     "js-cookie": "^3.0.1",
     "next": "13.3.0",
+    "popmotion": "^11.0.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
+    "react-image-gallery": "^1.2.11",
     "react-redux": "^8.0.5",
     "three": "^0.151.3"
   },
