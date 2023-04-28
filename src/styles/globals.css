@@ -24,7 +24,3 @@ body::-webkit-scrollbar-thumb {
 #__next {
   overflow: hidden;
 }
-
-.chakra-breadcrumb::-webkit-scrollbar {
-  width: 0px;
-}

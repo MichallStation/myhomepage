@@ -29,6 +29,21 @@ export default {
   [useId]: {
     title: 'Usepage - Passion',
     name: 'Use',
+    slogan: 'Mobile lifestyle. My passion, go to everywhere with all in one.',
+    uses: [
+      {
+        id: 'workflow',
+        title: 'Workflow',
+      },
+      {
+        id: 'kitflow',
+        title: 'Kitflow',
+      },
+      {
+        id: 'devkit',
+        title: 'Devflow',
+      },
+    ],
   },
   [errorId]: {
     c404: {

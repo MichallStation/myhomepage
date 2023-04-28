@@ -28,15 +28,25 @@ export default {
     preview: 'Xem trước',
   },
   [useId]: {
-    title: 'Đồ nghề - Đam mê',
-    name: 'Đồ nghề',
-    // slogan: 'Phương châm của tôi là tận dụng tối đa hóa từng đồ dùng nhỏ nhất.',
-    slogan: 'Lối sống di động, tôi đi mọi nơi cùng với một chiếc balo.',
-    workflow: {
-      title: 'Máy tính của tôi',
-      content:
-        'Tôi đã làm tất cả mọi thứ trong một chiếc máy tính xách tay duy nhất. Tôi đã cấu hình chiếc máy tính xách tay sử dụng hệ điều hành Windows, MacOS, Ubuntu Linux, ChromeOS để xây dựng các dự án ứng dụng trên mọi nền tảng hệ điều hành.',
-    },
+    title: 'Đồ dùng - Đam mê',
+    name: 'Đồ dùng',
+    // slogan: 'Phơng châm của tôi là tận dụng tối đa hóa từng đồ dùng nhỏ nhất.',
+    slogan:
+      'Lối sống di động. Niềm đam mê của tôi, đi mọi nơi cùng với tất cả trong một.',
+    uses: [
+      {
+        id: 'workflow',
+        title: 'Bộ công việc',
+      },
+      {
+        id: 'kitflow',
+        title: 'Bộ công cụ',
+      },
+      {
+        id: 'devkit',
+        title: 'Bộ nhà phát triển',
+      },
+    ],
   },
   [errorId]: {
     c404: {
@@ -57,7 +67,7 @@ export default {
     Work: 'Công việc',
     // Use: 'Đồ dùng',
     // Use: 'Đạo cụ',
-    Use: 'Đồ nghề',
+    Use: 'Đồ dùng',
     Source: 'Nguồn',
   },
   Author: {

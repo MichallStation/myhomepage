@@ -379,6 +379,23 @@ export const collabs = [
   },
 ];
 
+export const articles = [
+  {
+    id: 'laptop',
+    type: 'workflow',
+    en: {
+      title: 'Dell Xps',
+      desc: '',
+    },
+    vi: {
+      title: 'Dell Xps',
+      desc: 'Tôi đã làm tất cả mọi thứ trong một chiếc laptop như thế nào?',
+    },
+    thumbnail:
+      'https://laptopaz.vn/media/product/1317_laptop_dell_xps_9550_laptopaz__5_.JPG',
+  },
+];
+
 export const getProjectsByLang = (lang = 'en') =>
   projs.map((p) => {
     const data = p?.[lang] || p.en;
@@ -406,6 +423,16 @@ export const getCollabsByLang = (lang = 'en') =>
     const data = p?.[lang] || p.en;
     return {
       name: p.name,
+      thumbnail: p.thumbnail,
+      ...data,
+    };
+  });
+
+export const getArticleByLang = (lang = 'en') =>
+  articles.map((p) => {
+    const data = p?.[lang] || p.en;
+    return {
+      id: p.id,
       thumbnail: p.thumbnail,
       ...data,
     };

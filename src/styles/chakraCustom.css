@@ -25,3 +25,8 @@
 .chakra-popover__popper .chakra-popover__content {
   max-width: 280px;
 }
+
+.chakra-tabs__tablist::-webkit-scrollbar,
+.chakra-breadcrumb::-webkit-scrollbar {
+  width: 0px;
+}
