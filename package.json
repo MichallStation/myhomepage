@@ -30,6 +30,7 @@
     "three": "^0.151.3"
   },
   "devDependencies": {
+    "@playwright/test": "^1.33.0",
     "@typescript-eslint/parser": "^5.59.1",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.8.0",
