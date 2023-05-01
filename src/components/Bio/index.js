@@ -45,7 +45,8 @@ function Bio({ lang = 'en' }) {
         {data.map((i) => (
           <Box key={i.name}>
             <Button
-              className="prim-btn-outline"
+              // className="prim-btn-outline"
+              className="second-btn"
               as={Link}
               title={i.name}
               href={i.href}

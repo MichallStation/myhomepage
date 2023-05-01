@@ -65,7 +65,14 @@ function BallGallery({ data, originIndex = 0, ...props }) {
   }, []);
 
   return (
-    <Box w="100%" height="100%" {...props}>
+    <Box
+      w="100%"
+      height="100%"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      {...props}
+    >
       <Button
         variant="unstyled"
         onClick={handlePrev}
@@ -94,10 +101,10 @@ function BallGallery({ data, originIndex = 0, ...props }) {
       </Button>
       <Box
         // w="100%"
-        // h="100%"
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
+        h="100%"
+        // display="flex"
+        // alignItems="center"
+        // justifyContent="center"
       >
         <Button
           variant="unstyled"

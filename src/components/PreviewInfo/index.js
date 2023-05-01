@@ -38,13 +38,13 @@ function PreviewInfo({ data, ...props }) {
           data.map(({ title, thumbnail }, i) => (
             <motion.div
               key={thumbnail}
-              drag
-              dragConstraints={{
-                left: 0,
-                right: 0,
-                top: 0,
-                bottom: 0,
-              }}
+              // drag
+              // dragConstraints={{
+              //   left: 0,
+              //   right: 0,
+              //   top: 0,
+              //   bottom: 0,
+              // }}
               whileTap={{ scale: 1.1, zIndex: 1 }}
               whileFocus={{ scale: 1.1, zIndex: 1 }}
               whileHover={{ scale: 1.1 }}

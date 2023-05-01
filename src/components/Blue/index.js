@@ -63,7 +63,7 @@ function Blue({ storage, width = 48 }) {
         controls,
         toast,
       });
-    }, 3000);
+    }, 5000);
     // }, 0);
     // eslint-disable-next-line consistent-return
     return () => t && clearTimeout(t);

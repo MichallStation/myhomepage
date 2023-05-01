@@ -49,7 +49,8 @@ const styles = {
 };
 
 const config = {
-  initialColorMode: 'dark',
+  // initialColorMode: 'dark',
+  initialColorMode: 'light',
   useSystemColorMode: true,
 };
 

@@ -72,7 +72,7 @@ function Use({ storage, type }) {
         >
           <TabList overflowX="scroll" overflowY="hidden">
             {useTabsRender.map(([id, i]) => (
-              <Tab key={id} h="48px" minW="100px" mr={2}>
+              <Tab key={id} minH="48px" minW="100px" mr={2} p={2}>
                 {i.title}
               </Tab>
             ))}
