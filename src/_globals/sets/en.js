@@ -30,7 +30,7 @@ export default {
   [articleId]: {
     title: 'Article - My heart',
     name: 'Article',
-    tablet: 'Tablet Contents',
+    tablet: 'Tablet of Contents',
     types: {
       workflow: {
         title: 'Workflow',

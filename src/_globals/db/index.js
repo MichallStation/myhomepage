@@ -45,7 +45,6 @@ export const getArticleByLang = (lang = 'en') =>
     return {
       id: p.id,
       type: p.type,
-      markdown: p.markdown,
       thumbnail: p.thumbnail,
       images: p.images,
       ...data,

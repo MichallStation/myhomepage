@@ -18,7 +18,8 @@ function Section({ title, children, icon, sep = 8, ...props }) {
             pos: 'absolute',
             height: `${sep}px`,
             backgroundColor: useColorModeValue(
-              'blackAlpha.600',
+              // 'blackAlpha.600',
+              'currentColor',
               'currentColor',
             ),
             borderRadius: '2px',
