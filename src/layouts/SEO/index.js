@@ -21,14 +21,14 @@ function SEO({ lang = 'en', title }) {
       <meta name="twitter:creator" content="@ltndat" />
       <meta
         name="twitter:image"
-        content="https://raw.githubusercontent.com/ltndat/ltndat/main/public/card.png"
+        content="https://raw.githubusercontent.com/ltndat/myhomepage/main/public/cardhat.png"
       />
       <meta property="og:site_name" content="Ltndat" />
       <meta name="og:title" content="Ltndat" />
       <meta property="og:type" content="website" />
       <meta
         property="og:image"
-        content="https://raw.githubusercontent.com/ltndat/ltndat/main/public/card.png"
+        content="https://raw.githubusercontent.com/ltndat/myhomepage/main/public/cardhat.png"
       />
       <title>{title}</title>
     </Head>
