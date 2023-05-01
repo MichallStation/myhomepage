@@ -2,7 +2,7 @@ import React from 'react';
 import createFeaturesStorage from '@/features';
 import E404 from '@/pages/404';
 import { getProjectsByLang } from '@/_globals/db';
-import { detailCollabType, detailWorkType } from '@/_globals/envs';
+import { detailCollabType } from '@/_globals/envs';
 import PageDetail from '@/layouts/PageDetail';
 
 function CollabsDetail({ id, storage }) {

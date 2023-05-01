@@ -28,5 +28,5 @@
 
 .chakra-tabs__tablist::-webkit-scrollbar,
 .chakra-breadcrumb::-webkit-scrollbar {
-  width: 0px;
+  display: none;
 }

@@ -48,11 +48,11 @@ export const uiSlice = createSlice({
       state.toast.value = undefined;
       state.toast.status = CLOSE;
     },
-    ball3dLoading: (state, action) => {
+    ball3dLoading: (state) => {
       // state.toast.value = undefined;
       state.ball3d.status = LOADING;
     },
-    ball3dDone: (state, action) => {
+    ball3dDone: (state) => {
       // state.toast.value = undefined;
       state.ball3d.status = DONE;
     },

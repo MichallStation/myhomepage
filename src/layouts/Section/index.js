@@ -1,4 +1,4 @@
-import { Box, Heading } from '@chakra-ui/react';
+import { Box, Heading, useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
 
 function Section({ title, children, icon, sep = 8, ...props }) {
@@ -11,12 +11,16 @@ function Section({ title, children, icon, sep = 8, ...props }) {
           fontSize="2xl"
           fontWeight="normal"
           pos="relative"
+          // backgroundColor='blackAlpha.500'
           _after={{
             content: '""',
             display: 'block',
             pos: 'absolute',
             height: `${sep}px`,
-            backgroundColor: 'currentColor',
+            backgroundColor: useColorModeValue(
+              'blackAlpha.600',
+              'currentColor',
+            ),
             borderRadius: '2px',
             width: '100%',
             bottom: '-12px',

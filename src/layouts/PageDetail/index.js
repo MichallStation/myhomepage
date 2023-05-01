@@ -1,17 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import {
-  Box,
-  Breadcrumb,
-  BreadcrumbItem,
-  Button,
-  Container,
-  Heading,
-  Image,
-  Text,
-  useColorModeValue,
-} from '@chakra-ui/react';
-import { IoIosArrowForward } from 'react-icons/io';
-import Link from 'next/link';
+import React, { useEffect, useRef, useCallback } from 'react';
+import { Box, Container, Heading, Image, Text } from '@chakra-ui/react';
 import SEO from '@/layouts/SEO';
 import { getSet } from '@/_globals/sets';
 import Section from '@/layouts/Section';
@@ -19,17 +7,33 @@ import Footer from '@/components/Footer';
 import DetailInfo from '@/components/DetailInfo';
 import PreviewInfo from '@/components/PreviewInfo';
 import { detailId, detailProjectType, workId } from '@/_globals/envs';
+import BlueBreadcrumb from '@/components/BlueBreadcrumb';
 
 function PageDetail({ lang = 'en', type = detailProjectType, detail: item }) {
   const refBread = useRef();
   const set = getSet(detailId, lang);
   const setWork = getSet(workId, lang);
 
-  useEffect(() => {
+  const handleWindowResize = useCallback(() => {
     const { current: breadEl } = refBread;
     if (!breadEl) return;
     breadEl.scrollLeft = breadEl.offsetWidth;
   }, []);
+
+  useEffect(() => handleWindowResize(), [handleWindowResize]);
+
+  useEffect(() => {
+    window.addEventListener('resize', handleWindowResize, false);
+    return () => {
+      window.removeEventListener('resize', handleWindowResize, false);
+    };
+  }, [handleWindowResize]);
+
+  const breads = [
+    { name: setWork.name, href: '/work' },
+    { name: setWork?.[type].title, href: `/work#${type}` },
+    { name: item.name, href: '#' },
+  ];
 
   return (
     <>
@@ -42,33 +46,7 @@ function PageDetail({ lang = 'en', type = detailProjectType, detail: item }) {
         pos="relative"
         // overflow="hidden"
       >
-        <Breadcrumb
-          separator={<IoIosArrowForward color="gray.500" />}
-          overflowX="scroll"
-          className="breadcrumb"
-          ref={refBread}
-        >
-          <BreadcrumbItem>
-            <Button as={Link} href="/work">
-              {setWork.name}
-            </Button>
-          </BreadcrumbItem>
-          <BreadcrumbItem>
-            <Button as={Link} href={`/work#${type}`}>
-              {setWork?.[type].title}
-            </Button>
-          </BreadcrumbItem>
-          <BreadcrumbItem isCurrentPage>
-            <Button
-              as={Link}
-              href="#"
-              className="second-btn"
-              borderRadius="3xl"
-            >
-              {item.name}
-            </Button>
-          </BreadcrumbItem>
-        </Breadcrumb>
+        <BlueBreadcrumb ref={refBread} breads={breads} />
         <Box as="article" title={item.name} id={item.id} mt={4}>
           <Box
             id="thumbnail"

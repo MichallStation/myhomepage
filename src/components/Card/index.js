@@ -1,11 +1,4 @@
-import {
-  Box,
-  Button,
-  Heading,
-  Image,
-  Text,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import { Box, Button, Image } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import React from 'react';
 

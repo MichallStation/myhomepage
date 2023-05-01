@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Box, Heading, Image } from '@chakra-ui/react';
+import { Box, Heading } from '@chakra-ui/react';
 
 /** @type {Object.<string, import('react').CSSProperties>} */
 const style = {

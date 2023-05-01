@@ -1,9 +1,10 @@
 import { Box, Button, Image, Icon } from '@chakra-ui/react';
 import { AnimatePresence, motion, useAnimationControls } from 'framer-motion';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState, useRef } from 'react';
 import { BiLeftArrow, BiRightArrow } from 'react-icons/bi';
 import { BsFullscreen } from 'react-icons/bs';
 import { GoPrimitiveDot } from 'react-icons/go';
+import { openFullscreen } from '@/lib/browsers';
 
 /** @type {Object<string, import('framer-motion').TargetAndTransition>} * */
 const variants = {
@@ -26,7 +27,10 @@ const variants = {
 
 function BallGallery({ data, originIndex = 0, ...props }) {
   const [currentIndex, setIndex] = useState(originIndex);
+  // const [fullscreen, setFullscreen] = useState(false);
   const controls = useAnimationControls();
+  const refContainer = useRef();
+  const currentItem = data[currentIndex];
 
   useEffect(() => {
     setIndex(originIndex);
@@ -37,18 +41,31 @@ function BallGallery({ data, originIndex = 0, ...props }) {
     if (currentIndex === 0) newIndex = data.length - 1;
     controls.start('initLeft');
     setIndex(() => newIndex);
-  }, [currentIndex, data.length]);
+  }, [controls, currentIndex, data.length]);
+
   const handleNext = useCallback(() => {
     let newIndex = currentIndex + 1;
     if (currentIndex === data.length - 1) newIndex = 0;
     controls.start('initRight');
     setIndex(() => newIndex);
-  }, [currentIndex, data.length]);
+  }, [controls, currentIndex, data.length]);
 
-  const currentItem = data[currentIndex];
+  const handleToggleFullscreen = useCallback(() => {
+    /** @type {{current: HTMLElement}}  */
+    const { current: el } = refContainer;
+    if (!el) return;
+    openFullscreen(el);
+    // setSize(sizes.fullscreen);
+    // if (!fullscreen) {
+    //   openFullscreen(el);
+    // } else {
+    //   closeFullscreen(el);
+    // }
+    // setFullscreen((p) => !p);
+  }, []);
 
   return (
-    <Box pos="relative" {...props}>
+    <Box w="100%" height="100%" {...props}>
       <Button
         variant="unstyled"
         onClick={handlePrev}
@@ -75,21 +92,27 @@ function BallGallery({ data, originIndex = 0, ...props }) {
       >
         <Icon as={BiRightArrow} boxSize="40px" />
       </Button>
-      <Button
-        variant="unstyled"
-        // onClick={handleFullscreen}
-        pos="absolute"
-        // top="50%"
-        bottom={0}
-        // transform="translateY(-50%)"
-        right={0}
-        p={2}
-        w="44px"
-        h="44px"
+      <Box
+        // w="100%"
+        // h="100%"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
       >
-        <Icon as={BsFullscreen} boxSize="24px" />
-      </Button>
-      <Box display="flex" alignItems="center" justifyContent="center">
+        <Button
+          variant="unstyled"
+          onClick={handleToggleFullscreen}
+          pos="absolute"
+          // top="50%"
+          bottom={0}
+          // transform="translateY(-50%)"
+          right={0}
+          p={2}
+          w="44px"
+          h="44px"
+        >
+          <Icon as={BsFullscreen} boxSize="24px" />
+        </Button>
         <AnimatePresence initial={false} mode="wait">
           <motion.div
             key={currentItem.thumbnail}
@@ -97,6 +120,10 @@ function BallGallery({ data, originIndex = 0, ...props }) {
             variants={variants}
             transition={{ duration: 0.4 }}
             exit={{}}
+            style={{
+              width: '100%',
+              height: '100%',
+            }}
           >
             <Image
               key={currentItem.thumbnail}
@@ -105,7 +132,13 @@ function BallGallery({ data, originIndex = 0, ...props }) {
               data-index={currentIndex}
               borderRadius="lg"
               objectFit="contain"
-              height="60vh"
+              // objectFit="cover"
+              ref={refContainer}
+              w="100%"
+              h="100%"
+              // h={size.h}
+              // w={size.w}
+              // h="60vh"
               // backgroundSize="contain"
             />
           </motion.div>
@@ -113,7 +146,7 @@ function BallGallery({ data, originIndex = 0, ...props }) {
       </Box>
       <Box
         pos="absolute"
-        bottom="-32px"
+        bottom={0}
         left={0}
         right={0}
         display="flex"
@@ -121,6 +154,7 @@ function BallGallery({ data, originIndex = 0, ...props }) {
       >
         {data.map((item, i) => (
           <Icon
+            key={item.id}
             color={i === currentIndex ? 'white' : 'gray'}
             as={GoPrimitiveDot}
             boxSize="24px"

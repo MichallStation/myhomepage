@@ -1,10 +1,10 @@
 import { Provider } from 'react-redux';
 import ChakraManager from '@/lib/chakra/Manager';
 import createStore from '@/features/store';
-import createFeaturesStorage from '@/features';
 import theme from '@/features/theme';
 import '@/styles/globals.css';
 import Page from '@/layouts/Page';
+import 'animate.css';
 
 if (typeof window !== 'undefined') {
   window.history.scrollRestoration = 'manual';

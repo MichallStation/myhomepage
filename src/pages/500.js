@@ -4,7 +4,6 @@ import { BsBoxArrowInLeft } from 'react-icons/bs';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { MdOutlineDangerous } from 'react-icons/md';
-import ErrorBanner from '@/components/ErrorBanner';
 import SEO from '@/layouts/SEO';
 import { getSet } from '@/_globals/sets';
 import Footer from '@/components/Footer';

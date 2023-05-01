@@ -1,8 +1,10 @@
 import Head from 'next/head';
 import React from 'react';
+import { homeId } from '@/_globals/envs';
+import { getSet } from '@/_globals/sets';
 
 function SEO({ lang = 'en', title }) {
-  title = title ? `Ltndat - ${title}` : 'Ltndat - Homepage';
+  title = title ? `Ltndat - ${title}` : getSet(homeId, lang).title;
   return (
     <Head>
       <meta charSet="utf-8" />

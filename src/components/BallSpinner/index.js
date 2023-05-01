@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Spinner as SpinnerChakra } from '@chakra-ui/react';
 
-function BallSpinner({ lang = 'en' }) {
+function BallSpinner() {
   return (
     <Box
       width="100%"

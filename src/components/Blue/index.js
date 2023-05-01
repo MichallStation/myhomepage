@@ -1,7 +1,7 @@
 import { motion, useAnimationControls } from 'framer-motion';
 import React, { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Box, Image, useToast } from '@chakra-ui/react';
+import { Box, Image, useColorModeValue, useToast } from '@chakra-ui/react';
 import { DONE, selectball3dStatus } from '@/features/slices/ui';
 import { getSet } from '@/_globals/sets';
 import Message from './Message';
@@ -134,7 +134,17 @@ function Blue({ storage, width = 48 }) {
         title={set.name}
         style={styles.blue}
       >
-        <Box boxShadow="base" borderRadius="50%" overflow="hidden">
+        <Box
+          // className="animate__animated animate__flip animate__infinite animate__slow"
+          boxShadow="base"
+          borderRadius="50%"
+          overflow="hidden"
+          backgroundColor={useColorModeValue(
+            'blackAlpha.200',
+            'whiteAlpha.400',
+            // 'whiteAlpha.800',
+          )}
+        >
           <Image
             className="brand-img"
             src="/blue.png"

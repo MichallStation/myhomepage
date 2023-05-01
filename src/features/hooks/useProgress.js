@@ -13,13 +13,12 @@ import {
   progressBarLoading,
   progressBarProcess,
   selectProgressStatus,
-  selectProgressValue,
 } from '../slices/ui';
 
 export default function useProgress() {
   const dispatch = useDispatch();
   const status = useSelector(selectProgressStatus);
-  const value = useSelector(selectProgressValue);
+  // const value = useSelector(selectProgressValue);
 
   const setProgress = (percent) =>
     status !== PROGRESSING && dispatch(progressBarProcess(percent));

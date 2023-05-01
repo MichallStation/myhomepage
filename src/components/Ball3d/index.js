@@ -2,11 +2,11 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { Box } from '@chakra-ui/react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import BallSpinner from '../BallSpinner';
 import { loadGLTFModel } from '@/lib/three';
 import data from './envs';
-import { ball3dDone, selectball3dStatus } from '@/features/slices/ui';
+import { ball3dDone } from '@/features/slices/ui';
 
 const easeOutCirc = (x) => Math.sqrt(1 - (x - 1) ** 4);
 

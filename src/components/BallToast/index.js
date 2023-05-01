@@ -1,16 +1,8 @@
 import { Box, Heading, Image, Text, useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
 
-/** @type {import('@chakra-ui/react').UseToastOptions}  */
-const style = {
-  position: 'bottom-right',
-  isClosable: true,
-  colorScheme: 'seconds',
-  status: 'info',
-};
-
 /** @param {{title: string | React.ReactNode, description: string | React.ReactNode}}  */
-export function BallToast({ title, description, color, id, onClose }) {
+export function BallToast({ title, description, color }) {
   title =
     typeof title === 'string' ? (
       <Heading fontSize="lg">{title}</Heading>

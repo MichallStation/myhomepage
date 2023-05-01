@@ -7,8 +7,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import uiReducer from './slices/ui';
 
-/** @param {import('./@features').FeaturesStorage} storage */
-export default function createStore(storage) {
+/** @param {import('./@features').FeaturesStorage} _storage */
+export default function createStore() {
   // console.log('Create store');
   // console.log(storage);
   return configureStore({

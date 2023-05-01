@@ -1,12 +1,4 @@
-import {
-  Avatar,
-  Box,
-  Code,
-  Text,
-  Icon,
-  Wrap,
-  WrapItem,
-} from '@chakra-ui/react';
+import { Box, Code, Text, Icon } from '@chakra-ui/react';
 import Link from 'next/link';
 import React from 'react';
 import { FaArrowsAltH } from 'react-icons/fa';

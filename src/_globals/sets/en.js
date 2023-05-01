@@ -1,12 +1,12 @@
-import { errorId, homeId, detailId, workId, useId } from '../envs';
+import { errorId, homeId, detailId, workId, useId, articleId } from '../envs';
 
 export default {
   [homeId]: {
-    title: 'My homepage',
+    title: 'Homepage - My home',
     name: 'Home',
   },
   [workId]: {
-    title: 'Workpage - Portfolio',
+    title: 'Workpage - My portfolio',
     name: 'Workpage',
     projs: {
       title: 'Projects',
@@ -23,27 +23,31 @@ export default {
   },
   [detailId]: {
     title: 'Detail',
+    name: 'Detail',
     desc: 'Description',
     preview: 'Preview',
   },
-  [useId]: {
-    title: 'Usepage - Passion',
-    name: 'Use',
-    slogan: 'Mobile lifestyle. My passion, go to everywhere with all in one.',
-    uses: [
-      {
-        id: 'workflow',
+  [articleId]: {
+    title: 'Article - My heart',
+    name: 'Article',
+    tablet: 'Tablet Contents',
+    types: {
+      workflow: {
         title: 'Workflow',
       },
-      {
-        id: 'kitflow',
+      kitflow: {
         title: 'Kitflow',
       },
-      {
-        id: 'devkit',
+      devflow: {
         title: 'Devflow',
       },
-    ],
+    },
+  },
+  [useId]: {
+    title: 'Usepage - My passion',
+    name: 'Use',
+    slogan: 'Mobile lifestyle. My passion, go to everywhere with all in one.',
+    uses: {},
   },
   [errorId]: {
     c404: {

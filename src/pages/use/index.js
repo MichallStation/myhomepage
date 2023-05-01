@@ -1,96 +1,52 @@
 import React, { useMemo } from 'react';
 import {
-  Box,
-  Button,
   Container,
   Heading,
-  Image,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalOverlay,
   Tab,
   TabList,
   TabPanel,
   TabPanels,
   Tabs,
-  Text,
-  useColorModeValue,
-  useDisclosure,
 } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 import createFeaturesStorage from '@/features';
 import SEO from '@/layouts/SEO';
 import { getSet } from '@/_globals/sets';
-import { useId } from '@/_globals/envs';
+import {
+  articleId,
+  useDevflowType,
+  useId,
+  useKitflowType,
+  useWorkflowType,
+} from '@/_globals/envs';
 import Footer from '@/components/Footer';
-import Section from '@/layouts/Section';
 import { getArticleByLang } from '@/_globals/db';
-import PopupArticle from '@/layouts/PopupArticle';
+import ArticleCard from '@/components/ArticleCard';
 
-function Detail({ data, trigger, ...props }) {
-  return (
-    <motion.div
-      drag
-      dragConstraints={{
-        left: 0,
-        right: 0,
-        top: 0,
-        bottom: 0,
-      }}
-      whileTap={{ scale: 1.1, zIndex: 1 }}
-      whileFocus={{ scale: 1.1, zIndex: 1 }}
-      whileHover={{ scale: 1.1, zIndex: 1 }}
-      whileDrag={{ scale: 1.1, zIndex: 1 }}
-    >
-      <Button
-        overflow="hidden"
-        variant="unstyled"
-        borderRadius="32px"
-        w="100%"
-        h="100%"
-        pos="relative"
-        onClick={trigger}
-        {...props}
-      >
-        <Image
-          filter="brightness(0.5)"
-          src={data.thumbnail}
-          objectFit="cover"
-          w="100%"
-          h="100%"
-        />
-        <Box
-          top="50%"
-          // left="50%"
-          left={0}
-          right={0}
-          // bottom=''
-          // transform="translate(-50%, -50%)"
-          pos="absolute"
-          // color="chakra-body-bg"
-          color="whiteAlpha.800"
-          textAlign="center"
-        >
-          <Heading>{data.title}</Heading>
-          <Text display="block">{data.desc}</Text>
-        </Box>
-      </Button>
-    </motion.div>
-  );
-}
+const tabindexs = {
+  [useWorkflowType]: 0,
+  [useKitflowType]: 1,
+  [useDevflowType]: 2,
+};
+
+const tabnames = [useWorkflowType, useKitflowType, useDevflowType];
 
 /** @param {{storage: import('@/features/@features').FeaturesStorage}} */
-function Use({ storage }) {
+function Use({ storage, type }) {
   const { lang } = storage.current;
   const set = getSet(useId, lang);
+  const setArticle = getSet(articleId, lang);
   const articles = useMemo(() => getArticleByLang(lang), [lang]);
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const router = useRouter();
+  const tabIndex = tabindexs[type];
+  const useTabsRender = Object.entries(setArticle.types);
 
   return (
     <>
-      <SEO lang={lang} title={set.title} />
+      <SEO
+        lang={lang}
+        title={`${set.title} - ${setArticle.types[type].title}`}
+      />
       <Container
         maxW={{ sm: 'full', md: '3xl' }}
         pos="relative"
@@ -106,48 +62,41 @@ function Use({ storage }) {
         >
           {set?.slogan}
         </Heading>
-        <Tabs variant="soft-rounded" colorScheme="seconds" mt={8}>
+        <Tabs
+          tabIndex={tabIndex}
+          defaultIndex={tabIndex}
+          onChange={(index) => router.push(`?type=${tabnames[index]}`)}
+          variant="soft-rounded"
+          colorScheme="seconds"
+          mt={8}
+        >
           <TabList overflowX="scroll" overflowY="hidden">
-            {set.uses.map((i) => (
-              <Tab h="48px" minW="100px" key={i.id}>
+            {useTabsRender.map(([id, i]) => (
+              <Tab key={id} h="48px" minW="100px" mr={2}>
                 {i.title}
               </Tab>
             ))}
           </TabList>
           <TabPanels mt={4}>
-            {articles.map((i) => (
-              <TabPanel key={i.id} p={0}>
-                <Detail trigger={onOpen} data={i} height="40vh" />
+            {useTabsRender.map(([id]) => (
+              <TabPanel key={id} id={id} p={0}>
+                {articles.map(
+                  (article) =>
+                    article.type === id && (
+                      <ArticleCard
+                        key={article.id}
+                        data={article}
+                        href={`/${articleId}/${article.id}?page=${useId}&type=${article.type}`}
+                        h={['280px', '320px']}
+                      />
+                    ),
+                )}
               </TabPanel>
             ))}
           </TabPanels>
         </Tabs>
         <Footer lang={lang} />
       </Container>
-      <Modal
-        blockScrollOnMount={false}
-        isOpen={isOpen}
-        onClose={onClose}
-        isCentered
-        size={['full', 'full', '3xl']}
-        motionPreset="slideInBottom"
-      >
-        <ModalOverlay bg="blackAlpha.800" />
-        <ModalContent
-          backgroundColor={useColorModeValue(
-            'whiteAlpha.800',
-            'whiteAlpha.800',
-            // 'blackAlpha.300',
-          )}
-          backdropFilter="blur(10px)"
-        >
-          <ModalCloseButton />
-          <ModalBody p={2}>
-            <PopupArticle />
-            {/* <BallGallery data={data} originIndex={index} /> */}
-          </ModalBody>
-        </ModalContent>
-      </Modal>
     </>
   );
 }
@@ -155,7 +104,10 @@ function Use({ storage }) {
 /** @param {import('next').NextPageContext} context */
 export async function getServerSideProps(context) {
   return {
-    props: { storage: createFeaturesStorage(context) },
+    props: {
+      type: context.query?.type || useWorkflowType,
+      storage: createFeaturesStorage(context),
+    },
   };
 }
 

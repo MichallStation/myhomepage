@@ -2,7 +2,6 @@ import { useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
 
 function Banner500() {
-  const color = useColorModeValue('black', 'white');
   return (
     <svg
       id="error-banner"

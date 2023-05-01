@@ -1,4 +1,5 @@
 export const useId = 'use';
+export const articleId = 'article';
 export const workId = 'work';
 export const homeId = 'home';
 export const errorId = 'error';
@@ -29,5 +30,9 @@ export const WorkShowsId = 'WorkShows';
 export const detailProjectType = 'projs';
 export const detailWorkType = 'works';
 export const detailCollabType = 'collabs';
+
+export const useWorkflowType = 'workflow';
+export const useKitflowType = 'kitflow';
+export const useDevflowType = 'devflow';
 
 export default {};

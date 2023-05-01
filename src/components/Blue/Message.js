@@ -1,8 +1,8 @@
-import { Toast, useToast } from '@chakra-ui/react';
+import { useToast } from '@chakra-ui/react';
 import React from 'react';
 import BallChat from '../BallChat';
 
-function Message({ children, id, onClose }) {
+function Message({ children, id }) {
   // children = typeof children === 'string' ? [children] : children;
   const toast = useToast();
   return (

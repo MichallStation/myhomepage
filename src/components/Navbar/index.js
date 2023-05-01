@@ -1,7 +1,6 @@
 import { Router, useRouter } from 'next/router';
 import React, { useEffect } from 'react';
-import { Box, Container, Image, useToast } from '@chakra-ui/react';
-import { useSelector } from 'react-redux';
+import { Box, Container } from '@chakra-ui/react';
 import Logo from '../Brand';
 import ThemeButton from '../ThemeButton';
 import LanguageButton from '../LanguageButton';
@@ -9,7 +8,6 @@ import BallProgress from '../BallProgress';
 import useProgress from '@/features/hooks/useProgress';
 import NavLink from './NavLink';
 import envs from './envs';
-import { DONE, selectball3dStatus } from '@/features/slices/ui';
 
 /** @type {Object.<string, import('react').CSSProperties>} */
 const style = {
@@ -51,12 +49,12 @@ function Navbar({ storage }) {
       Router.events.off('routeChangeStart', handleChangeStart);
       Router.events.off('routeChangeComplete', handleChangeComplete);
     };
-  }, [router]);
+  }, [router, setDone, setLoading]);
 
   return (
     <Box
       id="navbar"
-      path={router.route}
+      path={router.asPath}
       as="nav"
       style={style.nav}
       zIndex="docked"

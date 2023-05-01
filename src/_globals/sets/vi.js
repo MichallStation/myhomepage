@@ -1,12 +1,12 @@
-import { errorId, homeId, detailId, workId, useId } from '../envs';
+import { errorId, homeId, detailId, workId, useId, articleId } from '../envs';
 
 export default {
   [homeId]: {
-    title: 'Nhà của tôi',
+    title: 'Trang chủ - Nhà của tôi',
     name: 'Nhà',
   },
   [workId]: {
-    title: 'Công việc - Hồ sơ',
+    title: 'Công việc - Hồ sơ của tôi',
     name: 'Hồ sơ công việc',
     projs: {
       // title: 'Dự án nổi bật',
@@ -24,29 +24,33 @@ export default {
   },
   [detailId]: {
     title: 'Chi tiết',
+    name: 'Chi tiết',
     desc: 'Mô tả',
     preview: 'Xem trước',
   },
+  [articleId]: {
+    title: 'Bài viết - Tâm huyết của tôi',
+    name: 'Bài viết',
+    tablet: 'Mục lục',
+    types: {
+      workflow: {
+        title: 'Bộ công việc',
+      },
+      kitflow: {
+        title: 'Bộ công cụ',
+      },
+      devflow: {
+        title: 'Bộ nhà phát triển',
+      },
+    },
+  },
   [useId]: {
-    title: 'Đồ dùng - Đam mê',
+    title: 'Đồ dùng - Niềm đam mê của tôi',
     name: 'Đồ dùng',
     // slogan: 'Phơng châm của tôi là tận dụng tối đa hóa từng đồ dùng nhỏ nhất.',
     slogan:
       'Lối sống di động. Niềm đam mê của tôi, đi mọi nơi cùng với tất cả trong một.',
-    uses: [
-      {
-        id: 'workflow',
-        title: 'Bộ công việc',
-      },
-      {
-        id: 'kitflow',
-        title: 'Bộ công cụ',
-      },
-      {
-        id: 'devkit',
-        title: 'Bộ nhà phát triển',
-      },
-    ],
+    uses: {},
   },
   [errorId]: {
     c404: {
@@ -122,5 +126,9 @@ export default {
       'Bạn sẽ thấy tôi ở mọi nơi mà Đạt từng làm việc.',
     ],
     joke: 'Bạn sẽ thấy tôi ở mọi nơi mà Đạt từng làm việc.',
+    guide: {
+      [homeId]: 'Bạn đang ở tại',
+      [workId]: '',
+    },
   },
 };

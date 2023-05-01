@@ -1,11 +1,4 @@
 import {
-  Avatar,
-  Box,
-  Code,
-  Text,
-  Icon,
-  Wrap,
-  WrapItem,
   SimpleGrid,
   Image,
   useDisclosure,
@@ -13,29 +6,12 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
-  ModalHeader,
-  ModalCloseButton,
   ModalBody,
-  ModalFooter,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
-import React, { useCallback, useRef, useState } from 'react';
-import { FaArrowsAltH } from 'react-icons/fa';
-import ImageGallery from 'react-image-gallery';
+import React, { useCallback, useState } from 'react';
 import BallGallery from '../BallGallery';
-import Gallery from '../Gallery';
-
-/** @type {Object<string, import('framer-motion').TargetAndTransition>} * */
-const variants = {
-  nothing: {
-    scale: 1,
-  },
-  say: {
-    scale: 1.6,
-  },
-};
 
 function PreviewInfo({ data, ...props }) {
   const [index, setIndex] = useState(0);
@@ -71,7 +47,7 @@ function PreviewInfo({ data, ...props }) {
               }}
               whileTap={{ scale: 1.1, zIndex: 1 }}
               whileFocus={{ scale: 1.1, zIndex: 1 }}
-              whileHover={{ scale: 1.1, zIndex: 1 }}
+              whileHover={{ scale: 1.1 }}
               whileDrag={{ scale: 1.1, zIndex: 1 }}
             >
               <Button
@@ -115,6 +91,10 @@ function PreviewInfo({ data, ...props }) {
             // 'blackAlpha.300',
           )}
           backdropFilter="blur(10px)"
+          overflow="hidden"
+          h="60vh"
+          pos="relative"
+          // p={2}
         >
           <ModalBody p={2}>
             <BallGallery data={data} originIndex={index} />

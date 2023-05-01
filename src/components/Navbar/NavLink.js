@@ -36,6 +36,7 @@ export const props = {
     props: {
       target: '_blank',
     },
+    // icon: <FiGithub />,
     icon: <AiFillGithub />,
   },
 };

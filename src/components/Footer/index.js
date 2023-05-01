@@ -1,7 +1,6 @@
-import { Box, Heading, Image, Text } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 import React from 'react';
 import { getSet } from '@/_globals/sets';
-import Brand from '../Brand';
 import { FooterId } from '@/_globals/envs';
 
 function Footer({ lang = 'en' }) {

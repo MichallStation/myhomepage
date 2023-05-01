@@ -1,5 +1,5 @@
-import { Box, Button, Text } from '@chakra-ui/react';
-import React, { useEffect, useState } from 'react';
+import { Box, Text } from '@chakra-ui/react';
+import React from 'react';
 
 /** @param {{title: string | React.ReactNode, description: string | React.ReactNode}}  */
 function BallChat({ children, id, onClose, ...props }) {

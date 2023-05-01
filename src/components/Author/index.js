@@ -1,4 +1,4 @@
-import { MdWork, MdWorkOutline } from 'react-icons/md';
+import { MdWorkOutline } from 'react-icons/md';
 import {
   Box,
   Button,
