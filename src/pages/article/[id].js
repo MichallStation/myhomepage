@@ -101,7 +101,7 @@ export async function getServerSideProps(context) {
   const id = context.query.id || '';
   const data = getArticleByLang(storage.current.lang);
   const item = data.find((i) => i.id === id);
-  const res = await fetch(`${item.markdown}`);
+  const res = await fetch(item.markdown);
   const markdown = await res.text();
 
   // const { host, 'x-forwarded-proto': protocol } = context.req.headers;
