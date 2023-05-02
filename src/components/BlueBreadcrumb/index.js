@@ -1,4 +1,4 @@
-import { Breadcrumb, BreadcrumbItem, Button } from '@chakra-ui/react';
+import { Breadcrumb, BreadcrumbItem, Button, Icon } from '@chakra-ui/react';
 import Link from 'next/link';
 import React, { useCallback, useEffect, useRef } from 'react';
 import { IoIosArrowForward } from 'react-icons/io';
@@ -30,10 +30,10 @@ function BlueBreadcrumb({ breads = [], ...props }) {
       ref={refBread}
       {...props}
     >
-      {breads.map(({ name, href }, index) =>
+      {breads.map(({ name, href, icon }, index) =>
         index !== lastBreadIndex ? (
           <BreadcrumbItem key={name}>
-            <Button as={Link} href={href}>
+            <Button as={Link} href={href} leftIcon={icon && <Icon as={icon} />}>
               {name}
             </Button>
           </BreadcrumbItem>
@@ -42,8 +42,10 @@ function BlueBreadcrumb({ breads = [], ...props }) {
             <Button
               as={Link}
               href={href}
-              className="second-btn"
+              // className="second-btn"
+              backgroundColor="second"
               borderRadius="3xl"
+              leftIcon={icon && <Icon as={icon} />}
             >
               {name}
             </Button>

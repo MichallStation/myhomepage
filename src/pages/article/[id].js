@@ -13,6 +13,7 @@ import BlueBreadcrumb from '@/components/BlueBreadcrumb';
 import { getSet } from '@/_globals/sets';
 import ArticleHeader from '@/components/ArticleHeader';
 import useToc from '@/features/hooks/useTOC';
+import icons from '@/_globals/icons';
 
 function ArticlePage({ item, page, type, storage, markdown }) {
   const { lang } = storage.current;
@@ -25,9 +26,13 @@ function ArticlePage({ item, page, type, storage, markdown }) {
   const setPage = getSet(page, lang);
 
   const breads = [
-    { name: setPage.name, href: `/${page}` },
-    { name: set.types[type].title, href: `/${page}?type=${type}` },
-    { name: item.title, href: '#' },
+    { name: setPage.name, href: `/${page}`, icon: icons?.[page]?.Icon },
+    {
+      name: set.types[type].title,
+      href: `/${page}?type=${type}`,
+      icon: icons.article.types?.[type]?.Icon,
+    },
+    { name: item.title, href: '#', icon: icons.article.Icon },
   ];
 
   return (

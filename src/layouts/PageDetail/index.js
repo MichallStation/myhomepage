@@ -9,6 +9,7 @@ import DetailInfo from '@/components/DetailInfo';
 import PreviewInfo from '@/components/PreviewInfo';
 import { detailId, detailProjectType, workId } from '@/_globals/envs';
 import BlueBreadcrumb from '@/components/BlueBreadcrumb';
+import icons from '@/_globals/icons';
 
 function PageDetail({ lang = 'en', type = detailProjectType, detail: item }) {
   // const refBread = useRef();
@@ -31,9 +32,13 @@ function PageDetail({ lang = 'en', type = detailProjectType, detail: item }) {
   // }, [handleWindowResize]);
 
   const breads = [
-    { name: setWork.name, href: '/work' },
-    { name: setWork?.[type].title, href: `/work#${type}` },
-    { name: item.name, href: '#' },
+    { name: setWork.name, href: '/work', icon: icons.work.Icon },
+    {
+      name: setWork?.[type].title,
+      href: `/work#${type}`,
+      icon: icons.work?.[type]?.Icon,
+    },
+    { name: item.name, href: '#', icon: icons.detail.Icon },
   ];
 
   return (
