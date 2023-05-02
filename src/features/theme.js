@@ -3,8 +3,15 @@
  * Chakra-ui: https://chakra-ui.com/
  */
 
-import { extendTheme } from '@chakra-ui/react';
+import { extendTheme, defineStyleConfig } from '@chakra-ui/react';
 import { mode } from '@chakra-ui/theme-tools';
+
+const Button = defineStyleConfig({
+  baseStyle: {
+    minH: '44px',
+    minW: '44px',
+  },
+});
 
 /** @type {import('@chakra-ui/react').StyleConfig} */
 const styles = {
@@ -15,6 +22,10 @@ const styles = {
       // bg: mode('#edefee', '#192227')(props),
       // bg: mode('#f7efed', '#192227')(props),
     },
+    // button: {
+    //   h: '48px',
+    //   w: '48px',
+    // },
     'body .prim-btn': {
       bg: mode(
         'var(--chakra-colors-prim)',
@@ -30,27 +41,18 @@ const styles = {
       // color: mode('', 'var(--chakra-colors-chakra-body-bg)')(props),
     },
     'body .second-btn': {
-      bg: mode(
-        'var(--chakra-colors-second)',
-        'var(--chakra-colors-seconddark)',
-      )(props),
+      bg: 'var(--chakra-colors-second)',
       color: mode('', 'var(--chakra-colors-chakra-body-bg)')(props),
     },
     'body .second-btn-outline': {
-      color: mode(
-        'var(--chakra-colors-second)',
-        'var(--chakra-colors-seconddark)',
-      )(props),
-    },
-    'body .shows-avatar': {
-      // color: mode('saddlebrown', 'saddlebrown')(props),
+      color: 'var(--chakra-colors-second)',
     },
   }),
 };
 
 const config = {
-  // initialColorMode: 'dark',
-  initialColorMode: 'light',
+  initialColorMode: 'dark',
+  // initialColorMode: 'light',
   useSystemColorMode: true,
 };
 
@@ -58,6 +60,9 @@ const config = {
 const theme = extendTheme({
   config,
   styles,
+  components: {
+    Button,
+  },
   fonts: {
     heading: "'Signika Negative', sans-serif",
     body: "'Source Sans Pro', sans-serif",
@@ -68,15 +73,19 @@ const theme = extendTheme({
   colors: {
     prim: '#009edc',
     primdark: '#89ddff',
+    second: '#a99281',
     seconds: {
       100: '#a99281',
       200: '#a99281',
       300: '#a99281',
       400: '#a99281',
       500: '#a99281',
+      // 600: '#a99281',
+      // 700: '#a99281',
+      // 800: '#a99281',
+      // 900: '#a99281',
     },
-    second: '#a99281',
-    seconddark: '#a99281',
+    // seconddark: '#a99281',
     pop: '#fdf6ec',
   },
 });

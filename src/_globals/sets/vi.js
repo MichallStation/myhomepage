@@ -36,11 +36,11 @@ export default {
       workflow: {
         title: 'Bộ công việc',
       },
-      kitflow: {
-        title: 'Bộ công cụ',
-      },
       devflow: {
         title: 'Bộ nhà phát triển',
+      },
+      kitflow: {
+        title: 'Bộ công cụ',
       },
     },
   },
@@ -98,7 +98,7 @@ export default {
     love: {
       title: 'Tôi',
       content: [
-        { name: 'Nghệ thuật' },
+        { name: 'Nghệ thuật', href: 'https://google.com' },
         { name: 'Âm nhạc' },
         { name: 'Bóng đá' },
         { name: 'Guitar' },

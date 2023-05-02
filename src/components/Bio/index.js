@@ -9,7 +9,6 @@ import data from './envs';
 // import sets from './sets';
 import { getSet } from '@/_globals/sets';
 import { BioId } from '@/_globals/envs';
-import TextLink from '../TextLink';
 
 /** @type {Object.<string, import('react').CSSProperties>} */
 const style = {
@@ -21,38 +20,61 @@ const style = {
 
 function Bio({ lang = 'en' }) {
   const set = getSet(BioId, lang);
+
   return (
     <>
       <Section title={set.bio.title} icon={<BiObjectsHorizontalCenter />}>
         {set.bio.content.map(([year, desc]) => (
           <Box key={year} display="flex" mt={1}>
-            <Text fontWeight="bold" mr={4}>
-              {year}
+            <Text textAlign="justify" mr={4}>
+              <span style={{ fontWeight: 'bold', marginRight: '12px' }}>
+                {year}
+              </span>
+              {desc}
             </Text>
-            <Text textAlign="justify">{desc}</Text>
           </Box>
         ))}
       </Section>
       <Section title={set.love.title} icon={<AiOutlineHeart />}>
-        {set.love.content.map(({ name, href }) => (
-          <TextLink key={name} href={href} mr={2}>
-            {name}
-          </TextLink>
-        ))}
-        ...
+        <Text textAlign="justify">
+          {set.love.content.map(({ name, href }) =>
+            href ? (
+              <>
+                <Button
+                  as={Link}
+                  href={href}
+                  variant="link"
+                  target="_blank"
+                  colorScheme="pink"
+                >
+                  {name}
+                </Button>
+                {', '}
+              </>
+            ) : (
+              <span>
+                {name}
+                {', '}
+              </span>
+            ),
+          )}
+          ...
+        </Text>
       </Section>
       <Section title={set.social.title} icon={<IoShareSocialOutline />}>
         {data.map((i) => (
           <Box key={i.name}>
             <Button
               // className="prim-btn-outline"
-              className="second-btn"
+              // className="second-btn"
               as={Link}
               title={i.name}
               href={i.href}
               leftIcon={i.icon}
               target="_blank"
               style={style.btn}
+              backgroundColor="second"
+              // h="48px"
               mt={2}
             >
               {i.username}

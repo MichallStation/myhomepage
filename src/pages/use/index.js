@@ -1,5 +1,7 @@
 import React, { useMemo } from 'react';
 import {
+  Box,
+  Button,
   Container,
   Heading,
   Tab,
@@ -9,6 +11,8 @@ import {
   Tabs,
 } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
+import { VscCode, VscTools } from 'react-icons/vsc';
+import { MdWorkOutline } from 'react-icons/md';
 import createFeaturesStorage from '@/features';
 import SEO from '@/layouts/SEO';
 import { getSet } from '@/_globals/sets';
@@ -31,6 +35,12 @@ const tabindexs = {
 
 const tabnames = [useWorkflowType, useKitflowType, useDevflowType];
 
+const icons = {
+  [useWorkflowType]: <MdWorkOutline />,
+  [useDevflowType]: <VscCode />,
+  [useKitflowType]: <VscTools />,
+};
+
 /** @param {{storage: import('@/features/@features').FeaturesStorage}} */
 function Use({ storage, type }) {
   const { lang } = storage.current;
@@ -51,12 +61,14 @@ function Use({ storage, type }) {
         maxW={{ sm: 'full', md: '3xl' }}
         pos="relative"
         // overflow="hidden"
+        px={6}
       >
         <Heading
           fontSize="xl"
           textAlign="center"
           borderRadius="12px"
-          // fontWeight="normal"
+          fontWeight="normal"
+          // fontFamily="serif"
           p={3}
           backgroundColor="second"
         >
@@ -69,13 +81,29 @@ function Use({ storage, type }) {
           variant="soft-rounded"
           colorScheme="seconds"
           mt={8}
+          isLazy
         >
           <TabList overflowX="scroll" overflowY="hidden">
-            {useTabsRender.map(([id, i]) => (
-              <Tab key={id} minH="48px" minW="100px" mr={2} p={2}>
-                {i.title}
-              </Tab>
-            ))}
+            <Box display="flex" minW="md">
+              {useTabsRender.map(([id, i]) => (
+                <Tab
+                  key={id}
+                  as={Button}
+                  // minH="48px"
+                  height="44px"
+                  // minW="140px"
+                  w="auto"
+                  mr={2}
+                  py={2}
+                  px={4}
+                  variant="unstyled"
+                  leftIcon={icons[id]}
+                  // borderRadius="lg"
+                >
+                  {i.title}
+                </Tab>
+              ))}
+            </Box>
           </TabList>
           <TabPanels mt={4}>
             {useTabsRender.map(([id]) => (
@@ -87,7 +115,7 @@ function Use({ storage, type }) {
                         key={article.id}
                         data={article}
                         href={`/${articleId}/${article.id}?page=${useId}&type=${article.type}`}
-                        h={['280px', '320px']}
+                        // h={['200px', '320px']}
                       />
                     ),
                 )}

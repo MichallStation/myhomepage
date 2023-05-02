@@ -16,6 +16,7 @@ import {
   MenuItem,
   MenuList,
   Text,
+  Icon,
 } from '@chakra-ui/react';
 import { MdWorkOutline } from 'react-icons/md';
 import envs, { links } from './envs';
@@ -24,40 +25,40 @@ import { NavbarId } from '@/_globals/envs';
 
 export const props = {
   Home: {
-    icon: <AiOutlineHome />,
+    icon: AiOutlineHome,
   },
   Work: {
-    icon: <MdWorkOutline />,
+    icon: MdWorkOutline,
   },
   Use: {
-    icon: <AiOutlineVideoCamera />,
+    icon: AiOutlineVideoCamera,
   },
   Source: {
     props: {
       target: '_blank',
     },
     // icon: <FiGithub />,
-    icon: <AiFillGithub />,
+    icon: AiFillGithub,
   },
 };
 
-export const mobileProps = {
-  Home: {
-    icon: <AiOutlineHome />,
-  },
-  Work: {
-    icon: <MdWorkOutline />,
-  },
-  Use: {
-    icon: <AiOutlineVideoCamera />,
-  },
-  Source: {
-    props: {
-      target: '_blank',
-    },
-    icon: <AiFillGithub />,
-  },
-};
+// export const mobileProps = {
+//   Home: {
+//     icon: <AiOutlineHome />,
+//   },
+//   Work: {
+//     icon: <MdWorkOutline />,
+//   },
+//   Use: {
+//     icon: <AiOutlineVideoCamera />,
+//   },
+//   Source: {
+//     props: {
+//       target: '_blank',
+//     },
+//     icon: <AiFillGithub />,
+//   },
+// };
 
 const pagesRendered = Object.entries(links);
 
@@ -91,9 +92,11 @@ function NavLink({ lang = 'en', router }) {
             ml={2}
             style={{ height: envs.height }}
           >
-            <Box
-              className={isActive(item.href) && 'second-btn'}
+            <Button
+              backgroundColor={isActive(item.href) && 'second'}
               as={Link}
+              variant="unstyled"
+              title={set[id]}
               // locale={lang}
               p={2}
               minWidth="60px"
@@ -105,46 +108,53 @@ function NavLink({ lang = 'en', router }) {
               borderRadius="4px"
               {...props[id]?.props}
             >
-              {props[id]?.icon}
+              {props[id]?.icon && <Icon as={props[id].icon} boxSize="18px" />}
               <Text ml={props[id]?.icon && 2}>{set[id]}</Text>
-            </Box>
+            </Button>
           </ListItem>
         ))}
       </List>
       <Box display={{ base: 'block', md: 'none' }} ml={2}>
         <Menu isLazy>
-          <MenuButton as={Button}>
-            <AiOutlineMenu size={24} />
+          <MenuButton title="Menu" as={Button} p={2} w="48px">
+            <Icon
+              as={AiOutlineMenu}
+              boxSize="24px"
+              transform="translateY(2px)"
+            />
           </MenuButton>
           <MenuList>
             {pagesRendered.map(([id, item]) => (
               <MenuItem
                 key={id}
-                title={id}
+                title={set[id]}
                 display="flex"
                 alignItems="center"
                 justifyContent="center"
                 p={1}
                 style={{ height: envs.height }}
               >
-                <Box
-                  className={isActive(item.href) && 'second-btn'}
+                <Button
+                  variant="unstyled"
+                  backgroundColor={isActive(item.href) && 'second'}
                   as={Link}
                   // p={0}
                   // locale={lang}
                   minWidth="100%"
-                  height="100%"
+                  height="44px"
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
                   fontSize="md"
                   href={item.href}
                   borderRadius="4px"
-                  {...mobileProps[id]?.mobileProps}
+                  {...props[id]?.props}
                 >
-                  {mobileProps[id]?.icon}
-                  <Text ml={mobileProps[id]?.icon && 2}>{set[id]}</Text>
-                </Box>
+                  {props[id]?.icon && (
+                    <Icon as={props[id].icon} boxSize="18px" />
+                  )}
+                  <Text ml={props[id]?.icon && 2}>{set[id]}</Text>
+                </Button>
               </MenuItem>
             ))}
           </MenuList>

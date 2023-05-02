@@ -30,8 +30,8 @@ function ArticleHeader({ toc, set, data, ...props }) {
           width={['100%', '100%', '40%']}
           height={['40%', '40%', '100%']}
           backgroundColor="second"
-          py={2}
-          px={4}
+          p={4}
+          // px={4}
           display="flex"
           alignItems="center"
           justifyContent="center"

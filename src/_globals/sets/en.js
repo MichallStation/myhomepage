@@ -35,11 +35,11 @@ export default {
       workflow: {
         title: 'Workflow',
       },
-      kitflow: {
-        title: 'Kitflow',
-      },
       devflow: {
         title: 'Devflow',
+      },
+      kitflow: {
+        title: 'Kitflow',
       },
     },
   },

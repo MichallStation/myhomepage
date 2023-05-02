@@ -6,8 +6,8 @@ import { motion } from 'framer-motion';
 /** @type {Object.<string, import('react').CSSProperties>} */
 const style = {
   btn: {
-    width: 40,
-    height: 40,
+    width: 44,
+    height: 44,
   },
 };
 
@@ -18,6 +18,7 @@ function ThemeButton(props) {
       <Button
         as={motion.button}
         initial={{ y: -20, opacity: 0 }}
+        // initial={false}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 20, opacity: 0 }}
         key={useColorModeValue('light', 'dark')}

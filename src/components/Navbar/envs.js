@@ -1,6 +1,7 @@
 import author from '@/author';
 
 export default {
+  // height: 52,
   height: 48,
   logoHeight: 40,
 };

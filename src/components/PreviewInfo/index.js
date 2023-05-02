@@ -70,6 +70,7 @@ function PreviewInfo({ data, ...props }) {
                   alt={title}
                   boxShadow="dark-lg"
                   data-index={i}
+                  backgroundColor="transparent"
                 />
               </Button>
             </motion.div>

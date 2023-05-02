@@ -18,6 +18,7 @@ function Home({ storage }) {
         maxW={{ sm: 'full', md: '3xl' }}
         pos="relative"
         overflow="hidden"
+        px={6}
       >
         <Author lang={lang} />
         <Bio lang={lang} />

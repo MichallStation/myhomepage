@@ -1,13 +1,5 @@
-import React, { useRef, useCallback } from 'react';
-import {
-  Box,
-  Button,
-  Container,
-  useColorModeValue,
-  Icon,
-} from '@chakra-ui/react';
-import { useRouter } from 'next/router';
-import { BsBoxArrowLeft } from 'react-icons/bs';
+import React, { useRef } from 'react';
+import { Box, Container } from '@chakra-ui/react';
 import ReactMarkdown from 'react-markdown';
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
 import remarkGfm from 'remark-gfm';
@@ -24,15 +16,10 @@ import useToc from '@/features/hooks/useTOC';
 
 function ArticlePage({ item, page, type, storage, markdown }) {
   const { lang } = storage.current;
-  const router = useRouter();
   const refContent = useRef();
   const toc = useToc(refContent, [markdown]);
 
-  const handlePrev = useCallback(() => {
-    router.back();
-  }, [router]);
-
-  if (!page || !type || !item) return <E404 />;
+  if (!page || !type || !item || !markdown) return <E404 />;
 
   const set = getSet(articleId, lang);
   const setPage = getSet(page, lang);
@@ -50,6 +37,7 @@ function ArticlePage({ item, page, type, storage, markdown }) {
         maxW={{ sm: 'full', md: '3xl' }}
         // pos="relative"
         // overflow="hidden"
+        px={6}
       >
         <Box
           display="flex"
@@ -58,7 +46,7 @@ function ArticlePage({ item, page, type, storage, markdown }) {
           mb={4}
         >
           <BlueBreadcrumb breads={breads} flex={1} />
-          <Button
+          {/* <Button
             ml={2}
             borderRadius="lg"
             w="48px"
@@ -72,7 +60,7 @@ function ArticlePage({ item, page, type, storage, markdown }) {
           >
             <BsBoxArrowLeft />
             <Icon as={BsBoxArrowLeft} boxSize="24px" />
-          </Button>
+          </Button> */}
         </Box>
         <Box as="article" className="article">
           <ArticleHeader toc={toc} set={set} data={item} />
@@ -99,15 +87,17 @@ function ArticlePage({ item, page, type, storage, markdown }) {
 export async function getServerSideProps(context) {
   const storage = createFeaturesStorage(context);
   const id = context.query.id || '';
-  const data = getArticleByLang(storage.current.lang);
-  const item = data.find((i) => i.id === id);
-  const res = await fetch(item.markdown);
-  const markdown = await res.text();
+  let item = null;
+  let markdown = null;
 
-  // const { host, 'x-forwarded-proto': protocol } = context.req.headers;
-  // const res = await fetch(
-  //   `${protocol}://${host}/articles/${id}/${storage.current.lang}.md`,
-  // );
+  try {
+    const data = getArticleByLang(storage.current.lang);
+    item = data.find((i) => i.id === id) || null;
+    const res = await fetch(item.markdown);
+    markdown = (await res.text()) || null;
+  } catch (error) {
+    /* empty */
+  }
 
   return {
     props: {

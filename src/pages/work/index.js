@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Container } from '@chakra-ui/react';
-import { AiOutlineProject } from 'react-icons/ai';
+import { VscOutput, VscPerson, VscProject } from 'react-icons/vsc';
 import createFeaturesStorage from '@/features';
 import { getSet } from '@/_globals/sets';
 import SEO from '@/layouts/SEO';
@@ -31,13 +31,13 @@ function Work({ storage }) {
         maxW={{ sm: 'full', md: '3xl' }}
         pos="relative"
         // overflow="hidden"
+        px={6}
       >
         <Section
           id={detailProjectType}
           title={set.projs.title}
-          sep={3}
           mt={0}
-          icon={<AiOutlineProject />}
+          icon={<VscProject />}
         >
           {set.projs.content}
           <ThumbnailShows
@@ -48,7 +48,11 @@ function Work({ storage }) {
           />
         </Section>
         <BallDivider mt={4} />
-        <Section id={detailWorkType} title={set.works.title} sep={3}>
+        <Section
+          id={detailWorkType}
+          title={set.works.title}
+          icon={<VscOutput />}
+        >
           {set.works.content}
           <ThumbnailShows
             data={works}
@@ -58,7 +62,11 @@ function Work({ storage }) {
           />
         </Section>
         <BallDivider mt={4} />
-        <Section id={detailCollabType} title={set.collabs.title} sep={3}>
+        <Section
+          id={detailCollabType}
+          title={set.collabs.title}
+          icon={<VscPerson />}
+        >
           {set.collabs.content}
           <CollabShows lang={lang} mt={4} />
         </Section>

@@ -68,10 +68,14 @@ function Author({ lang = 'en' }) {
         <Text textAlign="justify">{set.workcontent}</Text>
         <Box mt={4} display="flex" justifyContent="center">
           <Button
-            className="prim-btn"
             as={Link}
             href="/work"
+            backgroundColor={useColorModeValue('prim', 'primdark')}
+            // h="48px"
+            // colorScheme="prim"
+            color={useColorModeValue('', 'black')}
             rightIcon={<BsBoxArrowInRight />}
+            p={5}
           >
             {set.workbtn}
           </Button>

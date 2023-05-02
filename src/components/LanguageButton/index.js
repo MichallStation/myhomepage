@@ -1,18 +1,26 @@
 import React, { useCallback } from 'react';
-import { Button, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
+import {
+  Button,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Text,
+} from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 import { langs } from '@/_globals/sets';
 import { expiresDay } from '@/utils/cookie';
+import envs from './envs';
 
 /** @type {Object.<string, import('react').CSSProperties>} */
 const style = {
   select: {
-    // width: 40,
-    // height: 40,
+    // width: '44px',
+    height: '44px',
   },
   option: {
-    // borderRadius: 12,
+    height: '44px',
   },
 };
 
@@ -38,7 +46,9 @@ function LanguageButton({ lang = 'en' }) {
 
   return (
     <Menu>
-      <MenuButton as={Button}>{lang}</MenuButton>
+      <MenuButton as={Button} style={style.select}>
+        {lang}
+      </MenuButton>
       <MenuList p={2}>
         {langs.map((i) => (
           <MenuItem
@@ -51,7 +61,8 @@ function LanguageButton({ lang = 'en' }) {
             onClick={handleChangeLang}
             mt={1}
           >
-            {i}
+            {envs?.[i]}
+            <Text ml={2}>{i}</Text>
           </MenuItem>
         ))}
       </MenuList>

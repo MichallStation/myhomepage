@@ -25,6 +25,7 @@ function Error() {
       <Container
         maxW={{ sm: 'full', md: '3xl' }}
         pos="relative"
+        px={6}
         overflow="hidden"
       >
         <Heading display="flex" alignItems="center" filter="contrast(0.5)">

@@ -16,7 +16,8 @@ function BallSpinner() {
         width="20%"
         height="20%"
         // thickness={[8, 10]}
-        speed="0.6s"
+        // speed="0.6s"
+        speed="0.4s"
         thickness={[20, 28]}
       />
     </Box>

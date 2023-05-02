@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useCallback } from 'react';
-import { Box, Container, Heading, Image, Text } from '@chakra-ui/react';
+import React from 'react';
+import { Box, Container, Heading, Img, Text, Icon } from '@chakra-ui/react';
+import { GrArticle } from 'react-icons/gr';
 import SEO from '@/layouts/SEO';
 import { getSet } from '@/_globals/sets';
 import Section from '@/layouts/Section';
@@ -10,24 +11,24 @@ import { detailId, detailProjectType, workId } from '@/_globals/envs';
 import BlueBreadcrumb from '@/components/BlueBreadcrumb';
 
 function PageDetail({ lang = 'en', type = detailProjectType, detail: item }) {
-  const refBread = useRef();
+  // const refBread = useRef();
   const set = getSet(detailId, lang);
   const setWork = getSet(workId, lang);
 
-  const handleWindowResize = useCallback(() => {
-    const { current: breadEl } = refBread;
-    if (!breadEl) return;
-    breadEl.scrollLeft = breadEl.offsetWidth;
-  }, []);
+  // const handleWindowResize = useCallback(() => {
+  //   const { current: breadEl } = refBread;
+  //   if (!breadEl) return;
+  //   breadEl.scrollLeft = breadEl.offsetWidth;
+  // }, []);
 
-  useEffect(() => handleWindowResize(), [handleWindowResize]);
+  // useEffect(() => handleWindowResize(), [handleWindowResize]);
 
-  useEffect(() => {
-    window.addEventListener('resize', handleWindowResize, false);
-    return () => {
-      window.removeEventListener('resize', handleWindowResize, false);
-    };
-  }, [handleWindowResize]);
+  // useEffect(() => {
+  //   window.addEventListener('resize', handleWindowResize, false);
+  //   return () => {
+  //     window.removeEventListener('resize', handleWindowResize, false);
+  //   };
+  // }, [handleWindowResize]);
 
   const breads = [
     { name: setWork.name, href: '/work' },
@@ -44,9 +45,11 @@ function PageDetail({ lang = 'en', type = detailProjectType, detail: item }) {
       <Container
         maxW={{ sm: 'full', md: '3xl' }}
         pos="relative"
+        p={6}
         // overflow="hidden"
       >
-        <BlueBreadcrumb ref={refBread} breads={breads} />
+        {/* <BlueBreadcrumb ref={refBread} breads={breads} /> */}
+        <BlueBreadcrumb breads={breads} />
         <Box as="article" title={item.name} id={item.id} mt={4}>
           <Box
             id="thumbnail"
@@ -64,20 +67,38 @@ function PageDetail({ lang = 'en', type = detailProjectType, detail: item }) {
               borderRadius="32px"
               textAlign="center"
               // textAlign="right"
-              fontSize="3xl"
+              fontSize="4xl"
               fontFamily="deco"
               display="block"
               mb={4}
             >
               {item.name}
             </Heading>
-            <Image
-              // width="xl"
-              borderRadius="lg"
-              src={item.thumbnail}
-              alt={item.name}
-              // mt={6}
-            />
+            <Box
+              // px={2}
+              // pt={8}
+              // pb={2}
+              pt={1}
+              backgroundColor="second"
+              borderRadius="32px 32px 2px 2px"
+            >
+              <Box display="flex" justifyContent="center">
+                <Icon
+                  className="animate__animated animate__flip animate__infinite animate__slow"
+                  as={GrArticle}
+                  boxSize="24px"
+                />
+              </Box>
+              <Img
+                // width="xl"
+                // borderRadius="8px 8px 0 0"
+                src={item.thumbnail}
+                alt={item.name}
+                backgroundColor="transparent"
+                // filter="brightness(0.8)"
+                // mt={6}
+              />
+            </Box>
           </Box>
           <Section title={set.desc} id="desc" sep={4}>
             <Text textAlign="justify">{item.desc}</Text>

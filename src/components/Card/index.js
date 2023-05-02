@@ -1,29 +1,30 @@
-import { Box, Button, Image } from '@chakra-ui/react';
+import { Button, Img } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import React from 'react';
 
 /** @param {{props: import('@chakra-ui/react').ButtonProps}}  */
 function Card({ children, title, img, ...props }) {
   return (
-    <Box display="flex" justifyContent={['center', 'flex-start']}>
-      <motion.div
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        style={{ display: 'inline-block' }}
+    // <Box display="flex" justifyContent={['center', 'flex-start']}>
+    <motion.div
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+      // style={{ display: 'inline-block' }}
+    >
+      <Button
+        title={title}
+        p={0}
+        m={0}
+        overflow="hidden"
+        // backgroundPosition="center"
+        // backgroundSize="cover"
+        boxShadow="lg"
+        pos="relative"
+        borderRadius="lg"
+        backgroundColor="chakra-body-bg"
+        {...props}
       >
-        <Button
-          title={title}
-          p={0}
-          m={0}
-          overflow="hidden"
-          // backgroundPosition="center"
-          // backgroundSize="cover"
-          boxShadow="lg"
-          pos="relative"
-          borderRadius="lg"
-          {...props}
-        >
-          {/* <Box
+        {/* <Box
             pos="absolute"
             // backgroundColor="blackAlpha.200"
             backdropFilter="blur(10px)"
@@ -42,17 +43,17 @@ function Card({ children, title, img, ...props }) {
               {title}
             </Heading>
           </Box> */}
-          <Image
-            width="100%"
-            height="100%"
-            title={title}
-            src={img}
-            alt={title}
-            objectFit="cover"
-          />
-        </Button>
-      </motion.div>
-    </Box>
+        <Img
+          width="100%"
+          height="100%"
+          title={title}
+          src={img}
+          alt={title}
+          objectFit="cover"
+          backgroundColor="transparent"
+        />
+      </Button>
+    </motion.div>
   );
 }
 

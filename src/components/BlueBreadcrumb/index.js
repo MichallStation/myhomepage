@@ -1,16 +1,33 @@
 import { Breadcrumb, BreadcrumbItem, Button } from '@chakra-ui/react';
 import Link from 'next/link';
-import React, { forwardRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { IoIosArrowForward } from 'react-icons/io';
 
-const BlueBreadcrumb = forwardRef(({ breads = [], ...props }, ref) => {
+function BlueBreadcrumb({ breads = [], ...props }) {
   const lastBreadIndex = breads.length - 1;
+  const refBread = useRef();
+
+  const handleWindowResize = useCallback(() => {
+    const { current: breadEl } = refBread;
+    if (!breadEl) return;
+    breadEl.scrollLeft = breadEl.offsetWidth;
+  }, []);
+
+  useEffect(() => handleWindowResize(), [handleWindowResize]);
+
+  useEffect(() => {
+    window.addEventListener('resize', handleWindowResize, false);
+    return () => {
+      window.removeEventListener('resize', handleWindowResize, false);
+    };
+  }, [handleWindowResize]);
+
   return (
     <Breadcrumb
       separator={<IoIosArrowForward color="gray.500" />}
       overflowX="scroll"
       className="breadcrumb"
-      ref={ref}
+      ref={refBread}
       {...props}
     >
       {breads.map(({ name, href }, index) =>
@@ -35,6 +52,6 @@ const BlueBreadcrumb = forwardRef(({ breads = [], ...props }, ref) => {
       )}
     </Breadcrumb>
   );
-});
+}
 
 export default BlueBreadcrumb;

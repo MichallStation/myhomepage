@@ -44,6 +44,7 @@ function Ball3d() {
     const camera = new THREE.PerspectiveCamera(
       // 2.3, // original
       1.5, // small
+      // 1, // small
       cWidth / cHeight,
       0.1,
       1000,
@@ -58,12 +59,14 @@ function Ball3d() {
     // const target = new THREE.Vector3(0.3, -0.1, 0.15);
     // const target = new THREE.Vector3(0.25, -0.1, 0.15);
     const target = new THREE.Vector3(0.2, -0.1, 0.13);
+    // const target = new THREE.Vector3(0.2, -0.02, 0.13);
     const initialCameraPosition = new THREE.Vector3(
       20 * Math.sin(0.2 * Math.PI),
       10,
       20 * Math.cos(0.2 * Math.PI),
     );
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    const ambientLight = new THREE.AmbientLight(0xf1e7db, 0.5);
+    // const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
     const directionalLight = new THREE.DirectionalLight(0xf1e7db, 3);
     scene.add(ambientLight);
     scene.add(directionalLight);
@@ -81,6 +84,7 @@ function Ball3d() {
       if (frame <= 100) {
         const p = initialCameraPosition;
         const rotSpeed = easeOutCirc(frame / 120) * Math.PI * 10;
+        // const rotSpeed = easeOutCirc(frame / 120) * Math.PI * 8;
         camera.position.y = 10;
         camera.position.x = p.x * Math.cos(rotSpeed) + p.z * Math.sin(rotSpeed);
         camera.position.z = p.z * Math.cos(rotSpeed) - p.x * Math.sin(rotSpeed);
@@ -97,9 +101,9 @@ function Ball3d() {
       receiveShadow: false,
       castShadow: false,
     }).then(() => {
-      setLoading(false);
       dispatch(ball3dDone());
       animate();
+      setLoading(false);
     });
 
     container.appendChild(renderer.domElement);
@@ -109,18 +113,32 @@ function Ball3d() {
       renderer.domElement.remove();
       renderer.dispose();
     };
-  }, []);
+  }, [dispatch]);
 
   return (
     <Box
       ref={refContainer}
       className="ball-3d"
       m="auto"
-      // mt={['0', '-60px', '-60px']}
-      mt={['20px', 0]}
-      mb={['-60px', '-160px', '-180px']}
-      w={[280, 480, 560]}
-      h={[280, 480, 560]}
+      // mt={['20px', 0]}
+      // mb={['-60px', '-160px', '-180px']}
+      // w={[280, 480, 560]}
+      // h={[280, 480, 560]}
+      // mb={['-60px', '-160px', '-180px']}
+      // mt={[
+      //   '-calc((100% - 480px) / 2)',
+      //   '-calc((100% - 480px) / 2)',
+      //   '-calc((100% - 560px) / 2)',
+      // ]}
+      // mr={[
+      //   'calc((100% - 480px) / 2)',
+      //   'calc((100% - 480px) / 2)',
+      //   'calc((100% - 560px) / 2)',
+      // ]}
+      mb={['-160px', '-160px', '-180px']}
+      ml={['calc((420px - 100%) / 2 * -1)', 'auto']}
+      w={[420, 480, 560]}
+      h={[420, 480, 560]}
       overflow="hidden"
     >
       {loading && <BallSpinner />}
