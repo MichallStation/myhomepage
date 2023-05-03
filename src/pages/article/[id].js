@@ -37,7 +37,11 @@ function ArticlePage({ item, page, type, storage, markdown }) {
 
   return (
     <>
-      <SEO lang={lang} title={`${set.title} - ${item.title}`} />
+      <SEO
+        lang={lang}
+        title={`${set.title} - ${item.title}`}
+        card={item.thumbnail}
+      />
       <Container
         maxW={{ sm: 'full', md: '3xl' }}
         // pos="relative"
