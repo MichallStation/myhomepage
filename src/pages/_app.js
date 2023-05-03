@@ -25,7 +25,7 @@ export default function App({ Component, pageProps, router }) {
   return (
     <Provider store={store}>
       {/* <ChakraManager cookie={cookie} theme={theme}> */}
-      <ChakraManager theme={theme}>
+      <ChakraManager cookie={storage?.prev?.cookie} theme={theme}>
         {getLayout(<Component {...pageProps} key={router.route} />)}
       </ChakraManager>
     </Provider>

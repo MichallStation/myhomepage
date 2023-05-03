@@ -42,7 +42,7 @@ function Ball3d() {
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
-      // 2.3, // original
+      // 50, // original
       1.5, // small
       // 1, // small
       cWidth / cHeight,
@@ -83,8 +83,8 @@ function Ball3d() {
 
       if (frame <= 100) {
         const p = initialCameraPosition;
-        const rotSpeed = easeOutCirc(frame / 120) * Math.PI * 10;
-        // const rotSpeed = easeOutCirc(frame / 120) * Math.PI * 8;
+        // const rotSpeed = easeOutCirc(frame / 120) * Math.PI * 10;
+        const rotSpeed = easeOutCirc(frame / 120) * Math.PI * 6;
         camera.position.y = 10;
         camera.position.x = p.x * Math.cos(rotSpeed) + p.z * Math.sin(rotSpeed);
         camera.position.z = p.z * Math.cos(rotSpeed) - p.x * Math.sin(rotSpeed);
@@ -102,8 +102,8 @@ function Ball3d() {
       castShadow: false,
     }).then(() => {
       dispatch(ball3dDone());
-      animate();
       setLoading(false);
+      animate();
     });
 
     container.appendChild(renderer.domElement);

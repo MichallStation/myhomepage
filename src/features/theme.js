@@ -67,7 +67,7 @@ const theme = extendTheme({
     body: "'Source Sans Pro', sans-serif",
     mono: "'Fira Code', monospace",
     deco: "'Lobster Two', cursive",
-    serif: "'Source Serif Pro', serif",
+    handwrite: "'Merienda', cursive",
   },
   colors: {
     prim: '#009edc',
@@ -86,6 +86,7 @@ const theme = extendTheme({
     },
     // seconddark: '#a99281',
     pop: '#fdf6ec',
+    holder: '#808680',
   },
 });
 

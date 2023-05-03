@@ -10,14 +10,14 @@ function ArticleCard({ set, data, trigger, ...props }) {
       display="flex"
       // backgroundColor={useColorModeValue('blackAlpha.300', 'whiteAlpha.400')}
       background={[
-        'linear-gradient(0deg, #a99281, black, white)',
-        'linear-gradient(-90deg, #a99281, black, white)',
+        'linear-gradient(0deg, var(--chakra-colors-second), var(--chakra-colors-holder), white)',
+        'linear-gradient(-90deg, var(--chakra-colors-second), var(--chakra-colors-holder), white)',
       ]}
       alignItems="center"
       flexDirection={['column', 'row']}
       borderRadius="24px"
-      backgroundColor="chakra-body-bg"
-      color="white"
+      backgroundColor="holder"
+      // color="white"
       overflow="hidden"
       // p={2}
     >
@@ -59,6 +59,7 @@ function ArticleCard({ set, data, trigger, ...props }) {
             w="100%"
             // h="100%"
             minH={['200px', '320px']}
+            backgroundColor="transparent"
             // borderRadius="32px"
           />
         </Button>
@@ -89,6 +90,7 @@ function ArticleCard({ set, data, trigger, ...props }) {
             // className="prim-btn"
             leftIcon={<Icon as={icons.article.read.Icon} boxSize="20px" />}
             p={5}
+            fontFamily="handwrite"
             {...props}
           >
             {set?.read || 'Read'}

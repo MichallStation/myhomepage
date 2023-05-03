@@ -1,6 +1,6 @@
 import {
   SimpleGrid,
-  Image,
+  Img,
   useDisclosure,
   Button,
   Modal,
@@ -62,15 +62,16 @@ function PreviewInfo({ data, ...props }) {
                 // backgroundImage={thumbnail}
                 // backgroundSize="contain"
                 // backgroundRepeat="no-repeat"
+                backgroundColor="holder"
               >
-                <Image
+                <Img
                   borderRadius="lg"
                   src={thumbnail}
                   title={title}
                   alt={title}
                   boxShadow="dark-lg"
                   data-index={i}
-                  backgroundColor="chakra-body-bg"
+                  backgroundColor="transparent"
                 />
               </Button>
             </motion.div>

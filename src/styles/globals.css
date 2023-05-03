@@ -20,7 +20,8 @@ html[lang="vi"] body {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 12px;
-  background-color: gray;
+  /* background-color: var(--chakra-colors-second); */
+  background-color: grey;
 }
 
 #__next {

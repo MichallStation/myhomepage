@@ -25,6 +25,7 @@ export default {
     title: 'Detail',
     name: 'Detail',
     desc: 'Description',
+    detail: 'Detail',
     preview: 'Preview',
   },
   [articleId]: {
@@ -119,7 +120,7 @@ export default {
     },
     intro: [
       "Hi, I'm Blue. I'm Dat's assistant.",
-      "You'll see me everywhere that Dat worked.",
+      // "You'll see me everywhere that Dat worked.",
     ],
     joke: "You'll see me everywhere Dat's worked.",
   },

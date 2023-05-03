@@ -54,10 +54,17 @@ function ArticleHeader({ toc, set, data, ...props }) {
               borderRadius="full"
             />
           </Box>
-          <Heading mt={4}>{data.title}</Heading>
-          <Text fontSize="lg" mt={2}>
-            {data.desc}
-          </Text>
+          <Heading
+            // fontFamily="handwrite"
+            fontSize="3xl"
+            // fontWeight="extrabold"
+            // letterSpacing={-1}
+            // fontSize={['2xl', '3xl']}
+            mt={4}
+          >
+            {data.title}
+          </Heading>
+          <Text mt={2}>{data.desc}</Text>
           {/* <Card
               height="160px"
               maxW="320px"
@@ -73,7 +80,7 @@ function ArticleHeader({ toc, set, data, ...props }) {
           minH={['280px', '460px']}
           className="header-content"
           // backgroundColor={useColorModeValue('gray', 'gray')}
-          backgroundColor={useColorModeValue('#808680', '#808680')}
+          backgroundColor={useColorModeValue('holder', 'holder')}
           color={useColorModeValue('black')}
           py={2}
           px={4}
@@ -82,7 +89,12 @@ function ArticleHeader({ toc, set, data, ...props }) {
           // h="100%"
           {...props}
         >
-          <Section title={set.tablet} mt={2}>
+          <Section
+            title={set.tablet}
+            mt={2}
+            titleProps={{ fontFamily: 'handwrite', fontWeight: 'extrabold' }}
+            sep={6}
+          >
             {data.summary}
             {toc &&
               toc.map(({ id, text }) => (

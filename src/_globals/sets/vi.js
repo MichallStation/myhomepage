@@ -26,6 +26,7 @@ export default {
     title: 'Chi tiết',
     name: 'Chi tiết',
     desc: 'Mô tả',
+    detail: 'Chi tiết',
     preview: 'Xem trước',
   },
   [articleId]: {
@@ -43,7 +44,8 @@ export default {
         title: 'Bộ công cụ',
       },
     },
-    read: 'Đọc',
+    // read: 'Đọc',
+    read: 'Xem',
   },
   [useId]: {
     title: 'Đồ dùng - Niềm đam mê của tôi',
@@ -110,7 +112,8 @@ export default {
       ],
     },
     social: {
-      title: 'Mạng xã hội',
+      // title: 'Mạng xã hội',
+      title: 'Kết nối',
     },
   },
   Footer: {
@@ -124,7 +127,7 @@ export default {
     },
     intro: [
       'Hi, Tôi là Blue. Tôi là trợ lý của Đạt.',
-      'Bạn sẽ thấy tôi ở mọi nơi mà Đạt từng làm việc.',
+      // 'Bạn sẽ thấy tôi ở mọi nơi mà Đạt từng làm việc.',
     ],
     joke: 'Bạn sẽ thấy tôi ở mọi nơi mà Đạt từng làm việc.',
     guide: {

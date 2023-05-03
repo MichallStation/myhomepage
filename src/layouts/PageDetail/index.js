@@ -72,8 +72,8 @@ function PageDetail({ lang = 'en', type = detailProjectType, detail: item }) {
               borderRadius="32px"
               textAlign="center"
               // textAlign="right"
-              fontSize="4xl"
-              fontFamily="deco"
+              fontSize={['2xl', '3xl']}
+              fontFamily="handwrite"
               display="block"
               mb={4}
             >
@@ -99,7 +99,7 @@ function PageDetail({ lang = 'en', type = detailProjectType, detail: item }) {
                 // borderRadius="8px 8px 0 0"
                 src={item.thumbnail}
                 alt={item.name}
-                backgroundColor="chakra-body-bg"
+                backgroundColor="transparent"
                 // filter="brightness(0.8)"
                 // mt={6}
               />
@@ -107,6 +107,8 @@ function PageDetail({ lang = 'en', type = detailProjectType, detail: item }) {
           </Box>
           <Section title={set.desc} id="desc" sep={4}>
             <Text textAlign="justify">{item.desc}</Text>
+          </Section>
+          <Section title={set.detail} id="detail" sep={4}>
             <DetailInfo data={item.info} mt={2} />
           </Section>
           <Section title={set.preview} id="preview" sep={4}>

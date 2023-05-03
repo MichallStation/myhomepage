@@ -1,7 +1,15 @@
 import { Box, Heading, useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
 
-function Section({ title, children, icon, sep = 8, ...props }) {
+function Section({
+  title,
+  children,
+  icon,
+  sep = 8,
+  titleProps,
+  contentProps,
+  ...props
+}) {
   return (
     <Box className="section" as="section" mt={6} {...props}>
       <Box className="section-title">
@@ -27,12 +35,18 @@ function Section({ title, children, icon, sep = 8, ...props }) {
             bottom: '-12px',
             // filter: 'contrast(0.5)',
           }}
+          {...titleProps}
         >
           <Box mr={2}>{title}</Box>
           {icon}
         </Heading>
       </Box>
-      <Box className="section-content" mt={6} textAlign="justify">
+      <Box
+        className="section-content"
+        mt={6}
+        textAlign="justify"
+        {...contentProps}
+      >
         {children}
       </Box>
     </Box>

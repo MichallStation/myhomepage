@@ -33,7 +33,11 @@ function BlueBreadcrumb({ breads = [], ...props }) {
       {breads.map(({ name, href, icon }, index) =>
         index !== lastBreadIndex ? (
           <BreadcrumbItem key={name}>
-            <Button as={Link} href={href} leftIcon={icon && <Icon as={icon} />}>
+            <Button
+              as={Link}
+              href={href}
+              leftIcon={icon && <Icon as={icon} boxSize="18px" />}
+            >
               {name}
             </Button>
           </BreadcrumbItem>
@@ -45,7 +49,7 @@ function BlueBreadcrumb({ breads = [], ...props }) {
               // className="second-btn"
               backgroundColor="second"
               borderRadius="3xl"
-              leftIcon={icon && <Icon as={icon} />}
+              leftIcon={icon && <Icon as={icon} boxSize="18px" />}
             >
               {name}
             </Button>

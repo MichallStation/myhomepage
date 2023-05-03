@@ -41,6 +41,7 @@ function Bio({ lang = 'en' }) {
             href ? (
               <>
                 <Button
+                  key={name}
                   as={Link}
                   href={href}
                   variant="link"
@@ -52,7 +53,7 @@ function Bio({ lang = 'en' }) {
                 {', '}
               </>
             ) : (
-              <span>
+              <span key={name}>
                 {name}
                 {', '}
               </span>

@@ -62,13 +62,14 @@ function Author({ lang = 'en' }) {
           overflow="hidden"
           w="132px"
           h="128px"
+          backgroundColor="chakra-body-bg"
         >
           <Img
             src="/images/avatar.jpg"
             alt="🙄"
             w="100%"
             h="100%"
-            backgroundColor="chakra-body-bg"
+            backgroundColor="transparent"
           />
         </Box>
       </Box>
