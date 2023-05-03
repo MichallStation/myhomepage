@@ -1,4 +1,4 @@
-import { Button, Heading, Img, Text } from '@chakra-ui/react';
+import { Button, Img, Text } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import React from 'react';
 
