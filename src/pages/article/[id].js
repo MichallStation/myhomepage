@@ -51,21 +51,6 @@ function ArticlePage({ item, page, type, storage, markdown }) {
           mb={4}
         >
           <BlueBreadcrumb breads={breads} flex={1} />
-          {/* <Button
-            ml={2}
-            borderRadius="lg"
-            w="48px"
-            h="48px"
-            right={0}
-            bottom={0}
-            onClick={handlePrev}
-            boxShadow="base"
-            backgroundColor={useColorModeValue('black', 'white')}
-            color={useColorModeValue('white', 'black')}
-          >
-            <BsBoxArrowLeft />
-            <Icon as={BsBoxArrowLeft} boxSize="24px" />
-          </Button> */}
         </Box>
         <Box as="article" className="article">
           <ArticleHeader toc={toc} set={set} data={item} />

@@ -4,7 +4,7 @@ import {
   AiOutlineHome,
   AiOutlineVideoCamera,
 } from 'react-icons/ai';
-import { BiObjectsHorizontalCenter } from 'react-icons/bi';
+import { BiBookReader, BiObjectsHorizontalCenter } from 'react-icons/bi';
 import { GiNewspaper } from 'react-icons/gi';
 import { GrArticle } from 'react-icons/gr';
 import { IoShareSocialOutline } from 'react-icons/io5';
@@ -58,6 +58,9 @@ export default {
       kitflow: {
         Icon: VscTools,
       },
+    },
+    read: {
+      Icon: BiBookReader,
     },
   },
   [useId]: {

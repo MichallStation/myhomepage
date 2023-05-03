@@ -50,7 +50,7 @@ function Card({ children, title, img, ...props }) {
           src={img}
           alt={title}
           objectFit="cover"
-          backgroundColor="transparent"
+          backgroundColor="chakra-body-bg"
         />
       </Button>
     </motion.div>

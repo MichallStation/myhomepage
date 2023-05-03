@@ -99,7 +99,7 @@ function PageDetail({ lang = 'en', type = detailProjectType, detail: item }) {
                 // borderRadius="8px 8px 0 0"
                 src={item.thumbnail}
                 alt={item.name}
-                backgroundColor="transparent"
+                backgroundColor="chakra-body-bg"
                 // filter="brightness(0.8)"
                 // mt={6}
               />

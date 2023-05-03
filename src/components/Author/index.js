@@ -3,7 +3,7 @@ import {
   Box,
   Button,
   Heading,
-  Image,
+  Img,
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
@@ -60,8 +60,16 @@ function Author({ lang = 'en' }) {
           borderRadius="full"
           border="4px solid"
           overflow="hidden"
+          w="132px"
+          h="128px"
         >
-          <Image src="/images/avatar.jpg" alt="🙄" width="120px" />
+          <Img
+            src="/images/avatar.jpg"
+            alt="🙄"
+            w="100%"
+            h="100%"
+            backgroundColor="chakra-body-bg"
+          />
         </Box>
       </Box>
       <Section title={set.worktitle} icon={<MdWorkOutline />}>

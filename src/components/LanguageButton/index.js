@@ -20,7 +20,7 @@ const style = {
     height: '44px',
   },
   option: {
-    height: '44px',
+    height: '48px',
   },
 };
 

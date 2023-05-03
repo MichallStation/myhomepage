@@ -22,13 +22,17 @@ function ArticleHeader({ toc, set, data, ...props }) {
       <Box
         className="article-body"
         display="flex"
-        height={['', '', '60vh']}
-        flexDirection={['column', 'column', 'row']}
+        minH={['', '460px']}
+        // flexDirection={['column', 'column', 'row']}
+        flexDirection={['column', 'row']}
       >
         <Box
           className="header-heading"
-          width={['100%', '100%', '40%']}
-          height={['40%', '40%', '100%']}
+          // width={['100%', '100%', '40%']}
+          // height={['40%', '40%', '100%']}
+          width={['100%', '40%']}
+          height={['40%', '100%']}
+          minH={['200px', '460px']}
           backgroundColor="second"
           p={4}
           // px={4}
@@ -63,50 +67,51 @@ function ArticleHeader({ toc, set, data, ...props }) {
               mt={4}
             /> */}
         </Box>
-        <Box width={['100%', '100%', '60%']} height={['60%', '60%', '100%']}>
-          <Box
-            className="header-content"
-            // backgroundColor={useColorModeValue('gray', 'gray')}
-            backgroundColor={useColorModeValue('#808680', '#808680')}
-            color={useColorModeValue('black')}
-            py={2}
-            px={4}
-            overflowY="scroll"
-            w="100%"
-            h="100%"
-            {...props}
-          >
-            <Section title={set.tablet} mt={2}>
-              {data.summary}
-              {toc &&
-                toc.map(({ id, text }) => (
-                  <MotionButton
-                    key={id}
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="start"
-                    width="100%"
-                    variant="unstyled"
-                    onClick={() => router.push(`#${id}`)}
-                    leftIcon={<IoIosArrowForward />}
-                    // leftIcon={<HiOutlineArrowCircleRight />}
-                    // leftIcon={<BiHash />}
-                    // maxW='100%'
-                    h="auto"
-                    mt={1}
+        <Box
+          width={['100%', '60%']}
+          height={['60%', '100%']}
+          minH={['280px', '460px']}
+          className="header-content"
+          // backgroundColor={useColorModeValue('gray', 'gray')}
+          backgroundColor={useColorModeValue('#808680', '#808680')}
+          color={useColorModeValue('black')}
+          py={2}
+          px={4}
+          overflowY="scroll"
+          // w="100%"
+          // h="100%"
+          {...props}
+        >
+          <Section title={set.tablet} mt={2}>
+            {data.summary}
+            {toc &&
+              toc.map(({ id, text }) => (
+                <MotionButton
+                  key={id}
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="start"
+                  width="100%"
+                  variant="unstyled"
+                  onClick={() => router.push(`#${id}`)}
+                  leftIcon={<IoIosArrowForward />}
+                  // leftIcon={<HiOutlineArrowCircleRight />}
+                  // leftIcon={<BiHash />}
+                  // maxW='100%'
+                  h="auto"
+                  mt={1}
+                >
+                  <Text
+                    title={text}
+                    overflow="clip"
+                    textOverflow="ellipsis"
+                    fontSize="lg"
                   >
-                    <Text
-                      title={text}
-                      overflow="clip"
-                      textOverflow="ellipsis"
-                      fontSize="lg"
-                    >
-                      {text}
-                    </Text>
-                  </MotionButton>
-                ))}
-            </Section>
-          </Box>
+                    {text}
+                  </Text>
+                </MotionButton>
+              ))}
+          </Section>
         </Box>
       </Box>
       <Box pos="relative" className="article-thumbnail" mt={1}>

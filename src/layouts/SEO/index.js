@@ -3,7 +3,11 @@ import React from 'react';
 import { homeId } from '@/_globals/envs';
 import { getSet } from '@/_globals/sets';
 
-function SEO({ lang = 'en', title }) {
+function SEO({
+  lang = 'en',
+  title,
+  card = 'https://raw.githubusercontent.com/ltndat/myhomepage/main/public/cardhat.png',
+}) {
   title = title ? `Ltndat - ${title}` : getSet(homeId, lang).title;
   return (
     <Head>
@@ -19,17 +23,11 @@ function SEO({ lang = 'en', title }) {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@ltndat" />
       <meta name="twitter:creator" content="@ltndat" />
-      <meta
-        name="twitter:image"
-        content="https://raw.githubusercontent.com/ltndat/myhomepage/main/public/cardhat.png"
-      />
+      <meta name="twitter:image" content={card} />
       <meta property="og:site_name" content="Ltndat" />
       <meta name="og:title" content="Ltndat" />
       <meta property="og:type" content="website" />
-      <meta
-        property="og:image"
-        content="https://raw.githubusercontent.com/ltndat/myhomepage/main/public/cardhat.png"
-      />
+      <meta property="og:image" content={card} />
       <title>{title}</title>
     </Head>
   );

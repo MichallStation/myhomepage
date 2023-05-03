@@ -32,7 +32,7 @@ function Section({ title, children, icon, sep = 8, ...props }) {
           {icon}
         </Heading>
       </Box>
-      <Box className="section-content" mt={6}>
+      <Box className="section-content" mt={6} textAlign="justify">
         {children}
       </Box>
     </Box>

@@ -141,7 +141,7 @@ function Ball3d() {
       h={[420, 480, 560]}
       overflow="hidden"
     >
-      {loading && <BallSpinner />}
+      {loading && <BallSpinner mt={-10} />}
     </Box>
   );
 }

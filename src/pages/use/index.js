@@ -90,7 +90,7 @@ function Use({ storage, type }) {
                   key={id}
                   as={Button}
                   // minH="48px"
-                  height="44px"
+                  height="48px"
                   // minW="140px"
                   w="auto"
                   mr={2}
@@ -105,7 +105,7 @@ function Use({ storage, type }) {
               ))}
             </Box>
           </TabList>
-          <TabPanels mt={4}>
+          <TabPanels mt={4} minH="320px">
             {useTabsRender.map(([id]) => (
               <TabPanel key={id} id={id} p={0}>
                 {articles.map(
@@ -113,6 +113,7 @@ function Use({ storage, type }) {
                     article.type === id && (
                       <ArticleCard
                         key={article.id}
+                        set={setArticle}
                         data={article}
                         href={`/${articleId}/${article.id}?page=${useId}&type=${article.type}`}
                         // h={['200px', '320px']}

@@ -1,25 +1,25 @@
-import {
-  Box,
-  Button,
-  Heading,
-  Img,
-  Text,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import { Box, Icon, Button, Heading, Img, Text } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import React from 'react';
-import { BiBookReader } from 'react-icons/bi';
+import icons from '@/_globals/icons';
 
-function ArticleCard({ data, trigger, ...props }) {
+function ArticleCard({ set, data, trigger, ...props }) {
   return (
     <Box
       display="flex"
-      backgroundColor={useColorModeValue('blackAlpha.300', 'whiteAlpha.400')}
+      // backgroundColor={useColorModeValue('blackAlpha.300', 'whiteAlpha.400')}
+      background={[
+        'linear-gradient(0deg, #a99281, black, white)',
+        'linear-gradient(-90deg, #a99281, black, white)',
+      ]}
       alignItems="center"
       flexDirection={['column', 'row']}
-      borderRadius="12px"
-      p={2}
+      borderRadius="24px"
+      backgroundColor="chakra-body-bg"
+      color="white"
+      overflow="hidden"
+      // p={2}
     >
       <motion.div
         // drag
@@ -33,12 +33,13 @@ function ArticleCard({ data, trigger, ...props }) {
         whileFocus={{ scale: 1.05, zIndex: 1 }}
         whileHover={{ scale: 1.05, zIndex: 1 }}
         whileDrag={{ scale: 1.05, zIndex: 1 }}
+        style={{ flex: 1 }}
       >
         <Button
           overflow="hidden"
           variant="unstyled"
           display="block"
-          borderRadius="xl"
+          borderRadius=""
           w="100%"
           h="100%"
           pos="relative"
@@ -57,7 +58,7 @@ function ArticleCard({ data, trigger, ...props }) {
             objectFit="cover"
             w="100%"
             // h="100%"
-            h={['200px', '320px']}
+            minH={['200px', '320px']}
             // borderRadius="32px"
           />
         </Button>
@@ -75,18 +76,22 @@ function ArticleCard({ data, trigger, ...props }) {
         // h="auto"
         // display="contents"
         textAlign="justify"
-        p={2}
+        // p={4}
+        m={4}
+        flex={1}
       >
         <Heading textAlign="center">{data.title}</Heading>
-        <Text>{data.desc}</Text>
+        <Text textAlign="center">{data.desc}</Text>
         <Box display="flex" justifyContent="center" mt={2}>
           <Button
             as={Link}
-            colorScheme="green"
-            leftIcon={<BiBookReader />}
+            colorScheme="teal"
+            // className="prim-btn"
+            leftIcon={<Icon as={icons.article.read.Icon} boxSize="20px" />}
+            p={5}
             {...props}
           >
-            Read
+            {set?.read || 'Read'}
           </Button>
         </Box>
       </Box>

@@ -43,6 +43,7 @@ export default {
         title: 'Bộ công cụ',
       },
     },
+    read: 'Đọc',
   },
   [useId]: {
     title: 'Đồ dùng - Niềm đam mê của tôi',

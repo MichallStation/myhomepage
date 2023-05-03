@@ -42,6 +42,7 @@ export default {
         title: 'Kitflow',
       },
     },
+    read: 'Read',
   },
   [useId]: {
     title: 'Usepage - My passion',
