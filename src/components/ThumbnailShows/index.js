@@ -10,9 +10,7 @@ function ThumbnailShows({ data, type }) {
         <Card
           key={i.id}
           as={Link}
-          minH="160px"
           w="100%"
-          maxW={['100%', '320px']}
           title={i.name}
           href={`/work/${type}/${i.id}`}
           img={i.thumbnail}

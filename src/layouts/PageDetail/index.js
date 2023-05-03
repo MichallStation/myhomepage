@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Container, Heading, Img, Text, Icon } from '@chakra-ui/react';
+import { Box, Container, Heading, Text, Icon } from '@chakra-ui/react';
 import { GrArticle } from 'react-icons/gr';
 import SEO from '@/layouts/SEO';
 import { getSet } from '@/_globals/sets';
@@ -12,24 +12,8 @@ import BlueBreadcrumb from '@/components/BlueBreadcrumb';
 import icons from '@/_globals/icons';
 
 function PageDetail({ lang = 'en', type = detailProjectType, detail: item }) {
-  // const refBread = useRef();
   const set = getSet(detailId, lang);
   const setWork = getSet(workId, lang);
-
-  // const handleWindowResize = useCallback(() => {
-  //   const { current: breadEl } = refBread;
-  //   if (!breadEl) return;
-  //   breadEl.scrollLeft = breadEl.offsetWidth;
-  // }, []);
-
-  // useEffect(() => handleWindowResize(), [handleWindowResize]);
-
-  // useEffect(() => {
-  //   window.addEventListener('resize', handleWindowResize, false);
-  //   return () => {
-  //     window.removeEventListener('resize', handleWindowResize, false);
-  //   };
-  // }, [handleWindowResize]);
 
   const breads = [
     { name: setWork.name, href: '/work', icon: icons.work.Icon },
@@ -80,9 +64,8 @@ function PageDetail({ lang = 'en', type = detailProjectType, detail: item }) {
               {item.name}
             </Heading>
             <Box
-              // px={2}
-              // pt={8}
-              // pb={2}
+              w="100%"
+              h="100%"
               pt={1}
               backgroundColor="second"
               borderRadius="32px 32px 2px 2px"
@@ -94,14 +77,14 @@ function PageDetail({ lang = 'en', type = detailProjectType, detail: item }) {
                   boxSize="24px"
                 />
               </Box>
-              <Img
-                // width="xl"
-                // borderRadius="8px 8px 0 0"
-                src={item.thumbnail}
-                alt={item.name}
-                backgroundColor="transparent"
-                // filter="brightness(0.8)"
-                // mt={6}
+              <Box
+                minH={['200px', '320px', '400px']}
+                w="100%"
+                backgroundColor="holder"
+                backgroundSize="cover"
+                backgroundRepeat="no-repeat"
+                backgroundPosition="center"
+                backgroundImage={item.thumbnail}
               />
             </Box>
           </Box>

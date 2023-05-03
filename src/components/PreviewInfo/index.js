@@ -1,6 +1,5 @@
 import {
   SimpleGrid,
-  Img,
   useDisclosure,
   Button,
   Modal,
@@ -31,7 +30,7 @@ function PreviewInfo({ data, ...props }) {
         spacing={2}
         columns={[1, 2, 3]}
         className="preview-info"
-        mb={['50%', 0]}
+        // mb={['50%', 0]}
         {...props}
       >
         {data.length > 0 &&
@@ -49,31 +48,25 @@ function PreviewInfo({ data, ...props }) {
               whileFocus={{ scale: 1.1, zIndex: 1 }}
               whileHover={{ scale: 1.1 }}
               whileDrag={{ scale: 1.1, zIndex: 1 }}
+              style={{ width: '100%', height: '100%' }}
             >
               <Button
+                maxW={['100%', '320px']}
+                minH="160px"
                 h={['80px', '100%']}
-                // h="100%"
+                w="100%"
                 variant="unstyled"
                 onClick={handleClick}
-                title=""
-                // overflow="hidden"
                 display="block"
-                // w="100%"
-                // backgroundImage={thumbnail}
-                // backgroundSize="contain"
-                // backgroundRepeat="no-repeat"
                 backgroundColor="holder"
-              >
-                <Img
-                  borderRadius="lg"
-                  src={thumbnail}
-                  title={title}
-                  alt={title}
-                  boxShadow="dark-lg"
-                  data-index={i}
-                  backgroundColor="transparent"
-                />
-              </Button>
+                backgroundSize="cover"
+                backgroundRepeat="no-repeat"
+                backgroundPosition="center"
+                backgroundImage={thumbnail}
+                boxShadow="dark-lg"
+                data-index={i}
+                title={title}
+              />
             </motion.div>
           ))}
       </SimpleGrid>

@@ -3,7 +3,6 @@ import {
   Box,
   Button,
   Heading,
-  Img,
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
@@ -13,6 +12,7 @@ import { BsBoxArrowInRight } from 'react-icons/bs';
 import Section from '@/layouts/Section';
 import { getSet } from '@/_globals/sets';
 import { AuthorId } from '@/_globals/envs';
+import envs from './envs';
 
 function Author({ lang = 'en' }) {
   const set = getSet(AuthorId, lang);
@@ -59,19 +59,14 @@ function Author({ lang = 'en' }) {
           mt={{ base: 3, md: 0 }}
           borderRadius="full"
           border="4px solid"
-          overflow="hidden"
           w="132px"
           h="128px"
-          backgroundColor="chakra-body-bg"
-        >
-          <Img
-            src="/images/avatar.jpg"
-            alt="🙄"
-            w="100%"
-            h="100%"
-            backgroundColor="transparent"
-          />
-        </Box>
+          backgroundColor="holder"
+          backgroundSize="contain"
+          backgroundRepeat="no-repeat"
+          backgroundPosition="center"
+          backgroundImage={envs.avatarUrl}
+        />
       </Box>
       <Section title={set.worktitle} icon={<MdWorkOutline />}>
         <Text textAlign="justify">{set.workcontent}</Text>
