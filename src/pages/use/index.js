@@ -79,7 +79,7 @@ function Use({ storage, type }) {
           defaultIndex={tabIndex}
           // onChange={(index) => router.push(`?type=${tabnames[index]}`)}
           variant="soft-rounded"
-          colorScheme="seconds"
+          // colorScheme="seconds"
           mt={8}
           isLazy
         >
@@ -89,22 +89,22 @@ function Use({ storage, type }) {
                 <Tab
                   key={id}
                   as={Button}
-                  // minH="48px"
                   height="48px"
-                  // minW="140px"
                   w="auto"
                   mr={2}
                   py={2}
                   px={4}
                   variant="unstyled"
                   leftIcon={icons[id]}
-                  // href={''}
+                  _selected={{
+                    color: 'chakra-body-text',
+                    bgColor: 'second',
+                  }}
                   onClick={() =>
                     router.push(`?type=${tabnames[index]}`, '', {
                       scroll: false,
                     })
                   }
-                  // borderRadius="lg"
                 >
                   {i.title}
                 </Tab>

@@ -1,3 +1,15 @@
+:root {
+  --chakra-colors-blue-100: #bee3f8;
+  --chakra-colors-blue-200: #90cdf4;
+  --chakra-colors-blue-300: #63b3ed;
+  --chakra-colors-blue-400: #4299e1;
+  --chakra-colors-blue-500: #3182ce;
+  --chakra-colors-blue-600: #2b6cb0;
+  --chakra-colors-blue-700: #2c5282;
+  --chakra-colors-blue-800: #2a4365;
+  --chakra-colors-blue-900: #1A365D;
+}
+
 /* vietnamese */
 @font-face {
   font-family: 'Merienda';
