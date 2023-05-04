@@ -1,7 +1,7 @@
 export default [
   {
     id: 'homepage',
-    thumbnail: '/images/works/homepage.png',
+    thumbnail: '/assets/images/works/homepage.png',
     preview: [
       {
         title: '',
@@ -156,7 +156,7 @@ export default [
   },
   {
     id: 'homebusiness',
-    thumbnail: '/images/works/homebusiness.png',
+    thumbnail: '/assets/images/works/homebusiness.png',
     preview: [],
     en: {
       name: 'My business',
@@ -169,7 +169,7 @@ export default [
   },
   {
     id: 'homebusiness2',
-    thumbnail: '/images/works/homebusiness.png',
+    thumbnail: '/assets/images/works/homebusiness.png',
     preview: [],
     en: {
       name: 'My business',
@@ -182,7 +182,7 @@ export default [
   },
   {
     id: 'homebusiness3',
-    thumbnail: '/images/works/homebusiness.png',
+    thumbnail: '/assets/images/works/homebusiness.png',
     preview: [],
     en: {
       name: 'My business',

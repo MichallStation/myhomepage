@@ -1,8 +1,8 @@
 export default [
   {
     id: 'free',
-    thumbnail: '/images/works/homepage.png',
-    preview: ['/images/works/homepage.png'],
+    thumbnail: '/assets/images/works/homepage.png',
+    preview: ['/assets/images/works/homepage.png'],
     en: {
       name: 'My homepage',
       desc: '',

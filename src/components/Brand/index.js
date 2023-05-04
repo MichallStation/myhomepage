@@ -14,7 +14,10 @@ const style = {
   },
 };
 
+/** @param {import('@chakra-ui/react').BoxProps} props */
 function Brand(props) {
+  const { title = 'Ltndat', ...restProps } = props;
+
   return (
     <Box
       id="brand"
@@ -25,7 +28,7 @@ function Brand(props) {
       display="flex"
       alignItems="center"
       tabIndex={-1}
-      {...props}
+      {...restProps}
     >
       {/* <Image
         className="brand-img"
@@ -36,7 +39,7 @@ function Brand(props) {
       /> */}
       {/* <Heading fontFamily="deco" fontSize="3xl" ml={2} style={style.heading}> */}
       <Heading fontFamily="deco" fontSize="3xl" style={style.heading}>
-        Ltndat
+        {title}
       </Heading>
     </Box>
   );

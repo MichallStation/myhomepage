@@ -58,8 +58,8 @@ function Ball3d() {
 
     // const target = new THREE.Vector3(0.3, -0.1, 0.15);
     // const target = new THREE.Vector3(0.25, -0.1, 0.15);
+    // const target = new THREE.Vector3(0.2, -0.1, 0.13);
     const target = new THREE.Vector3(0.2, -0.1, 0.13);
-    // const target = new THREE.Vector3(0.2, -0.02, 0.13);
     const initialCameraPosition = new THREE.Vector3(
       20 * Math.sin(0.2 * Math.PI),
       10,
@@ -114,8 +114,8 @@ function Ball3d() {
       castShadow: false,
     }).then(() => {
       // setLoading(false);
-      animate();
       dispatch(ball3dDone());
+      animate();
     });
 
     container.appendChild(renderer.domElement);

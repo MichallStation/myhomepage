@@ -1,6 +1,7 @@
 import { Box, useColorModeValue } from '@chakra-ui/react';
 import React, { useCallback, useEffect, useRef } from 'react';
 import BackgroundImage from '../BackgroundImage';
+import BlueBrand from '../Blue/BlueBrand';
 
 function BlueLoading() {
   const refBox = useRef();
@@ -36,13 +37,14 @@ function BlueLoading() {
       id="blue-loading"
       zIndex="overlay"
       pos="fixed"
-      left="-24px"
-      right="-24px"
-      top="-24px"
-      bottom="-24px"
+      left="0"
+      right="0"
+      top="0"
+      bottom="0"
       display="flex"
       alignItems="center"
       justifyContent="center"
+      flexDirection="column"
       backgroundColor={useColorModeValue('light', 'dark')}
       userSelect="none"
     >
@@ -50,7 +52,9 @@ function BlueLoading() {
         borderRadius="full"
         border="6px solid"
         // color={useColorModeValue('', 'second')}
-        color="second"
+        color={useColorModeValue('blackAlpha.200', 'whiteAlpha.400')}
+        // color="second"
+        // flex={1}
       >
         <BackgroundImage
           // className="animate__animated animate__heartBeat animate__infinite animate__slow"
@@ -58,10 +62,20 @@ function BlueLoading() {
           w="88px"
           h="88px"
           // borderRadius="full"
-          // color={useColorModeValue('blackAlpha.200', 'whiteAlpha.300')}
           src="/blue.png"
         />
       </Box>
+      {/* <Heading
+        pos="absolute"
+        color="GrayText"
+        fontFamily="deco"
+        fontSize={['2xl', '3xl']}
+        bottom={[8, 10]}
+        letterSpacing="3px"
+      >
+        Blue
+      </Heading> */}
+      <BlueBrand ml={2} pos="absolute" bottom={[4, 8]} w={['66px', '72px']} />
     </Box>
   );
 }
