@@ -1,4 +1,4 @@
-import { motion, useAnimationControls } from 'framer-motion';
+import { AnimatePresence, motion, useAnimationControls } from 'framer-motion';
 import React, { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Box, Image, useColorModeValue, useToast } from '@chakra-ui/react';
@@ -22,7 +22,7 @@ const variants = {
     },
   },
   say: {
-    scale: 1.6,
+    scale: 1.4,
   },
   look: {
     scale: 1.4,
@@ -154,8 +154,19 @@ function Blue({ storage, width = 48 }) {
           />
         </Box>
       </motion.button>
-      {!inTimeWelcome && <BlueLoading />}
-      {/* <BlueLoading /> */}
+      <AnimatePresence initial={false} mode="wait">
+        {!inTimeWelcome && (
+          <motion.div
+            key="blue-loading"
+            initial={false}
+            // whileInView={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <BlueLoading />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </Box>
   );
 }

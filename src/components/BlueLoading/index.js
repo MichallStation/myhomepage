@@ -28,22 +28,23 @@ function BlueLoading() {
       el.removeEventListener('keydown', handlePreventDefault);
       el.removeEventListener('click', handlePreventDefault);
     };
-  }, []);
+  }, [handlePreventDefault]);
 
   return (
     <Box
       ref={refBox}
       id="blue-loading"
-      zIndex="docked"
+      zIndex="overlay"
       pos="fixed"
-      left={0}
-      right={0}
-      top={0}
-      bottom={0}
+      left="-24px"
+      right="-24px"
+      top="-24px"
+      bottom="-24px"
       display="flex"
       alignItems="center"
       justifyContent="center"
       backgroundColor={useColorModeValue('light', 'dark')}
+      userSelect="none"
     >
       <Box
         borderRadius="full"

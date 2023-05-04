@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { Box } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
-import BallSpinner from '../BallSpinner';
+// import BallSpinner from '../BallSpinner';
 import { loadGLTFModel } from '@/lib/three';
 import data from './envs';
 import { ball3dDone } from '@/features/slices/ui';
@@ -13,7 +13,7 @@ const easeOutCirc = (x) => Math.sqrt(1 - (x - 1) ** 4);
 function Ball3d() {
   const refContainer = useRef();
   const refRenderer = useRef();
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
   const handleWindowResize = useCallback(() => {
@@ -95,8 +95,8 @@ function Ball3d() {
 
       if (frame <= 100) {
         const p = initialCameraPosition;
-        const rotSpeed = easeOutCirc(frame / 120) * Math.PI * 10;
-        // const rotSpeed = easeOutCirc(frame / 120) * Math.PI * 6;
+        // const rotSpeed = easeOutCirc(frame / 120) * Math.PI * 10;
+        const rotSpeed = easeOutCirc(frame / 120) * Math.PI * 6;
         camera.position.y = 10;
         camera.position.x = p.x * Math.cos(rotSpeed) + p.z * Math.sin(rotSpeed);
         camera.position.z = p.z * Math.cos(rotSpeed) - p.x * Math.sin(rotSpeed);
@@ -113,7 +113,7 @@ function Ball3d() {
       receiveShadow: false,
       castShadow: false,
     }).then(() => {
-      setLoading(false);
+      // setLoading(false);
       animate();
       dispatch(ball3dDone());
     });
@@ -153,7 +153,7 @@ function Ball3d() {
       h={[420, 480, 560]}
       overflow="hidden"
     >
-      {loading && <BallSpinner mt={-10} />}
+      {/* {loading && <BallSpinner mt={-10} />} */}
     </Box>
   );
 }
