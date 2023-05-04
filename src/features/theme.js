@@ -72,6 +72,8 @@ const theme = extendTheme({
     // serif: "Roboto Slab', serif",
   },
   colors: {
+    light: '#f1e7db',
+    dark: '#192227',
     prim: '#009edc',
     primdark: '#89ddff',
     second: '#a99281',

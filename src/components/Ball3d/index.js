@@ -113,9 +113,9 @@ function Ball3d() {
       receiveShadow: false,
       castShadow: false,
     }).then(() => {
-      dispatch(ball3dDone());
-      setLoading(false);
       animate();
+      setLoading(false);
+      dispatch(ball3dDone());
     });
 
     container.appendChild(renderer.domElement);

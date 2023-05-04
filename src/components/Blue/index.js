@@ -10,6 +10,7 @@ import styles from './styles';
 import { BlueId } from '@/_globals/envs';
 import envs from '../Navbar/envs';
 import actions from './actions';
+import BlueLoading from '../BlueLoading';
 
 /** @type {Object<string, import('framer-motion').TargetAndTransition>} * */
 const variants = {
@@ -153,6 +154,8 @@ function Blue({ storage, width = 48 }) {
           />
         </Box>
       </motion.button>
+      {!inTimeWelcome && <BlueLoading />}
+      {/* <BlueLoading /> */}
     </Box>
   );
 }

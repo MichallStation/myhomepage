@@ -5,7 +5,7 @@ import Blue from '../Blue';
 /** @param {{storage: import('@/features/@features').FeaturesStorage}}  */
 function Floating({ storage }) {
   return (
-    <Box id="floating">
+    <Box id="floating" left={0} right={0} top={0} bottom={0}>
       <Blue storage={storage} />
     </Box>
   );
