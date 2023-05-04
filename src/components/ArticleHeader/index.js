@@ -1,14 +1,11 @@
 import React from 'react';
 import { Box, Heading, Text, useColorModeValue, Icon } from '@chakra-ui/react';
 import { GiNewspaper } from 'react-icons/gi';
-import { useRouter } from 'next/router';
 import { IoIosArrowForward } from 'react-icons/io';
 import MotionButton from '../MotionChakra/MotionButton';
 import Section from '@/layouts/Section';
 
 function ArticleHeader({ toc, set, data, ...props }) {
-  const router = useRouter();
-
   return (
     <Box
       as="header"
@@ -23,19 +20,15 @@ function ArticleHeader({ toc, set, data, ...props }) {
         className="article-body"
         display="flex"
         minH={['', '460px']}
-        // flexDirection={['column', 'column', 'row']}
         flexDirection={['column', 'row']}
       >
         <Box
           className="header-heading"
-          // width={['100%', '100%', '40%']}
-          // height={['40%', '40%', '100%']}
           width={['100%', '40%']}
           height={['40%', '100%']}
           minH={['200px', '460px']}
           backgroundColor="second"
           p={4}
-          // px={4}
           display="flex"
           alignItems="center"
           justifyContent="center"
@@ -54,14 +47,7 @@ function ArticleHeader({ toc, set, data, ...props }) {
               borderRadius="full"
             />
           </Box>
-          <Heading
-            // fontFamily="handwrite"
-            fontSize="3xl"
-            // fontWeight="extrabold"
-            // letterSpacing={-1}
-            // fontSize={['2xl', '3xl']}
-            mt={4}
-          >
+          <Heading fontSize="3xl" mt={4}>
             {data.title}
           </Heading>
           <Text mt={2}>{data.desc}</Text>
@@ -97,7 +83,7 @@ function ArticleHeader({ toc, set, data, ...props }) {
           >
             {data.summary}
             {toc &&
-              toc.map(({ id, text }) => (
+              toc.map(({ id, text, offsetTop }) => (
                 <MotionButton
                   key={id}
                   display="flex"
@@ -105,13 +91,18 @@ function ArticleHeader({ toc, set, data, ...props }) {
                   justifyContent="start"
                   width="100%"
                   variant="unstyled"
-                  onClick={() => router.push(`#${id}`)}
+                  // onClick={() => router.push(`#${id}`)}
+                  onClick={() =>
+                    window.scrollTo({
+                      behavior: 'smooth',
+                      top: offsetTop,
+                    })
+                  }
                   leftIcon={<IoIosArrowForward />}
-                  // leftIcon={<HiOutlineArrowCircleRight />}
-                  // leftIcon={<BiHash />}
-                  // maxW='100%'
                   h="auto"
                   mt={1}
+                  minW="24px"
+                  minH="24px"
                 >
                   <Text
                     title={text}
@@ -126,10 +117,10 @@ function ArticleHeader({ toc, set, data, ...props }) {
           </Section>
         </Box>
       </Box>
-      <Box pos="relative" className="article-thumbnail" mt={1}>
-        {/* <PreviewInfo data={data.images} /> */}
-        {/* <BallGallery data={data.images} /> */}
-      </Box>
+      {/* <Box pos="relative" className="article-thumbnail" mt={1}> */}
+      {/* <PreviewInfo data={data.images} /> */}
+      {/* <BallGallery data={data.images} /> */}
+      {/* </Box> */}
     </Box>
   );
 }

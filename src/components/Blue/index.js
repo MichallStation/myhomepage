@@ -159,9 +159,7 @@ function Blue({ storage, width = 48 }) {
           <motion.div
             key="blue-loading"
             initial={false}
-            // whileInView={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            // transition={{ duration: 0.6 }}
             transition={{ duration: 0.4 }}
           >
             <BlueLoading />

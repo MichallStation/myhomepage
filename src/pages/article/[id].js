@@ -62,10 +62,7 @@ function ArticlePage({ item, page, type, storage, markdown }) {
             <ReactMarkdown
               skipHtml
               remarkPlugins={[remarkGfm]}
-              components={{
-                ...ChakraUIRenderer(),
-                // code: ChakraCode,
-              }}
+              components={ChakraUIRenderer()}
             >
               {markdown}
             </ReactMarkdown>

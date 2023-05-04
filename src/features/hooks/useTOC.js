@@ -22,6 +22,8 @@ export default function useToc(refContent, deps = []) {
             return {
               id: el.id,
               text: el.textContent,
+              offsetTop: el.offsetTop,
+              offsetLeft: el.offsetLeft,
             };
           },
         ),

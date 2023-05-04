@@ -123,6 +123,7 @@ function Use({ storage, type }) {
                         data={article}
                         href={`/${articleId}/${article.id}?page=${useId}&type=${article.type}`}
                         // h={['200px', '320px']}
+                        mt={4}
                       />
                     ),
                 )}

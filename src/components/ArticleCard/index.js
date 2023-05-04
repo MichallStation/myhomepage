@@ -4,20 +4,22 @@ import Link from 'next/link';
 import React from 'react';
 import icons from '@/_globals/icons';
 
-function ArticleCard({ set, data, href }) {
+function ArticleCard({ set, data, href, ...props }) {
   return (
     <Box
       className="article-card"
       display="flex"
       background={[
-        'linear-gradient(0deg, var(--chakra-colors-second), var(--chakra-colors-holder), white)',
-        'linear-gradient(-90deg, var(--chakra-colors-second), var(--chakra-colors-holder), white)',
+        'linear-gradient(0deg, var(--chakra-colors-second), var(--chakra-colors-holder), var(--chakra-colors-holder))',
+        'linear-gradient(-90deg, var(--chakra-colors-second), var(--chakra-colors-holder), var(--chakra-colors-holder))',
       ]}
       alignItems="center"
       flexDirection={['column', 'row']}
       borderRadius="24px"
       backgroundColor="holder"
       overflow="hidden"
+      p={2}
+      {...props}
     >
       <motion.div
         // drag
@@ -38,7 +40,7 @@ function ArticleCard({ set, data, href }) {
           overflow="hidden"
           variant="unstyled"
           display="block"
-          borderRadius=""
+          // borderRadius=""
           pos="relative"
           w="100%"
           h="100%"
@@ -50,6 +52,7 @@ function ArticleCard({ set, data, href }) {
           backgroundPosition="center"
           backgroundImage={data.thumbnail}
           href={href}
+          borderRadius={['24px 24px 4px 4px', '24px 4px 4px 24px']}
         >
           <Box
             className="article-card-overlay"
@@ -62,7 +65,13 @@ function ArticleCard({ set, data, href }) {
           />
         </Button>
       </motion.div>
-      <Box className="article-card-content" textAlign="justify" m={4} flex={1}>
+      <Box
+        className="article-card-content"
+        textAlign="justify"
+        mx={[0, 2, 4]}
+        my={[2, 2, 4]}
+        flex={1}
+      >
         <Heading textAlign="center">{data.title}</Heading>
         <Text textAlign="center">{data.desc}</Text>
         <Box display="flex" justifyContent="center" mt={2}>
