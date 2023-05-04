@@ -42,12 +42,12 @@ function Ball3d() {
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
-      // 50, // original
+      // 75, // original
       1.5, // small
       // 1, // small
       cWidth / cHeight,
       0.1,
-      1000,
+      50000,
     );
     const renderer = new THREE.WebGLRenderer({
       antialias: true,
@@ -65,6 +65,18 @@ function Ball3d() {
       10,
       20 * Math.cos(0.2 * Math.PI),
     );
+
+    // const scale = cWidth * 0.0006;
+    // const camera = new THREE.OrthographicCamera(
+    //   -scale,
+    //   scale,
+    //   scale,
+    //   -scale,
+    //   0.01,
+    //   5000,
+    // );
+    // camera.position.copy(initialCameraPosition);
+
     const ambientLight = new THREE.AmbientLight(0xf1e7db, 0.5);
     // const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
     const directionalLight = new THREE.DirectionalLight(0xf1e7db, 3);
@@ -83,8 +95,8 @@ function Ball3d() {
 
       if (frame <= 100) {
         const p = initialCameraPosition;
-        // const rotSpeed = easeOutCirc(frame / 120) * Math.PI * 10;
-        const rotSpeed = easeOutCirc(frame / 120) * Math.PI * 6;
+        const rotSpeed = easeOutCirc(frame / 120) * Math.PI * 10;
+        // const rotSpeed = easeOutCirc(frame / 120) * Math.PI * 6;
         camera.position.y = 10;
         camera.position.x = p.x * Math.cos(rotSpeed) + p.z * Math.sin(rotSpeed);
         camera.position.z = p.z * Math.cos(rotSpeed) - p.x * Math.sin(rotSpeed);

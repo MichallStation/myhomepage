@@ -39,9 +39,8 @@ function Bio({ lang = 'en' }) {
         <Text textAlign="justify">
           {set.love.content.map(({ name, href }) =>
             href ? (
-              <>
+              <span key={name}>
                 <Button
-                  key={name}
                   as={Link}
                   href={href}
                   variant="link"
@@ -51,7 +50,7 @@ function Bio({ lang = 'en' }) {
                   {name}
                 </Button>
                 {', '}
-              </>
+              </span>
             ) : (
               <span key={name}>
                 {name}
