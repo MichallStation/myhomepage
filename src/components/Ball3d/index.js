@@ -113,8 +113,8 @@ function Ball3d() {
       receiveShadow: false,
       castShadow: false,
     }).then(() => {
-      animate();
       setLoading(false);
+      animate();
       dispatch(ball3dDone());
     });
 

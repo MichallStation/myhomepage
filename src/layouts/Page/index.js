@@ -14,9 +14,9 @@ function Page({ children, storage }) {
   // const { lang = 'en' } = storage.current
   return (
     <>
+      <Floating storage={storage} />
       <Navbar storage={storage} />
       <Ball3d />
-      <Floating storage={storage} />
       <AnimatePresence
         initial={false}
         mode="wait"
