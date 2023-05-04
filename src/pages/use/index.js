@@ -29,11 +29,11 @@ import ArticleCard from '@/components/ArticleCard';
 
 const tabindexs = {
   [useWorkflowType]: 0,
-  [useKitflowType]: 1,
-  [useDevflowType]: 2,
+  [useDevflowType]: 1,
+  [useKitflowType]: 2,
 };
 
-const tabnames = [useWorkflowType, useKitflowType, useDevflowType];
+const tabnames = [useWorkflowType, useDevflowType, useKitflowType];
 
 const icons = {
   [useWorkflowType]: <MdWorkOutline />,
@@ -77,7 +77,7 @@ function Use({ storage, type }) {
         <Tabs
           tabIndex={tabIndex}
           defaultIndex={tabIndex}
-          onChange={(index) => router.push(`?type=${tabnames[index]}`)}
+          // onChange={(index) => router.push(`?type=${tabnames[index]}`)}
           variant="soft-rounded"
           colorScheme="seconds"
           mt={8}
@@ -85,7 +85,7 @@ function Use({ storage, type }) {
         >
           <TabList overflowX="scroll" overflowY="hidden">
             <Box display="flex" minW="md">
-              {useTabsRender.map(([id, i]) => (
+              {useTabsRender.map(([id, i], index) => (
                 <Tab
                   key={id}
                   as={Button}
@@ -98,6 +98,12 @@ function Use({ storage, type }) {
                   px={4}
                   variant="unstyled"
                   leftIcon={icons[id]}
+                  // href={''}
+                  onClick={() =>
+                    router.push(`?type=${tabnames[index]}`, '', {
+                      scroll: false,
+                    })
+                  }
                   // borderRadius="lg"
                 >
                   {i.title}

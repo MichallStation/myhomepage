@@ -21,7 +21,8 @@ function Page({ children, storage }) {
         initial={false}
         mode="wait"
         onExitComplete={() => {
-          if (typeof window !== 'undefined') window.scrollTo({ top: 0 });
+          if (typeof window !== 'undefined')
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
       >
         <motion.main

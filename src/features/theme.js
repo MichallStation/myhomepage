@@ -65,9 +65,11 @@ const theme = extendTheme({
   fonts: {
     heading: "'Signika Negative', sans-serif",
     body: "'Source Sans Pro', sans-serif",
-    mono: "'Fira Code', monospace",
+    // sans: "'Source Sans Pro', sans-serif",
+    mono: "'Roboto Mono', monospace",
     deco: "'Lobster Two', cursive",
     handwrite: "'Merienda', cursive",
+    // serif: "Roboto Slab', serif",
   },
   colors: {
     prim: '#009edc',
