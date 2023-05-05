@@ -1,6 +1,18 @@
-import { errorId, homeId, detailId, workId, useId, articleId } from '../envs';
+import {
+  errorId,
+  homeId,
+  detailId,
+  workId,
+  useId,
+  articleId,
+  documentId,
+  offlineId,
+} from '../envs';
 
 export default {
+  [documentId]: {
+    name: 'Ltndat - Homepage',
+  },
   [homeId]: {
     title: 'Homepage - My home',
     name: 'Home',
@@ -64,6 +76,12 @@ export default {
       msg: 'This situation mean server have something wrong. So, you can reload this page...',
       btn: 'Go home',
     },
+  },
+  [offlineId]: {
+    title: 'Offline - ⚽',
+    head: 'Oopss, you offline!!!!',
+    msg: 'This app only run when internet connected. So, you must connected internet to use.',
+    btn: 'Reload',
   },
   Navbar: {
     Home: 'Home',

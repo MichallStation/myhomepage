@@ -80,7 +80,7 @@ function BlueLoading() {
         {/* <Text fontFamily="serif" color="GrayText">
           Made by Ltndat
         </Text> */}
-        <MadeBy w="100px" />
+        <MadeBy ml={2} w="108px" />
       </Box>
     </Box>
   );

@@ -1,33 +1,41 @@
 import Head from 'next/head';
 import React from 'react';
-import { homeId } from '@/_globals/envs';
+import { ENV_HOST_URL, homeId } from '@/_globals/envs';
 import { getSet } from '@/_globals/sets';
+import author from '@/_globals/author';
 
-function SEO({
-  lang = 'en',
-  title,
-  card = 'https://raw.githubusercontent.com/ltndat/myhomepage/main/public/cardhat.png',
-}) {
-  title = title ? `Ltndat - ${title}` : getSet(homeId, lang).title;
+function SEO({ lang = 'en', title, desc, card }) {
+  const set = getSet(homeId, lang);
+  title = title ? `${author.name} - ${title}` : `${author.name} - ${set.title}`;
   return (
     <Head>
-      <meta charSet="utf-8" />
-      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-      <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta name="title" content="ltndat" />
-      <meta name="description" content={title} />
-      <meta name="author" content="Ltndat" />
+      <meta
+        name="viewport"
+        content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
+      />
+      <meta name="title" content={author.name} />
+      <meta name="description" content={title || set.title} />
+      <meta name="author" content={author.name} />
       <meta name="author" content="Le Tran Ngoc Dat" />
-      <meta name="twitter:title" content="Ltndat" />
+      <meta name="twitter:title" content={author.name} />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@ltndat" />
-      <meta name="twitter:creator" content="@ltndat" />
-      <meta name="twitter:image" content={card} />
-      <meta property="og:site_name" content="Ltndat" />
-      <meta name="og:title" content="Ltndat" />
+      <meta name="twitter:site" content={`@${author.name}`} />
+      <meta name="twitter:creator" content={`@${author.name}`} />
+      <meta name="twitter:description" content={desc || set.desc} />
+      <meta
+        name="twitter:image"
+        content={card || `${ENV_HOST_URL}/cardhat.png`}
+      />
+      <meta name="twitter:url" content={ENV_HOST_URL} />
+      <meta property="og:site_name" content={author.name} />
+      <meta name="og:title" content={author.name} />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content={card} />
+      <meta property="og:description" content={desc || set.desc} />
+      <meta property="og:url" content={ENV_HOST_URL} />
+      <meta
+        property="og:image"
+        content={card || `${ENV_HOST_URL}/cardhat.png`}
+      />
       <title>{title}</title>
     </Head>
   );

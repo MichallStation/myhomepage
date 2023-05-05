@@ -1,6 +1,18 @@
-import { errorId, homeId, detailId, workId, useId, articleId } from '../envs';
+import {
+  errorId,
+  homeId,
+  detailId,
+  workId,
+  useId,
+  articleId,
+  documentId,
+  offlineId,
+} from '../envs';
 
 export default {
+  [documentId]: {
+    name: 'Ltndat - Nhà của tôi',
+  },
   [homeId]: {
     title: 'Trang chủ - Nhà của tôi',
     name: 'Nhà',
@@ -65,9 +77,15 @@ export default {
     c500: {
       title: 'Lỗi máy chủ 500 - ⚽',
       head: 'Ối, Sự cố máy chủ!!!!',
-      msg: 'Tình hình có một vài sự cố ở phía chủ. Nên bạn có thể tải lại trang...',
+      msg: 'Tình hình có một vài sự cố ở phía chủ. Nên bạn hãy thử tải lại trang...',
       btn: 'Về nhà',
     },
+  },
+  [offlineId]: {
+    title: 'Ngoại tuyến - ⚽',
+    head: 'Ối, bạn đang ngoại tuyến!!!!',
+    msg: 'Trang này chỉ có thể dùng khi bạn kết nối mạng. Nên bạn hãy kết nối mạng và tải lại trang.',
+    btn: 'Tải lại',
   },
   Navbar: {
     Home: 'Nhà',

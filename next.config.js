@@ -11,7 +11,6 @@ const nextConfig = {
     defaultLocale: 'home',
     localeDetection: false,
   },
-  // trailingSlash: true,
 };
 
 // module.exports = nextConfig;

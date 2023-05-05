@@ -1,12 +1,12 @@
 {
-  "theme_color": "#3579f6",
-  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "background_color": "#000000",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
   "name": "Ltndat",
   "short_name": "Ltndat",
-  "description": "Ltndat - Homepage - My home",
+  "description": "Ltndat - Homepage, Le Tran Ngoc Dat - Homepage",
   "icons": [
     {
       "src": "/icon-192x192.png",

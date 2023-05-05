@@ -1,9 +1,8 @@
 export default {
-  NAME: 'ltndat',
-  NAME2: 'Le Tran Ngoc Dat',
-  AUTHOR: 'ltndat',
+  name: 'Ltndat',
+  fullName: 'Le Tran Ngoc Dat',
   REPO: 'https://github.com/ltndat/ltndat',
-  WEB: 'https://ltndat.dev',
+  WEB: process.env.NEXT_PUBLIC_URL,
   GITHUB: 'https://github.com/ltndat',
   INSTAGRAM: 'https://www.instagram.com/ltndat_',
   FACEBOOK: 'https://www.facebook.com/ltndat',
