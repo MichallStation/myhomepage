@@ -29,6 +29,7 @@ function ThemeButton(props) {
         borderRadius="xl"
         p={2}
         style={style.btn}
+        title="theme"
       >
         {useColorModeValue(<BsMoonFill />, <BsSunFill />)}
       </Button>
