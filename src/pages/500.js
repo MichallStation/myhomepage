@@ -72,7 +72,10 @@ Error.getLayout = (page) => {
 /** @param {import('next').GetStaticPropsContext} context */
 export async function getStaticProps(context) {
   return {
-    // props: { storage: createFeaturesStorage(context) },
+    // props: {
+    //   storage: createFeaturesStorage(context),
+    //   cookies: context.req.cookies,
+    // },,
     props: context,
   };
 }

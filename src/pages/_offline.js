@@ -76,7 +76,10 @@ Offline.getLayout = (page) => {
 export async function getStaticProps(context) {
   // console.log(context);
   return {
-    // props: { storage: createFeaturesStorage(context) },
+    // props: {
+    //   storage: createFeaturesStorage(context),
+    //   cookies: context.req.cookies,
+    // },,
     props: context,
   };
 }

@@ -82,7 +82,7 @@ export async function getServerSideProps(context) {
   let markdown = null;
 
   try {
-    const data = getArticleByLang(storage.current.lang);
+    const data = getArticleByLang(storage?.current.lang);
     item = data.find((i) => i.id === id) || null;
     const res = await fetch(item.markdown);
     markdown = (await res.text()) || null;

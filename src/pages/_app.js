@@ -16,6 +16,7 @@ let store;
 /** @param {{pageProps: {storage: import('@/features/@features').FeaturesStorage}}}  */
 export default function App({ Component, pageProps, router }) {
   // const { lang } = storage.current;
+  console.log('pageProps: ===== ', pageProps);
   const { storage } = pageProps;
   const getLayout =
     Component.getLayout || ((page) => <Page storage={storage}>{page}</Page>);

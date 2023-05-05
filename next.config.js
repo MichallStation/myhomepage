@@ -1,5 +1,9 @@
 const withPWA = require('next-pwa')({
   dest: 'public',
+  dynamicStartUrlRedirect: true,
+  // cacheOnFrontEndNav: true,
+  register: true,
+  skipWaiting: true,
 });
 
 /** @type {import('next').NextConfig} */

@@ -11,7 +11,7 @@ import Floating from '@/components/Floating';
  * }}
  * */
 function Page({ children, storage }) {
-  // const { lang = 'en' } = storage.current
+  // const { lang = 'en' } = storage?.current
   return (
     <>
       <Floating storage={storage} />

@@ -35,7 +35,7 @@ const style = {
 
 /** @param {{storage: import('@/features/@features').FeaturesStorage}}  */
 function Navbar({ storage }) {
-  const { lang = 'en' } = storage.current;
+  const { lang } = storage.current;
   const router = useRouter();
   const { setLoading, setDone } = useProgress();
 
