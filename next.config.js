@@ -1,9 +1,12 @@
+const runtimeCaching = require('next-pwa/cache');
 const withPWA = require('next-pwa')({
   dest: 'public',
-  dynamicStartUrlRedirect: true,
-  // cacheOnFrontEndNav: true,
   register: true,
   skipWaiting: true,
+  runtimeCaching,
+  buildExcludes: [/middleware-manifest.json$/],
+  cleanupOutdatedCaches: true,
+  navigateFallback: '/',
 });
 
 /** @type {import('next').NextConfig} */
@@ -15,6 +18,7 @@ const nextConfig = {
     defaultLocale: 'home',
     localeDetection: false,
   },
+  // trailingSlash: true,
 };
 
 // module.exports = nextConfig;

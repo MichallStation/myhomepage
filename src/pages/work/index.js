@@ -19,7 +19,6 @@ import { getProjectsByLang, getWorksByLang } from '@/_globals/db';
 
 /** @param {{storage: import('@/features/@features').FeaturesStorage}} */
 function Work({ storage }) {
-  console.log(storage);
   const { lang } = storage.current;
   const set = getSet(workId, lang);
   const projects = useMemo(() => getProjectsByLang(lang), [lang]);
@@ -80,7 +79,6 @@ function Work({ storage }) {
 
 /** @param {import('next').NextPageContext} context */
 export async function getServerSideProps(context) {
-  console.log(context.req.cookies);
   return {
     props: { storage: createFeaturesStorage(context) },
   };
