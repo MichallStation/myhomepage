@@ -2,6 +2,7 @@ import { Box, useColorModeValue } from '@chakra-ui/react';
 import React, { useCallback, useEffect, useRef } from 'react';
 import BackgroundImage from '../BackgroundImage';
 import BlueBrand from '../Blue/BlueBrand';
+import MadeBy from '../MadeBy';
 
 function BlueLoading() {
   const refBox = useRef();
@@ -65,17 +66,22 @@ function BlueLoading() {
           src="/blue.png"
         />
       </Box>
-      {/* <Heading
+      <Box
+        left={0}
+        right={0}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
         pos="absolute"
-        color="GrayText"
-        fontFamily="deco"
-        fontSize={['2xl', '3xl']}
-        bottom={[8, 10]}
-        letterSpacing="3px"
+        bottom={[4, 8]}
+        flexDir="column"
       >
-        Blue
-      </Heading> */}
-      <BlueBrand ml={2} pos="absolute" bottom={[4, 8]} w={['66px', '72px']} />
+        <BlueBrand ml={1} w={['66px', '72px']} mb={-3} />
+        {/* <Text fontFamily="serif" color="GrayText">
+          Made by Ltndat
+        </Text> */}
+        <MadeBy w="100px" />
+      </Box>
     </Box>
   );
 }

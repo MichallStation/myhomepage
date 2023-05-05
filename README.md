@@ -1,6 +1,6 @@
 # Welcome
 
-![blue](./public/cardround.png)
+![Blue](./public/cardhatfillround.png)
 
 - 👋 Hi, I’m @ltndat
 - 🇻🇳 I'm Vietnamese
