@@ -24,7 +24,6 @@ function Card({ children, title, img, ...props }) {
         backgroundImage={img}
         {...props}
       />
-
       <Text textAlign="center">{title}</Text>
     </motion.div>
   );

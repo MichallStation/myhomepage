@@ -1,4 +1,6 @@
 import { Provider } from 'react-redux';
+import Head from 'next/head';
+import { useColorModeValue } from '@chakra-ui/react';
 import ChakraManager from '@/lib/chakra/Manager';
 import createStore from '@/features/store';
 import theme from '@/features/theme';

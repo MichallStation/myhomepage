@@ -13,6 +13,16 @@ export default function Document({ storage }) {
     <Html lang={lang}>
       <Head>
         <meta charSet="utf-8" />
+        {/* <meta
+          name="theme-color"
+          media="(prefers-color-scheme: light)"
+          content="#f1e7db"
+        />
+        <meta
+          name="theme-color"
+          media="(prefers-color-scheme: dark)"
+          content="#192227"
+        /> */}
         <meta name="application-name" content={set.name} />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />

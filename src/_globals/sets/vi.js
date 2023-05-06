@@ -12,6 +12,7 @@ import {
 export default {
   [documentId]: {
     name: 'Ltndat - Nhà của tôi',
+    desc: 'Le Tran Ngoc Dat - Ltndat - Nhà của Đạt',
   },
   [homeId]: {
     title: 'Trang chủ - Nhà của tôi',

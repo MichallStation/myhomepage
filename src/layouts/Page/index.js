@@ -1,5 +1,7 @@
 import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+
+import PWA from '@/layouts/PWA';
 import Ball3d from '@/components/Ball3d';
 import Navbar from '@/components/Navbar';
 import Floating from '@/components/Floating';
@@ -14,6 +16,7 @@ function Page({ children, storage }) {
   // const { lang = 'en' } = storage?.current
   return (
     <>
+      <PWA />
       <Floating storage={storage} />
       <Navbar storage={storage} />
       <Ball3d />

@@ -7,6 +7,8 @@ const withPWA = require('next-pwa')({
   buildExcludes: [/middleware-manifest.json$/],
   cleanupOutdatedCaches: true,
   navigateFallback: '/',
+  // sw: 'service-worker.js',
+  // disable: process.env.NODE_ENV === 'development',
 });
 
 /** @type {import('next').NextConfig} */
