@@ -2,6 +2,7 @@ import { Box, useColorModeValue } from '@chakra-ui/react';
 import React, { useCallback, useEffect, useRef } from 'react';
 import BackgroundImage from '../BackgroundImage';
 import BlueBrand from '../Blue/BlueBrand';
+import envs from '../Blue/envs';
 import MadeBy from '../MadeBy';
 
 function BlueLoading() {
@@ -63,7 +64,7 @@ function BlueLoading() {
           w="88px"
           h="88px"
           // borderRadius="full"
-          src="/blue.png"
+          src={envs.url}
         />
       </Box>
       <Box

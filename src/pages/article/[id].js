@@ -44,7 +44,7 @@ function ArticlePage({ item, page, type, storage, markdown }) {
       />
       <Container
         maxW={{ sm: 'full', md: '3xl' }}
-        // pos="relative"
+        pos="relative"
         // overflow="hidden"
         px={6}
       >

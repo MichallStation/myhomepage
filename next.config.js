@@ -4,9 +4,9 @@ const withPWA = require('next-pwa')({
   register: true,
   skipWaiting: true,
   runtimeCaching,
+  navigateFallback: '/',
   buildExcludes: [/middleware-manifest.json$/],
   cleanupOutdatedCaches: true,
-  navigateFallback: '/',
   // sw: 'service-worker.js',
   // disable: process.env.NODE_ENV === 'development',
 });

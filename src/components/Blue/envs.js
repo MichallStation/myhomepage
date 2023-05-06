@@ -1,4 +1,5 @@
 export default {
-  brandUrl: '/bluebrand.png',
-  brand72Url: '/bluebrand72.png',
+  brandUrl: '/assets/images/bluebrand.png',
+  brand72Url: '/assets/images/bluebrand72.png',
+  url: '/assets/images/blue.png',
 };

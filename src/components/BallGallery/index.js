@@ -67,7 +67,7 @@ function BallGallery({ data, originIndex = 0, ...props }) {
   return (
     <Box
       w="100%"
-      height="100%"
+      h="100%"
       display="flex"
       alignItems="center"
       justifyContent="center"
@@ -100,7 +100,7 @@ function BallGallery({ data, originIndex = 0, ...props }) {
         <Icon as={BiRightArrow} boxSize="40px" />
       </Button>
       <Box
-        // w="100%"
+        w="100%"
         h="100%"
         // display="flex"
         // alignItems="center"
@@ -137,12 +137,12 @@ function BallGallery({ data, originIndex = 0, ...props }) {
               src={currentItem.thumbnail}
               title={currentItem.title}
               data-index={currentIndex}
-              borderRadius="lg"
+              // borderRadius="lg"
               objectFit="contain"
               // objectFit="cover"
               ref={refContainer}
               w="100%"
-              h="100%"
+              h="58vh"
               // h={size.h}
               // w={size.w}
               // h="60vh"

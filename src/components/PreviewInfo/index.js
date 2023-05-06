@@ -59,7 +59,8 @@ function PreviewInfo({ data, ...props }) {
                 onClick={handleClick}
                 display="block"
                 backgroundColor="holder"
-                backgroundSize="cover"
+                // backgroundSize="cover"
+                backgroundSize="contain"
                 backgroundRepeat="no-repeat"
                 backgroundPosition="center"
                 backgroundImage={thumbnail}
@@ -89,7 +90,6 @@ function PreviewInfo({ data, ...props }) {
           overflow="hidden"
           h="60vh"
           pos="relative"
-          // p={2}
         >
           <ModalBody p={2}>
             <BallGallery data={data} originIndex={index} />

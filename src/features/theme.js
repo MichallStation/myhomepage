@@ -91,6 +91,7 @@ const theme = extendTheme({
     // seconddark: '#a99281',
     pop: '#fdf6ec',
     holder: '#808680',
+    // holder: 'rgb(128 134 128 / 20%)',
   },
 });
 

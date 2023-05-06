@@ -1,5 +1,6 @@
 import { Box, Heading, Image, Text, useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
+import envs from '../Blue/envs';
 
 /** @param {{title: string | React.ReactNode, description: string | React.ReactNode}}  */
 export function BallToast({ title, description, color }) {
@@ -33,7 +34,7 @@ export function BallToast({ title, description, color }) {
         backgroundColor={color}
       />
       <Box className="toast-icon" px={2}>
-        <Image className="heartbeat" height="44px" src="/blue.png" />
+        <Image className="heartbeat" height="44px" src={envs.url} />
       </Box>
       <Box className="toast-content">
         {title}

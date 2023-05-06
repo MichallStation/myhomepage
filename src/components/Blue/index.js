@@ -1,16 +1,18 @@
 import { AnimatePresence, motion, useAnimationControls } from 'framer-motion';
 import React, { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Box, Image, useColorModeValue, useToast } from '@chakra-ui/react';
+import { Box, useColorModeValue, useToast } from '@chakra-ui/react';
 import { DONE, selectball3dStatus } from '@/features/slices/ui';
 import { getSet } from '@/_globals/sets';
 import Message from './Message';
 import useLang from '@/features/hooks/useLang';
 import styles from './styles';
 import { BlueId } from '@/_globals/envs';
-import envs from '../Navbar/envs';
+import envsNavbar from '../Navbar/envs';
 import actions from './actions';
 import BlueLoading from '../BlueLoading';
+import BackgroundImage from '../BackgroundImage';
+import envs from './envs';
 
 /** @type {Object<string, import('framer-motion').TargetAndTransition>} * */
 const variants = {
@@ -109,7 +111,7 @@ function Blue({ storage, width = 48 }) {
     <Box
       pos="fixed"
       // zIndex="toast"
-      marginTop={`${envs.height}px`}
+      marginTop={`${envsNavbar.height}px`}
       top={['12px', '24px', '32px']}
       left={['12px', '24px', '32px']}
       style={{
@@ -146,12 +148,13 @@ function Blue({ storage, width = 48 }) {
             // 'whiteAlpha.800',
           )}
         >
-          <Image
+          {/* <Image
             className="brand-img"
             src="/blue.png"
             alt="Blue"
             width={`${width}px`}
-          />
+          /> */}
+          <BackgroundImage src={envs.url} />
         </Box>
       </motion.button>
       <AnimatePresence initial={false} mode="wait">

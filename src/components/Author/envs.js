@@ -1,3 +1,3 @@
 export default {
-  avatarUrl: '/dat.jpg',
+  avatarUrl: '/assets/images/dat.jpg',
 };

@@ -1,3 +1,3 @@
 export default {
-  madebyUrl: '/madeby.png',
+  madebyUrl: '/assets/images/madeby.png',
 };

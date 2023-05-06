@@ -12,6 +12,7 @@ import {
 export default {
   [documentId]: {
     name: 'Ltndat - Homepage',
+    desc: 'Ltndat - Homepage - My home, Ltndat - Work - My portfolio, Ltndat - Use - My passion, Ltndat - Article - My heart, Le Tran Ngoc Dat - Homepage - My home, Le Tran Ngoc Dat - Work - My portfolio, Le Tran Ngoc Dat - Use - My passion, Le Tran Ngoc Dat - Article - My heart',
   },
   [homeId]: {
     title: 'Homepage - My home',

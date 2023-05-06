@@ -4,6 +4,7 @@ import { GiNewspaper } from 'react-icons/gi';
 import { IoIosArrowForward } from 'react-icons/io';
 import MotionButton from '../MotionChakra/MotionButton';
 import Section from '@/layouts/Section';
+import Card from '../Card';
 
 function ArticleHeader({ toc, set, data, ...props }) {
   return (
@@ -17,10 +18,20 @@ function ArticleHeader({ toc, set, data, ...props }) {
       {...props}
     >
       <Box
+        minH={['200px', '320px', '400px']}
+        w="100%"
+        backgroundColor="holder"
+        backgroundSize="cover"
+        backgroundRepeat="no-repeat"
+        backgroundPosition="center"
+        backgroundImage={data.thumbnail}
+      />
+      <Box
         className="article-body"
         display="flex"
         minH={['', '460px']}
         flexDirection={['column', 'row']}
+        mt={1}
       >
         <Box
           className="header-heading"
@@ -51,14 +62,6 @@ function ArticleHeader({ toc, set, data, ...props }) {
             {data.title}
           </Heading>
           <Text mt={2}>{data.desc}</Text>
-          {/* <Card
-              height="160px"
-              maxW="320px"
-              w="100%"
-              img={data.thumbnail}
-              filter="brightness(0.5)"
-              mt={4}
-            /> */}
         </Box>
         <Box
           width={['100%', '60%']}

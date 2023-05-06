@@ -30,6 +30,8 @@ function PageDetail({ lang = 'en', type = detailProjectType, detail: item }) {
       <SEO
         lang={lang}
         title={`${set.title} ${setWork?.[type].title} - ${item.name}`}
+        desc={item.desc}
+        card={item.thumbnail}
       />
       <Container
         maxW={{ sm: 'full', md: '3xl' }}

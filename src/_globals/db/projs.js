@@ -1,22 +1,23 @@
 export default [
   {
     id: 'homepage',
-    thumbnail: '/assets/images/works/homepage.png',
+    thumbnail: '/data/works/homepage/thumbnail.png',
     preview: [
       {
-        title: '',
-        thumbnail:
-          'https://thumbs.dreamstime.com/b/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.jpg',
+        title: 'PC light theme',
+        thumbnail: '/data/works/homepage/pc-light.png',
       },
       {
-        title: '',
-        thumbnail:
-          'https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=612x612&w=0&k=20&c=A63koPKaCyIwQWOTFBRWXj_PwCrR4cEoOw2S9Q7yVl8=',
+        title: 'PC dark theme',
+        thumbnail: '/data/works/homepage/pc-dark.png',
       },
       {
-        title: '',
-        thumbnail:
-          'https://media.istockphoto.com/id/1322277517/photo/wild-grass-in-the-mountains-at-sunset.jpg?s=612x612&w=0&k=20&c=6mItwwFFGqKNKEAzv0mv6TaxhLN3zSE43bWmFN--J5w=',
+        title: 'Mobile light theme',
+        thumbnail: '/data/works/homepage/mobile-light.png',
+      },
+      {
+        title: 'Mobile dark theme',
+        thumbnail: '/data/works/homepage/mobile-dark.png',
       },
     ],
     en: {
@@ -156,7 +157,7 @@ export default [
   },
   {
     id: 'homebusiness',
-    thumbnail: '/assets/images/works/homebusiness.png',
+    thumbnail: '/data/works/homebusiness/thumbnail.png',
     preview: [],
     en: {
       name: 'My business',
@@ -169,7 +170,7 @@ export default [
   },
   {
     id: 'homebusiness2',
-    thumbnail: '/assets/images/works/homebusiness.png',
+    thumbnail: '/data/works/homebusiness/thumbnail.png',
     preview: [],
     en: {
       name: 'My business',
@@ -182,7 +183,7 @@ export default [
   },
   {
     id: 'homebusiness3',
-    thumbnail: '/assets/images/works/homebusiness.png',
+    thumbnail: '/data/works/homebusiness/thumbnail.png',
     preview: [],
     en: {
       name: 'My business',

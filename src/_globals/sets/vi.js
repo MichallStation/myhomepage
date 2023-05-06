@@ -12,7 +12,7 @@ import {
 export default {
   [documentId]: {
     name: 'Ltndat - Nhà của tôi',
-    desc: 'Le Tran Ngoc Dat - Ltndat - Nhà của Đạt',
+    desc: 'Ltndat - Trang chủ - Nhà của tôi, Ltndat - Công việc - Hồ sơ của tôi, Ltndat - Đồ dùng - Niềm đam mê của tôi, Ltndat - Bài viết - Tâm huyết của tôi, Lê Trần Ngọc Đạt - Trang chủ - Nhà của tôi, Lê Trần Ngọc Đạt - Công việc - Hồ sơ của tôi, Lê Trần Ngọc Đạt - Đồ dùng - Niềm đam mê của tôi, Lê Trần Ngọc Đạt - Bài viết - Tâm huyết của tôi',
   },
   [homeId]: {
     title: 'Trang chủ - Nhà của tôi',

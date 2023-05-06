@@ -1,7 +1,7 @@
 export default [
   {
     name: 'Blue',
-    thumbnail: '/blue.png',
+    thumbnail: '/assets/images/blue.png',
     en: { role: { title: 'Role', content: 'Assistant' } },
     vi: { role: { title: 'Vai trò', content: 'Trợ lý' } },
   },
