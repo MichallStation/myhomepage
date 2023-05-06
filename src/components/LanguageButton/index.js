@@ -30,7 +30,6 @@ function LanguageButton({ lang = 'en' }) {
     /** @param {Event} e */
     (e) => {
       // const value = Cookies.get('lang');
-      console.log(e);
       if (lang === e.target.value) return;
 
       router.push(router.asPath, '', {
