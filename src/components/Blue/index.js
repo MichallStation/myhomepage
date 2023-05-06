@@ -41,7 +41,7 @@ const actionIds = {
 };
 
 /** @param {{storage: import('@/features/@features').FeaturesStorage}}  */
-function Blue({ storage, width = 48 }) {
+function Blue({ storage }) {
   const lang = useLang(storage.current.lang);
   const inTimeWelcome = useSelector(selectball3dStatus) === DONE;
   const toast = useToast();

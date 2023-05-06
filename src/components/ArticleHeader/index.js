@@ -4,7 +4,6 @@ import { GiNewspaper } from 'react-icons/gi';
 import { IoIosArrowForward } from 'react-icons/io';
 import MotionButton from '../MotionChakra/MotionButton';
 import Section from '@/layouts/Section';
-import Card from '../Card';
 
 function ArticleHeader({ toc, set, data, ...props }) {
   return (
