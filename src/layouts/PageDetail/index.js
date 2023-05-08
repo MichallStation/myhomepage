@@ -8,6 +8,8 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { GrArticle } from 'react-icons/gr';
+import { MdOutlineStyle } from 'react-icons/md';
+import { VscBook, VscLayout, VscPreview } from 'react-icons/vsc';
 import SEO from '@/layouts/SEO';
 import { getSet } from '@/_globals/sets';
 import Section from '@/layouts/Section';
@@ -17,8 +19,6 @@ import PreviewInfo from '@/components/PreviewInfo';
 import { detailId, detailProjectType, workId } from '@/_globals/envs';
 import BlueBreadcrumb from '@/components/BlueBreadcrumb';
 import icons from '@/_globals/icons';
-import { MdOutlineStyle } from 'react-icons/md';
-import { VscBook, VscLayout, VscPreview } from 'react-icons/vsc';
 
 function PageDetail({ lang = 'en', type = detailProjectType, detail: item }) {
   const set = getSet(detailId, lang);
