@@ -38,6 +38,7 @@ export default {
   [detailId]: {
     title: 'Chi tiết',
     name: 'Chi tiết',
+    style: 'Phong cách',
     desc: 'Mô tả',
     detail: 'Chi tiết',
     preview: 'Xem trước',

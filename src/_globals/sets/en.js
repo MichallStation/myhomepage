@@ -38,6 +38,7 @@ export default {
     title: 'Detail',
     name: 'Detail',
     desc: 'Description',
+    style: 'Style',
     detail: 'Detail',
     preview: 'Preview',
   },

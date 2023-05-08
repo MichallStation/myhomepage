@@ -19,6 +19,7 @@ function Card({ children, title, img, ...props }) {
         minH="160px"
         backgroundColor="holder"
         backgroundSize="cover"
+        // backgroundSize="contain"
         backgroundRepeat="no-repeat"
         backgroundPosition="center"
         backgroundImage={img}

@@ -67,21 +67,12 @@ function Blue({ storage }) {
         toast,
       });
     }, 5000);
-    // }, 0);
     // eslint-disable-next-line consistent-return
     return () => t && clearTimeout(t);
   }, [inTimeWelcome, set]);
 
   const handleClick = useCallback(() => {
     // Blue introduction
-    // if (toast.isActive(actionIds.intro)) return;
-    // toast({
-    //   id: actionIds.intro,
-    //   duration: 5000,
-    //   render: (props) => <Message {...props}>{set.intro}</Message>,
-    //   position: 'top-left',
-    //   isClosable: true,
-    // });
     actions.says({
       id: actionIds.intro,
       mes: set.intro,
@@ -94,8 +85,6 @@ function Blue({ storage }) {
   const handleDrag = useCallback(() => {
     // Blue joke
     if (toast.isActive(actionIds.joke)) return;
-    // console.log('drag');
-    // await controls.start('joke');
     toast({
       id: actionIds.joke,
       duration: 5000,
@@ -103,14 +92,11 @@ function Blue({ storage }) {
       position: 'top-left',
       isClosable: true,
     });
-    // await controls.start('nothing');
-    // controls.stop();
   }, [set]);
 
   return (
     <Box
       pos="fixed"
-      // zIndex="toast"
       marginTop={`${envsNavbar.height}px`}
       top={['12px', '24px', '32px']}
       left={['12px', '24px', '32px']}
@@ -138,22 +124,14 @@ function Blue({ storage }) {
         style={styles.blue}
       >
         <Box
-          // className="animate__animated animate__flip animate__infinite animate__slow"
           boxShadow="base"
           borderRadius="50%"
           overflow="hidden"
           backgroundColor={useColorModeValue(
             'blackAlpha.200',
             'whiteAlpha.400',
-            // 'whiteAlpha.800',
           )}
         >
-          {/* <Image
-            className="brand-img"
-            src="/blue.png"
-            alt="Blue"
-            width={`${width}px`}
-          /> */}
           <BackgroundImage src={envs.url} />
         </Box>
       </motion.button>

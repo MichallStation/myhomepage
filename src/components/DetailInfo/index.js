@@ -2,39 +2,50 @@ import { Box, Code, Text, Icon } from '@chakra-ui/react';
 import Link from 'next/link';
 import React from 'react';
 import { FaArrowsAltH } from 'react-icons/fa';
+import ColorCard from '../ColorCard';
+
+const schemes = {
+  platform: 'red',
+  stack: 'blue',
+  flow: 'green',
+  ui: 'teal',
+  font: 'yellow',
+  color: 'purple',
+};
 
 /** @param {{data: [{id?: string, }]}}  */
 function DetailInfo({ data, ...props }) {
-  const schemes = {
-    platform: 'red',
-    stack: 'blue',
-    flow: 'green',
-  };
+  if (!data || data?.length === 0)
+    return <Box className="detail-info" {...props} />;
+
   return (
     <Box className="detail-info" {...props}>
       {data.length > 0 &&
         data.map((info) => (
           <Box key={info.id} mt={2}>
             <Text fontWeight="bold" fontSize="md">{`${info.name}:`}</Text>
-            {info.content.map(({ title, desc, href }) => (
-              <Box key={title}>
-                <Code
-                  as={href && Link}
-                  href={href}
-                  target={href && '_blank'}
-                  colorScheme={schemes?.[info.id]}
-                  mr={2}
-                >
-                  {title}
-                </Code>
-                {desc && <Icon as={FaArrowsAltH} mr={2} />}
-                {desc && (
-                  <Text display="contents" textAlign="justify">
-                    {desc}
-                  </Text>
-                )}
-              </Box>
-            ))}
+            {info?.content &&
+              info.content.map(({ title, desc, href }) => (
+                <Box key={title}>
+                  <Code
+                    as={href && Link}
+                    href={href}
+                    target={href && '_blank'}
+                    colorScheme={schemes?.[info.id]}
+                    mr={2}
+                  >
+                    {title}
+                  </Code>
+                  {desc && <Icon as={FaArrowsAltH} mr={2} />}
+                  {desc && (
+                    <Text display="contents" textAlign="justify">
+                      {desc}
+                    </Text>
+                  )}
+                </Box>
+              ))}
+            {info.id === 'color' && <ColorCard colors={info.data} />}
+            {info.id === 'structure' && <Code>{info.content}</Code>}
           </Box>
         ))}
     </Box>

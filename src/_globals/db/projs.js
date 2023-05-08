@@ -1,25 +1,6 @@
 export default [
   {
     id: 'homepage',
-    thumbnail: '/data/works/homepage/thumbnail.png',
-    preview: [
-      {
-        title: 'PC light theme',
-        thumbnail: '/data/works/homepage/pc-light.png',
-      },
-      {
-        title: 'PC dark theme',
-        thumbnail: '/data/works/homepage/pc-dark.png',
-      },
-      {
-        title: 'Mobile light theme',
-        thumbnail: '/data/works/homepage/mobile-light.png',
-      },
-      {
-        title: 'Mobile dark theme',
-        thumbnail: '/data/works/homepage/mobile-dark.png',
-      },
-    ],
     en: {
       name: 'My homepage',
       desc: '',
@@ -85,11 +66,26 @@ export default [
             },
           ],
         },
+        {
+          id: 'structure',
+          name: 'Structure',
+          content: [],
+        },
+        {
+          id: 'style',
+          name: 'Style',
+          content: [],
+        },
+        {
+          id: 'style',
+          name: 'Style',
+          content: [],
+        },
       ],
     },
     vi: {
       name: 'Nhà của tôi',
-      desc: 'Lấy cảm hứng từ biệt danh của tôi, đồng thời thu nhận ý kiến từ những người cố vấn. Tôi làm tất cả các từ việc lên ý tưởng, lâp kế hoạch, thiết kế và vẽ 3d, quản lý quy trình dự án.',
+      desc: 'Nguồn cảm hứng từ phong cách hiện đại, kèm thêm một chút nhẹ nhàng tinh tế. Sự kết hợp giữa các dạng giao diện khối và mảnh lẫn 3d. Tôi đã xây dựng dự án này các từ việc lên ý tưởng, quản lý quy trình dự án, lập kế hoạch, thiết kế hình ảnh và viết code cho toàn bộ nội dung trang.',
       info: [
         {
           id: 'platform',
@@ -106,7 +102,7 @@ export default [
           content: [
             {
               title: 'Nextjs',
-              desc: 'Tôi dùng để xây dựng nên trang này fullstack.',
+              desc: 'Công nghệ tôi dùng để xây dựng fullstack.',
               href: 'https://nextjs.org',
             },
           ],
@@ -153,37 +149,87 @@ export default [
           ],
         },
       ],
+      style: [
+        {
+          id: 'ui',
+          name: 'Giao diện',
+          content: [
+            {
+              title: 'Material Design',
+              href: 'https://en.wikipedia.org/wiki/Material_Design',
+            },
+          ],
+        },
+        {
+          id: 'font',
+          name: 'Phông chữ',
+          content: [
+            {
+              title: 'Source Sans Pro',
+              desc: 'phong cách chữ không chân (sans-serif), tôi dùng phông chữ nội dung chính.',
+              href: 'https://fonts.google.com/specimen/Source+Sans+Pro',
+            },
+            {
+              title: 'Signika Negative',
+              desc: 'phong cách chữ không chân (sans-serif), tôi dùng phông chữ tiêu đề chính.',
+              href: 'https://fonts.google.com/specimen/Signika+Negative',
+            },
+            {
+              title: 'Roboto Mono',
+              desc: 'phong cách chữ đơn cách (monospace), tôi dùng làm phong chữ code.',
+              href: 'https://fonts.google.com/specimen/Roboto+Mono',
+            },
+            {
+              title: 'Roboto Slab',
+              desc: 'phong cách chữ có chân (serif), tôi dùng làm phong điểm.',
+              href: 'https://fonts.google.com/specimen/Roboto+Slab',
+            },
+            {
+              title: 'Merienda',
+              desc: 'phong cách chữ thảo (cursive), tôi dùng như chữ viết tay vào các tiêu đề đặc biệt.',
+              href: 'https://fonts.google.com/specimen/Merienda',
+            },
+            {
+              title: 'Lobster Two',
+              desc: 'phong cách chữ thảo (cursive), tôi dùng điểm chi tiết.',
+              href: 'https://fonts.google.com/specimen/Lobster+Two',
+            },
+          ],
+        },
+        {
+          id: 'color',
+          name: 'Màu sắc',
+          data: ['#f1e7db', '#a99281', '#89ddff', '#192227'],
+        },
+      ],
     },
+    thumbnail: '/data/projs/homepage/thumbnail.png',
+    preview: [
+      {
+        title: 'Card',
+        thumbnail: '/data/projs/homepage/card.png',
+      },
+      {
+        title: 'PC light theme',
+        thumbnail: '/data/projs/homepage/pc-light.png',
+      },
+      {
+        title: 'PC dark theme',
+        thumbnail: '/data/projs/homepage/pc-dark.png',
+      },
+      {
+        title: 'Mobile light theme',
+        thumbnail: '/data/projs/homepage/mobile-light.png',
+      },
+      {
+        title: 'Mobile dark theme',
+        thumbnail: '/data/projs/homepage/mobile-dark.png',
+      },
+    ],
   },
   {
     id: 'homebusiness',
-    thumbnail: '/data/works/homebusiness/thumbnail.png',
-    preview: [],
-    en: {
-      name: 'My business',
-      info: [],
-    },
-    vi: {
-      name: 'Doanh nghiệp của tôi',
-      info: [],
-    },
-  },
-  {
-    id: 'homebusiness2',
-    thumbnail: '/data/works/homebusiness/thumbnail.png',
-    preview: [],
-    en: {
-      name: 'My business',
-      info: [],
-    },
-    vi: {
-      name: 'Doanh nghiệp của tôi',
-      info: [],
-    },
-  },
-  {
-    id: 'homebusiness3',
-    thumbnail: '/data/works/homebusiness/thumbnail.png',
+    thumbnail: '/data/projs/homebusiness/thumbnail.png',
     preview: [],
     en: {
       name: 'My business',

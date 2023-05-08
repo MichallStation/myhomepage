@@ -1,5 +1,12 @@
 import React from 'react';
-import { Box, Container, Heading, Text, Icon } from '@chakra-ui/react';
+import {
+  Box,
+  Container,
+  Heading,
+  Text,
+  Icon,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import { GrArticle } from 'react-icons/gr';
 import SEO from '@/layouts/SEO';
 import { getSet } from '@/_globals/sets';
@@ -10,10 +17,13 @@ import PreviewInfo from '@/components/PreviewInfo';
 import { detailId, detailProjectType, workId } from '@/_globals/envs';
 import BlueBreadcrumb from '@/components/BlueBreadcrumb';
 import icons from '@/_globals/icons';
+import { MdOutlineStyle } from 'react-icons/md';
+import { VscBook, VscLayout, VscPreview } from 'react-icons/vsc';
 
 function PageDetail({ lang = 'en', type = detailProjectType, detail: item }) {
   const set = getSet(detailId, lang);
   const setWork = getSet(workId, lang);
+  const currentPageIconFilter = useColorModeValue('', 'invert(1)');
 
   const breads = [
     { name: setWork.name, href: '/work', icon: icons.work.Icon },
@@ -22,7 +32,13 @@ function PageDetail({ lang = 'en', type = detailProjectType, detail: item }) {
       href: `/work#${type}`,
       icon: icons.work?.[type]?.Icon,
     },
-    { name: item.name, href: '#', icon: icons.detail.Icon },
+    {
+      name: item.name,
+      href: '#',
+      // fix GrIcon not dynamic change with theme
+      icon: (props) =>
+        icons.detail.Icon({ ...props, filter: currentPageIconFilter }),
+    },
   ];
 
   return (
@@ -77,26 +93,42 @@ function PageDetail({ lang = 'en', type = detailProjectType, detail: item }) {
                   className="animate__animated animate__flip animate__infinite animate__slow"
                   as={GrArticle}
                   boxSize="24px"
+                  filter={currentPageIconFilter}
                 />
               </Box>
-              <Box
-                minH={['200px', '320px', '400px']}
-                w="100%"
-                backgroundColor="holder"
-                backgroundSize="cover"
-                backgroundRepeat="no-repeat"
-                backgroundPosition="center"
-                backgroundImage={item.thumbnail}
-              />
+              <Box p={1}>
+                <Box
+                  minH={['200px', '320px', '400px']}
+                  w="100%"
+                  backgroundColor="holder"
+                  backgroundSize="cover"
+                  backgroundRepeat="no-repeat"
+                  backgroundPosition="center"
+                  backgroundImage={item.thumbnail}
+                />
+              </Box>
             </Box>
           </Box>
-          <Section title={set.desc} id="desc" sep={4}>
+          <Section title={set.desc} id="desc" sep={4} icon={<VscLayout />}>
             <Text textAlign="justify">{item.desc}</Text>
           </Section>
-          <Section title={set.detail} id="detail" sep={4}>
+          <Section title={set.detail} id="detail" sep={4} icon={<VscBook />}>
             <DetailInfo data={item.info} mt={2} />
           </Section>
-          <Section title={set.preview} id="preview" sep={4}>
+          <Section
+            title={set.style}
+            id="style"
+            sep={4}
+            icon={<MdOutlineStyle />}
+          >
+            <DetailInfo data={item.style} mt={2} />
+          </Section>
+          <Section
+            title={set.preview}
+            id="preview"
+            sep={4}
+            icon={<VscPreview />}
+          >
             <PreviewInfo data={item.preview} />
           </Section>
         </Box>

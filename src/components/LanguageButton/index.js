@@ -62,7 +62,9 @@ function LanguageButton({ lang = 'en' }) {
             mt={1}
           >
             {envs?.[i]}
-            <Text ml={2}>{i}</Text>
+            <Text pointerEvents="none" ml={2}>
+              {i}
+            </Text>
           </MenuItem>
         ))}
       </MenuList>
