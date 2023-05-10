@@ -15,4 +15,6 @@ export function setCookieForResponse(res, values) {
 export const isDefaultLocale = ({ defaultLocale, locale }) =>
   defaultLocale === locale;
 
+export function getLocalData() {}
+
 export default {};

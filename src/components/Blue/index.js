@@ -1,7 +1,7 @@
 import { AnimatePresence, motion, useAnimationControls } from 'framer-motion';
 import React, { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Box, useColorModeValue, useToast } from '@chakra-ui/react';
+import { Box, useToast } from '@chakra-ui/react';
 import { DONE, selectball3dStatus } from '@/features/slices/ui';
 import { getSet } from '@/_globals/sets';
 import Message from './Message';
@@ -123,15 +123,7 @@ function Blue({ storage }) {
         title={set.name}
         style={styles.blue}
       >
-        <Box
-          boxShadow="base"
-          borderRadius="50%"
-          overflow="hidden"
-          backgroundColor={useColorModeValue(
-            'blackAlpha.200',
-            'whiteAlpha.400',
-          )}
-        >
+        <Box boxShadow="base" borderRadius="50%">
           <BackgroundImage src={envs.url} />
         </Box>
       </motion.button>

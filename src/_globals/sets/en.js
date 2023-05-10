@@ -39,8 +39,12 @@ export default {
     name: 'Detail',
     desc: 'Description',
     style: 'Style',
+    role: 'Role',
+    exp: 'Experience',
     detail: 'Detail',
+    moment: 'Moment',
     preview: 'Preview',
+    article: 'Related articles',
   },
   [articleId]: {
     title: 'Article - My heart',

@@ -20,7 +20,7 @@ function Brand(props) {
 
   return (
     <Box
-      id="brand"
+      // id="brand"
       key="brand"
       className="brand"
       as={Link}
@@ -38,6 +38,7 @@ function Brand(props) {
         width="44px"
       /> */}
       {/* <Heading fontFamily="deco" fontSize="3xl" ml={2} style={style.heading}> */}
+      {/* <Icon className="brand-icon" as={IoFootball} boxSize="24px" mr={1} /> */}
       <Heading fontFamily="deco" fontSize="3xl" style={style.heading}>
         {title}
       </Heading>

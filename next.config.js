@@ -5,11 +5,7 @@ const withPWA = require('next-pwa')({
   skipWaiting: true,
   runtimeCaching,
   navigateFallback: '/',
-  // navigationPreload: true,
-  // buildExcludes: [/middleware-manifest.json$/],
-  // cleanupOutdatedCaches: true,
-  // sw: 'service-worker.js',
-  // disable: process.env.NODE_ENV === 'development',
+  disable: process.env.NODE_ENV === 'development',
 });
 
 /** @type {import('next').NextConfig} */
@@ -21,8 +17,6 @@ const nextConfig = {
     defaultLocale: 'home',
     localeDetection: false,
   },
-  // trailingSlash: true,
 };
 
-// module.exports = nextConfig;
 module.exports = withPWA(nextConfig);

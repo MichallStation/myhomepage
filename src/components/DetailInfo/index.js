@@ -1,9 +1,19 @@
-import { Box, Code, Text, Icon } from '@chakra-ui/react';
+import {
+  Box,
+  Code,
+  Text,
+  Icon,
+  SimpleGrid,
+  useColorModeValue,
+  Image,
+} from '@chakra-ui/react';
 import Link from 'next/link';
 import React from 'react';
 import { FaArrowsAltH } from 'react-icons/fa';
+import BackgroundImage from '../BackgroundImage';
 import ColorCard from '../ColorCard';
 
+/** @type {Object<string, import('@chakra-ui/react').ThemeTypings["colorSchemes"]>} */
 const schemes = {
   platform: 'red',
   stack: 'blue',
@@ -11,9 +21,80 @@ const schemes = {
   ui: 'teal',
   font: 'yellow',
   color: 'purple',
+  dev: 'cyan',
+  front: 'cyan',
+  back: 'purple',
+  create: 'green',
+  design: 'orange',
+  os: 'green',
+  term: 'twitter',
+  tech: 'orange',
 };
 
-/** @param {{data: [{id?: string, }]}}  */
+function Color({ info }) {
+  return (
+    <SimpleGrid className="color-pattern" spacing={2} columns={[1, 2, 3]}>
+      {Array.isArray(info.data[0]) ? (
+        info.data.map((pattern, index) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <ColorCard key={`pattern-${index}`} colors={pattern} />
+        ))
+      ) : (
+        <ColorCard colors={info.data} />
+      )}
+    </SimpleGrid>
+  );
+}
+
+function Layout({ info }) {
+  const filterValue = useColorModeValue('', 'invert(1)');
+  return (
+    <SimpleGrid
+      className="detail-layout"
+      mb={2}
+      spacing={2}
+      columns={[1, 2, 3]}
+    >
+      {info.data.map((thumbnail) => (
+        <BackgroundImage
+          key={thumbnail}
+          // w="200px"
+          // h="200px"
+          filter={filterValue}
+          src={thumbnail}
+          w="100%"
+          h="200px"
+        />
+      ))}
+    </SimpleGrid>
+  );
+}
+
+function Flow({ info }) {
+  const filterValue = useColorModeValue('', 'invert(1)');
+  return (
+    <Box
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      flexDir="column"
+      className="detail-flow"
+      my={[-4, -8]}
+    >
+      {info.data.map((thumbnail) => (
+        <Image
+          maxH="520px"
+          filter={filterValue}
+          key={thumbnail}
+          src={thumbnail}
+          pointerEvents="none"
+        />
+      ))}
+    </Box>
+  );
+}
+
+/** @param {{data: [{id?: string}]}}  */
 function DetailInfo({ data, ...props }) {
   if (!data || data?.length === 0)
     return <Box className="detail-info" {...props} />;
@@ -23,11 +104,14 @@ function DetailInfo({ data, ...props }) {
       {data.length > 0 &&
         data.map((info) => (
           <Box key={info.id} mt={2}>
-            <Text fontWeight="bold" fontSize="md">{`${info.name}:`}</Text>
+            {info?.name && (
+              <Text fontWeight="bold" fontSize="md">{`${info.name}:`}</Text>
+            )}
             {info?.content &&
               info.content.map(({ title, desc, href }) => (
                 <Box key={title}>
                   <Code
+                    title={title}
                     as={href && Link}
                     href={href}
                     target={href && '_blank'}
@@ -36,16 +120,24 @@ function DetailInfo({ data, ...props }) {
                   >
                     {title}
                   </Code>
-                  {desc && <Icon as={FaArrowsAltH} mr={2} />}
                   {desc && (
-                    <Text display="contents" textAlign="justify">
-                      {desc}
-                    </Text>
+                    <>
+                      <Icon
+                        as={FaArrowsAltH}
+                        transform="translateY(2px)"
+                        mr={2}
+                      />
+                      <Text title={desc} display="contents" textAlign="justify">
+                        {desc}
+                      </Text>
+                    </>
                   )}
                 </Box>
               ))}
-            {info.id === 'color' && <ColorCard colors={info.data} />}
+            {info.id === 'color' && <Color info={info} />}
             {info.id === 'structure' && <Code>{info.content}</Code>}
+            {info.id === 'layout' && <Layout info={info} />}
+            {info.id === 'flow' && info?.data && <Flow info={info} />}
           </Box>
         ))}
     </Box>

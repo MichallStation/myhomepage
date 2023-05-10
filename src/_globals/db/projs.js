@@ -3,7 +3,7 @@ export default [
     id: 'homepage',
     en: {
       name: 'My homepage',
-      desc: '',
+      desc: 'Inspired by modern style, with a touch of subtle lightness. Combination of block and slim and 3d interfaces. I built this project from ideation, project process management, planning, visual design and coding for the entire site content.',
       info: [
         {
           id: 'platform',
@@ -19,8 +19,8 @@ export default [
           name: 'Stack',
           content: [
             {
-              title: 'Nextjs',
-              desc: 'I use for my homepage site to build fullstack.',
+              title: 'Nextjs/Javascript',
+              desc: 'Tech, i use to build fullstack site.',
               href: 'https://nextjs.org',
             },
           ],
@@ -66,20 +66,80 @@ export default [
             },
           ],
         },
+      ],
+      style: [
         {
-          id: 'structure',
-          name: 'Structure',
-          content: [],
+          id: 'layout',
+          name: 'Layout',
+          data: [
+            '/data/projs/homepage/main.svg',
+            '/data/projs/homepage/detail.svg',
+          ],
         },
         {
-          id: 'style',
-          name: 'Style',
-          content: [],
+          id: 'ui',
+          name: 'User interface',
+          content: [
+            {
+              title: 'Material Design',
+              desc: 'Google style, i use for layouts and blocks.',
+              href: 'https://en.wikipedia.org/wiki/Material_Design',
+            },
+            {
+              title: 'Apple Design',
+              desc: 'Apple style, i use for effects and animations.',
+              href: 'https://developer.apple.com/design/',
+            },
+            {
+              title: 'Fluent Design',
+              desc: 'Microsoft style, i use for icons.',
+              href: 'https://www.microsoft.com/design/fluent/',
+            },
+          ],
         },
         {
-          id: 'style',
-          name: 'Style',
-          content: [],
+          id: 'font',
+          name: 'Typography',
+          content: [
+            {
+              title: 'Source Sans Pro',
+              desc: 'The sans-serif style that I use for content of site.',
+              href: 'https://fonts.google.com/specimen/Source+Sans+Pro',
+            },
+            {
+              title: 'Signika Negative',
+              desc: 'The sans-serif style that I use for title of site.',
+              href: 'https://fonts.google.com/specimen/Signika+Negative',
+            },
+            {
+              title: 'Roboto Mono',
+              desc: 'The monospace style that I use for code content.',
+              href: 'https://fonts.google.com/specimen/Roboto+Mono',
+            },
+            {
+              title: 'Roboto Slab',
+              desc: 'The serif style that I use for highlight text.',
+              href: 'https://fonts.google.com/specimen/Roboto+Slab',
+            },
+            {
+              title: 'Merienda',
+              desc: 'The cursive style that I use as handwrite of special title.',
+              href: 'https://fonts.google.com/specimen/Merienda',
+            },
+            {
+              title: 'Lobster Two',
+              desc: 'The cursive style that I use detail text highlight',
+              href: 'https://fonts.google.com/specimen/Lobster+Two',
+            },
+          ],
+        },
+        {
+          id: 'color',
+          name: 'Colors',
+          data: [
+            ['#f1e7db', '#a99281', '#009edc', '#192227'],
+            ['#f1e7db', '#a99281', '#89ddff', '#192227'],
+          ],
         },
       ],
     },
@@ -101,7 +161,7 @@ export default [
           name: 'Công nghệ',
           content: [
             {
-              title: 'Nextjs',
+              title: 'Nextjs/Javascript',
               desc: 'Công nghệ tôi dùng để xây dựng fullstack.',
               href: 'https://nextjs.org',
             },
@@ -151,12 +211,31 @@ export default [
       ],
       style: [
         {
+          id: 'layout',
+          name: 'Bố cục',
+          data: [
+            '/data/projs/homepage/main.svg',
+            '/data/projs/homepage/detail.svg',
+          ],
+        },
+        {
           id: 'ui',
           name: 'Giao diện',
           content: [
             {
               title: 'Material Design',
+              desc: 'Phong cách Google, tôi dùng cho phong cách bố cục và các khối.',
               href: 'https://en.wikipedia.org/wiki/Material_Design',
+            },
+            {
+              title: 'Apple Design',
+              desc: 'Phong cách Apple, tôi dùng cho các hiệu ứng và hoạt ảnh.',
+              href: 'https://developer.apple.com/design',
+            },
+            {
+              title: 'Fluent Design',
+              desc: 'Phong cách Microsoft, tôi dùng cho các biểu tượng.',
+              href: 'https://www.microsoft.com/design/fluent',
             },
           ],
         },
@@ -199,7 +278,10 @@ export default [
         {
           id: 'color',
           name: 'Màu sắc',
-          data: ['#f1e7db', '#a99281', '#89ddff', '#192227'],
+          data: [
+            ['#f1e7db', '#a99281', '#009edc', '#192227'],
+            ['#f1e7db', '#a99281', '#89ddff', '#192227'],
+          ],
         },
       ],
     },
@@ -232,11 +314,11 @@ export default [
     thumbnail: '/data/projs/homebusiness/thumbnail.png',
     preview: [],
     en: {
-      name: 'My business',
+      name: 'Home business',
       info: [],
     },
     vi: {
-      name: 'Doanh nghiệp của tôi',
+      name: 'Doanh nghiệp gia đình',
       info: [],
     },
   },

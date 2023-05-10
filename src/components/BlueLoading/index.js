@@ -50,23 +50,7 @@ function BlueLoading() {
       backgroundColor={useColorModeValue('light', 'dark')}
       userSelect="none"
     >
-      <Box
-        borderRadius="full"
-        border="6px solid"
-        // color={useColorModeValue('', 'second')}
-        color={useColorModeValue('blackAlpha.200', 'whiteAlpha.400')}
-        // color="second"
-        // flex={1}
-      >
-        <BackgroundImage
-          // className="animate__animated animate__heartBeat animate__infinite animate__slow"
-          m={-2}
-          w="88px"
-          h="88px"
-          // borderRadius="full"
-          src={envs.url}
-        />
-      </Box>
+      <BackgroundImage w="80px" h="80px" src={envs.url} />
       <Box
         left={0}
         right={0}
@@ -78,9 +62,6 @@ function BlueLoading() {
         flexDir="column"
       >
         <BlueBrand ml={1} w={['66px', '72px']} mb={-3} />
-        {/* <Text fontFamily="serif" color="GrayText">
-          Made by Ltndat
-        </Text> */}
         <MadeBy ml={2} w="108px" />
       </Box>
     </Box>

@@ -39,9 +39,13 @@ export default {
     title: 'Chi tiết',
     name: 'Chi tiết',
     style: 'Phong cách',
+    role: 'Vai trò',
+    exp: 'Kinh nghiệm',
     desc: 'Mô tả',
     detail: 'Chi tiết',
+    moment: 'Khoảnh khắc',
     preview: 'Xem trước',
+    article: 'Bài viết liên quan',
   },
   [articleId]: {
     title: 'Bài viết - Tâm huyết của tôi',
