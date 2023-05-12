@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import React from 'react';
 
 /** @param {{props: import('@chakra-ui/react').ButtonProps}}  */
-function Card({ children, title, img, ...props }) {
+function Card({ children, title, img, thumbnailHighContrast, ...props }) {
   return (
     <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
       <Button
@@ -23,6 +23,7 @@ function Card({ children, title, img, ...props }) {
         backgroundRepeat="no-repeat"
         backgroundPosition="center"
         backgroundImage={img}
+        border={thumbnailHighContrast && '2px solid'}
         {...props}
       />
       <Text textAlign="center">{title}</Text>

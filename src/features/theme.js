@@ -22,10 +22,11 @@ const styles = {
       // bg: mode('#edefee', '#192227')(props),
       // bg: mode('#f7efed', '#192227')(props),
     },
-    // button: {
-    //   h: '48px',
-    //   w: '48px',
-    // },
+    '.overlay': {
+      bg: mode('blackAlpha.200', 'whiteAlpha.300')(props),
+      boxShadow: 'base',
+      borderLeft: '2px solid',
+    },
     'body .prim-btn': {
       bg: mode(
         'var(--chakra-colors-prim)',
@@ -38,7 +39,6 @@ const styles = {
         'var(--chakra-colors-prim)',
         'var(--chakra-colors-primdark)',
       )(props),
-      // color: mode('', 'var(--chakra-colors-chakra-body-bg)')(props),
     },
     'body .second-btn': {
       bg: 'var(--chakra-colors-second)',
@@ -65,7 +65,6 @@ const theme = extendTheme({
   fonts: {
     heading: "'Signika Negative', sans-serif",
     body: "'Source Sans Pro', sans-serif",
-    // sans: "'Source Sans Pro', sans-serif",
     mono: "'Roboto Mono', monospace",
     deco: "'Lobster Two', cursive",
     handwrite: "'Merienda', cursive",

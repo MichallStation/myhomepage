@@ -12,16 +12,7 @@ function Footer({ lang = 'en' }) {
         {set.title}
       </Text>
       {/* <Box display="flex" justifyContent="center" alignItems="center">
-        <Image
-          className="brand-img"
-          src="/blue.png"
-          alt="Blue"
-          borderRadius="50%"
-          width="44px"
-        />
-        <Heading ml={2} fontSize="md" color="GrayText">
-          {"I'm BLue, I'm Dat's assistant."}
-        </Heading>
+        {}
       </Box> */}
     </Box>
   );

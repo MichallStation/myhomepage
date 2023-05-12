@@ -38,5 +38,7 @@ export const useKitflowType = 'kitflow';
 export const useDevflowType = 'devflow';
 
 export const ENV_HOST_URL = process.env.NEXT_PUBLIC_URL;
+export const ENV_DB_BASE_URL =
+  'https://raw.githubusercontent.com/ltndat/myhomepage/db';
 
 export default {};

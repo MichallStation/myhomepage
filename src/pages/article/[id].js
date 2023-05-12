@@ -5,7 +5,6 @@ import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
 import remarkGfm from 'remark-gfm';
 import createFeaturesStorage from '@/features';
 import E404 from '@/pages/404';
-import { getArticleByLang } from '@/_globals/db';
 import { articleId } from '@/_globals/envs';
 import SEO from '@/layouts/SEO';
 import Footer from '@/components/Footer';
@@ -14,14 +13,15 @@ import { getSet } from '@/_globals/sets';
 import ArticleHeader from '@/components/ArticleHeader';
 import useToc from '@/features/hooks/useTOC';
 import icons from '@/_globals/icons';
+import { fetchArticleById } from '@/db';
 
-function ArticlePage({ item, page, type, storage, markdown }) {
+function ArticlePage({ storage, data, page, type }) {
   const { lang } = storage.current;
   const refContent = useRef();
-  const toc = useToc(refContent, [markdown]);
+  const toc = useToc(refContent, [data?.markdown]);
 
-  if (!page || !type || !item || !markdown) return <E404 />;
-
+  if (!page || !type || !data) return <E404 />;
+  const { article, markdown } = data;
   const set = getSet(articleId, lang);
   const setPage = getSet(page, lang);
 
@@ -32,22 +32,17 @@ function ArticlePage({ item, page, type, storage, markdown }) {
       href: `/${page}?type=${type}`,
       icon: icons.article.types?.[type]?.Icon,
     },
-    { name: item.title, href: '#', icon: icons.article.Icon },
+    { name: article.title, href: '#', icon: icons.article.Icon },
   ];
 
   return (
     <>
       <SEO
         lang={lang}
-        title={`${set.title} - ${item.title}`}
-        card={item.thumbnail}
+        title={`${set.title} - ${article.title}`}
+        card={article.thumbnail}
       />
-      <Container
-        maxW={{ sm: 'full', md: '3xl' }}
-        pos="relative"
-        // overflow="hidden"
-        px={6}
-      >
+      <Container maxW={{ sm: 'full', md: '3xl' }} pos="relative" px={6}>
         <Box
           display="flex"
           alignItems="center"
@@ -57,7 +52,7 @@ function ArticlePage({ item, page, type, storage, markdown }) {
           <BlueBreadcrumb breads={breads} flex={1} />
         </Box>
         <Box as="article" className="article">
-          <ArticleHeader toc={toc} set={set} data={item} />
+          <ArticleHeader toc={toc} set={set} data={article} />
           <Box ref={refContent} className="article-content">
             <ReactMarkdown
               skipHtml
@@ -77,26 +72,9 @@ function ArticlePage({ item, page, type, storage, markdown }) {
 /** @param {import('next').NextPageContext} context */
 export async function getServerSideProps(context) {
   const storage = createFeaturesStorage(context);
-  const id = context.query.id || '';
-  let item = null;
-  let markdown = null;
-
-  try {
-    const data = getArticleByLang(storage?.current.lang);
-    item = data.find((i) => i.id === id) || null;
-    const res = await fetch(item.markdown);
-    markdown = (await res.text()) || null;
-  } catch (error) {
-    /* empty */
-  }
-
+  const data = await fetchArticleById(context.query.id, storage.current.lang);
   return {
-    props: {
-      item,
-      markdown,
-      ...context.query,
-      storage,
-    },
+    props: { storage, data, ...context.query },
   };
 }
 

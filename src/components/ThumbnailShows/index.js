@@ -3,9 +3,15 @@ import Link from 'next/link';
 import React from 'react';
 import Card from '../Card';
 
-function ThumbnailShows({ data, type }) {
+function ThumbnailShows({ data, type, ...props }) {
   return (
-    <SimpleGrid columns={[1, 2, 3]} mt={4} spacingX={[0, 4]} spacingY={4}>
+    <SimpleGrid
+      columns={[1, 2, 3]}
+      mt={4}
+      spacingX={[0, 4]}
+      spacingY={4}
+      {...props}
+    >
       {data.map((i) => (
         <Card
           key={i.id}
@@ -14,6 +20,7 @@ function ThumbnailShows({ data, type }) {
           title={i.name}
           href={`/work/${type}/${i.id}`}
           img={i.thumbnail}
+          border={i?.thumbnailHighContrast && '2px solid'}
         />
       ))}
     </SimpleGrid>

@@ -11,6 +11,7 @@ const withPWA = require('next-pwa')({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  swcMinify: true,
   i18n: {
     // locales: ['home', 'en', 'vi', 'zh'],
     locales: ['home', 'en', 'vi'],

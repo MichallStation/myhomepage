@@ -6,6 +6,7 @@ import {
   SimpleGrid,
   useColorModeValue,
   Image,
+  Heading,
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import React from 'react';
@@ -26,6 +27,8 @@ const schemes = {
   back: 'purple',
   create: 'green',
   design: 'orange',
+  develop: 'twitter',
+  product: 'purple',
   os: 'green',
   term: 'twitter',
   tech: 'orange',
@@ -79,11 +82,15 @@ function Flow({ info }) {
       alignItems="center"
       flexDir="column"
       className="detail-flow"
-      my={[-4, -8]}
+      mb={[-4, -8]}
+      mt={-4}
+      mx={[-4, -8]}
     >
       {info.data.map((thumbnail) => (
         <Image
           maxH="520px"
+          alt="flow"
+          title="flow"
           filter={filterValue}
           key={thumbnail}
           src={thumbnail}
@@ -103,7 +110,18 @@ function DetailInfo({ data, ...props }) {
     <Box className="detail-info" {...props}>
       {data.length > 0 &&
         data.map((info) => (
-          <Box key={info.id} mt={2}>
+          <Box key={info.id} mt={4}>
+            {info?.heading && (
+              <Heading
+                className="overlay"
+                fontSize="lg"
+                borderRadius="0 32px 32px 0"
+                px={4}
+                py={2}
+                // backgroundColor={headingBgColorValue}
+                fontWeight="normal"
+              >{`${info.heading}`}</Heading>
+            )}
             {info?.name && (
               <Text fontWeight="bold" fontSize="md">{`${info.name}:`}</Text>
             )}

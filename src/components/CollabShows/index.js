@@ -12,17 +12,14 @@ import {
   Wrap,
   WrapItem,
 } from '@chakra-ui/react';
-import React, { useMemo } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { getCollabsByLang } from '@/_globals/db';
 // import data from './data';
 
-function CollabShows({ lang = 'en', ...props }) {
-  const collabs = useMemo(() => getCollabsByLang(lang), [lang]);
-
+function CollabShows({ data, ...props }) {
   return (
     <Wrap className="project-shows" overflow="visible" {...props}>
-      {collabs.map((i) => (
+      {data.map((i) => (
         <Popover key={i.name}>
           <PopoverTrigger>
             <motion.div

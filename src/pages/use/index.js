@@ -24,17 +24,15 @@ import {
   useWorkflowType,
 } from '@/_globals/envs';
 import Footer from '@/components/Footer';
-import { getArticleByLang } from '@/_globals/db';
 import ArticleCard from '@/components/ArticleCard';
+import { fetchUsepageByLang } from '@/db';
 
+const tabnames = [useWorkflowType, useDevflowType, useKitflowType];
 const tabindexs = {
   [useWorkflowType]: 0,
   [useDevflowType]: 1,
   [useKitflowType]: 2,
 };
-
-const tabnames = [useWorkflowType, useDevflowType, useKitflowType];
-
 const icons = {
   [useWorkflowType]: <MdWorkOutline />,
   [useDevflowType]: <VscCode />,
@@ -42,14 +40,17 @@ const icons = {
 };
 
 /** @param {{storage: import('@/features/@features').FeaturesStorage}} */
-function Use({ storage, type }) {
+function Use({ storage, data, type }) {
   const { lang } = storage.current;
   const set = getSet(useId, lang);
   const setArticle = getSet(articleId, lang);
-  const articles = useMemo(() => getArticleByLang(lang), [lang]);
+  // const articles = useMemo(() => getArticleByLang(lang), [lang]);
   const router = useRouter();
+  const useTabsRender = useMemo(
+    () => Object.entries(setArticle.types),
+    [setArticle.types],
+  );
   const tabIndex = tabindexs[type];
-  const useTabsRender = Object.entries(setArticle.types);
 
   return (
     <>
@@ -77,9 +78,7 @@ function Use({ storage, type }) {
         <Tabs
           tabIndex={tabIndex}
           defaultIndex={tabIndex}
-          // onChange={(index) => router.push(`?type=${tabnames[index]}`)}
           variant="soft-rounded"
-          // colorScheme="seconds"
           mt={8}
           isLazy
         >
@@ -114,7 +113,7 @@ function Use({ storage, type }) {
           <TabPanels mt={4} minH="320px">
             {useTabsRender.map(([id]) => (
               <TabPanel key={id} id={id} p={0}>
-                {articles.map(
+                {data?.articles.map(
                   (article) =>
                     article.type === id && (
                       <ArticleCard
@@ -139,11 +138,11 @@ function Use({ storage, type }) {
 
 /** @param {import('next').NextPageContext} context */
 export async function getServerSideProps(context) {
+  const storage = createFeaturesStorage(context);
+  const data = await fetchUsepageByLang(storage.current.lang);
+  const type = context.query?.type || useWorkflowType;
   return {
-    props: {
-      type: context.query?.type || useWorkflowType,
-      storage: createFeaturesStorage(context),
-    },
+    props: { storage, type, data: data || {} },
   };
 }
 

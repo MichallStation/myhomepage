@@ -3,31 +3,29 @@ import { MdOutlineStyle } from 'react-icons/md';
 import { VscBook, VscPreview } from 'react-icons/vsc';
 import createFeaturesStorage from '@/features';
 import E404 from '@/pages/404';
-import { getProjectsByLang } from '@/_globals/db';
 import { detailId, detailProjectType } from '@/_globals/envs';
 import PageDetail from '@/layouts/PageDetail';
 import Section from '@/layouts/Section';
 import DetailInfo from '@/components/DetailInfo';
 import PreviewInfo from '@/components/PreviewInfo';
 import { getSet } from '@/_globals/sets';
+import { fetchProjectById } from '@/db';
 
-function ProjectDetail({ id, storage }) {
+function ProjectDetail({ storage, data }) {
   const { lang } = storage.current;
-  const data = getProjectsByLang(lang);
-  const item = data.find((i) => i.id === id);
   const set = getSet(detailId, lang);
 
-  if (!item) return <E404 />;
+  if (!data) return <E404 />;
   return (
-    <PageDetail lang={lang} type={detailProjectType} detail={item}>
+    <PageDetail lang={lang} type={detailProjectType} detail={data}>
       <Section title={set.detail} id="detail" sep={4} icon={<VscBook />}>
-        <DetailInfo data={item.info} mt={2} />
+        <DetailInfo data={data.info} mt={2} />
       </Section>
       <Section title={set.style} id="style" sep={4} icon={<MdOutlineStyle />}>
-        <DetailInfo data={item.style} mt={2} />
+        <DetailInfo data={data.style} mt={2} />
       </Section>
       <Section title={set.preview} id="preview" sep={4} icon={<VscPreview />}>
-        <PreviewInfo data={item.preview} />
+        <PreviewInfo data={data.preview} />
       </Section>
     </PageDetail>
   );
@@ -35,11 +33,10 @@ function ProjectDetail({ id, storage }) {
 
 /** @param {import('next').NextPageContext} context */
 export async function getServerSideProps(context) {
+  const storage = createFeaturesStorage(context);
+  const data = await fetchProjectById(context.query.id, storage.current.lang);
   return {
-    props: {
-      id: context.query.id || '',
-      storage: createFeaturesStorage(context),
-    },
+    props: { storage, data },
   };
 }
 

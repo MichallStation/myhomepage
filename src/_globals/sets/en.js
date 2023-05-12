@@ -27,7 +27,8 @@ export default {
     },
     works: {
       title: 'Works',
-      content: 'The jobs that I have been working.',
+      content:
+        'The works that I have been working, the stages of my developer journey, the things that I have been learning and applying to the real world.',
     },
     collabs: {
       title: 'Collaborations',
@@ -44,7 +45,10 @@ export default {
     detail: 'Detail',
     moment: 'Moment',
     preview: 'Preview',
-    article: 'Related articles',
+    article: {
+      title: 'Related articles',
+      desc: 'How i apply all of things have been learning and experience to the real world.',
+    },
   },
   [articleId]: {
     title: 'Article - My heart',

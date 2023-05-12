@@ -28,7 +28,8 @@ export default {
     },
     works: {
       title: 'Công việc',
-      content: 'Những công việc tôi đã và đang tham gia.',
+      content:
+        'Những công việc tôi đã và đang tham gia, những giai đoạn trong cuộc hành trình kỹ sư, những điều tôi đã học được và ứng dụng thực tiễn.',
     },
     collabs: {
       title: 'Đối tác',
@@ -45,7 +46,10 @@ export default {
     detail: 'Chi tiết',
     moment: 'Khoảnh khắc',
     preview: 'Xem trước',
-    article: 'Bài viết liên quan',
+    article: {
+      title: 'Bài viết liên quan',
+      desc: 'Chi tiết làm thế nào để tôi áp dụng những điều đã học và kinh nghiệm vào công việc thực tiễn.',
+    },
   },
   [articleId]: {
     title: 'Bài viết - Tâm huyết của tôi',

@@ -1,26 +1,25 @@
 import React from 'react';
 import createFeaturesStorage from '@/features';
 import E404 from '@/pages/404';
-import { getProjectsByLang } from '@/_globals/db';
 import { detailCollabType } from '@/_globals/envs';
 import PageDetail from '@/layouts/PageDetail';
+import { fetchCollabById } from '@/db';
+// import { getSet } from '@/_globals/sets';
 
-function CollabsDetail({ id, storage }) {
+function CollabsDetail({ storage, data }) {
   const { lang } = storage.current;
-  const data = getProjectsByLang(lang);
-  const item = data.find((i) => i.id === id);
+  // const set = getSet(detailId, lang);
 
-  if (!item) return <E404 />;
-  return <PageDetail lang={lang} type={detailCollabType} detail={item} />;
+  if (!data) return <E404 />;
+  return <PageDetail lang={lang} type={detailCollabType} detail={data} />;
 }
 
 /** @param {import('next').NextPageContext} context */
 export async function getServerSideProps(context) {
+  const storage = createFeaturesStorage(context);
+  const data = await fetchCollabById(context.query.id, storage.current.lang);
   return {
-    props: {
-      id: context.query.id || '',
-      storage: createFeaturesStorage(context),
-    },
+    props: { storage, data },
   };
 }
 

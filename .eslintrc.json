@@ -28,6 +28,7 @@
     "object-curly-newline": "off",
     "implicit-arrow-linebreak": "off",
     "import/extensions": "off",
+    "react/no-invalid-html-attribute": "off",
     "operator-linebreak": "warn",
     // "no-unused-vars": "warn",
     "no-param-reassign": "warn",

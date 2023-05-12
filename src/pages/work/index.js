@@ -15,14 +15,13 @@ import {
   detailWorkType,
   workId,
 } from '@/_globals/envs';
-import { getProjectsByLang, getWorksByLang } from '@/_globals/db';
+import { fetchWorkpageByLang } from '@/db';
 
 /** @param {{storage: import('@/features/@features').FeaturesStorage}} */
-function Work({ storage }) {
+function Work({ storage, data }) {
   const { lang } = storage.current;
-  const set = getSet(workId, lang);
-  const projects = useMemo(() => getProjectsByLang(lang), [lang]);
-  const works = useMemo(() => getWorksByLang(lang), [lang]);
+  const { projs, works, collabs } = data;
+  const set = useMemo(() => getSet(workId, lang), [lang]);
 
   return (
     <>
@@ -41,7 +40,7 @@ function Work({ storage }) {
         >
           {set.projs.content}
           <ThumbnailShows
-            data={projects}
+            data={projs}
             type={detailProjectType}
             lang={lang}
             mt={4}
@@ -68,7 +67,7 @@ function Work({ storage }) {
           icon={<VscPerson />}
         >
           {set.collabs.content}
-          <CollabShows lang={lang} mt={4} />
+          <CollabShows data={collabs} mt={4} />
         </Section>
         <BallDivider mt={4} />
         <Footer lang={lang} />
@@ -79,8 +78,10 @@ function Work({ storage }) {
 
 /** @param {import('next').NextPageContext} context */
 export async function getServerSideProps(context) {
+  const storage = createFeaturesStorage(context);
+  const data = await fetchWorkpageByLang(storage.current.lang);
   return {
-    props: { storage: createFeaturesStorage(context) },
+    props: { storage, data },
   };
 }
 

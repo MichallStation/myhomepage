@@ -106,7 +106,7 @@ function PageDetail({
           </Section>
           {children}
         </Box>
-        <Footer />
+        <Footer lang={lang} />
       </Container>
     </>
   );

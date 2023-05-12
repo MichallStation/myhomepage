@@ -2,6 +2,7 @@ export default [
   {
     id: 'freelance',
     thumbnail: '/data/works/freelance/thumbnail.png',
+    thumbnailHighContrast: true,
     en: {
       name: 'Freelance',
       desc: '',
@@ -44,7 +45,7 @@ export default [
           content: [
             {
               title: 'Nhà phát triển phụ trợ',
-              desc: 'Tôi có vai trò xây dựng hệ thống, xử lý dữ liệu, quản trị cơ sở dữ liệu và duy trì dự án hỗ trợ.',
+              desc: 'Tôi có vai trò xây dựng hệ thống, xử lý dữ liệu, quản trị cơ sở dữ liệu và duy trì dự án phụ trợ.',
             },
           ],
         },
@@ -52,36 +53,52 @@ export default [
       exp: [
         {
           id: 'flow',
-          name: 'Quy trình tổng',
+          heading: 'Quy trình',
           data: ['/data/works/freelance/flow-vi.svg'],
         },
         {
-          id: 'ci',
-          name: 'Quy trình phát triển',
+          id: 'develop',
+          name: 'Phát triển',
           content: [
             {
-              title: 'Lập kế hoạch',
-              desc: 'Quản lý dự án, hệ thống hóa công việc phát triển.',
+              title: 'Sáng tạo',
+              desc: 'Tôi đã kinh nghiệm làm thế nào để sáng tạo nội dung từ giải pháp cho một ý tưởng/vấn đề cụ thể.',
             },
             {
-              title: 'Xây dựng dự án',
-              desc: 'Tôi đã học cách làm thế nào để triển khai một dự án ứng dụng phần mềm ngay từ đầu, từ các bản thiết kế và nội dung.',
+              title: 'Thiết kế',
+              desc: 'Từ nội dung dựng nên các bản thiết kế đến thiết kế giao diện ứng dụng.',
+            },
+            {
+              title: 'Code/Xây dựng',
+              desc: 'Từ bản thiết kế xây dựng nên giao diện ứng dụng, từ nội dung xây dựng nên hệ thống phụ trợ và cơ sở dữ liệu.',
+            },
+            {
+              title: 'Kiểm thử',
+              desc: 'Kiểm thử bản đã xây dựng bằng cách phương pháp kiểm thử đơn vị (UT) và kiểm thử đầu cuối (E2E) để cho ra sản phẩm.',
             },
           ],
         },
         {
-          id: 'cd',
-          name: 'Quy trình sản phẩm',
+          id: 'product',
+          name: 'Sản phẩm',
           content: [
             {
-              title: 'Kiểm thử',
-              desc: 'Tôi đã kinh nghiệm việc viết các trường hợp kiểm thử đơn vị (Unit-testing) và kiểm thử đầu cuối (E2E).',
-            },
-            {
               title: 'Triển khai',
-              desc: 'Tôi đã học cách làm thế nào để triển khai một dự án ứng dụng phần mềm ngay từ đầu, từ các bản thiết kế và nội dung.',
+              desc: 'Đưa sản phẩm công khai bằng cách triển khai trên máy chủ/chợ ứng dụng.',
             },
+            // {
+            //   title: 'Vận hành',
+            //   desc: 'Tôi đã học cách làm thế nào để triển khai một dự án ứng dụng phần mềm ngay từ đầu, từ các bản thiết kế và nội dung.',
+            // },
+            // {
+            //   title: 'Duy trì',
+            //   desc: 'Tôi đã học cách làm thế nào để triển khai một dự án ứng dụng phần mềm ngay từ đầu, từ các bản thiết kế và nội dung.',
+            // },
           ],
+        },
+        {
+          id: '',
+          heading: 'Kỹ thuật',
         },
         {
           id: 'os',
@@ -89,15 +106,15 @@ export default [
           content: [
             {
               title: 'Windows',
-              desc: ' ',
+              desc: 'Kinh nghiệm làm việc với quy trình của windows.',
             },
             {
               title: 'MacOS',
-              desc: ' ',
+              desc: 'Kinh nghiệm làm việc với quy trình của macos.',
             },
             {
-              title: 'Linux/ChromeOS',
-              desc: ' ',
+              title: 'Linux/Wsl/ChromeOS',
+              desc: 'Kinh nghiệm làm việc với quy trình của linux/bản phân phối linux.',
             },
           ],
         },
@@ -106,12 +123,12 @@ export default [
           name: 'Thiết bị đầu cuối',
           content: [
             {
-              title: 'Batch/Powershell',
-              desc: ' ',
+              title: '[Batch|Cmd]/Powershell',
+              desc: 'Kinh nghiệm làm việc trực tiếp trên cửa sổ dòng lệnh của windows và các lệnh của windows.',
             },
             {
-              title: 'Bash/Zsh/Fish',
-              desc: ' ',
+              title: 'Sh/Bash/Zsh/Fish',
+              desc: 'Kinh nghiệm làm việc trực tiếp trên cửa sổ dòng lệnh của macos/linux và các lệnh của macos/linux.',
             },
           ],
         },
@@ -120,25 +137,54 @@ export default [
           name: 'Công nghệ',
           content: [
             {
-              title: 'Git/Github/Gitlab',
-              desc: ' ',
+              title: 'Git/Github',
+              desc: 'Kinh nghiệm làm việc với các quy trình của git.',
+              href: 'https://git-scm.com/',
             },
             {
-              title: 'Javascript/Typescript',
-              desc: ' ',
+              title: 'Javascript/Typescript/Eslint',
+              desc: 'Kinh nghiệm làm việc với ngôn ngữ lập trình Javascript/Typescript.',
+              href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
             },
             {
-              title: 'Reactjs/Nextjs',
-              desc: ' ',
+              title: 'Reactjs/Nextjs/Redux',
+              desc: 'Kinh nghiệm làm với quy trình của React.',
+              href: 'https://react.dev/',
+            },
+            {
+              title: 'Chai/Mocha',
+              desc: 'Kinh nghiệm làm việc với quy trình kiểm thử đơn vị (UT) của Javascript/Typescript.',
+              href: 'https://mochajs.org/',
+            },
+            {
+              title: 'Playwright',
+              desc: 'Kinh nghiệm làm việc với quy trình kiểm thử đầu cuối (E2E) của Javascript/Typescript.',
+              href: 'https://playwright.dev/',
+            },
+            {
+              title: 'Mongodb',
+              desc: 'Kinh nghiệm làm việc với mongodb hệ thống cơ sở dữ liệu tài liệu (document/nosql).',
+              href: 'https://www.mongodb.com/',
+            },
+            {
+              title: 'Mysql',
+              desc: 'Kinh nghiệm làm việc với mysql hệ thống cơ sở dữ liệu truy vấn/bảng (table/sql).',
+              href: 'https://www.mysql.com/',
             },
           ],
         },
       ],
     },
-    moment: [
+    // moment: [
+    //   {
+    //     title: '',
+    //     thumbnail: '/data/works/freelance/thumbnail.png',
+    //   },
+    // ],
+    article: [
       {
         title: '',
-        thumbnail: '/data/works/freelance/thumbnail.png',
+        thumbnail: '',
       },
     ],
   },
