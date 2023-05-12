@@ -68,8 +68,8 @@
           "id": "layout",
           "name": "Layout",
           "data": [
-            "/data/projs/homepage/main.svg",
-            "/data/projs/homepage/detail.svg"
+            "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/main.svg",
+            "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/detail.svg"
           ]
         },
         {
@@ -206,8 +206,8 @@
           "id": "layout",
           "name": "Bố cục",
           "data": [
-            "/data/projs/homepage/main.svg",
-            "/data/projs/homepage/detail.svg"
+            "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/main.svg",
+            "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/detail.svg"
           ]
         },
         {
@@ -277,30 +277,33 @@
         }
       ]
     },
-    "thumbnail": "/data/projs/homepage/thumbnail.png",
+    "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/thumbnail.png",
     "preview": [
-      { "title": "Card", "thumbnail": "/data/projs/homepage/card.png" },
+      {
+        "title": "Card",
+        "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/card.png"
+      },
       {
         "title": "PC light theme",
-        "thumbnail": "/data/projs/homepage/pc-light.png"
+        "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/pc-light.png"
       },
       {
         "title": "PC dark theme",
-        "thumbnail": "/data/projs/homepage/pc-dark.png"
+        "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/pc-dark.png"
       },
       {
         "title": "Mobile light theme",
-        "thumbnail": "/data/projs/homepage/mobile-light.png"
+        "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/mobile-light.png"
       },
       {
         "title": "Mobile dark theme",
-        "thumbnail": "/data/projs/homepage/mobile-dark.png"
+        "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/mobile-dark.png"
       }
     ]
   },
   {
     "id": "homebusiness",
-    "thumbnail": "/data/projs/homebusiness/thumbnail.png",
+    "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homebusiness/thumbnail.png",
     "preview": [],
     "en": { "name": "Home business", "info": [] },
     "vi": { "name": "Doanh nghiệp gia đình", "info": [] }

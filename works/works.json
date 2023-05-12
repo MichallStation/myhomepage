@@ -1,7 +1,7 @@
 [
   {
     "id": "freelance",
-    "thumbnail": "/data/works/freelance/thumbnail.png",
+    "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/works/freelance/thumbnail.png",
     "thumbnailHighContrast": true,
     "en": { "name": "Freelance", "desc": "", "role": [], "exp": [] },
     "vi": {
@@ -49,7 +49,9 @@
         {
           "id": "flow",
           "heading": "Quy trình",
-          "data": ["/data/works/freelance/flow-vi.svg"]
+          "data": [
+            "https://raw.githubusercontent.com/ltndat/myhomepage/db/works/freelance/flow-vi.svg"
+          ]
         },
         {
           "id": "develop",
