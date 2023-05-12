@@ -89,7 +89,7 @@
       ]
     },
     {
-      "id": "",
+      "id": "technique",
       "heading": "Kỹ thuật"
     },
     {
@@ -115,7 +115,7 @@
       "name": "Thiết bị đầu cuối",
       "content": [
         {
-          "title": "[Batch|Cmd]/Powershell",
+          "title": "Batch/Cmd/Powershell",
           "desc": "Kinh nghiệm làm việc trực tiếp trên cửa sổ dòng lệnh của windows và các lệnh của windows."
         },
         {
@@ -164,6 +164,10 @@
           "href": "https://www.mysql.com/"
         }
       ]
+    },
+    {
+      "id": "design",
+      "heading": "Thiết kế"
     }
   ]
 }
