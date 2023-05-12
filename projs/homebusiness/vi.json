@@ -2,12 +2,6 @@
   "id": "homebusiness",
   "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/projs/homebusiness/thumbnail.png",
   "preview": [],
-  "en": {
-    "name": "Home business",
-    "info": []
-  },
-  "vi": {
-    "name": "Doanh nghiệp gia đình",
-    "info": []
-  }
+  "name": "Doanh nghiệp gia đình",
+  "info": []
 }
