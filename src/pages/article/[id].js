@@ -5,14 +5,14 @@ import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
 import remarkGfm from 'remark-gfm';
 import createFeaturesStorage from '@/features';
 import E404 from '@/pages/404';
-import { articleId } from '@/_globals/envs';
+import { articleId } from '@/globals/envs';
 import SEO from '@/layouts/SEO';
 import Footer from '@/components/Footer';
 import BlueBreadcrumb from '@/components/BlueBreadcrumb';
-import { getSet } from '@/_globals/sets';
+import { getSet } from '@/globals/sets';
 import ArticleHeader from '@/components/ArticleHeader';
 import useToc from '@/features/hooks/useTOC';
-import icons from '@/_globals/icons';
+import icons from '@/globals/icons';
 import { fetchArticleById } from '@/db';
 
 function ArticlePage({ storage, data, page, type }) {

@@ -43,11 +43,11 @@ export default {
     role: 'Role',
     exp: 'Experience',
     detail: 'Detail',
-    moment: 'Moment',
+    moments: 'Moments',
     preview: 'Preview',
-    article: {
+    articles: {
       title: 'Related articles',
-      desc: 'How i apply all of things have been learning and experience to the real world.',
+      desc: 'Related articles toward the above content..',
     },
   },
   [articleId]: {

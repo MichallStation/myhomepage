@@ -1,7 +1,7 @@
 import { Box, Text } from '@chakra-ui/react';
 import React from 'react';
-import { getSet } from '@/_globals/sets';
-import { FooterId } from '@/_globals/envs';
+import { getSet } from '@/globals/sets';
+import { FooterId } from '@/globals/envs';
 
 function Footer({ lang = 'en' }) {
   // const set = sets?.[lang] || sets.en;

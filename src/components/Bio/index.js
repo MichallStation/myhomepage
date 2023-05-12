@@ -7,8 +7,8 @@ import { AiOutlineHeart } from 'react-icons/ai';
 import Section from '@/layouts/Section';
 import data from './envs';
 // import sets from './sets';
-import { getSet } from '@/_globals/sets';
-import { BioId } from '@/_globals/envs';
+import { getSet } from '@/globals/sets';
+import { BioId } from '@/globals/envs';
 
 /** @type {Object.<string, import('react').CSSProperties>} */
 const style = {

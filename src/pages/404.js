@@ -6,9 +6,9 @@ import React, { useEffect, useState } from 'react';
 import { MdOutlineDangerous } from 'react-icons/md';
 import ErrorBanner from '@/components/ErrorBanner';
 import SEO from '@/layouts/SEO';
-import { getSet } from '@/_globals/sets';
+import { getSet } from '@/globals/sets';
 import Footer from '@/components/Footer';
-import { errorId } from '@/_globals/envs';
+import { errorId } from '@/globals/envs';
 import useFeaturesStorage from '@/features/hooks/useFeaturesStorage';
 import Page from '@/layouts/Page';
 

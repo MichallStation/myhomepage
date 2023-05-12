@@ -1,10 +1,10 @@
 import React from 'react';
 import createFeaturesStorage from '@/features';
 import E404 from '@/pages/404';
-import { detailCollabType } from '@/_globals/envs';
+import { detailCollabType } from '@/globals/envs';
 import PageDetail from '@/layouts/PageDetail';
 import { fetchCollabById } from '@/db';
-// import { getSet } from '@/_globals/sets';
+// import { getSet } from '@/globals/sets';
 
 function CollabsDetail({ storage, data }) {
   const { lang } = storage.current;

@@ -2,16 +2,17 @@ import React from 'react';
 import { BsExplicit, BsPersonVcard } from 'react-icons/bs';
 import { IoFilmOutline } from 'react-icons/io5';
 import { GiNewspaper } from 'react-icons/gi';
+
+import { getSet } from '@/globals/sets';
+import { detailId, detailWorkType } from '@/globals/envs';
+import { fetchWorkById } from '@/db';
 import createFeaturesStorage from '@/features';
 import E404 from '@/pages/404';
-import { detailId, detailWorkType } from '@/_globals/envs';
 import PageDetail from '@/layouts/PageDetail';
-import { getSet } from '@/_globals/sets';
 import Section from '@/layouts/Section';
 import DetailInfo from '@/components/DetailInfo';
 import PreviewInfo from '@/components/PreviewInfo';
 import ThumbnailShows from '@/components/ThumbnailShows';
-import { fetchWorkById } from '@/db';
 
 function WorksDetail({ storage, data }) {
   const { lang } = storage.current;
@@ -26,18 +27,23 @@ function WorksDetail({ storage, data }) {
       <Section title={set.exp} id="exp" sep={4} icon={<BsExplicit />}>
         {data?.exp && <DetailInfo data={data.exp} mt={2} />}
       </Section>
-      <Section title={set.moment} id="moment" sep={4} icon={<IoFilmOutline />}>
-        {data?.moment && <PreviewInfo data={data.moment} />}
+      <Section
+        title={set.moments}
+        id="moments"
+        sep={4}
+        icon={<IoFilmOutline />}
+      >
+        {data?.moments && <PreviewInfo data={data.moments} />}
       </Section>
       <Section
-        title={set.article.title}
-        id="article"
+        title={set.articles.title}
+        id="articles"
         sep={4}
         icon={<GiNewspaper />}
       >
-        {set.article.desc}
-        {data?.article && (
-          <ThumbnailShows data={data.article} lang={lang} mt={4} />
+        {set.articles.desc}
+        {data?.articles && (
+          <ThumbnailShows data={data.articles} lang={lang} mt={4} />
         )}
       </Section>
     </PageDetail>

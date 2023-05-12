@@ -44,11 +44,11 @@ export default {
     exp: 'Kinh nghiệm',
     desc: 'Mô tả',
     detail: 'Chi tiết',
-    moment: 'Khoảnh khắc',
+    moments: 'Khoảnh khắc',
     preview: 'Xem trước',
-    article: {
+    articles: {
       title: 'Bài viết liên quan',
-      desc: 'Chi tiết làm thế nào để tôi áp dụng những điều đã học và kinh nghiệm vào công việc thực tiễn.',
+      desc: 'Những bài viết liên quan đến nội dung trên.',
     },
   },
   [articleId]: {

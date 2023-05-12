@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import React from 'react';
-import { ENV_HOST_URL, homeId } from '@/_globals/envs';
-import { getSet } from '@/_globals/sets';
-import author from '@/_globals/author';
+import { ENV_HOST_URL, homeId } from '@/globals/envs';
+import { getSet } from '@/globals/sets';
+import author from '@/globals/author';
 
 function SEO({ lang = 'en', title, desc, card }) {
   const set = getSet(homeId, lang);

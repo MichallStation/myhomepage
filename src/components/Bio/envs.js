@@ -1,6 +1,6 @@
 import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from 'react-icons/ai';
 import { BsTwitter } from 'react-icons/bs';
-import author from '@/_globals/author';
+import author from '@/globals/author';
 
 export default [
   {

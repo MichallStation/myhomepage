@@ -10,12 +10,12 @@ import {
 import { GrArticle } from 'react-icons/gr';
 import { VscLayout } from 'react-icons/vsc';
 import SEO from '@/layouts/SEO';
-import { getSet } from '@/_globals/sets';
+import { getSet } from '@/globals/sets';
 import Section from '@/layouts/Section';
 import Footer from '@/components/Footer';
-import { detailId, detailProjectType, workId } from '@/_globals/envs';
+import { detailId, detailProjectType, workId } from '@/globals/envs';
 import BlueBreadcrumb from '@/components/BlueBreadcrumb';
-import icons from '@/_globals/icons';
+import icons from '@/globals/icons';
 
 function PageDetail({
   lang = 'en',

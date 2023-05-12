@@ -1,4 +1,4 @@
-import { ENV_DB_BASE_URL } from './_globals/envs';
+import { ENV_DB_BASE_URL } from '@/globals/envs';
 
 export async function fetchAllProjectsByLang(lang = 'en') {
   const res = await fetch(`${ENV_DB_BASE_URL}/projs/projs.json`);

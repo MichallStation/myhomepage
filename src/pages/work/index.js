@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { Container } from '@chakra-ui/react';
 import { VscOutput, VscPerson, VscProject } from 'react-icons/vsc';
 import createFeaturesStorage from '@/features';
-import { getSet } from '@/_globals/sets';
+import { getSet } from '@/globals/sets';
 import SEO from '@/layouts/SEO';
 import Section from '@/layouts/Section';
 import BallDivider from '@/components/BallDivider';
@@ -14,7 +14,7 @@ import {
   detailProjectType,
   detailWorkType,
   workId,
-} from '@/_globals/envs';
+} from '@/globals/envs';
 import { fetchWorkpageByLang } from '@/db';
 
 /** @param {{storage: import('@/features/@features').FeaturesStorage}} */

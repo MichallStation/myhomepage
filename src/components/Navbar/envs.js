@@ -1,4 +1,4 @@
-import author from '@/_globals/author';
+import author from '@/globals/author';
 
 export default {
   // height: 52,

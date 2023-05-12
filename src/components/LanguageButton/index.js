@@ -9,7 +9,7 @@ import {
 } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
-import { langs } from '@/_globals/sets';
+import { langs } from '@/globals/sets';
 import { expiresDay } from '@/utils/cookie';
 import envs from './envs';
 

@@ -15,14 +15,14 @@ import { VscCode, VscTools } from 'react-icons/vsc';
 import { MdWorkOutline } from 'react-icons/md';
 import createFeaturesStorage from '@/features';
 import SEO from '@/layouts/SEO';
-import { getSet } from '@/_globals/sets';
+import { getSet } from '@/globals/sets';
 import {
   articleId,
   useDevflowType,
   useId,
   useKitflowType,
   useWorkflowType,
-} from '@/_globals/envs';
+} from '@/globals/envs';
 import Footer from '@/components/Footer';
 import ArticleCard from '@/components/ArticleCard';
 import { fetchUsepageByLang } from '@/db';

@@ -2,8 +2,8 @@ import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
 import { ColorModeScript } from '@chakra-ui/react';
 import theme from '@/features/theme';
 import createFeaturesStorage from '@/features';
-import { getSet } from '@/_globals/sets';
-import { documentId } from '@/_globals/envs';
+import { getSet } from '@/globals/sets';
+import { documentId } from '@/globals/envs';
 
 /** @param {{storage: import('@/features/@features').FeaturesStorage}} */
 export default function Document({ storage }) {

@@ -2,7 +2,7 @@ import { Box, Icon, Button, Heading, Text } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import React from 'react';
-import icons from '@/_globals/icons';
+import icons from '@/globals/icons';
 
 function ArticleCard({ set, data, href, ...props }) {
   return (

@@ -3,12 +3,12 @@ import { MdOutlineStyle } from 'react-icons/md';
 import { VscBook, VscPreview } from 'react-icons/vsc';
 import createFeaturesStorage from '@/features';
 import E404 from '@/pages/404';
-import { detailId, detailProjectType } from '@/_globals/envs';
+import { detailId, detailProjectType } from '@/globals/envs';
 import PageDetail from '@/layouts/PageDetail';
 import Section from '@/layouts/Section';
 import DetailInfo from '@/components/DetailInfo';
 import PreviewInfo from '@/components/PreviewInfo';
-import { getSet } from '@/_globals/sets';
+import { getSet } from '@/globals/sets';
 import { fetchProjectById } from '@/db';
 
 function ProjectDetail({ storage, data }) {

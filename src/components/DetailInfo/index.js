@@ -1,3 +1,5 @@
+import Link from 'next/link';
+import React from 'react';
 import {
   Box,
   Code,
@@ -8,9 +10,8 @@ import {
   Image,
   Heading,
 } from '@chakra-ui/react';
-import Link from 'next/link';
-import React from 'react';
 import { FaArrowsAltH } from 'react-icons/fa';
+
 import BackgroundImage from '../BackgroundImage';
 import ColorCard from '../ColorCard';
 

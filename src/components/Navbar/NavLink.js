@@ -20,8 +20,8 @@ import {
 } from '@chakra-ui/react';
 import { MdWorkOutline } from 'react-icons/md';
 import envs, { links } from './envs';
-import { getSet } from '@/_globals/sets';
-import { NavbarId } from '@/_globals/envs';
+import { getSet } from '@/globals/sets';
+import { NavbarId } from '@/globals/envs';
 
 export const props = {
   Home: {

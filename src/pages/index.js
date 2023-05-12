@@ -4,8 +4,8 @@ import Author from '@/components/Author';
 import Bio from '@/components/Bio';
 import Footer from '@/components/Footer';
 import SEO from '@/layouts/SEO';
-import { getSet } from '@/_globals/sets';
-import { homeId } from '@/_globals/envs';
+import { getSet } from '@/globals/sets';
+import { homeId } from '@/globals/envs';
 
 /** @param {{storage: import('@/features/@features').FeaturesStorage}} */
 function Home({ storage }) {

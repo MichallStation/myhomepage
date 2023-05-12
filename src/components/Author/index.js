@@ -10,8 +10,8 @@ import Link from 'next/link';
 import React from 'react';
 import { BsBoxArrowInRight } from 'react-icons/bs';
 import Section from '@/layouts/Section';
-import { getSet } from '@/_globals/sets';
-import { AuthorId } from '@/_globals/envs';
+import { getSet } from '@/globals/sets';
+import { AuthorId } from '@/globals/envs';
 import envs from './envs';
 
 function Author({ lang = 'en' }) {
