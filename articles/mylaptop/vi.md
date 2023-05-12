@@ -1,1 +1,1 @@
-##
+## Thông số kỹ thuật
