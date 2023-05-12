@@ -6,7 +6,7 @@
   "preview": [
     {
       "title": "Poster",
-      "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/card.png"
+      "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/poster.png"
     },
     {
       "title": "PC light theme",
@@ -172,5 +172,5 @@
         ]
       ]
     }
-  ],
+  ]
 }

@@ -1,0 +1,15 @@
+{
+  "id": "freelance",
+  "name": "Freelance",
+  "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/works/freelance/thumbnail.png",
+  "thumbnailHighContrast": true,
+  "articles": [
+    {
+      "title": "",
+      "thumbnail": ""
+    }
+  ],
+  "desc": "",
+  "role": [],
+  "exp": []
+}

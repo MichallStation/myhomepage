@@ -1,0 +1,8 @@
+{
+  "id": "mylaptop",
+  "type": "workflow",
+  "title": "My laptop",
+  "desc": "I did all things",
+  "md": "https://raw.githubusercontent.com/ltndat/myhomepage/db/articles/laptop/en.md",
+  "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/articles/laptop/thumbnail.jpg"
+}
