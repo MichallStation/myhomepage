@@ -1,0 +1,11 @@
+{
+  "articles": [
+    {
+      "id": "mylaptop",
+      "type": "workflow",
+      "title": "Máy tính của tôi",
+      "desc": "Tôi đã làm tất cả mọi thứ trong một chiếc laptop như thế nào?",
+      "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/articles/laptop/thumbnail.jpg"
+    }
+  ]
+}
