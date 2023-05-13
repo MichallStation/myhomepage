@@ -7,9 +7,16 @@
 
 ---
 
+## Tại sao lại là máy tính xách tay 💻
+
+- Tôi là một người rất ưa chuộng việc đi lại, thậm chí ở trong ngôi nhà của tôi. Tôi vẫn luôn thay đổi liên tục phong cách làm việc của mình. Đây là lí do chính tôi sử dụng máy tính xách tay bởi sự tiện lợi của nó.
+- Tôi chỉ sử dụng chiếc máy tính để bàn (PC) vào các công tác nặng liên quan đến đồ hoạ và kết xuất (render). 
+
+---
+
 ## Hệ điều hành
 
-Tôi đã tự cấu hình và cài đặt mây tính của tôi chạy hầu hết các hệ điều hành phổ biến để phục vụ cho công tác phát triển và thử nghiệm sản phẩm kỹ thuật số trước khi ra mắt sản phẩm hoặc dịch vụ cho cộng đồng hoặc khách hàng.
+Tôi đã tự cấu hình và cài đặt chiếc máy tính xách tay của tôi chạy hầu hết các hệ điều hành phổ biến để phục vụ cho công tác phát triển và thử nghiệm sản phẩm kỹ thuật số trước khi ra mắt sản phẩm hoặc dịch vụ cho cộng đồng hoặc khách hàng.
 
 1. Windows
 1. MacOS
