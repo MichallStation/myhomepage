@@ -1,7 +1,7 @@
 ## Tại sao lại là máy tính xách tay 💻
 
 - Đầu tiên, tôi là một người rất ưa chuộng việc đi lại, thậm chí ở trong chính ngôi nhà của tôi. Tôi vẫn luôn thay đổi liên tục phong cách làm việc của mình. Đây là lí do chính tôi sử dụng máy tính xách tay bởi sự tiện lợi của nó.
-- Tôi tin rằng mỗi đồ dùng đều có điểm mạnh và điểm yếu riêng vủa nó. Phong cách của tôi là tách biệt mọi thứ với nhau để luôn đạt được hiểu quả tối ưu.
+- Tôi tin rằng mỗi đồ dùng đều có điểm mạnh và điểm yếu riêng của nó. Phong cách của tôi là tách biệt mọi thứ với nhau để luôn đạt được hiểu quả tối ưu.
 - Tôi chỉ sử dụng chiếc máy tính để bàn (PC) của tôi vào các công tác cần xử lý nặng liên quan đến đồ hoạ, kết xuất (render) và 3D.
 
 ---
