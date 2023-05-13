@@ -3,7 +3,7 @@
 - Model: Dell Xps 9550.
 - Màn hình: 15.6 inches, độ phân giải 4k 3840x2160.
 - Ram: 16GB.
-- SSD: Samsung SSD 512GB.
+- Ổ cứng: SSD M2-PCIe 500GB Samsung 980 NVMe 2280
 
 ---
 
