@@ -29,6 +29,10 @@ Tôi đã tự cấu hình và cài đặt chiếc máy tính xách tay của t�
 
 - Luôn luôn là sự lựa chọn hàng đầu và phổ thông nhất cho tất cả mọi người bởi giao diện quen thuộc và tồn tại lâu đời của hệ điều hành windows.
 
+## MacOS của tôi
+## Linux của tôi
+## ChromeOS của tôi
+
 ---
 
-> Chúc các bạn một ngày tốt lành.
+> Chúc các bạn tìm được sự đam mê ở đâu đó trong sự chia sẻ chân thành của tôi.
