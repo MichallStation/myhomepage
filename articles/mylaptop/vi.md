@@ -25,8 +25,10 @@ Tôi đã tự cấu hình và cài đặt chiếc máy tính xách tay của t�
 
 ---
 
-## Windows
+## Windows của tôi
 
 - Luôn luôn là sự lựa chọn hàng đầu và phổ thông nhất cho tất cả mọi người bởi giao diện quen thuộc và tồn tại lâu đời của hệ điều hành windows.
 
 ---
+
+> Chúc các bạn một ngày tốt lành.
