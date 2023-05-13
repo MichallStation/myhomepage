@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
-
+import React from 'react';
 import { LinkPreview } from '@dhaiwat10/react-link-preview';
-import { Box, SimpleGrid } from '@chakra-ui/react';
-import CardInternal from '../CardInternal';
+import { SimpleGrid } from '@chakra-ui/react';
 import Link from 'next/link';
+import CardInternal from '../CardInternal';
 
 /** @param {string} url */
 const isExternalLink = (url) => url.startsWith('https');

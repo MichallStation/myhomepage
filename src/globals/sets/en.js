@@ -7,7 +7,6 @@ import {
   articleId,
   documentId,
   offlineId,
-  articleGeneralType,
 } from '../envs';
 
 export default {
