@@ -17,7 +17,7 @@
 
 ## Hệ điều hành
 
-Tôi đã tự cấu hình và cài đặt chiếc máy tính xách tay của tôi chạy hầu hết các hệ điều hành phổ biến để phục vụ cho công tác phát triển và thử nghiệm sản phẩm kỹ thuật số trước khi ra mắt sản phẩm hoặc dịch vụ cho cộng đồng hoặc khách hàng.
+Tôi đã tự cấu hình và cài đặt chiếc máy tính xách tay của tôi chạy hầu hết các hệ điều hành phổ biến để phục vụ cho công tác phát triển và thử nghiệm sản phẩm kỹ thuật số trước khi ra mắt sản phẩm/dịch vụ cho cộng đồng hoặc khách hàng.
 
 1. Windows
 1. MacOS
