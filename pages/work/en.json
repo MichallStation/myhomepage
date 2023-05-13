@@ -14,7 +14,7 @@
   "works": [
     {
       "id": "freelance",
-      "name": "Freelance",
+      "name": "Freelancer",
       "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/works/freelance/thumbnail.png",
       "thumbnailHighContrast": true
     }
