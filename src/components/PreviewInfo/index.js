@@ -7,6 +7,7 @@ import {
   ModalContent,
   ModalBody,
   useColorModeValue,
+  ModalHeader,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import React, { useCallback, useState } from 'react';
@@ -14,7 +15,15 @@ import BallGallery from '../BallGallery';
 
 function PreviewInfo({ data, ...props }) {
   const [index, setIndex] = useState(0);
+  const [modalTitle, setModalTitle] = useState(data[0]?.title);
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const handleChange = useCallback(
+    (i) => {
+      setModalTitle(data[i]?.title);
+    },
+    [data],
+  );
 
   const handleClick = useCallback(
     (e) => {
@@ -37,13 +46,6 @@ function PreviewInfo({ data, ...props }) {
           data.map(({ title, thumbnail }, i) => (
             <motion.div
               key={thumbnail}
-              // drag
-              // dragConstraints={{
-              //   left: 0,
-              //   right: 0,
-              //   top: 0,
-              //   bottom: 0,
-              // }}
               whileTap={{ scale: 1.1, zIndex: 1 }}
               whileFocus={{ scale: 1.1, zIndex: 1 }}
               whileHover={{ scale: 1.1 }}
@@ -88,11 +90,16 @@ function PreviewInfo({ data, ...props }) {
           )}
           backdropFilter="blur(10px)"
           overflow="hidden"
-          h="60vh"
+          h="80vh"
           pos="relative"
         >
+          <ModalHeader>{modalTitle}</ModalHeader>
           <ModalBody p={2}>
-            <BallGallery data={data} originIndex={index} />
+            <BallGallery
+              data={data}
+              originIndex={index}
+              onChange={handleChange}
+            />
           </ModalBody>
         </ModalContent>
       </Modal>

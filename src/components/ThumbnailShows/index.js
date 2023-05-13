@@ -17,8 +17,8 @@ function ThumbnailShows({ data, type, ...props }) {
           key={i.id}
           as={Link}
           w="100%"
-          title={i.name}
-          href={`/work/${type}/${i.id}`}
+          title={i?.name || i?.title}
+          href={i?.url || i?.href || `/work/${type}/${i.id}`}
           img={i.thumbnail}
           border={i?.thumbnailHighContrast && '2px solid'}
         />

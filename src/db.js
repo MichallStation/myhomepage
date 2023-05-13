@@ -91,6 +91,17 @@ export async function fetchCollabById(id, lang = 'en') {
   return data;
 }
 
+export async function fetchDataByUrl(url, lang = 'en') {
+  let data = null;
+  try {
+    const res = await fetch(`${ENV_DB_BASE_URL}${url}/${lang}.json`);
+    data = await res.json();
+  } catch (error) {
+    console.error(error);
+  }
+  return data;
+}
+
 export async function fetchArticleById(id, lang = 'en') {
   try {
     const data = {};
@@ -105,6 +116,41 @@ export async function fetchArticleById(id, lang = 'en') {
     console.error(error);
   }
   return null;
+}
+
+export async function fetchArticleHeaderById(id, lang = 'en') {
+  try {
+    const resData = await fetch(
+      `${ENV_DB_BASE_URL}/articles/${id}/${lang}.json`,
+    );
+    const data = await resData.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+  return null;
+}
+
+export async function fetchArticleHeaderByUrl(url, lang = 'en') {
+  try {
+    const resData = await fetch(`${ENV_DB_BASE_URL}/${url}/${lang}.json`);
+    const data = await resData.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+  return null;
+}
+
+export async function fetchAllArticleHeaderByIds(ids, lang = 'en') {
+  const data = [];
+  // eslint-disable-next-line no-restricted-syntax, no-unreachable-loop
+  for (const id of ids) {
+    // eslint-disable-next-line no-await-in-loop
+    const articleHeader = await fetchArticleHeaderById(id, lang);
+    data.push(articleHeader);
+  }
+  return data;
 }
 
 export default {};

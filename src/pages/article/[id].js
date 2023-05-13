@@ -5,7 +5,7 @@ import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
 import remarkGfm from 'remark-gfm';
 import createFeaturesStorage from '@/features';
 import E404 from '@/pages/404';
-import { articleId } from '@/globals/envs';
+import { articleGeneralType, articleId } from '@/globals/envs';
 import SEO from '@/layouts/SEO';
 import Footer from '@/components/Footer';
 import BlueBreadcrumb from '@/components/BlueBreadcrumb';
@@ -20,7 +20,9 @@ function ArticlePage({ storage, data, page, type }) {
   const refContent = useRef();
   const toc = useToc(refContent, [data?.markdown]);
 
-  if (!page || !type || !data) return <E404 />;
+  if (!data) return <E404 />;
+  page = page || articleId;
+  type = type || data.article?.type || articleGeneralType;
   const { article, markdown } = data;
   const set = getSet(articleId, lang);
   const setPage = getSet(page, lang);
@@ -28,7 +30,7 @@ function ArticlePage({ storage, data, page, type }) {
   const breads = [
     { name: setPage.name, href: `/${page}`, icon: icons?.[page]?.Icon },
     {
-      name: set.types[type].title,
+      name: set.types[type]?.title || type,
       href: `/${page}?type=${type}`,
       icon: icons.article.types?.[type]?.Icon,
     },

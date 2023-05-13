@@ -25,7 +25,7 @@ const variants = {
   },
 };
 
-function BallGallery({ data, originIndex = 0, ...props }) {
+function BallGallery({ data, originIndex = 0, onChange, ...props }) {
   const [currentIndex, setIndex] = useState(originIndex);
   // const [fullscreen, setFullscreen] = useState(false);
   const controls = useAnimationControls();
@@ -41,14 +41,20 @@ function BallGallery({ data, originIndex = 0, ...props }) {
     if (currentIndex === 0) newIndex = data.length - 1;
     controls.start('initLeft');
     setIndex(() => newIndex);
-  }, [controls, currentIndex, data.length]);
+    if (onChange) {
+      onChange(newIndex);
+    }
+  }, [controls, currentIndex, data.length, onChange]);
 
   const handleNext = useCallback(() => {
     let newIndex = currentIndex + 1;
     if (currentIndex === data.length - 1) newIndex = 0;
     controls.start('initRight');
     setIndex(() => newIndex);
-  }, [controls, currentIndex, data.length]);
+    if (onChange) {
+      onChange(newIndex);
+    }
+  }, [controls, currentIndex, data.length, onChange]);
 
   const handleToggleFullscreen = useCallback(() => {
     /** @type {{current: HTMLElement}}  */
@@ -115,10 +121,10 @@ function BallGallery({ data, originIndex = 0, ...props }) {
           // transform="translateY(-50%)"
           right={0}
           p={2}
-          w="44px"
-          h="44px"
+          w="56px"
+          h="56px"
         >
-          <Icon as={BsFullscreen} boxSize="24px" />
+          <Icon as={BsFullscreen} boxSize="36px" />
         </Button>
         <AnimatePresence initial={false} mode="wait">
           <motion.div
@@ -142,7 +148,7 @@ function BallGallery({ data, originIndex = 0, ...props }) {
               // objectFit="cover"
               ref={refContainer}
               w="100%"
-              h="58vh"
+              h="60vh"
               // h={size.h}
               // w={size.w}
               // h="60vh"

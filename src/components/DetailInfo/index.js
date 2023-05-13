@@ -119,7 +119,6 @@ function DetailInfo({ data, ...props }) {
                 borderRadius="0 32px 32px 0"
                 px={4}
                 py={2}
-                // backgroundColor={headingBgColorValue}
                 fontWeight="normal"
               >{`${info.heading}`}</Heading>
             )}

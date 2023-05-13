@@ -12,12 +12,11 @@ import PageDetail from '@/layouts/PageDetail';
 import Section from '@/layouts/Section';
 import DetailInfo from '@/components/DetailInfo';
 import PreviewInfo from '@/components/PreviewInfo';
-import ThumbnailShows from '@/components/ThumbnailShows';
+// import ThumbnailShows from '@/components/ThumbnailShows';
 
 function WorksDetail({ storage, data }) {
   const { lang } = storage.current;
   const set = getSet(detailId, lang);
-
   if (!data) return <E404 />;
   return (
     <PageDetail lang={lang} type={detailWorkType} detail={data}>
@@ -41,10 +40,10 @@ function WorksDetail({ storage, data }) {
         sep={4}
         icon={<GiNewspaper />}
       >
-        {set.articles.desc}
-        {data?.articles && (
-          <ThumbnailShows data={data.articles} lang={lang} mt={4} />
-        )}
+        {data?.articlesDesc || set.articles.desc}
+        {/* {data?.articles && (
+          <PreviewLinkShows data={data?.articles} lang={lang} mt={4} />
+        )} */}
       </Section>
     </PageDetail>
   );
