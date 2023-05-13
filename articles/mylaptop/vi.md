@@ -36,4 +36,4 @@ Tôi đã tự cấu hình và cài đặt chiếc máy tính xách tay của t�
 
 ---
 
-> Chúc các bạn tìm được sự đam mê ở đâu đó trong sự chia sẻ chân thành của tôi.
+> Chúc các bạn tìm được sự đam mê ở đâu đó trong sự chia sẻ chân thành của tôi. _blue_
