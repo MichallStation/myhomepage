@@ -2,13 +2,14 @@
 
 - Model: Dell Xps 9550.
 - Màn hình: 15.6 inches, độ phân giải 4k 3840x2160.
-- Ram: 16GB
+- Ram: 16GB.
+- SSD: Samsung SSD 512GB.
 
 ---
 
 ## Hệ điều hành
 
-### Windows
-### MacOS
-### Linux Ubuntu
-### ChromeOS
+1. Windows
+1. MacOS
+1. Linux Ubuntu
+1. ChromeOS
