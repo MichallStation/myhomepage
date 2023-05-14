@@ -30,7 +30,7 @@ Tất cả hệ điều hành trên chiếc mây tính của tôi bao gồm.
 
 ## Cầu nối với các hệ điều hành 🌉
 
-Việc sử dụng nhiều hệ điều hành khác nhau hoặc nhiều phần mềm khác nhau chắc chắn cac bạn sẽ thấy rằng, mọi thao tác trên chúng điều khác nhau.
+Việc sử dụng nhiều hệ điều hành khác nhau hoặc nhiều phần mềm khác nhau chắc chắn các bạn sẽ thấy rằng, mọi thao tác trên chúng điều không giống nhay.
 
 Điều này mang lại sự riêng biệt và độc nhất cho từng hệ điều hành và từng phần mềm của các hãng. Nhưng điều đấy lại gậy khó chịu cho người dùng. Và việc tìm ra điểm chung giữa chúng là cần thiết.
 
