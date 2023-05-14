@@ -11,8 +11,20 @@ const style = {
   },
 };
 
+// const handleToggleTheme = useCallback(() => {
+//   const newValue = colorMode === 'light' ? 'dark' : 'light';
+//   // update storage (cookies/localStorage)
+//   Cookies.set('chakra-ui-color-mode', newValue, {
+//     path: '/',
+//     expires: expiresDay(365),
+//   });
+//   localStorage.setItem('chakra-ui-color-mode', newValue);
+//   toggleColorMode();
+// }, [colorMode, toggleColorMode]);
+
 function ThemeButton(props) {
   const { toggleColorMode } = useColorMode();
+
   return (
     <Box display="flex" alignItems="center" {...props}>
       <Button

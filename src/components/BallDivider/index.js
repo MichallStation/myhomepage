@@ -3,8 +3,13 @@ import { Divider, useColorModeValue } from '@chakra-ui/react';
 
 /** @param {import('@chakra-ui/react').DividerProps} props */
 function BallDivider(props) {
+  const { node, ...restProps } = props;
   return (
-    <Divider {...props} borderColor={useColorModeValue('blackAlpha.200')} />
+    <Divider
+      mt={2}
+      {...restProps}
+      borderColor={useColorModeValue('blackAlpha.200')}
+    />
   );
 }
 

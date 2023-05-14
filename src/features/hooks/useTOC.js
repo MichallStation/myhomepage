@@ -17,15 +17,11 @@ export default function useToc(refContent, deps = []) {
       setToc(
         elements.map(
           /** @param {HTMLElement} el */
-          (el) => {
-            el.id = el.textContent.replace(' ', '-').toLowerCase();
-            return {
-              id: el.id,
-              text: el.textContent,
-              offsetTop: el.offsetTop,
-              offsetLeft: el.offsetLeft,
-            };
-          },
+          (el) => ({
+            id: el.id,
+            text: el.textContent,
+            offsetTop: el.offsetTop,
+          }),
         ),
       );
     }

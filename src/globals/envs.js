@@ -1,6 +1,6 @@
 export const documentId = 'document';
 export const useId = 'use';
-export const articleId = 'article';
+export const articleId = 'articles';
 export const workId = 'work';
 export const homeId = 'home';
 export const errorId = 'error';
@@ -32,13 +32,17 @@ export const WorkShowsId = 'WorkShows';
 export const detailProjectType = 'projs';
 export const detailWorkType = 'works';
 export const detailCollabType = 'collabs';
+export const detailCommunityType = 'community';
 
-export const useWorkflowType = 'workflow';
-export const useKitflowType = 'kitflow';
-export const useDevflowType = 'devflow';
+export const articleWorkflowType = 'workflow';
+export const articleKitflowType = 'kitflow';
+export const articleDevflowType = 'devflow';
 export const articleGeneralType = 'general';
 
 export const ENV_HOST_URL = process.env.NEXT_PUBLIC_URL;
+export const ENV_DB_HOST_DEV = 'http://localhost:5000';
+export const ENV_DB_HOST_PROD =
+  'https://raw.githubusercontent.com/ltndat/myhomepage/db';
 export const ENV_DB_BASE_URL =
   process.env.NODE_ENV === 'development'
     ? 'http://localhost:5000'

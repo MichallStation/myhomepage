@@ -68,7 +68,7 @@ const theme = extendTheme({
     mono: "'Roboto Mono', monospace",
     deco: "'Lobster Two', cursive",
     handwrite: "'Merienda', cursive",
-    // serif: "Roboto Slab', serif",
+    // fontSerif: "Roboto Slab', serif",
   },
   colors: {
     light: '#f1e7db',
@@ -90,6 +90,7 @@ const theme = extendTheme({
     // seconddark: '#a99281',
     pop: '#fdf6ec',
     holder: '#808680',
+    holderLight: '#8d948d',
     // holder: 'rgb(128 134 128 / 20%)',
   },
 });

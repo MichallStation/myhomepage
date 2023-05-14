@@ -13,6 +13,7 @@ html[lang="vi"] body {
 
 ::-webkit-scrollbar {
   width: 4px;
+  height: 4px;
 }
 
 ::-webkit-scrollbar-track {
@@ -27,4 +28,17 @@ html[lang="vi"] body {
 
 #__next {
   overflow: hidden;
+}
+
+.section ::-webkit-scrollbar,
+.pre-code::-webkit-scrollbar {
+  display: none;
+}
+
+.custom-blockquote>p {
+  margin: 0;
+}
+
+.pre-code * {
+  background: transparent !important;
 }

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import React from 'react';
 import icons from '@/globals/icons';
+import { articleId } from '@/globals/envs';
 
 function ArticleCard({ set, data, href, ...props }) {
   return (
@@ -22,13 +23,6 @@ function ArticleCard({ set, data, href, ...props }) {
       {...props}
     >
       <motion.div
-        // drag
-        // dragConstraints={{
-        //   left: 0,
-        //   right: 0,
-        //   top: 0,
-        //   bottom: 0,
-        // }}
         className="article-card-thumbnail"
         whileTap={{ scale: 1.05, zIndex: 1 }}
         whileFocus={{ scale: 1.05, zIndex: 1 }}
@@ -79,7 +73,7 @@ function ArticleCard({ set, data, href, ...props }) {
             as={Link}
             colorScheme="teal"
             // className="prim-btn"
-            leftIcon={<Icon as={icons.article.read.Icon} boxSize="20px" />}
+            leftIcon={<Icon as={icons[articleId].read.Icon} boxSize="20px" />}
             p={5}
             fontFamily="handwrite"
             href={href}

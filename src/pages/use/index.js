@@ -18,25 +18,25 @@ import SEO from '@/layouts/SEO';
 import { getSet } from '@/globals/sets';
 import {
   articleId,
-  useDevflowType,
+  articleDevflowType,
   useId,
-  useKitflowType,
-  useWorkflowType,
+  articleKitflowType,
+  articleWorkflowType,
 } from '@/globals/envs';
 import Footer from '@/components/Footer';
 import ArticleCard from '@/components/ArticleCard';
 import { fetchUsepageByLang } from '@/db';
 
-const tabnames = [useWorkflowType, useDevflowType, useKitflowType];
+const tabnames = [articleWorkflowType, articleDevflowType, articleKitflowType];
 const tabindexs = {
-  [useWorkflowType]: 0,
-  [useDevflowType]: 1,
-  [useKitflowType]: 2,
+  [articleWorkflowType]: 0,
+  [articleDevflowType]: 1,
+  [articleKitflowType]: 2,
 };
 const icons = {
-  [useWorkflowType]: <MdWorkOutline />,
-  [useDevflowType]: <VscCode />,
-  [useKitflowType]: <VscTools />,
+  [articleWorkflowType]: <MdWorkOutline />,
+  [articleDevflowType]: <VscCode />,
+  [articleKitflowType]: <VscTools />,
 };
 
 /** @param {{storage: import('@/features/@features').FeaturesStorage}} */
@@ -140,7 +140,7 @@ function Use({ storage, data, type }) {
 export async function getServerSideProps(context) {
   const storage = createFeaturesStorage(context);
   const data = await fetchUsepageByLang(storage.current.lang);
-  const type = context.query?.type || useWorkflowType;
+  const type = context.query?.type || articleWorkflowType;
   return {
     props: { storage, type, data: data || {} },
   };

@@ -17,6 +17,7 @@ import PreviewInfo from '@/components/PreviewInfo';
 function WorksDetail({ storage, data }) {
   const { lang } = storage.current;
   const set = getSet(detailId, lang);
+
   if (!data) return <E404 />;
   return (
     <PageDetail lang={lang} type={detailWorkType} detail={data}>

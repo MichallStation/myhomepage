@@ -51,8 +51,8 @@ export default {
     },
   },
   [articleId]: {
-    title: 'Article - My heart',
-    name: 'Article',
+    title: 'Articles - My heart',
+    name: 'Articles',
     tablet: 'Tablet of Contents',
     types: {
       workflow: {

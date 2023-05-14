@@ -68,7 +68,7 @@ function ArticleHeader({ toc, set, data, ...props }) {
           minH={['280px', '460px']}
           className="header-content"
           // backgroundColor={useColorModeValue('gray', 'gray')}
-          backgroundColor={useColorModeValue('holder', 'holder')}
+          backgroundColor={useColorModeValue('holderLight', 'holder')}
           color={useColorModeValue('black')}
           py={2}
           px={4}
@@ -82,6 +82,9 @@ function ArticleHeader({ toc, set, data, ...props }) {
             mt={2}
             titleProps={{ fontFamily: 'handwrite', fontWeight: 'extrabold' }}
             sep={6}
+            contentProps={{
+              overflowX: 'scroll',
+            }}
           >
             {data.summary}
             {toc &&
@@ -93,7 +96,7 @@ function ArticleHeader({ toc, set, data, ...props }) {
                   justifyContent="start"
                   width="100%"
                   variant="unstyled"
-                  // onClick={() => router.push(`#${id}`)}
+                  // onClick={() => router.push(`#${id}`, '')}
                   onClick={() =>
                     window.scrollTo({
                       behavior: 'smooth',
@@ -108,8 +111,8 @@ function ArticleHeader({ toc, set, data, ...props }) {
                 >
                   <Text
                     title={text}
-                    overflow="clip"
-                    textOverflow="ellipsis"
+                    // overflow="clip"
+                    // textOverflow="ellipsis"
                     fontSize="lg"
                   >
                     {text}

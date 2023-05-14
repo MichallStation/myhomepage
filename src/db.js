@@ -1,4 +1,8 @@
-import { ENV_DB_BASE_URL } from '@/globals/envs';
+import {
+  ENV_DB_BASE_URL,
+  ENV_DB_HOST_DEV,
+  ENV_DB_HOST_PROD,
+} from '@/globals/envs';
 
 export async function fetchAllProjectsByLang(lang = 'en') {
   const res = await fetch(`${ENV_DB_BASE_URL}/projs/projs.json`);
@@ -109,6 +113,14 @@ export async function fetchArticleById(id, lang = 'en') {
       `${ENV_DB_BASE_URL}/articles/${id}/${lang}.json`,
     );
     data.article = await resData.json();
+
+    if (process.env.NODE_ENV === 'development') {
+      data.article.md = data.article.md.replace(
+        ENV_DB_HOST_PROD,
+        ENV_DB_HOST_DEV,
+      );
+    }
+
     const resMarkdown = await fetch(data.article.md);
     data.markdown = await resMarkdown.text();
     return data;
