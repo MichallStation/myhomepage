@@ -1,4 +1,4 @@
-## Tại sao lại là máy tính xách tay 💻
+### Tại sao lại là máy tính xách tay 💻
 
 - Đầu tiên, tôi là một người rất ưa chuộng việc đi lại, thậm chí ở trong chính ngôi nhà của tôi. Tôi vẫn luôn thay đổi liên tục phong cách làm việc của mình. Đây là lí do chính tôi sử dụng máy tính xách tay bởi sự tiện lợi của nó.
 - Tôi tin rằng mỗi đồ dùng đều có điểm mạnh và điểm yếu riêng của nó. Phong cách của tôi là tách biệt mọi thứ với nhau để luôn đạt được hiểu quả tối ưu. Các bạn có thể tìm hiểu nó trong các bài viết của tôi.
@@ -6,7 +6,7 @@
 
 ---
 
-## Thông số kỹ thuật
+### Thông số kỹ thuật
 
 - Model: Dell Xps 9550.
 - Màn hình: 15.6 inches, độ phân giải 4K 3840x2160.
@@ -15,7 +15,7 @@
 
 ---
 
-## Hệ điều hành
+### Hệ điều hành
 
 Tôi đã tự cấu hình và cài đặt chiếc máy tính xách tay của tôi chạy hầu hết các hệ điều hành phổ biến để phục vụ cho công tác phát triển và thử nghiệm sản phẩm kỹ thuật số trước khi ra mắt sản phẩm/dịch vụ cho cộng đồng hoặc khách hàng.
 
@@ -29,7 +29,7 @@ Tất cả hệ điều hành trên chiếc mây tính của tôi bao gồm.
 
 ---
 
-## Cầu nối với các hệ điều hành 🌉
+### Cầu nối với các hệ điều hành 🌉
 
 Việc sử dụng nhiều hệ điều hành khác nhau hoặc nhiều phần mềm khác nhau chắc chắn các bạn sẽ thấy rằng, mọi thao tác trên chúng điều không giống nhay.
 
@@ -45,28 +45,54 @@ Việc sử dụng nhiều hệ điều hành khác nhau hoặc nhiều phần m
 
 ---
 
-## Windows của tôi
+### Windows của tôi
 
 Luôn luôn là sự lựa chọn hàng đầu và phổ biến nhất cho tất cả mọi người bởi giao diện quen thuộc và tồn tại lâu đời của hệ điều hành windows.
 
 Tôi sử dụng windows là hệ điều hành chính cho chiếc máy tính của mình, bao gồm từ các nhu cầu cơ bản cho đến nhu cầu liên quan tới công việc.
 
-<span color="teal">123</span>
+```js
+<SyntaxHighlighter
+  className='pre-code'
+  style={useColorModeValue(materialLight, materialDark)}
+  customStyle={{
+    borderRadius: '24px',
+    padding:
+      'var(--chakra-space-4) var(--chakra-space-6) var(--chakra-space-4) var(--chakra-space-6)',
+    background: useColorModeValue(
+      // 'var(--chakra-colors-blackAlpha-200)',
+      'var(--chakra-colors-pop)',
+      'var(--chakra-colors-whiteAlpha-200)'
+    ),
+    // boxShadow: '0 0px 4px 2px rgba(0,0,0,0.5)',
+    border: '2px solid',
+  }}
+  language={match[1]}
+  {...props}
+>
+  {String(children).replace(/\n$/, '')}
+</SyntaxHighlighter>
+```
+
+```py
+print(123)
+```
 
 ---
 
-## MacOS của tôi
+### MacOS của tôi
 
-## Linux của tôi
+### Linux của tôi
 
-## ChromeOS của tôi
+### ChromeOS của tôi
 
 ---
 
-## Thắc mắc thường gặp
+### Thắc mắc thường gặp
 
-- Nếu các bạn có sự thắc mắc thế nào để tôi có thể cấu hình chiếc máy tính của mình chạy song song hệ điều hành MacOS và ChromeOS.
-  >
+Nếu các bạn có sự thắc mắc thế nào để tôi có thể cấu hình chiếc máy tính của mình chạy song song hệ điều hành MacOS và ChromeOS.
+
+> > Để cài đặt tùy chỉnh Hackintosh MacOS, các bạn hãy bắt đầu với OpenCore.
 
 ---
 
