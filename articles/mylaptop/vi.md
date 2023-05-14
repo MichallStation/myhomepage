@@ -21,10 +21,10 @@ Tôi đã tự cấu hình và cài đặt chiếc máy tính xách tay của t�
 
 Tất cả hệ điều hành trên chiếc mây tính của tôi bao gồm.
 1. `Windows 10 LTSC.`
-1. MacOS Big Sur 11.7.4.
-1. Linux Ubuntu 22.04.2 LTS.
-1. ChromeOS 111.
-1. Multiboot Recovery.
+1. `MacOS Big Sur 11.7.4.`
+1. `Linux Ubuntu 22.04.2 LTS.`
+1. `ChromeOS 111.`
+1. `Multiboot Recovery.`
 
 ---
 
