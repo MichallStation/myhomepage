@@ -1,7 +1,7 @@
 ## Tại sao lại là máy tính xách tay 💻
 
 - Đầu tiên, tôi là một người rất ưa chuộng việc đi lại, thậm chí ở trong chính ngôi nhà của tôi. Tôi vẫn luôn thay đổi liên tục phong cách làm việc của mình. Đây là lí do chính tôi sử dụng máy tính xách tay bởi sự tiện lợi của nó.
-- Tôi tin rằng mỗi đồ dùng đều có điểm mạnh và điểm yếu riêng của nó. Phong cách của tôi là tách biệt mọi thứ với nhau để luôn đạt được hiểu quả tối ưu.
+- Tôi tin rằng mỗi đồ dùng đều có điểm mạnh và điểm yếu riêng của nó. Phong cách của tôi là tách biệt mọi thứ với nhau để luôn đạt được hiểu quả tối ưu. Các bạn có thể tìm hiểu nó trong các bài viết của tôi.
 - Tôi chỉ sử dụng chiếc máy tính để bàn (PC) của tôi vào các công tác cần xử lý nặng liên quan đến đồ hoạ, kết xuất (render) và 3D.
 
 ---
@@ -11,7 +11,7 @@
 - Model: Dell Xps 9550.
 - Màn hình: 15.6 inches, độ phân giải 4K 3840x2160.
 - Ram: 16GB.
-- Ổ cứng: SSD M2-PCIe 500GB Samsung 980 NVMe 2280. 
+- Ổ cứng: SSD M2-PCIe 500GB Samsung 980 NVMe 2280.
 
 ---
 
@@ -22,8 +22,8 @@ Tôi đã tự cấu hình và cài đặt chiếc máy tính xách tay của t�
 Tất cả hệ điều hành trên chiếc mây tính của tôi bao gồm.
 
 1. `Windows 10 LTSC.`
-1. `MacOS Big Sur 11.7.4.`
-1. `Linux Ubuntu 22.04.2 LTS.`
+1. `MacOS Big Sur 11.7.`
+1. `Linux Ubuntu 22.04 LTS.`
 1. `ChromeOS 111.`
 1. `Multiboot Recovery.`
 
@@ -51,10 +51,14 @@ Luôn luôn là sự lựa chọn hàng đầu và phổ biến nhất cho tất
 
 Tôi sử dụng windows là hệ điều hành chính cho chiếc máy tính của mình, bao gồm từ các nhu cầu cơ bản cho đến nhu cầu liên quan tới công việc.
 
+<span color="teal">123</span>
+
 ---
 
 ## MacOS của tôi
+
 ## Linux của tôi
+
 ## ChromeOS của tôi
 
 ---
@@ -62,7 +66,7 @@ Tôi sử dụng windows là hệ điều hành chính cho chiếc máy tính c�
 ## Thắc mắc thường gặp
 
 - Nếu các bạn có sự thắc mắc thế nào để tôi có thể cấu hình chiếc máy tính của mình chạy song song hệ điều hành MacOS và ChromeOS.
->
+  >
 
 ---
 
