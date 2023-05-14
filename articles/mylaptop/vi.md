@@ -31,6 +31,7 @@ Tất cả hệ điều hành trên chiếc mây tính của tôi bao gồm.
 ## Cầu nối với các hệ điều hành 🌉
 
 Việc sử dụng nhiều hệ điều hành khác nhau hoặc nhiều phần mềm khác nhau chắc chắn cac bạn sẽ thấy rằng, mọi thao tác trên chúng điều khác nhau.
+
 Điều này mang lại sự riêng biệt và độc nhất cho từng hệ điều hành và từng phần mềm của các hãng. Nhưng điều đấy lại gậy khó chịu cho người dùng. Và việc tìm ra điểm chung giữa chúng là cần thiết.
 
 ---
@@ -38,6 +39,7 @@ Việc sử dụng nhiều hệ điều hành khác nhau hoặc nhiều phần m
 ## Windows của tôi
 
 Luôn luôn là sự lựa chọn hàng đầu và phổ thông nhất cho tất cả mọi người bởi giao diện quen thuộc và tồn tại lâu đời của hệ điều hành windows.
+
 Tôi sử dụng windows là hệ điều hành chính cho chiếc máy tính của mình, bao gồm từ các nhu cầu cơ bản cho đến nhu cầu liên quan tới công việc.
 - 
 
