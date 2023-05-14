@@ -47,7 +47,7 @@ Việc sử dụng nhiều hệ điều hành khác nhau hoặc nhiều phần m
 
 ## Windows của tôi
 
-Luôn luôn là sự lựa chọn hàng đầu và phổ thông nhất cho tất cả mọi người bởi giao diện quen thuộc và tồn tại lâu đời của hệ điều hành windows.
+Luôn luôn là sự lựa chọn hàng đầu và phổ biến nhất cho tất cả mọi người bởi giao diện quen thuộc và tồn tại lâu đời của hệ điều hành windows.
 
 Tôi sử dụng windows là hệ điều hành chính cho chiếc máy tính của mình, bao gồm từ các nhu cầu cơ bản cho đến nhu cầu liên quan tới công việc.
 
