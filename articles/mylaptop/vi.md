@@ -20,13 +20,11 @@
 Tôi đã tự cấu hình và cài đặt chiếc máy tính xách tay của tôi chạy hầu hết các hệ điều hành phổ biến để phục vụ cho công tác phát triển và thử nghiệm sản phẩm kỹ thuật số trước khi ra mắt sản phẩm/dịch vụ cho cộng đồng hoặc khách hàng.
 
 Tất cả hệ điều hành trên chiếc mây tính của tôi bao gồm.
-```
-1. Windows 10 LTSC.
+1. `Windows 10 LTSC.`
 1. MacOS Big Sur 11.7.4.
 1. Linux Ubuntu 22.04.2 LTS.
 1. ChromeOS 111.
 1. Multiboot Recovery.
-```
 
 ---
 
