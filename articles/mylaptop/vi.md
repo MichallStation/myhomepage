@@ -20,6 +20,7 @@
 Tôi đã tự cấu hình và cài đặt chiếc máy tính xách tay của tôi chạy hầu hết các hệ điều hành phổ biến để phục vụ cho công tác phát triển và thử nghiệm sản phẩm kỹ thuật số trước khi ra mắt sản phẩm/dịch vụ cho cộng đồng hoặc khách hàng.
 
 Tất cả hệ điều hành trên chiếc mây tính của tôi bao gồm.
+
 1. `Windows 10 LTSC.`
 1. `MacOS Big Sur 11.7.4.`
 1. `Linux Ubuntu 22.04.2 LTS.`
@@ -33,6 +34,14 @@ Tất cả hệ điều hành trên chiếc mây tính của tôi bao gồm.
 Việc sử dụng nhiều hệ điều hành khác nhau hoặc nhiều phần mềm khác nhau chắc chắn các bạn sẽ thấy rằng, mọi thao tác trên chúng điều không giống nhay.
 
 Điều này mang lại sự riêng biệt và độc nhất cho từng hệ điều hành và từng phần mềm của các hãng. Nhưng điều đấy lại gậy khó chịu cho người dùng. Và việc tìm ra điểm chung giữa chúng là cần thiết.
+
+Đầu tiên, tôi luôn luôn bắt đầu với một hệ điều hành bằng cách sử dụng thiết bị đầu cuối/cửa sổ dòng lệnh (Terminal/Console/Shell). Việc này đã giúp đỡ tôi rất nhiều khi chuyển đổi môi trường làm việc. Để chi tiết hơn, chúng ta chỉ nhận biết một vài kiến thức nho nhỏ.
+
+- Windows sử dụng thiết bị đầu cuối với shell là `Cmd/Batch` và `Powershell`.
+- MacOS sử dụng thiết bị đầu cuối với shell là `Zsh` hoặc `Bash`.
+- Linux và bản phân phối Linux sử dụng thiết bị đầu cuối với shell là `Sh` hoặc `Bash`.
+
+> Nếu các bạn thoải mái khi sử dụng thiết bị đầu cuối/cửa sổ dòng lệnh thì việc tìm ra điểm chung, thao tác giữa chúng sẽ trở nên dễ dàng như một nhà phát triển thực thụ.
 
 ---
 
