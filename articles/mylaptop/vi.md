@@ -19,16 +19,18 @@
 
 Tôi đã tự cấu hình và cài đặt chiếc máy tính xách tay của tôi chạy hầu hết các hệ điều hành phổ biến để phục vụ cho công tác phát triển và thử nghiệm sản phẩm kỹ thuật số trước khi ra mắt sản phẩm/dịch vụ cho cộng đồng hoặc khách hàng.
 
-1. Windows
-1. MacOS
-1. Linux Ubuntu
-1. ChromeOS
+Tất cả hệ điều hành trên chiếc mây tính của tôi bao gồm.
+1. Windows 10 LTSC.
+1. MacOS Big Sur 11.7.4.
+1. Linux Ubuntu 22.04.2 LTS.
+1. ChromeOS 111.
+1. Multiboot Recovery.
 
 ---
 
 ## Windows của tôi
 
-- Luôn luôn là sự lựa chọn hàng đầu và phổ thông nhất cho tất cả mọi người bởi giao diện quen thuộc và tồn tại lâu đời của hệ điều hành windows.
+Luôn luôn là sự lựa chọn hàng đầu và phổ thông nhất cho tất cả mọi người bởi giao diện quen thuộc và tồn tại lâu đời của hệ điều hành windows.
 
 ## MacOS của tôi
 ## Linux của tôi
