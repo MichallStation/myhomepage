@@ -7,6 +7,7 @@ import author from '@/globals/author';
 function SEO({ lang = 'en', title, name, desc, card }) {
   const set = getSet(documentId, lang);
   title = title ? `${author.name} - ${title}` : `${author.name} - ${set.title}`;
+  name = `${set.name} - ${name}`;
   return (
     <Head>
       <meta
