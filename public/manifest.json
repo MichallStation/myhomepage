@@ -4,8 +4,8 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "short_name": "Bluehome",
-  "name": "Bluehome",
+  "short_name": "Bluehome(Ltndat)",
+  "name": "Bluehome(Ltndat)",
   "description": "Welcome. 👋 Hi, I'm @ltndat blue. 🇻🇳 I'm Vietnamese",
   "icons": [
     {
