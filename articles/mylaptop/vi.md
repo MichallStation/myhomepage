@@ -72,7 +72,7 @@ Tôi chỉ sử dụng hệ điều hành MacOS trên chiếc máy tính của m
 
 Hệ điều hành ưa thích nhất của tôi. Tôi là fan của ứng dụng web vì sự gọn nhẹ của nó. Việc trải nghiệm ứng dụng web trên `ChromeOS` là một sự khác biệt lớn so với các nền tảng còn lại.
 
-Hệ điều hành `ChromeOS` chỉ bao gồm một trình duyệt chrome. Khiến cho việc trải nghiệm ứng dụng web cực kỳ mượt mà.
+Hệ điều hành `ChromeOS` chỉ vỏn vẹn một trình duyệt chrome. Khiến cho việc trải nghiệm ứng dụng web cực kỳ mượt mà.
 
 Đồng thời với sự kết hợp chạy `Android` khiến nó trở thành một trong những hệ điều hành được ưu thích nhất.
 
