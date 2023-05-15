@@ -10,12 +10,22 @@
 
 - Model: Dell Xps 9550.
 - Màn hình: 15.6 inches, độ phân giải 4K 3840x2160.
+- Ram: 16GB.
+- Ổ cứng: SSD M2-PCIe 500GB Samsung 980 NVMe 2280.
 
 ---
 
 ## Hệ điều hành
 
 Tôi đã tự cấu hình và cài đặt chiếc máy tính xách tay của tôi chạy hầu hết các hệ điều hành phổ biến để phục vụ cho công tác phát triển và thử nghiệm sản phẩm kỹ thuật số trước khi ra mắt sản phẩm/dịch vụ cho cộng đồng hoặc khách hàng.
+
+Tất cả hệ điều hành trên chiếc mây tính của tôi bao gồm.
+
+1. `Windows 10 LTSC.`
+1. `MacOS Big Sur 11.7.`
+1. `Linux Ubuntu 22.04 LTS.`
+1. `ChromeOS 111.`
+1. `Multiboot Recovery.`
 
 ---
 
@@ -40,6 +50,8 @@ Tôi luôn luôn bắt đầu với một hệ điều hành bằng cách sử d
 ## Windows của tôi
 
 Luôn luôn là sự lựa chọn hàng đầu và phổ biến nhất cho tất cả mọi người bởi giao diện quen thuộc và tồn tại lâu đời của hệ điều hành windows.
+
+Tôi sử dụng windows là hệ điều hành chính cho chiếc máy tính của mình, bao gồm từ các nhu cầu cơ bản cho đến nhu cầu liên quan tới công việc.
 
 ---
 
