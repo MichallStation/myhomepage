@@ -40,6 +40,7 @@ function ArticlePage({ storage, data, page, type }) {
       <SEO
         lang={lang}
         title={`${set.title} - ${article.title}`}
+        desc={article?.desc}
         card={article.thumbnail}
       />
       <Container maxW={{ sm: 'full', md: '3xl' }} pos="relative" px={6}>
