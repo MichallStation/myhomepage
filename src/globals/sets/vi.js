@@ -17,7 +17,7 @@ export default {
   },
   [homeId]: {
     title: 'Trang chủ - Nhà của tôi',
-    name: 'Nhà',
+    // name: 'Nhà',
   },
   [workId]: {
     title: 'Công việc - Hồ sơ của tôi',

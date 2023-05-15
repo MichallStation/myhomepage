@@ -48,7 +48,8 @@ function PageDetail({
       <SEO
         lang={lang}
         title={`${set.title} ${setWork?.[type].title} - ${item.name}`}
-        desc={item.desc}
+        name={item?.name || set?.name}
+        desc={item?.desc || set?.desc}
         card={item.thumbnail}
       />
       <Container maxW={{ sm: 'full', md: '3xl' }} pos="relative" p={6}>

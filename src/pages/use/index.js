@@ -58,6 +58,8 @@ function Use({ storage, data, type }) {
       <SEO
         lang={lang}
         title={`${set.title} - ${setArticle.types[type].title}`}
+        name={set?.name}
+        desc={set?.desc}
       />
       <Container
         maxW={{ sm: 'full', md: '3xl' }}

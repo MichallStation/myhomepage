@@ -40,6 +40,7 @@ function ArticlePage({ storage, data, page, type }) {
       <SEO
         lang={lang}
         title={`${set.title} - ${article.title}`}
+        name={article?.name || article?.title}
         desc={article?.desc}
         card={article.thumbnail}
       />

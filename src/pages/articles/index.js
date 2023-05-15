@@ -15,7 +15,7 @@ function Articles({ storage, data }) {
 
   return (
     <>
-      <SEO lang={lang} title={set.title} />
+      <SEO lang={lang} title={set.title} name={set?.name} desc={set?.desc} />
       <Container maxW={{ sm: 'full', md: '3xl' }} pos="relative" px={6}>
         {data &&
           data.map((article, index) => (

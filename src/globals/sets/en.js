@@ -17,7 +17,7 @@ export default {
   },
   [homeId]: {
     title: 'Homepage - My home',
-    name: 'Home',
+    // name: 'Homepage',
   },
   [workId]: {
     title: 'Workpage - My portfolio',
