@@ -57,13 +57,22 @@ Tôi sử dụng windows là hệ điều hành chính cho chiếc máy tính c�
 
 ## MacOS của tôi
 
+Hệ điều hành phổ biến chỉ đứng sau `cửa sổ`, là sự lựa chọn hàng đầu của những ai yêu thích hệ sinh thái Apple.
+
+Tôi chỉ sử dụng hệ điều hành MacOS trên chiếc máy tính của mình vì những lí do cụ thể sau:
+
+- Sử dụng để xây dựng và phát triển ứng dụng sản phẩm/dịch vụ phần mềm.
+- Vi thử nghiệm sản phẩm để hoàn thiện và chỉnh sửa ứng dụng sản phẩm/dịch vụ phần mềm.
+
+> ⚠️ Nếu bạn thực sự muốn trải nghiệm hệ điều hành `MacOS` thì hãy mua chính hãng để được trải nghiệm hệ sinh thái Apple một cách trọn vẹn.
+
 ## Linux của tôi
 
 ## ChromeOS của tôi
 
 ---
 
-## Những thắc mắc thường gặp
+## Những thắc mắc thường gặp ❓
 
 * Làm thế nào để tôi có thể cấu hình chiếc máy tính của mình chạy song song các hệ điều hành `Windows`, `MacOS`, `Linux` và `ChromeOS`?
 
