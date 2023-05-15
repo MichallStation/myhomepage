@@ -1,13 +1,13 @@
 import Head from 'next/head';
 import React from 'react';
-import { documentId, ENV_HOST_URL } from '@/globals/envs';
+import { ENV_HOST_URL, homeId } from '@/globals/envs';
 import { getSet } from '@/globals/sets';
 import author from '@/globals/author';
 
 function SEO({ lang = 'en', title, name, desc, card }) {
-  const set = getSet(documentId, lang);
+  const set = getSet(homeId, lang);
   title = title ? `${author.name} - ${title}` : `${author.name} - ${set.title}`;
-  name = name || `${set.name} - ${name}`;
+  name = name ? `${set.name} - ${name}` : set.name;
   return (
     <Head>
       <meta
