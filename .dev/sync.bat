@@ -9,6 +9,8 @@ if "%*"=="" (
   set "mes=%*"   
 )
 
+call yarn build
+
 cd %w%\..
 git add .
 git commit -m "%mes%"

@@ -8,6 +8,8 @@ else
   mes="update: data"
 fi
 
+yarn build
+
 cd $w/..
 git add .
 git commit -m "$mes"
