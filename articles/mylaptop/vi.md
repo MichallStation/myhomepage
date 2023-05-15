@@ -64,7 +64,7 @@ Tôi chỉ sử dụng hệ điều hành MacOS trên chiếc máy tính của m
 - Sử dụng để xây dựng và phát triển ứng dụng sản phẩm/dịch vụ phần mềm cho `MacOS/iOS`.
 - Vi thử nghiệm sản phẩm để hoàn thiện và chỉnh sửa ứng dụng sản phẩm/dịch vụ phần mềm cho `MacOS/iOS`.
 
-> ⚠️ Nếu bạn thực sự muốn trải nghiệm hệ điều hành `MacOS` thì hãy mua chính hãng để được trải nghiệm hệ sinh thái Apple một cách trọn vẹn.
+> ⚠️ Nếu bạn thực sự muốn trải nghiệm hệ điều hành `MacOS` thì hãy mua chính các máy Mac để được trải nghiệm hệ sinh thái Apple một cách trọn vẹn.
 
 ## Linux của tôi
 
@@ -80,6 +80,8 @@ Tôi chỉ sử dụng hệ điều hành `ChromeOS` trên chiếc máy tính c�
 
 - Sử dụng để xây dựng và phát triển ứng dụng sản phẩm/dịch vụ phần mềm `Web/Android`.
 - Vi thử nghiệm sản phẩm để hoàn thiện và chỉnh sửa ứng dụng sản phẩm/dịch vụ phần mềm cho `Web/Android`.
+
+ ⚠️ Nếu bạn thực sự muốn trải nghiệm hệ điều hành `ChromeOS` thì hãy mua chính hãng các máy ChromeBook để được trải nghiệm một cách trọn vẹn.
 
 ---
 
