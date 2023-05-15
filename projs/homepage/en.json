@@ -1,5 +1,4 @@
 {
-  "id": "homepage",
   "name": "My homepage",
   "desc": "Inspired by modern style, with a touch of subtle lightness. Combination of block and slim and 3d interfaces. I built this project from ideation, project process management, planning, visual design and coding for the entire site content.",
   "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/thumbnail.png",
@@ -158,18 +157,8 @@
       "id": "color",
       "name": "Colors",
       "data": [
-        [
-          "#f1e7db",
-          "#a99281",
-          "#009edc",
-          "#192227"
-        ],
-        [
-          "#f1e7db",
-          "#a99281",
-          "#89ddff",
-          "#192227"
-        ]
+        ["#f1e7db", "#a99281", "#009edc", "#192227"],
+        ["#f1e7db", "#a99281", "#89ddff", "#192227"]
       ]
     }
   ]

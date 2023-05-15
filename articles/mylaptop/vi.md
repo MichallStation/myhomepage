@@ -32,6 +32,7 @@ Tôi luôn luôn bắt đầu với một hệ điều hành bằng cách sử d
 - Linux và bản phân phối Linux sử dụng thiết bị đầu cuối với shell là `Sh` hoặc `Bash`.
 
 > Nếu các bạn biết cách sử dụng `Cmd/Batch/Powershell` hoặc `Sh/Bash`, nói một cách tương đối là các bạn đã nắm được bản chất trong tay về hệ điều hành.
+
 > Nếu các bạn thoải mái khi sử dụng thiết bị đầu cuối/cửa sổ dòng lệnh thì việc tìm ra điểm chung, thao tác giữa chúng sẽ trở nên dễ dàng, bạn sẽ trở nên như một nhà phát triển thực thụ.
 
 ---
