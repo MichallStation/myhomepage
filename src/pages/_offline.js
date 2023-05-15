@@ -22,7 +22,7 @@ function Offline() {
 
   return (
     <>
-      <SEO lang={lang} title={set.title} name={set?.name} desc={set?.desc} />
+      <SEO lang={lang} title={set.title} />
       <Container
         maxW={{ sm: 'full', md: '3xl' }}
         pos="relative"
