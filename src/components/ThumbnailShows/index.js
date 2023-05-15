@@ -12,17 +12,20 @@ function ThumbnailShows({ data, type, ...props }) {
       spacingY={4}
       {...props}
     >
-      {data.map((i) => (
-        <Card
-          key={i.id}
-          as={Link}
-          w="100%"
-          title={i?.name || i?.title}
-          href={i?.url || i?.href || `/work/${type}/${i.id}`}
-          img={i.thumbnail}
-          border={i?.thumbnailHighContrast && '2px solid'}
-        />
-      ))}
+      {data.map(
+        (i) =>
+          !data?.delete && (
+            <Card
+              key={i.id}
+              as={Link}
+              w="100%"
+              title={i?.name || i?.title}
+              href={i?.url || i?.href || `/work/${type}/${i.id}`}
+              img={i.thumbnail}
+              border={i?.thumbnailHighContrast && '2px solid'}
+            />
+          ),
+      )}
     </SimpleGrid>
   );
 }

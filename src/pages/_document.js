@@ -14,10 +14,10 @@ export default function Document({ storage }) {
       <Head>
         <meta charSet="utf-8" />
         <meta name="application-name" content={set.name} />
+        <meta name="description" content={set.desc} />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content={set.name} />
-        <meta name="description" content={set.desc} />
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta

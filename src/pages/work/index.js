@@ -15,11 +15,18 @@ import {
   detailWorkType,
   workId,
 } from '@/globals/envs';
-import { fetchWorkpageByLang } from '@/db';
+import { fetchAllDataByLang } from '@/db';
+
+const dataInit = {
+  projs: [],
+  works: [],
+  collabs: [],
+};
 
 /** @param {{storage: import('@/features/@features').FeaturesStorage}} */
 function Work({ storage, data }) {
   const { lang } = storage.current;
+  data = data || dataInit;
   const { projs, works, collabs } = data;
   const set = useMemo(() => getSet(workId, lang), [lang]);
 
@@ -79,7 +86,7 @@ function Work({ storage, data }) {
 /** @param {import('next').NextPageContext} context */
 export async function getServerSideProps(context) {
   const storage = createFeaturesStorage(context);
-  const data = await fetchWorkpageByLang(storage.current.lang);
+  const data = await fetchAllDataByLang(storage.current.lang);
   return {
     props: { storage, data },
   };

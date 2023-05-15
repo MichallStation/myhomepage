@@ -13,10 +13,10 @@ function SEO({ lang = 'en', title, desc, card }) {
         name="viewport"
         content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
       />
-      <meta name="title" content={author.name} />
-      <meta name="description" content={title || set.title} />
+      <meta name="title" content={title || set.title} />
+      <meta name="description" content={desc || set.desc} />
       <meta name="author" content={author.name} />
-      <meta name="author" content="Le Tran Ngoc Dat" />
+      {/* <meta name="author" content="Le Tran Ngoc Dat" /> */}
       <meta name="twitter:title" content={author.name} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content={`@${author.name}`} />
@@ -28,7 +28,7 @@ function SEO({ lang = 'en', title, desc, card }) {
       />
       <meta name="twitter:url" content={ENV_HOST_URL} />
       <meta property="og:site_name" content={author.name} />
-      <meta name="og:title" content={author.name} />
+      <meta name="og:title" content={title || set.title} />
       <meta property="og:type" content="website" />
       <meta property="og:description" content={desc || set.desc} />
       <meta property="og:url" content={ENV_HOST_URL} />

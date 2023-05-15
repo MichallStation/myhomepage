@@ -26,7 +26,7 @@ import {
 } from '@/globals/envs';
 import Footer from '@/components/Footer';
 import UseCard from '@/components/UseCard';
-import { fetchUsepageByLang } from '@/db';
+import { fetchAllArticlesByLang } from '@/db';
 
 const tabnames = [articleWorkflowType, articleDevflowType, articleKitflowType];
 const tabindexs = {
@@ -148,10 +148,10 @@ function Use({ storage, data, type }) {
 /** @param {import('next').NextPageContext} context */
 export async function getServerSideProps(context) {
   const storage = createFeaturesStorage(context);
-  const data = await fetchUsepageByLang(storage.current.lang);
+  const articles = await fetchAllArticlesByLang(storage.current.lang);
   const type = context.query?.type || articleWorkflowType;
   return {
-    props: { storage, type, data: data || {} },
+    props: { storage, type, data: { articles } },
   };
 }
 
