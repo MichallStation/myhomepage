@@ -74,11 +74,9 @@ Tôi chỉ sử dụng hệ điều hành MacOS trên chiếc máy tính của m
 
 ## Những thắc mắc thường gặp ❓
 
-* Làm thế nào để tôi có thể cấu hình chiếc máy tính của mình chạy song song các hệ điều hành `Windows`, `MacOS`, `Linux` và `ChromeOS`?
+Làm thế nào để tôi có thể cấu hình chiếc máy tính của mình chạy song song các hệ điều hành `Windows`, `MacOS`, `Linux` và `ChromeOS`?
 
-```
-  Để cài đặt tùy chỉnh Hackintosh MacOS, các bạn hãy bắt đầu với OpenCore.
-```
+  > Để cài đặt tùy chỉnh Hackintosh MacOS, các bạn hãy bắt đầu với OpenCore.
 
   > Để cài đặt tùy chỉnh ChromeOS, hãy bắt đầu với Brunch.
 
