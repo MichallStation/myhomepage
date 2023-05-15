@@ -4,6 +4,7 @@ import { GiNewspaper } from 'react-icons/gi';
 import { IoIosArrowForward } from 'react-icons/io';
 import MotionButton from '../MotionChakra/MotionButton';
 import Section from '@/layouts/Section';
+// import envs from '../ArticleCard/envs';
 
 function ArticleHeader({ toc, set, data, ...props }) {
   return (
@@ -48,28 +49,35 @@ function ArticleHeader({ toc, set, data, ...props }) {
             <Icon
               className="animate__animated animate__flip animate__infinite animate__slow"
               as={GiNewspaper}
-              boxSize="56px"
+              boxSize="48px"
               backgroundColor={useColorModeValue(
                 'blackAlpha.300',
                 'whiteAlpha.400',
               )}
-              px={2}
+              px={1}
               borderRadius="full"
             />
           </Box>
-          <Heading fontSize="3xl" mt={4}>
+          <Heading textAlign="center" fontSize="3xl" mt={4}>
             {data.title}
           </Heading>
-          <Text mt={2}>{data.desc}</Text>
+          <Text textAlign="center" mt={2}>
+            {data.desc}
+          </Text>
         </Box>
         <Box
           width={['100%', '60%']}
           height={['60%', '100%']}
           minH={['280px', '460px']}
           className="header-content"
+          // backgroundSize="contain"
+          // backgroundRepeat="repeat"
+          // backgroundPosition="center"
+          // backgroundImage={envs.bgUrl}
+          // color="gray.800"
           // backgroundColor={useColorModeValue('gray', 'gray')}
-          backgroundColor={useColorModeValue('holderLight', 'holder')}
-          color={useColorModeValue('black')}
+          // backgroundColor={useColorModeValue('holderLight', 'holder')}
+          // color={useColorModeValue('black')}
           py={2}
           px={4}
           overflowY="scroll"

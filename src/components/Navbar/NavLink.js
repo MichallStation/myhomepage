@@ -22,6 +22,7 @@ import { MdWorkOutline } from 'react-icons/md';
 import envs, { links } from './envs';
 import { getSet } from '@/globals/sets';
 import { NavbarId } from '@/globals/envs';
+import icons from '@/globals/icons';
 
 export const props = {
   Home: {
@@ -33,6 +34,9 @@ export const props = {
   Use: {
     icon: AiOutlineVideoCamera,
   },
+  Articles: {
+    icon: icons.articles.Icon,
+  },
   Source: {
     props: {
       target: '_blank',
@@ -42,41 +46,26 @@ export const props = {
   },
 };
 
-// export const mobileProps = {
-//   Home: {
-//     icon: <AiOutlineHome />,
-//   },
-//   Work: {
-//     icon: <MdWorkOutline />,
-//   },
-//   Use: {
-//     icon: <AiOutlineVideoCamera />,
-//   },
-//   Source: {
-//     props: {
-//       target: '_blank',
-//     },
-//     icon: <AiFillGithub />,
-//   },
-// };
-
 const pagesRendered = Object.entries(links);
 
 /** @param {{router: import('next/router').NextRouter}}  */
 function NavLink({ lang = 'en', router }) {
-  const { route: path } = router;
+  const { route: path, query } = router;
   // const locale = router.locale === router.defaultLocale ? 'en' : router.locale;
   // lang = lang === router.defaultLocale ? 'en' : lang;
   const set = getSet(NavbarId, lang);
   const isActive = useCallback(
     /** @param {string} p  */
     (p) => {
+      if (query?.page) {
+        return p.startsWith(`/${query.page}`);
+      }
       if (p === '/') {
         if (path === '/') return true;
       } else if (path.startsWith(p)) return true;
       return false;
     },
-    [path],
+    [path, query.page],
   );
 
   return (

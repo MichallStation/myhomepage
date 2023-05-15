@@ -62,6 +62,17 @@ export async function fetchUsepageByLang(lang = 'en') {
   return data;
 }
 
+export async function fetchAllArticlesByLang(lang = 'en') {
+  let data = null;
+  try {
+    const res = await fetch(`${ENV_DB_BASE_URL}/pages/articles/${lang}.json`);
+    data = await res.json();
+  } catch (error) {
+    console.error(error);
+  }
+  return data;
+}
+
 export async function fetchProjectById(id, lang = 'en') {
   let data = null;
   try {

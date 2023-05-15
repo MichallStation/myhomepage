@@ -14,12 +14,14 @@ function Section({
     <Box className="section" as="section" mt={6} {...props}>
       <Box className="section-title">
         <Heading
+          as="h3"
           display="inline-flex"
           alignItems="center"
           fontSize="2xl"
           fontWeight="normal"
           pos="relative"
-          // backgroundColor='blackAlpha.500'
+          // backgroundColor="blackAlpha.200"
+          // p={2}
           _after={{
             content: '""',
             display: 'block',

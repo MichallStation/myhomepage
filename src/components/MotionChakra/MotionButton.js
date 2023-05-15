@@ -4,7 +4,7 @@ import React from 'react';
 
 /** @param {import('@chakra-ui/react').ButtonProps} props */
 function MotionButton(props) {
-  const { children, ...restProps } = props;
+  const { children, intensity = 1.05, ...restProps } = props;
   return (
     <motion.div
       // drag
@@ -14,10 +14,10 @@ function MotionButton(props) {
       //   top: 0,
       //   bottom: 0,
       // }}
-      whileTap={{ scale: 1.05, zIndex: 1 }}
-      whileFocus={{ scale: 1.05, zIndex: 1 }}
-      whileHover={{ scale: 1.05, zIndex: 1 }}
-      whileDrag={{ scale: 1.05, zIndex: 1 }}
+      whileTap={{ scale: intensity, zIndex: 1 }}
+      whileFocus={{ scale: intensity, zIndex: 1 }}
+      whileHover={{ scale: intensity, zIndex: 1 }}
+      whileDrag={{ scale: intensity, zIndex: 1 }}
     >
       <Button {...restProps}>{children}</Button>
     </motion.div>

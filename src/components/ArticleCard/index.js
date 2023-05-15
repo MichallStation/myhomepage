@@ -2,24 +2,28 @@ import { Box, Icon, Button, Heading, Text } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import React from 'react';
-import icons from '@/globals/icons';
-import { articleId } from '@/globals/envs';
+import envs from './envs';
+import MotionButton from '../MotionChakra/MotionButton';
+import { KindleIcon } from '../icons';
 
-function ArticleCard({ set, data, href, ...props }) {
+function ArticleCard({ set, data, href, revert, ...props }) {
   return (
     <Box
       className="article-card"
       display="flex"
-      background={[
-        'linear-gradient(0deg, var(--chakra-colors-second), var(--chakra-colors-holder), var(--chakra-colors-holder))',
-        'linear-gradient(-90deg, var(--chakra-colors-second), var(--chakra-colors-holder), var(--chakra-colors-holder))',
-      ]}
       alignItems="center"
-      flexDirection={['column', 'row']}
-      borderRadius="24px"
-      backgroundColor="holder"
-      overflow="hidden"
-      p={2}
+      flexDirection={!revert ? ['column', 'row'] : ['column', 'row-reverse']}
+      backgroundSize="contain"
+      backgroundRepeat="repeat"
+      backgroundPosition="center"
+      backgroundImage={envs.bgUrl}
+      p={3}
+      pos="relative"
+      border="6px dashed"
+      borderColor="gray"
+      borderRadius="4px"
+      // shadow="dark-lg"
+      color="gray.800"
       {...props}
     >
       <motion.div
@@ -33,12 +37,12 @@ function ArticleCard({ set, data, href, ...props }) {
         <Button
           overflow="hidden"
           variant="unstyled"
-          display="block"
+          display="flex"
           // borderRadius=""
           pos="relative"
           w="100%"
           h="100%"
-          minH={['200px', '320px']}
+          minH={['200px', '300px']}
           as={Link}
           backgroundColor="holder"
           backgroundSize="cover"
@@ -46,7 +50,11 @@ function ArticleCard({ set, data, href, ...props }) {
           backgroundPosition="center"
           backgroundImage={data.thumbnail}
           href={href}
-          borderRadius={['24px 24px 4px 4px', '24px 4px 4px 24px']}
+          borderRadius={
+            !revert
+              ? ['24px 24px 4px 4px', '24px 4px 4px 24px']
+              : ['4px 4px 24px 24px', '4px 24px 24px 4px']
+          }
         >
           <Box
             className="article-card-overlay"
@@ -56,6 +64,7 @@ function ArticleCard({ set, data, href, ...props }) {
             top={0}
             bottom={0}
             bgColor="blackAlpha.500"
+            // bgColor="blackAlpha.300"
           />
         </Button>
       </motion.div>
@@ -69,17 +78,20 @@ function ArticleCard({ set, data, href, ...props }) {
         <Heading textAlign="center">{data.title}</Heading>
         <Text textAlign="center">{data.desc}</Text>
         <Box display="flex" justifyContent="center" mt={2}>
-          <Button
+          <MotionButton
             as={Link}
-            colorScheme="teal"
-            // className="prim-btn"
-            leftIcon={<Icon as={icons[articleId].read.Icon} boxSize="20px" />}
-            p={5}
+            colorScheme="seconds"
+            py={1}
+            px={2}
             fontFamily="handwrite"
             href={href}
+            h="56px"
+            color="chakra-body-text"
+            intensity={1.1}
           >
-            {set?.read || 'Read'}
-          </Button>
+            <Icon as={KindleIcon} boxSize="48px" />
+            {/* {set?.read || 'Read'} */}
+          </MotionButton>
         </Box>
       </Box>
     </Box>

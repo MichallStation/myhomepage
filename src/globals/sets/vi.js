@@ -74,7 +74,7 @@ export default {
     name: 'Đồ dùng',
     // slogan: 'Phơng châm của tôi là tận dụng tối đa hóa từng đồ dùng nhỏ nhất.',
     slogan:
-      'Lối sống di động. Niềm đam mê của tôi, đi mọi nơi cùng với tất cả trong một.',
+      'Lối sống di động. Niềm đam mê của tôi, đi mọi nơi cùng với tất cả trong một 🌴.',
     uses: {},
   },
   [errorId]: {
@@ -100,9 +100,8 @@ export default {
   Navbar: {
     Home: 'Nhà',
     Work: 'Công việc',
-    // Use: 'Đồ dùng',
-    // Use: 'Đạo cụ',
     Use: 'Đồ dùng',
+    Articles: 'Bài viết',
     Source: 'Nguồn',
   },
   Author: {

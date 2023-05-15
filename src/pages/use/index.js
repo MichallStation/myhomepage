@@ -9,6 +9,7 @@ import {
   TabPanel,
   TabPanels,
   Tabs,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { VscCode, VscTools } from 'react-icons/vsc';
@@ -24,7 +25,7 @@ import {
   articleWorkflowType,
 } from '@/globals/envs';
 import Footer from '@/components/Footer';
-import ArticleCard from '@/components/ArticleCard';
+import UseCard from '@/components/UseCard';
 import { fetchUsepageByLang } from '@/db';
 
 const tabnames = [articleWorkflowType, articleDevflowType, articleKitflowType];
@@ -71,7 +72,11 @@ function Use({ storage, data, type }) {
           fontWeight="normal"
           // fontFamily="serif"
           p={3}
-          backgroundColor="second"
+          // backgroundColor="second"
+          backgroundColor={useColorModeValue(
+            'blackAlpha.200',
+            'whiteAlpha.300',
+          )}
         >
           {set?.slogan}
         </Heading>
@@ -83,40 +88,44 @@ function Use({ storage, data, type }) {
           isLazy
         >
           <TabList overflowX="scroll" overflowY="hidden">
-            <Box display="flex" minW="md">
-              {useTabsRender.map(([id, i], index) => (
-                <Tab
-                  key={id}
-                  as={Button}
-                  height="48px"
-                  w="auto"
-                  mr={2}
-                  py={2}
-                  px={4}
-                  variant="unstyled"
-                  leftIcon={icons[id]}
-                  _selected={{
-                    color: 'chakra-body-text',
-                    bgColor: 'second',
-                  }}
-                  onClick={() =>
-                    router.push(`?type=${tabnames[index]}`, '', {
-                      scroll: false,
-                    })
-                  }
-                >
-                  {i.title}
-                </Tab>
-              ))}
+            <Box minW="md">
+              <Box display="inline-flex" borderBottom="2px solid" color="gray">
+                {useTabsRender.map(([id, i], index) => (
+                  <Tab
+                    key={id}
+                    as={Button}
+                    height="48px"
+                    w="auto"
+                    ml={index !== 0 && 2}
+                    py={2}
+                    px={4}
+                    variant="unstyled"
+                    leftIcon={icons[id]}
+                    color="chakra-body-text"
+                    borderRadius="24px 24px 0 0"
+                    _selected={{
+                      color: 'chakra-body-text',
+                      bgColor: 'second',
+                    }}
+                    onClick={() =>
+                      router.push(`?type=${tabnames[index]}`, '', {
+                        scroll: false,
+                      })
+                    }
+                  >
+                    {i.title}
+                  </Tab>
+                ))}
+              </Box>
             </Box>
           </TabList>
           <TabPanels mt={4} minH="320px">
             {useTabsRender.map(([id]) => (
               <TabPanel key={id} id={id} p={0}>
-                {data?.articles.map(
+                {data?.articles?.map(
                   (article) =>
                     article.type === id && (
-                      <ArticleCard
+                      <UseCard
                         key={article.id}
                         set={setArticle}
                         data={article}

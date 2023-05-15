@@ -70,7 +70,8 @@ export default {
   [useId]: {
     title: 'Usepage - My passion',
     name: 'Use',
-    slogan: 'Mobile lifestyle. My passion, go to everywhere with all in one.',
+    slogan:
+      'Mobile lifestyle. My passion, go to everywhere with all in one 🌴.',
     uses: {},
   },
   [errorId]: {
@@ -97,6 +98,7 @@ export default {
     Home: 'Home',
     Work: 'Work',
     Use: 'Use',
+    Articles: 'Articles',
     Source: 'Source',
   },
   Author: {
