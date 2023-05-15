@@ -3,12 +3,12 @@ import { ColorModeScript } from '@chakra-ui/react';
 import theme from '@/features/theme';
 import createFeaturesStorage from '@/features';
 import { getSet } from '@/globals/sets';
-import { documentId } from '@/globals/envs';
+import { homeId } from '@/globals/envs';
 
 /** @param {{storage: import('@/features/@features').FeaturesStorage}} */
 export default function Document({ storage }) {
   const { lang } = storage.current;
-  const set = getSet(documentId, lang);
+  const set = getSet(homeId, lang);
   return (
     <Html lang={lang}>
       <Head>
