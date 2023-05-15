@@ -65,11 +65,13 @@ Tôi sử dụng windows là hệ điều hành chính cho chiếc máy tính c�
 
 ## Những thắc mắc thường gặp
 
-* Nếu các bạn có sự thắc mắc thế nào để tôi có thể cấu hình chiếc máy tính của mình chạy song song hệ điều hành MacOS và ChromeOS.
+* Làm thế nào để tôi có thể cấu hình chiếc máy tính của mình chạy song song các hệ điều hành `Windows`, `MacOS`, `Linux` và `ChromeOS`?
 
   > Để cài đặt tùy chỉnh Hackintosh MacOS, các bạn hãy bắt đầu với OpenCore.
 
   > Để cài đặt tùy chỉnh ChromeOS, hãy bắt đầu với Brunch.
+
+  > Tôi sẽ không hướng dẫn chi tiết vì nó không thuộc phạm vi của bài viết này, các bạn có thể tìm hiểu nó trong danh mục bài viết của tôi.
 
 ---
 
