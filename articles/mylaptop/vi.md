@@ -61,14 +61,25 @@ Hệ điều hành phổ biến chỉ đứng sau `cửa sổ`, là sự lựa c
 
 Tôi chỉ sử dụng hệ điều hành MacOS trên chiếc máy tính của mình vì những lí do cụ thể sau:
 
-- Sử dụng để xây dựng và phát triển ứng dụng sản phẩm/dịch vụ phần mềm.
-- Vi thử nghiệm sản phẩm để hoàn thiện và chỉnh sửa ứng dụng sản phẩm/dịch vụ phần mềm.
+- Sử dụng để xây dựng và phát triển ứng dụng sản phẩm/dịch vụ phần mềm cho `MacOS/iOS`.
+- Vi thử nghiệm sản phẩm để hoàn thiện và chỉnh sửa ứng dụng sản phẩm/dịch vụ phần mềm cho `MacOS/iOS`.
 
 > ⚠️ Nếu bạn thực sự muốn trải nghiệm hệ điều hành `MacOS` thì hãy mua chính hãng để được trải nghiệm hệ sinh thái Apple một cách trọn vẹn.
 
 ## Linux của tôi
 
 ## ChromeOS của tôi
+
+Hệ điều hành ưa thích nhất của tôi. Tôi là fan của ứng dụng web vì sự gọn nhẹ của nó. Việc trải nghiệm ứng dụng web trên `ChromeOS` là một sự khác biệt lớn so với các nền tảng còn lại.
+
+Hệ điều hành `ChromeOS` chỉ bao gồm một trình duyệt chrome. Khiến cho việc trải nghiệm ứng dụng web cực kỳ mượt mà.
+
+Đồng thời với sự kết hợp chạy `Android` khiến nó trở thành một trong những hệ điều hành được ưu thích nhất.
+
+Tôi chỉ sử dụng hệ điều hành `ChromeOS` trên chiếc máy tính của mình vì những lí do cụ thể sau:
+
+- Sử dụng để xây dựng và phát triển ứng dụng sản phẩm/dịch vụ phần mềm `Web/Android`.
+- Vi thử nghiệm sản phẩm để hoàn thiện và chỉnh sửa ứng dụng sản phẩm/dịch vụ phần mềm cho `Web/Android`.
 
 ---
 
