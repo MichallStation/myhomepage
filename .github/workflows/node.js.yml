@@ -13,6 +13,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./.dev
 
     strategy:
       matrix:
@@ -26,9 +29,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - name: ci
-      working-directory: ./.dev
-      run: yarn ci
+    - run: yarn ci
     - name: Build Minify data
-      working-directory: ./.dev
       run: yarn build
