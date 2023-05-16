@@ -26,6 +26,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
+    - name: ci
       working-directory: ./.dev
       run: yarn ci
     - name: Build Minify data
