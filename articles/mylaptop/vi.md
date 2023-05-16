@@ -55,6 +55,16 @@ Tôi sử dụng windows là hệ điều hành chính cho chiếc máy tính c�
 
 ---
 
+## Linux của tôi
+
+Nổi tiếng là mã nguồn mở và hoàn toàn miễn phí. `Linux` và các bản phân phối `Linux` trong đó có `Ubuntu`, `Ubuntu` được sử dụng rộng rãi đặc biệt thường được các hãng sử dụng làm hệ điều hành cho phía máy chủ.
+
+Điểm mạnh của hầu hết các bản phân phối `Linux` là sự gọn nhẹ, mỗi bản phân phối được sử dụng cho một mục đích cụ thể. Cửa sổ dòng lệnh chính là thương hiệu của `Linux`, mà tôi sẽ đề cập về nó trong danh mục bài viết của mình.
+
+> `Linux` có rất nhiều bản phân phối, trong đó bao gồm cả `MacOS/iOS` và `ChromeOS/Android`.
+
+---
+
 ## MacOS của tôi
 
 Hệ điều hành phổ biến chỉ đứng sau `cửa sổ`, là sự lựa chọn hàng đầu của những ai yêu thích hệ sinh thái Apple.
@@ -66,7 +76,7 @@ Tôi chỉ sử dụng hệ điều hành MacOS trên chiếc máy tính của m
 
 > ⚠️ Nếu bạn thực sự muốn trải nghiệm hệ điều hành `MacOS` thì hãy mua chính các máy Mac để được trải nghiệm hệ sinh thái Apple một cách trọn vẹn.
 
-## Linux của tôi
+---
 
 ## ChromeOS của tôi
 
