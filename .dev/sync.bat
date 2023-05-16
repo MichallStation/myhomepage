@@ -4,7 +4,7 @@ set "a=%cd%"
 set "w=%~dp0"
 set "w=%w:~0,-1%"
 if "%*"=="" (
-  set "mes=update: data ✒"   
+  set "mes=update: something news ✒"   
 ) else (
   set "mes=%*"   
 )

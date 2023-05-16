@@ -5,7 +5,7 @@ w="$(cd "$(dirname "$0")" && pwd)"
 if [ $@ ]; then
   mes=$@ 
 else
-  mes="update: data ✒"
+  mes="update: something news ✒"
 fi
 
 # yarn ci
