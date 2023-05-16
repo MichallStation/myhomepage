@@ -24,8 +24,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-        with:
-          token: ${{secrets.TOKEN}}
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
@@ -36,7 +34,6 @@ jobs:
       - name: Commit files
         id: commit
         run: |
-          env
           git add --all
           git config --local user.email "blueltn@github.com"
           git config --local user.name "blueltn"
