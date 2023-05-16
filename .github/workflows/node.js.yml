@@ -37,14 +37,10 @@ jobs:
       id: commit
       run: |
         git config --local user.email "action@github.com"
-        git config --local user.name "github-actions"
+        git config --local user.name "Blue(bot)"
         git add --all
-        git commit -m "bot: create minify data ✨"
+        git commit -m "Blue(bot): create minify data ✨"
       shell: bash
     - name: Push changes
       run: git push
       shell: bash
-      # with:
-      #   github_token: ${{ secrets.TOKEN }}
-      # if: steps.commit.outputs.push == 'true'
-      # uses: ad-m/github-push-action@master
