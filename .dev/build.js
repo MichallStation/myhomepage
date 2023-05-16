@@ -22,7 +22,7 @@ const lsDir = (p) => {
 // const distName = 'pages';
 const distName = '.data';
 const distFolder = path.join(workspace, distName);
-const excludeList = [distName, 'test', 'pages'];
+const excludeList = [distName, 'test', 'pages', 'sets'];
 const isExcludeDir =
   /** @param {string} dir */
   (dir) => dir.startsWith('.') || excludeList.find((i) => dir === i);
@@ -77,6 +77,7 @@ dirs.forEach((name) => {
     });
   });
 
+  // Build each list
   if (!existsSync(folderJson))
     mkdirSync(folderJson, {
       recursive: true,
@@ -91,6 +92,46 @@ dirs.forEach((name) => {
   }
 });
 
+// Build set of langs (collection)
+(() => {
+  const folderJson = path.join(distFolder, 'sets');
+  const w = path.join(workspace, 'sets');
+  const fileJsonContent = {};
+  const setFileContent = {};
+  langList.forEach((lang) => {
+    setFileContent[lang] = {};
+  });
+
+  lsDir(w).forEach((id) => {
+    wid = path.join(w, id);
+
+    langList.forEach((lang) => {
+      const wlang = path.join(wid, `${lang}.json`);
+      if (!existsSync(wlang)) return;
+      // console.log(wlang);
+      let content = JSON.parse(readFileSync(wlang).toString());
+      // console.log(content);
+
+      if (!fileJsonContent?.[lang]) fileJsonContent[lang] = {};
+      fileJsonContent[lang][id] = content;
+    });
+  });
+
+  if (!existsSync(folderJson))
+    mkdirSync(folderJson, {
+      recursive: true,
+    });
+  for (const lang in fileJsonContent) {
+    if (Object.hasOwnProperty.call(fileJsonContent, lang)) {
+      const data = fileJsonContent[lang];
+      const fileJson = `${lang}.json`;
+      const distFile = path.join(folderJson, fileJson);
+      writeFileSync(distFile, JSON.stringify(data));
+    }
+  }
+})();
+
+// Build globals data (collection)
 for (const lang in langFileContent) {
   if (Object.hasOwnProperty.call(langFileContent, lang)) {
     const data = {
@@ -105,6 +146,6 @@ for (const lang in langFileContent) {
 
 // console.log('version: ', uuid);
 console.log(distName);
-dirs.forEach((dir) => console.log(`\t${dir}`));
+[...dirs, 'sets'].forEach((dir) => console.log(`\t${dir}`));
 langList.forEach((dir) => console.log(`\t${dir}.json`));
 console.log('Create minify done! ✨');
