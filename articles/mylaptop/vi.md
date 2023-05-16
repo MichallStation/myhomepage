@@ -23,8 +23,8 @@ Tất cả hệ điều hành trên chiếc mây tính của tôi bao gồm.
 
 1. `Windows 10 LTSC.`
 1. `MacOS Big Sur 11.7.`
-1. `Linux Ubuntu 22.04 LTS.`
 1. `ChromeOS 111.`
+1. `Linux Ubuntu 22.04 LTS.`
 1. `Multiboot Recovery.`
 
 ---
