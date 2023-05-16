@@ -11,9 +11,9 @@ if "%*"=="" (
 
 @rem call yarn ci
 
-cd %w%\..
 git pull
 node clean.js
+cd %w%\..
 git add .
 git commit -m "%mes%"
 git push
