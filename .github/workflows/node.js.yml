@@ -24,8 +24,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      # with:
-      #     token: ${{secrets.PAT}}
+      with:
+          token: ${{secrets.TOKEN}}
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
@@ -44,7 +44,7 @@ jobs:
     - name: Push changes
       run: git push
       shell: bash
-      with:
-        github_token: ${{ secrets.TOKEN }}
+      # with:
+      #   github_token: ${{ secrets.TOKEN }}
       # if: steps.commit.outputs.push == 'true'
       # uses: ad-m/github-push-action@master
