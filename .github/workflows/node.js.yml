@@ -5,13 +5,12 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "db" ]
+    branches: ['db']
   pull_request:
-    branches: [ "db" ]
+    branches: ['db']
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -23,24 +22,24 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v3
-      with:
+      - uses: actions/checkout@v3
+        with:
           token: ${{secrets.TOKEN}}
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'yarn'
-        cache-dependency-path: .dev/yarn.lock
-    - run: yarn ci
-    - name: Commit files
-      id: commit
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "blue"
-        git add --all
-        git commit -m "Blue(bot): create minify data ✨"
-      shell: bash
-    - name: Push changes
-      run: git push
-      shell: bash
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+          cache-dependency-path: .dev/yarn.lock
+      - run: yarn ci
+      - name: Commit files
+        id: commit
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "github-actions"
+          git add --all
+          git commit -m "Blue(bot): create minify data ✨"
+        shell: bash
+      - name: Push changes
+        run: git push
+        shell: bash
