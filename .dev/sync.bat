@@ -9,7 +9,7 @@ if "%*"=="" (
   set "mes=%*"   
 )
 
-call yarn build
+call yarn ci
 
 cd %w%\..
 git add .

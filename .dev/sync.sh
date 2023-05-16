@@ -8,7 +8,7 @@ else
   mes="update: data"
 fi
 
-yarn build
+yarn ci
 
 cd $w/..
 git add .
