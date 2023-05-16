@@ -45,6 +45,6 @@ jobs:
       run: git push
       shell: bash
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.TOKEN }}
       # if: steps.commit.outputs.push == 'true'
       # uses: ad-m/github-push-action@master
