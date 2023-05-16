@@ -12,6 +12,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # if: ${{ github. }}
     defaults:
       run:
         working-directory: ./.dev
@@ -35,10 +36,9 @@ jobs:
       - name: Commit files
         id: commit
         run: |
-          env
-          git config --global user.email "action@github.com"
-          git config --global user.name "github-actions"
           git add --all
+          git config --local user.email "ltndatblue@github.com"
+          git config --local user.name "ltndatblue"
           git commit -m "Blue(bot): create minify data ✨"
         shell: bash
       - name: Push changes
