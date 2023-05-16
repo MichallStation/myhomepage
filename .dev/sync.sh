@@ -9,6 +9,7 @@ else
 fi
 
 # yarn ci
+node clean.js
 
 cd $w/.
 git pull

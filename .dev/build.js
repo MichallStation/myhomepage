@@ -7,9 +7,9 @@ const {
   rmSync,
 } = require('node:fs');
 const path = require('node:path');
-const crypto = require('crypto');
+// const crypto = require('crypto');
 
-const uuid = crypto.randomUUID();
+// const uuid = crypto.randomUUID();
 const workspace = path.join(__dirname, '..');
 const langList = ['en', 'vi', 'zh'];
 const lsDir = (p) => {
@@ -67,7 +67,7 @@ dirs.forEach((name) => {
       content = {
         ...content,
         id: content?.id || id,
-        uuid,
+        // uuid,
       };
       if (!fileJsonContent?.[lang]) fileJsonContent[lang] = [];
       fileJsonContent[lang].push(content);
@@ -95,7 +95,7 @@ for (const lang in langFileContent) {
   if (Object.hasOwnProperty.call(langFileContent, lang)) {
     const data = {
       ...langFileContent[lang],
-      uuid,
+      // uuid,
     };
     const fileJson = `${lang}.json`;
     const distFile = path.join(distFolder, fileJson);
@@ -103,7 +103,7 @@ for (const lang in langFileContent) {
   }
 }
 
-console.log('version: ', uuid);
+// console.log('version: ', uuid);
 console.log(distName);
 dirs.forEach((dir) => console.log(`\t${dir}`));
 langList.forEach((dir) => console.log(`\t${dir}.json`));

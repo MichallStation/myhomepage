@@ -38,9 +38,9 @@ jobs:
         run: |
           env
           git add --all
-          git config --local user.email "ltndatblue@github.com"
-          git config --local user.name "ltndatblue"
-          git commit -m "Blue(bot): create minify data ✨"
+          git config --local user.email "blueltn@github.com"
+          git config --local user.name "blueltn"
+          git commit -m "blueltn: create minify data ✨"
         shell: bash
       - name: Push changes
         run: git push
