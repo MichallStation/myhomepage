@@ -107,7 +107,4 @@ Nổi tiếng là mã nguồn mở và hoàn toàn miễn phí. `Linux` và các
 
 ---
 
-
-
-
 > Chúc các bạn tìm được sự đam mê ở đâu đó trong sự chia sẻ chân thành của tôi. _blue_

@@ -1,0 +1,7 @@
+{
+  "type": "workflow",
+  "title": "帖子",
+  "desc": "文章描述.",
+  "md": "https://raw.githubusercontent.com/ltndat/myhomepage/db/.shemes/use/zh.md",
+  "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/.shemes/use/thumbnail.png"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "workflow",
+  "title": "Article",
+  "desc": "Description of article.",
+  "md": "https://raw.githubusercontent.com/ltndat/myhomepage/db/.shemes/use/en.md",
+  "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/.shemes/use/thumbnail.png"
+}

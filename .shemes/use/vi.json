@@ -1,0 +1,7 @@
+{
+  "type": "workflow",
+  "title": "Bài viết",
+  "desc": "Diễn giải bài viết.",
+  "md": "https://raw.githubusercontent.com/ltndat/myhomepage/db/.shemes/use/vi.md",
+  "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/.shemes/use/thumbnail.jpg"
+}
