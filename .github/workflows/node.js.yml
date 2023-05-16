@@ -39,7 +39,7 @@ jobs:
           git add --all
           git config --local user.email "blueltn@github.com"
           git config --local user.name "blueltn"
-          git commit -m "blueltn: create minify data ✨"
+          git commit -m "blue(bot): create minify data ✨"
         shell: bash
       - name: Push changes
         run: git push
