@@ -28,7 +28,8 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+        cache: 'yarn'
+        cache-dependency-path: .dev/yarn.lock
     - run: yarn ci
     - name: Build Minify data
       run: yarn build
