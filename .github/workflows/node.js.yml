@@ -37,16 +37,10 @@ jobs:
       id: commit
       run: |
         git config --local user.email "action@github.com"
-        git config --local user.name "github-actions"
+        git config --local user.name "blue(bot)"
         git add --all
-        if [-z "$(git status --porcelain)"]; then
-          echo "::set-output name=push::false"
-        else
-          git commit -m "Blue(bot): create minify data ✨"
-          echo "::set-output name=push::true"
-        fi
+        git commit -m "Blue(bot): create minify data ✨"
       shell: bash
     - name: Push changes
-      if: steps.commit.outputs.push == 'true'
       run: git push
       shell: bash
