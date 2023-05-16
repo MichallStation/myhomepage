@@ -1,8 +1,8 @@
 {
-  "name": "Kỹ sư tự do",
+  "title": "Kỹ sư tự do",
+  "desc": "Khởi đầu sự nghiệp của một kỹ sư phát triển phần mềm bằng làm việc tự do, tôi đã tích lũy được những kinh nghiệm được cho là hữu dụng trên cả một kỹ sư phần mềm. Tôi đã học được các phương thức làm việc trên các hệ điều hành phổ biến, làm việc với thiết bị đầu cuối đến thực thi trên giao diện người dùng. Sáng tạo nội dung, thiết kế và chỉnh sửa các dạng hình ảnh hoặc video.",
   "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/works/freelance/thumbnail.png",
   "thumbnailHighContrast": true,
-  "desc": "Khởi đầu sự nghiệp của một kỹ sư phát triển phần mềm bằng làm việc tự do, tôi đã tích lũy được những kinh nghiệm được cho là hữu dụng trên cả một kỹ sư phần mềm. Tôi đã học được các phương thức làm việc trên các hệ điều hành phổ biến, làm việc với thiết bị đầu cuối đến thực thi trên giao diện người dùng. Sáng tạo nội dung, thiết kế và chỉnh sửa các dạng hình ảnh hoặc video.",
   "moments": [
     {
       "title": "Áp phích",
