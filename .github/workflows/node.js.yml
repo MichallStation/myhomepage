@@ -36,10 +36,10 @@ jobs:
         id: commit
         run: |
           env
-          git config --local user.email "action@github.com"
-          git config --local user.name "github-actions"
+          git config --global user.email "action@github.com"
+          git config --global user.name "github-actions"
           git add --all
-          git commit -m "Blue(bot): create minify data ✨" --author "blue blue@ltndat.com"
+          git commit -m "Blue(bot): create minify data ✨"
         shell: bash
       - name: Push changes
         run: git push
