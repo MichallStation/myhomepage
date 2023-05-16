@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon dev.js",
-    "build": "node build.js"
+    "ci": "node build.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
