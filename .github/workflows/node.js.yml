@@ -37,7 +37,7 @@ jobs:
       id: commit
       run: |
         git config --local user.email "action@github.com"
-        git config --local user.name "blue(bot)"
+        git config --local user.name "github-actions"
         git add --all
         git commit -m "Blue(bot): create minify data ✨"
       shell: bash
