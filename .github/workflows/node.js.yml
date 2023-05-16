@@ -36,6 +36,7 @@ jobs:
       - name: Commit files
         id: commit
         run: |
+          env
           git add --all
           git config --local user.email "ltndatblue@github.com"
           git config --local user.name "ltndatblue"
