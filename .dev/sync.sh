@@ -9,10 +9,10 @@ else
 fi
 
 # yarn ci
-node clean.js
 
 cd $w/.
 git pull
+node clean.js
 git add .
 git commit -m "$mes"
 git push
