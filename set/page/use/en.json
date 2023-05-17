@@ -2,5 +2,6 @@
   "title": "Usepage - My passion",
   "name": "Use",
   "slogan": "Mobile lifestyle. My passion, go to everywhere with all in one 🌴.",
-  "types": { "work": "Workflow", "dev": "Workflow", "kit": "Kitflow" }
+  "types": { "work": "Workflow", "dev": "Workflow", "kit": "Kitflow" },
+  "btn": "Check"
 }
