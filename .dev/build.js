@@ -17,6 +17,11 @@ const lsDir = (p) => {
     .filter((dir) => dir.isDirectory())
     .map((dir) => dir.name);
 };
+const lsFiles = (p) => {
+  return readdirSync(p, { withFileTypes: true })
+    .filter((dir) => dir.isFile())
+    .map((dir) => dir.name);
+};
 
 // const distFolder = path.join(workspace, 'pages');
 // const distName = 'pages';
@@ -246,8 +251,52 @@ for (const lang in langFileContent) {
   }
 }
 
+// Build filters data (collection)
+(() => {
+  const folderJson = path.join(distFolder, 'collects');
+  const w = path.join(workspace, '.collects');
+  const setFileContent = {};
+  langList.forEach((lang) => {
+    setFileContent[lang] = {};
+  });
+
+  lsFiles(w).forEach((_w) => {
+    const f = path.join(w, _w);
+    const lid = _w.replace(path.extname(_w), '');
+    let dirs = JSON.parse(readFileSync(f).toString());
+    dirs.forEach((dir) => {
+      const id = path.basename(dir);
+      const wa = path.join(workspace, dir);
+      langList.forEach((lang) => {
+        const wlang = path.join(wa, `${lang}.json`);
+        if (!existsSync(wlang)) return;
+        let content = JSON.parse(readFileSync(wlang).toString());
+        content = {
+          ...content,
+          // id,
+        };
+        if (!setFileContent[lang]?.[id]) setFileContent[lang][id] = content;
+      });
+    });
+
+    const lFolderJson = path.join(folderJson, lid);
+    if (!existsSync(lFolderJson))
+      mkdirSync(lFolderJson, {
+        recursive: true,
+      });
+    Object.entries(setFileContent).forEach(([lang, set]) => {
+      const data = set;
+      const fileJson = `${lang}.json`;
+      const distFile = path.join(lFolderJson, fileJson);
+      writeFileSync(distFile, JSON.stringify(data));
+    });
+  });
+})();
+
 // console.log('version: ', uuid);
 console.log(distName);
-[...dirs, 'sets'].forEach((dir) => console.log(`\t${dir}`));
+[...dirs, 'collects', 'details', 'sets'].forEach((dir) =>
+  console.log(`\t${dir}`)
+);
 langList.forEach((dir) => console.log(`\t${dir}.json`));
 console.log('Create minify done! ✨');
