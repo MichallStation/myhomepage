@@ -13,6 +13,7 @@ if "%*"=="" (
 
 node clean.js
 git pull
+node clean.js
 cd %w%\..
 git add .
 git commit -m "%mes%"
