@@ -1,27 +1,27 @@
 {
   "title": "My homepage",
   "desc": "Inspired by modern style, with a touch of subtle lightness. Combination of block and slim and 3d interfaces. I built this project from ideation, project process management, planning, visual design and coding for the entire site content.",
-  "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/thumbnail.png",
+  "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/details/projs/homepage/thumbnail.png",
   "preview": [
     {
       "title": "Poster",
-      "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/poster.png"
+      "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/details/projs/homepage/poster.png"
     },
     {
       "title": "PC light theme",
-      "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/pc-light.png"
+      "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/details/projs/homepage/pc-light.png"
     },
     {
       "title": "PC dark theme",
-      "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/pc-dark.png"
+      "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/details/projs/homepage/pc-dark.png"
     },
     {
       "title": "Mobile light theme",
-      "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/mobile-light.png"
+      "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/details/projs/homepage/mobile-light.png"
     },
     {
       "title": "Mobile dark theme",
-      "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/mobile-dark.png"
+      "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/details/projs/homepage/mobile-dark.png"
     }
   ],
   "info": [
@@ -92,8 +92,8 @@
       "id": "layout",
       "name": "Layout",
       "data": [
-        "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/main.svg",
-        "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/detail.svg"
+        "https://raw.githubusercontent.com/ltndat/myhomepage/db/details/projs/homepage/main.svg",
+        "https://raw.githubusercontent.com/ltndat/myhomepage/db/details/projs/homepage/detail.svg"
       ]
     },
     {

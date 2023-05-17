@@ -1,27 +1,27 @@
 {
   "title": "Nhà của tôi",
   "desc": "Nguồn cảm hứng từ phong cách hiện đại, kèm thêm một chút nhẹ nhàng tinh tế. Sự kết hợp giữa các dạng giao diện khối và mảnh lẫn 3d. Tôi đã xây dựng dự án này các từ việc lên ý tưởng, quản lý quy trình dự án, lập kế hoạch, thiết kế hình ảnh và viết code cho toàn bộ nội dung trang.",
-  "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/thumbnail.png",
+  "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/details/projs/homepage/thumbnail.png",
   "preview": [
     {
       "title": "Áp phích",
-      "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/poster.png"
+      "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/details/projs/homepage/poster.png"
     },
     {
       "title": "Máy tính chủ đề sáng",
-      "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/pc-light.png"
+      "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/details/projs/homepage/pc-light.png"
     },
     {
       "title": "Máy tính chủ đề tối",
-      "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/pc-dark.png"
+      "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/details/projs/homepage/pc-dark.png"
     },
     {
       "title": "Điện thoại chủ đề sáng",
-      "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/mobile-light.png"
+      "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/details/projs/homepage/mobile-light.png"
     },
     {
       "title": "Điện thoại chủ đề tối",
-      "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/mobile-dark.png"
+      "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/details/projs/homepage/mobile-dark.png"
     }
   ],
   "info": [
@@ -92,8 +92,8 @@
       "id": "layout",
       "name": "Bố cục",
       "data": [
-        "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/main.svg",
-        "https://raw.githubusercontent.com/ltndat/myhomepage/db/projs/homepage/detail.svg"
+        "https://raw.githubusercontent.com/ltndat/myhomepage/db/details/projs/homepage/main.svg",
+        "https://raw.githubusercontent.com/ltndat/myhomepage/db/details/projs/homepage/detail.svg"
       ]
     },
     {
