@@ -27,7 +27,7 @@ const lsFiles = (p) => {
 // const distName = 'pages';
 const distName = '.data';
 const distFolder = path.join(workspace, distName);
-const excludeList = [distName, 'test', 'pages', 'sets', 'details'];
+const excludeList = [distName, 'test', 'page', 'set', 'detail'];
 const isExcludeDir =
   /** @param {string} dir */
   (dir) => dir.startsWith('.') || excludeList.find((i) => dir === i);
@@ -99,12 +99,12 @@ dirs.forEach((name) => {
 
 // Build set of langs (collection)
 (() => {
-  // let folderJson = path.join(distFolder, 'sets');
-  const wroot = path.join(workspace, 'sets');
+  // let folderJson = path.join(distFolder, 'set');
+  const wroot = path.join(workspace, 'set');
   const gJson = {};
   const dirs = lsDir(wroot);
   dirs.forEach((_w) => {
-    const folderJson = path.join(distFolder, 'sets', _w);
+    const folderJson = path.join(distFolder, 'set', _w);
     const w = path.join(wroot, _w);
     const fileJsonContent = {};
     const setFileContent = {};
@@ -143,7 +143,7 @@ dirs.forEach((name) => {
   });
 
   const gSetFileContent = {};
-  const folderJson = path.join(distFolder, 'sets');
+  const folderJson = path.join(distFolder, 'set');
   langList.forEach((lang) => {
     gSetFileContent[lang] = {};
   });
@@ -162,8 +162,8 @@ dirs.forEach((name) => {
 
 // Build details (collection)
 (() => {
-  const folderJson = path.join(distFolder, 'details');
-  const w = path.join(workspace, 'details');
+  const folderJson = path.join(distFolder, 'detail');
+  const w = path.join(workspace, 'detail');
   const gFileJsonContent = {};
   let fileJsonContent = {};
   const setFileContent = {};
@@ -253,8 +253,8 @@ for (const lang in langFileContent) {
 
 // Build filters data (collection)
 (() => {
-  const folderJson = path.join(distFolder, 'collects');
-  const w = path.join(workspace, '.collects');
+  const folderJson = path.join(distFolder, 'collect');
+  const w = path.join(workspace, '.filter');
   let setFileContent = {};
   langList.forEach((lang) => {
     setFileContent[lang] = {};
@@ -290,9 +290,7 @@ for (const lang in langFileContent) {
       const distFile = path.join(lFolderJson, fileJson);
       writeFileSync(distFile, JSON.stringify(data));
     });
-    console.log(lid, setFileContent);
     setFileContent = {};
-
     langList.forEach((lang) => {
       setFileContent[lang] = {};
     });
@@ -301,8 +299,6 @@ for (const lang in langFileContent) {
 
 // console.log('version: ', uuid);
 console.log(distName);
-[...dirs, 'collects', 'details', 'sets'].forEach((dir) =>
-  console.log(`\t${dir}`)
-);
+[...dirs, 'collect', 'detail', 'set'].forEach((dir) => console.log(`\t${dir}`));
 langList.forEach((dir) => console.log(`\t${dir}.json`));
 console.log('Create minify done! ✨');

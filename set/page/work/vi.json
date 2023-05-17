@@ -1,0 +1,20 @@
+{
+  "title": "Công việc - Hồ sơ của tôi",
+  "name": "Hồ sơ công việc",
+  "proj": {
+    "title": "Dự án",
+    "content": "Điểm qua các dự án nổi bật mà tôi đã từng xây dựng."
+  },
+  "work": {
+    "title": "Công việc",
+    "content": "Những công việc tôi đã và đang tham gia, những giai đoạn trong cuộc hành trình kỹ sư, những điều tôi đã học được và ứng dụng thực tiễn."
+  },
+  "collab": {
+    "title": "Đối tác",
+    "content": "Những đối tác trong cuộc hành trình kỹ sư của tôi."
+  },
+  "community": {
+    "title": "Cộng đồng",
+    "content": "The communitys on my developer journey."
+  }
+}
