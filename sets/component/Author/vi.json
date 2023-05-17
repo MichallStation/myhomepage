@@ -1,1 +1,8 @@
-{ "title": "Authorvi" }
+{
+  "welcome": "Xin chào, Tôi là nhà phát triển ứng dụng tại Việt Nam!",
+  "name": "Lê Trần Ngọc Đạt",
+  "desc": "Nhà phát triển (Front End / Back End / Fullstack)",
+  "worktitle": "Công việc",
+  "workcontent": "Đạt là một nhà phát triển ứng dụng fullstack tại TP Hồ Chí Minh với niềm đam mê xây dựng các sản phẩm/dịch vụ kỹ thuật số. Anh ấy có sở trường về việc lập kế hoạch, thiết kế và tạo ra các sản phẩm để giải quyết các vấn đề thực tế với code. Khi ngoài công việc, anh ấy ưa thích được ngồi bên cây đàn guitar/piano của mình.",
+  "workbtn": "Hồ sơ"
+}

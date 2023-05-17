@@ -1,1 +1,15 @@
-{}
+{
+  "title": "Chi tiết",
+  "name": "Chi tiết",
+  "style": "Phong cách",
+  "role": "Vai trò",
+  "exp": "Kinh nghiệm",
+  "desc": "Mô tả",
+  "detail": "Chi tiết",
+  "moments": "Khoảnh khắc",
+  "preview": "Xem trước",
+  "articles": {
+    "title": "Bài viết liên quan",
+    "desc": "Những bài viết liên quan đến nội dung trên."
+  }
+}

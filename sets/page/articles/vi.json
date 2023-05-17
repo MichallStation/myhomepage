@@ -1,3 +1,11 @@
 {
-  "title": "Bài viết - Tâm huyết của tôi"
+  "title": "Bài viết - Tâm huyết của tôi",
+  "name": "Bài viết",
+  "tablet": "Mục lục",
+  "types": {
+    "workflow": { "title": "Bộ công việc" },
+    "devflow": { "title": "Bộ nhà phát triển" },
+    "kitflow": { "title": "Bộ công cụ" }
+  },
+  "read": "Xem"
 }
