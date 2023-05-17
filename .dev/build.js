@@ -94,41 +94,65 @@ dirs.forEach((name) => {
 
 // Build set of langs (collection)
 (() => {
-  const folderJson = path.join(distFolder, 'sets');
-  const w = path.join(workspace, 'sets');
-  const fileJsonContent = {};
-  const setFileContent = {};
-  langList.forEach((lang) => {
-    setFileContent[lang] = {};
-  });
-
-  lsDir(w).forEach((id) => {
-    wid = path.join(w, id);
-
+  // let folderJson = path.join(distFolder, 'sets');
+  const wroot = path.join(workspace, 'sets');
+  const gJson = {};
+  const dirs = lsDir(wroot);
+  dirs.forEach((_w) => {
+    const folderJson = path.join(distFolder, 'sets', _w);
+    const w = path.join(wroot, _w);
+    const fileJsonContent = {};
+    const setFileContent = {};
     langList.forEach((lang) => {
-      const wlang = path.join(wid, `${lang}.json`);
-      if (!existsSync(wlang)) return;
-      // console.log(wlang);
-      let content = JSON.parse(readFileSync(wlang).toString());
-      // console.log(content);
-
-      if (!fileJsonContent?.[lang]) fileJsonContent[lang] = {};
-      fileJsonContent[lang][id] = content;
+      setFileContent[lang] = {};
     });
+
+    lsDir(w).forEach((id) => {
+      wid = path.join(w, id);
+
+      langList.forEach((lang) => {
+        const wlang = path.join(wid, `${lang}.json`);
+        if (!existsSync(wlang)) return;
+        // console.log(wlang);
+        let content = JSON.parse(readFileSync(wlang).toString());
+        // console.log(content);
+
+        if (!fileJsonContent?.[lang]) fileJsonContent[lang] = {};
+        fileJsonContent[lang][id] = content;
+      });
+    });
+
+    if (!existsSync(folderJson))
+      mkdirSync(folderJson, {
+        recursive: true,
+      });
+    for (const lang in fileJsonContent) {
+      if (Object.hasOwnProperty.call(fileJsonContent, lang)) {
+        const data = fileJsonContent[lang];
+        const fileJson = `${lang}.json`;
+        const distFile = path.join(folderJson, fileJson);
+        writeFileSync(distFile, JSON.stringify(data));
+      }
+    }
+    gJson[_w] = fileJsonContent;
   });
 
-  if (!existsSync(folderJson))
-    mkdirSync(folderJson, {
-      recursive: true,
+  const gSetFileContent = {};
+  const folderJson = path.join(distFolder, 'sets');
+  langList.forEach((lang) => {
+    gSetFileContent[lang] = {};
+  });
+  Object.entries(gJson).forEach(([id, langSet]) => {
+    Object.entries(langSet).forEach(([lang, set]) => {
+      gSetFileContent[lang][id] = set;
     });
-  for (const lang in fileJsonContent) {
-    if (Object.hasOwnProperty.call(fileJsonContent, lang)) {
-      const data = fileJsonContent[lang];
-      const fileJson = `${lang}.json`;
-      const distFile = path.join(folderJson, fileJson);
-      writeFileSync(distFile, JSON.stringify(data));
-    }
-  }
+  });
+  Object.entries(gSetFileContent).forEach(([lang, set]) => {
+    const data = set;
+    const fileJson = `${lang}.json`;
+    const distFile = path.join(folderJson, fileJson);
+    writeFileSync(distFile, JSON.stringify(data));
+  });
 })();
 
 // Build details (collection)

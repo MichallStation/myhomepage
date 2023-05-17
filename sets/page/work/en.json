@@ -1,0 +1,16 @@
+{
+  "title": "Workpage - My portfolio",
+  "name": "Workpage",
+  "projs": {
+    "title": "Projects",
+    "content": "The projects highlight that I have been building."
+  },
+  "works": {
+    "title": "Works",
+    "content": "The works that I have been working, the stages of my developer journey, the things that I have been learning and applying to the real world."
+  },
+  "collabs": {
+    "title": "Collaborations",
+    "content": "The collaborations/partners on my developer journey."
+  }
+}

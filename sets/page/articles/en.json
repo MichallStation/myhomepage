@@ -1,0 +1,11 @@
+{
+  "title": "Articles - My heart",
+  "name": "Articles",
+  "tablet": "Tablet of Contents",
+  "types": {
+    "workflow": { "title": "Workflow" },
+    "devflow": { "title": "Devflow" },
+    "kitflow": { "title": "Kitflow" }
+  },
+  "read": "Read"
+}

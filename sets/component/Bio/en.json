@@ -1,0 +1,31 @@
+{
+  "bio": {
+    "title": "Bio",
+    "content": [
+      ["1999", "Born in Ho Chi Minh, Viet Nam."],
+      [
+        "2017",
+        "Studied software engineer at Ho Chi Minh University of Technology and Education."
+      ],
+      ["2021 to present", "Start developer career."]
+    ]
+  },
+  "love": {
+    "title": "I",
+    "content": [
+      { "name": "Art" },
+      { "name": "Music" },
+      { "name": "Football" },
+      { "name": "Playing Guitar" },
+      { "name": "Playing Piano" },
+      { "name": "Photography" },
+      { "name": "Design" },
+      { "name": "Machine Learning" }
+    ]
+  },
+  "social": { "title": "On the web" },
+  "news": {
+    "title": "Newspaper",
+    "desc": "Join me on my developer journey. No ads, I will send you something news or tips toward technology and life."
+  }
+}
