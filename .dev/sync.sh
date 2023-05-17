@@ -10,8 +10,8 @@ fi
 
 # yarn ci
 
-git pull
 node clean.js
+git pull
 cd $w/..
 git add .
 git commit -m "$mes"

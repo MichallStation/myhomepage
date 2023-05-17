@@ -22,7 +22,7 @@ const lsDir = (p) => {
 // const distName = 'pages';
 const distName = '.data';
 const distFolder = path.join(workspace, distName);
-const excludeList = [distName, 'test', 'pages', 'sets'];
+const excludeList = [distName, 'test', 'pages', 'sets', 'details'];
 const isExcludeDir =
   /** @param {string} dir */
   (dir) => dir.startsWith('.') || excludeList.find((i) => dir === i);
@@ -129,6 +129,84 @@ dirs.forEach((name) => {
       writeFileSync(distFile, JSON.stringify(data));
     }
   }
+})();
+
+// Build details (collection)
+(() => {
+  const folderJson = path.join(distFolder, 'details');
+  const w = path.join(workspace, 'details');
+  const gFileJsonContent = {};
+  let fileJsonContent = {};
+  const setFileContent = {};
+  langList.forEach((lang) => {
+    setFileContent[lang] = {};
+  });
+
+  lsDir(w).forEach((lid) => {
+    const wlid = path.join(w, lid);
+    const ids = lsDir(wlid);
+    ids.sort((a, b) => {
+      const wa = path.join(wlid, a, 'pos');
+      const wb = path.join(wlid, b, 'pos');
+      try {
+        const posA = Number.parseInt(readFileSync(wa).toString());
+        const posB = Number.parseInt(readFileSync(wb).toString());
+        return posA - posB;
+      } catch (error) {}
+    });
+
+    ids.map((id) => {
+      const wid = path.join(wlid, id);
+      langList.forEach((lang) => {
+        const wlang = path.join(wid, `${lang}.json`);
+        if (!existsSync(wlang)) return;
+        // console.log(wlang);
+        let content = JSON.parse(readFileSync(wlang).toString());
+        content = {
+          ...content,
+          id: content?.id || id,
+          // uuid,
+          type: lid,
+        };
+        if (!fileJsonContent?.[lang]) fileJsonContent[lang] = [];
+        fileJsonContent[lang].push(content);
+      });
+    });
+
+    const lFolderJson = path.join(folderJson, lid);
+    if (!existsSync(lFolderJson))
+      mkdirSync(lFolderJson, {
+        recursive: true,
+      });
+    for (const lang in fileJsonContent) {
+      if (Object.hasOwnProperty.call(fileJsonContent, lang)) {
+        const data = fileJsonContent[lang];
+        const fileJson = `${lang}.json`;
+        const distFile = path.join(lFolderJson, fileJson);
+        writeFileSync(distFile, JSON.stringify(data));
+      }
+    }
+    gFileJsonContent[lid] = fileJsonContent;
+    fileJsonContent = {};
+  });
+
+  // Build all details
+  const gSetFileContent = {};
+  langList.forEach((lang) => {
+    gSetFileContent[lang] = {};
+  });
+  Object.entries(gFileJsonContent).forEach(([id, langSet]) => {
+    Object.entries(langSet).forEach(([lang, set]) => {
+      gSetFileContent[lang][id] = set;
+    });
+  });
+
+  Object.entries(gSetFileContent).forEach(([lang, set]) => {
+    const data = set;
+    const fileJson = `${lang}.json`;
+    const distFile = path.join(folderJson, fileJson);
+    writeFileSync(distFile, JSON.stringify(data));
+  });
 })();
 
 // Build globals data (collection)
