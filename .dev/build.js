@@ -255,7 +255,7 @@ for (const lang in langFileContent) {
 (() => {
   const folderJson = path.join(distFolder, 'collects');
   const w = path.join(workspace, '.collects');
-  const setFileContent = {};
+  let setFileContent = {};
   langList.forEach((lang) => {
     setFileContent[lang] = {};
   });
@@ -289,6 +289,12 @@ for (const lang in langFileContent) {
       const fileJson = `${lang}.json`;
       const distFile = path.join(lFolderJson, fileJson);
       writeFileSync(distFile, JSON.stringify(data));
+    });
+    console.log(lid, setFileContent);
+    setFileContent = {};
+
+    langList.forEach((lang) => {
+      setFileContent[lang] = {};
     });
   });
 })();
