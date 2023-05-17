@@ -2,19 +2,19 @@
   "title": "Workpage - My portfolio",
   "name": "Workpage",
   "proj": {
-    "title": "Projects",
+    "title": "Project",
     "content": "The projects highlight that I have been building."
   },
-  "work": {
-    "title": "Works",
+  "job": {
+    "title": "Work",
     "content": "The works that I have been working, the stages of my developer journey, the things that I have been learning and applying to the real world."
   },
   "collab": {
-    "title": "Collaborations",
+    "title": "Collaboration",
     "content": "The collaborations/partners on my developer journey."
   },
   "community": {
-    "title": "Communitys",
+    "title": "Community",
     "content": "The communitys on my developer journey."
   }
 }
