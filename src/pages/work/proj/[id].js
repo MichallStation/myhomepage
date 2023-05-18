@@ -48,10 +48,10 @@ function ProjectDetail({ sets, data }) {
         desc={data?.desc || set?.desc}
         card={data.thumbnail}
       />
-      <PageDetail set={set} data={data} breads={breads}>
+      <PageDetail sets={sets} data={data} breads={breads}>
         {data?.detail && (
           <Section title={set.detail} id="detail" sep={4} icon={<VscBook />}>
-            <DetailInfo data={data.info} mt={2} />
+            <DetailInfo data={data.detail} mt={2} />
           </Section>
         )}
         {data?.style && (

@@ -2,22 +2,19 @@ import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
 import { ColorModeScript } from '@chakra-ui/react';
 import theme from '@/features/theme';
 import createFeaturesStorage from '@/features';
-import { getSet } from '@/globals/sets';
-import { homeId } from '@/globals/envs';
 
 /** @param {{storage: import('@/@type/features').FeaturesStorage}} */
 export default function Document({ storage }) {
   const { lang } = storage.current;
-  const set = getSet(homeId, lang);
   return (
     <Html lang={lang}>
       <Head>
-        <meta charSet="utf-8" />
-        <meta name="application-name" content={set.name} />
-        <meta name="description" content={set.desc} />
+        {/* <meta charSet="utf-8" />
+        <meta name="application-name" content={author.appname} />
+        <meta name="description" content={author.welcome} />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content={set.name} />
+        <meta name="apple-mobile-web-app-title" content={author.appname} />
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta
@@ -64,7 +61,7 @@ export default function Document({ storage }) {
           href="/assets/icons/safari-pinned-tab.svg"
           color="#5bbad5"
         />
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" /> */}
 
         {/* <!-- apple splash screen images -->
         <!--

@@ -21,6 +21,10 @@ export default {
       title: 'Collaborations',
       content: 'The collaborations/partners on my developer journey.',
     },
+    community: {
+      title: 'Communitys',
+      content: 'The collaborations/partners on my developer journey.',
+    },
   },
   detail: {
     title: 'Detail',
@@ -124,11 +128,12 @@ export default {
       // title: 'Social',
       title: 'On the web',
     },
-  },
-  News: {
-    // title: 'Social',
-    title: 'Newspaper',
-    desc: 'Join me on my developer journey. No ads, I will send you something news or tips toward technology and life.',
+    news: {
+      // title: 'Social',
+      title: 'Newspaper',
+      desc: 'Join me on my developer journey. No ads, I will send you something news or tips toward technology and life.',
+      btn: 'Join',
+    },
   },
   Footer: {
     title: '© 2023 Ltndat. All Rights Reserved.',

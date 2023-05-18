@@ -46,9 +46,9 @@ export const ENV_DB_HOST_DEV = 'http://localhost:5000';
 export const ENV_DB_HOST_PROD =
   'https://raw.githubusercontent.com/ltndat/myhomepage/db';
 export const ENV_DB_BASE_URL =
-  process.env.NODE_ENV === 'development'
-    ? 'http://localhost:5000'
-    : 'https://raw.githubusercontent.com/ltndat/myhomepage/db';
-// 'https://raw.githubusercontent.com/ltndat/myhomepage/db';
+  // process.env.NODE_ENV === 'development'
+  //   ? 'http://localhost:5000'
+  //   : 'https://raw.githubusercontent.com/ltndat/myhomepage/db';
+  'https://raw.githubusercontent.com/ltndat/myhomepage/db';
 
 export default {};

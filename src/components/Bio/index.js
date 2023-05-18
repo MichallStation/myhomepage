@@ -138,7 +138,7 @@ function Bio({ sets }) {
               size={['sm', 'md']}
               type="submit"
             >
-              {set?.news?.btn || 'Join'}
+              {set?.news?.btn}
             </Button>
           </Box>
         </Box>

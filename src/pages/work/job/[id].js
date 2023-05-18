@@ -50,7 +50,7 @@ function JobDetail({ sets, data }) {
         desc={data?.desc || set?.desc}
         card={data.thumbnail}
       />
-      <PageDetail set={set} data={data} breads={breads}>
+      <PageDetail sets={sets} data={data} breads={breads}>
         {data?.role && (
           <Section title={set.role} id="role" sep={4} icon={<BsPersonVcard />}>
             {data?.role && <DetailInfo data={data.role} mt={2} />}

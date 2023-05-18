@@ -37,7 +37,7 @@ function UseDetail({ sets, data }) {
         desc={data?.desc || set?.desc}
         card={data.thumbnail}
       />
-      <PageDetail set={set} data={data} breads={breads}>
+      <PageDetail sets={sets} data={data} breads={breads}>
         {data.title}
         <Footer sets={sets} />
       </PageDetail>

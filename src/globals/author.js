@@ -1,4 +1,6 @@
 export default {
+  appname: 'Bluehome(Ltndat)',
+  welcome: "Welcome. 👋 Hi, I'm @ltndat blue. 🇻🇳 I'm Vietnamese",
   name: 'Ltndat',
   fullName: 'Le Tran Ngoc Dat',
   REPO: 'https://github.com/ltndat/myhomepage',

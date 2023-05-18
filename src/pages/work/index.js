@@ -72,7 +72,7 @@ function Work({ sets, data }) {
           {data?.community && (
             <ThumbnailShows
               baseUrl="/work/community"
-              data={data?.work}
+              data={data?.community}
               sets={sets}
               mt={4}
             />

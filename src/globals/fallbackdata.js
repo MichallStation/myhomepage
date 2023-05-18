@@ -1,10 +1,10 @@
 export default {
   home: {},
   work: {
-    proj: [],
-    job: [],
-    collab: [],
-    community: [],
+    proj: undefined,
+    job: undefined,
+    collab: undefined,
+    community: undefined,
   },
   detail: {},
   article: {},
