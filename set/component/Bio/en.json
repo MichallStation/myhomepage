@@ -26,6 +26,8 @@
   "social": { "title": "On the web" },
   "news": {
     "title": "Newspaper",
-    "desc": "Join me on my journey. No ads, I will send you something news or tips toward technology and life."
+    "desc": "Join me on my journey. No ads, I will send you something news or tips toward technology and life.",
+    "holder": "Your email here",
+    "btn": "Join"
   }
 }
