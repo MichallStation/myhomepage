@@ -4,25 +4,37 @@ import Author from '@/components/Author';
 import Bio from '@/components/Bio';
 import Footer from '@/components/Footer';
 import SEO from '@/layouts/SEO';
-import { getSet } from '@/globals/sets';
-import { homeId } from '@/globals/envs';
+import { fetchCollectById } from '@/db';
+import fallback from '@/globals/fallback';
 
-/** @param {{storage: import('@/features/@features').FeaturesStorage}} */
-function Home({ storage }) {
-  const { lang } = storage.current;
-  const set = getSet(homeId, lang);
+const id = 'home';
+
+/**
+ * @param {{
+ *  storage: import('@/@type/features').FeaturesStorage,
+ *  sets: import('@/@type/sets').SetLang
+ * }}
+ * */
+function Home({ sets }) {
+  const set = sets?.home || fallback.home;
   return (
     <>
-      <SEO lang={lang} title={set.title} />
+      <SEO
+        sets={sets}
+        title={set?.title}
+        name={set?.name}
+        desc={set?.desc}
+        card={set?.thumnail}
+      />
       <Container
         maxW={{ sm: 'full', md: '3xl' }}
         pos="relative"
         overflow="hidden"
         px={6}
       >
-        <Author lang={lang} />
-        <Bio lang={lang} />
-        <Footer lang={lang} />
+        <Author sets={sets} />
+        <Bio sets={sets} />
+        <Footer sets={sets} />
       </Container>
     </>
   );
@@ -30,8 +42,10 @@ function Home({ storage }) {
 
 /** @param {import('next').NextPageContext} context */
 export async function getServerSideProps(context) {
+  const storage = createFeaturesStorage(context);
+  const sets = await fetchCollectById(id, storage.current.lang);
   return {
-    props: { storage: createFeaturesStorage(context) },
+    props: { storage, sets },
   };
 }
 

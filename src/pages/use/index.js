@@ -1,65 +1,41 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import {
-  Box,
-  Button,
   Container,
   Heading,
-  Tab,
-  TabList,
-  TabPanel,
-  TabPanels,
-  Tabs,
+  SimpleGrid,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { useRouter } from 'next/router';
-import { VscCode, VscTools } from 'react-icons/vsc';
-import { MdWorkOutline } from 'react-icons/md';
 import createFeaturesStorage from '@/features';
 import SEO from '@/layouts/SEO';
-import { getSet } from '@/globals/sets';
-import {
-  articleId,
-  articleDevflowType,
-  useId,
-  articleKitflowType,
-  articleWorkflowType,
-} from '@/globals/envs';
 import Footer from '@/components/Footer';
 import UseCard from '@/components/UseCard';
-import { fetchAllArticlesByLang } from '@/db';
+import { fetchAllUsesByLang, fetchCollectById } from '@/db';
+import fallback from '@/globals/fallback';
 
-const tabnames = [articleWorkflowType, articleDevflowType, articleKitflowType];
-const tabindexs = {
-  [articleWorkflowType]: 0,
-  [articleDevflowType]: 1,
-  [articleKitflowType]: 2,
-};
-const icons = {
-  [articleWorkflowType]: <MdWorkOutline />,
-  [articleDevflowType]: <VscCode />,
-  [articleKitflowType]: <VscTools />,
-};
+const id = 'use';
 
-/** @param {{storage: import('@/features/@features').FeaturesStorage}} */
-function Use({ storage, data, type }) {
-  const { lang } = storage.current;
-  const set = getSet(useId, lang);
-  const setArticle = getSet(articleId, lang);
-  // const articles = useMemo(() => getArticleByLang(lang), [lang]);
-  const router = useRouter();
-  const useTabsRender = useMemo(
-    () => Object.entries(setArticle.types),
-    [setArticle.types],
-  );
-  const tabIndex = tabindexs[type];
+// const icons = {
+//   [useWorkflowType]: <MdWorkOutline />,
+//   [useDevflowType]: <VscCode />,
+//   [useKitflowType]: <VscTools />,
+// };
 
+/**
+ * @param {{
+ *  storage: import('@/@type/features').FeaturesStorage,
+ *  sets: import('@/@type/sets').SetLang
+ * }}
+ * */
+function Use({ sets, data }) {
+  const set = sets?.use || fallback.use;
   return (
     <>
       <SEO
-        lang={lang}
-        title={`${set.title} - ${setArticle.types[type].title}`}
+        sets={sets}
+        title={set?.title}
         name={set?.name}
         desc={set?.desc}
+        card={set?.thumnail}
       />
       <Container
         maxW={{ sm: 'full', md: '3xl' }}
@@ -82,7 +58,7 @@ function Use({ storage, data, type }) {
         >
           {set?.slogan}
         </Heading>
-        <Tabs
+        {/* <Tabs
           tabIndex={tabIndex}
           defaultIndex={tabIndex}
           variant="soft-rounded"
@@ -124,15 +100,14 @@ function Use({ storage, data, type }) {
           <TabPanels mt={4} minH="320px">
             {useTabsRender.map(([id]) => (
               <TabPanel key={id} id={id} p={0}>
-                {data?.articles?.map(
-                  (article) =>
-                    article.type === id && (
+                {data?.map(
+                  (use) =>
+                    use.type === id && (
                       <UseCard
-                        key={article.id}
-                        set={setArticle}
-                        data={article}
-                        href={`/${articleId}/${article.id}?page=${useId}&type=${article.type}`}
-                        // h={['200px', '320px']}
+                        key={use.id}
+                        set={sets}
+                        data={use}
+                        href={`/use/${use.id}`}
                         mt={4}
                       />
                     ),
@@ -140,8 +115,24 @@ function Use({ storage, data, type }) {
               </TabPanel>
             ))}
           </TabPanels>
-        </Tabs>
-        <Footer lang={lang} />
+        </Tabs> */}
+
+        <SimpleGrid columns={[1, 2]} mt={4} spacingX={[0, 4]} spacingY={4}>
+          {data?.map(
+            (use) => (
+              // use.type === id && (
+              <UseCard
+                key={use.id}
+                set={set}
+                data={use}
+                href={`/use/${use.id}`}
+                mt={4}
+              />
+            ),
+            // ),
+          )}
+        </SimpleGrid>
+        <Footer sets={sets} />
       </Container>
     </>
   );
@@ -150,10 +141,10 @@ function Use({ storage, data, type }) {
 /** @param {import('next').NextPageContext} context */
 export async function getServerSideProps(context) {
   const storage = createFeaturesStorage(context);
-  const articles = await fetchAllArticlesByLang(storage.current.lang);
-  const type = context.query?.type || articleWorkflowType;
+  const sets = await fetchCollectById(id, storage.current.lang);
+  const data = await fetchAllUsesByLang(storage.current.lang);
   return {
-    props: { storage, type, data: { articles } },
+    props: { storage, sets, data },
   };
 }
 

@@ -28,8 +28,8 @@ function Section({
             pos: 'absolute',
             height: `${sep}px`,
             backgroundColor: useColorModeValue(
-              // 'blackAlpha.600',
-              'currentColor',
+              'gray.700',
+              // 'currentColor',
               'currentColor',
             ),
             borderRadius: '2px',

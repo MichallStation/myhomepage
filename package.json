@@ -32,6 +32,7 @@
     "rehype-raw": "^6.1.1",
     "rehype-slug": "^5.1.0",
     "remark-gfm": "^3.0.1",
+    "remark-shortcodes": "^0.3.1",
     "three": "^0.151.3"
   },
   "devDependencies": {

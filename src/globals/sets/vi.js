@@ -137,8 +137,13 @@ export default {
       ],
     },
     social: {
-      // title: 'Mạng xã hội',
-      title: 'Kết nối',
+      title: 'Mạng xã hội',
+      // title: 'Kết nối',
+    },
+    news: {
+      // title: 'Social',
+      title: 'Bản tin',
+      desc: '',
     },
   },
   Footer: {

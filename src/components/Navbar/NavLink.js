@@ -1,10 +1,5 @@
 import React, { useCallback } from 'react';
-import {
-  AiFillGithub,
-  AiOutlineHome,
-  AiOutlineMenu,
-  AiOutlineVideoCamera,
-} from 'react-icons/ai';
+import { AiOutlineMenu } from 'react-icons/ai';
 import Link from 'next/link';
 import {
   Box,
@@ -18,42 +13,39 @@ import {
   Text,
   Icon,
 } from '@chakra-ui/react';
-import { MdWorkOutline } from 'react-icons/md';
 import envs, { links } from './envs';
-import { getSet } from '@/globals/sets';
-import { NavbarId } from '@/globals/envs';
-import icons from '@/globals/icons';
+import icons from '@/globals/icon';
+import fallback from '@/globals/fallback';
 
 export const props = {
   Home: {
-    icon: AiOutlineHome,
+    icon: icons.home.Icon,
   },
   Work: {
-    icon: MdWorkOutline,
+    icon: icons.work.Icon,
   },
   Use: {
-    icon: AiOutlineVideoCamera,
+    icon: icons.use.Icon,
   },
-  Articles: {
-    icon: icons.articles.Icon,
+  Article: {
+    icon: icons.article.Icon,
   },
   Source: {
     props: {
       target: '_blank',
     },
     // icon: <FiGithub />,
-    icon: AiFillGithub,
+    icon: icons.other.github.Icon,
   },
 };
 
 const pagesRendered = Object.entries(links);
 
 /** @param {{router: import('next/router').NextRouter}}  */
-function NavLink({ lang = 'en', router }) {
+function NavLink({ sets, router }) {
   const { route: path, query } = router;
-  // const locale = router.locale === router.defaultLocale ? 'en' : router.locale;
-  // lang = lang === router.defaultLocale ? 'en' : lang;
-  const set = getSet(NavbarId, lang);
+  const set = sets?.Navbar || fallback.Navbar;
+
   const isActive = useCallback(
     /** @param {string} p  */
     (p) => {

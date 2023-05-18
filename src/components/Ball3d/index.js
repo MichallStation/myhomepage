@@ -4,17 +4,25 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { Box } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
 // import BallSpinner from '../BallSpinner';
+import { useInView } from 'framer-motion';
 import { loadGLTFModel } from '@/lib/three';
 import data from './envs';
 import { ball3dDone } from '@/features/slices/ui';
 
 const easeOutCirc = (x) => Math.sqrt(1 - (x - 1) ** 4);
+const envs = {
+  inView: true,
+};
 
 function Ball3d() {
   const refContainer = useRef();
   const refRenderer = useRef();
-  // const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
+  const inView = useInView(refContainer);
+
+  useEffect(() => {
+    envs.inView = inView;
+  }, [inView]);
 
   const handleWindowResize = useCallback(() => {
     const { current: rendererEl } = refRenderer;
@@ -33,6 +41,14 @@ function Ball3d() {
       window.removeEventListener('resize', handleWindowResize, false);
     };
   }, [handleWindowResize]);
+
+  // useEffect(() => {
+  //   console.log(controls);
+  //   if (controls) {
+  //     if (inView) controls.autoRotate = true;
+  //     else controls.autoRotate = false;
+  //   }
+  // }, [inView]);
 
   useEffect(() => {
     const { current: container } = refContainer;
@@ -66,17 +82,6 @@ function Ball3d() {
       20 * Math.cos(0.2 * Math.PI),
     );
 
-    // const scale = cWidth * 0.0006;
-    // const camera = new THREE.OrthographicCamera(
-    //   -scale,
-    //   scale,
-    //   scale,
-    //   -scale,
-    //   0.01,
-    //   5000,
-    // );
-    // camera.position.copy(initialCameraPosition);
-
     const ambientLight = new THREE.AmbientLight(0xf1e7db, 0.5);
     // const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
     const directionalLight = new THREE.DirectionalLight(0xf1e7db, 3);
@@ -86,6 +91,7 @@ function Ball3d() {
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.autoRotate = true;
     controls.target = target;
+    // console.log(controls);
 
     let req = null;
     let frame = 0;
@@ -101,7 +107,7 @@ function Ball3d() {
         camera.position.x = p.x * Math.cos(rotSpeed) + p.z * Math.sin(rotSpeed);
         camera.position.z = p.z * Math.cos(rotSpeed) - p.x * Math.sin(rotSpeed);
         camera.lookAt(target);
-      } else {
+      } else if (envs.inView) {
         controls.update();
       }
 
@@ -113,7 +119,6 @@ function Ball3d() {
       receiveShadow: false,
       castShadow: false,
     }).then(() => {
-      // setLoading(false);
       dispatch(ball3dDone());
       animate();
     });
@@ -124,6 +129,7 @@ function Ball3d() {
       cancelAnimationFrame(req);
       renderer.domElement.remove();
       renderer.dispose();
+      // controls = undefined;
     };
   }, [dispatch]);
 
@@ -132,29 +138,12 @@ function Ball3d() {
       ref={refContainer}
       className="ball-3d"
       m="auto"
-      // mt={['20px', 0]}
-      // mb={['-60px', '-160px', '-180px']}
-      // w={[280, 480, 560]}
-      // h={[280, 480, 560]}
-      // mb={['-60px', '-160px', '-180px']}
-      // mt={[
-      //   '-calc((100% - 480px) / 2)',
-      //   '-calc((100% - 480px) / 2)',
-      //   '-calc((100% - 560px) / 2)',
-      // ]}
-      // mr={[
-      //   'calc((100% - 480px) / 2)',
-      //   'calc((100% - 480px) / 2)',
-      //   'calc((100% - 560px) / 2)',
-      // ]}
       mb={['-160px', '-160px', '-180px']}
       ml={['calc((420px - 100%) / 2 * -1)', 'auto']}
       w={[420, 480, 560]}
       h={[420, 480, 560]}
       overflow="hidden"
-    >
-      {/* {loading && <BallSpinner mt={-10} />} */}
-    </Box>
+    />
   );
 }
 

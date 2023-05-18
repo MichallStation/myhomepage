@@ -1,6 +1,6 @@
 export const documentId = 'document';
 export const useId = 'use';
-export const articleId = 'articles';
+export const articleId = 'article';
 export const workId = 'work';
 export const homeId = 'home';
 export const errorId = 'error';
@@ -34,10 +34,12 @@ export const detailWorkType = 'works';
 export const detailCollabType = 'collabs';
 export const detailCommunityType = 'community';
 
-export const articleWorkflowType = 'workflow';
-export const articleKitflowType = 'kitflow';
-export const articleDevflowType = 'devflow';
+export const useWorkflowType = 'workflow';
+export const useKitflowType = 'kitflow';
+export const useDevflowType = 'devflow';
 export const articleGeneralType = 'general';
+
+export const isServerSide = typeof window === 'undefined';
 
 export const ENV_HOST_URL = process.env.NEXT_PUBLIC_URL;
 export const ENV_DB_HOST_DEV = 'http://localhost:5000';

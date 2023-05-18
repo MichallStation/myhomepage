@@ -16,8 +16,8 @@ export const links = {
   Use: {
     href: '/use',
   },
-  Articles: {
-    href: '/articles',
+  Article: {
+    href: '/article',
   },
   Source: {
     href: author.REPO,

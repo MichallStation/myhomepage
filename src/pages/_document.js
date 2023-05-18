@@ -5,7 +5,7 @@ import createFeaturesStorage from '@/features';
 import { getSet } from '@/globals/sets';
 import { homeId } from '@/globals/envs';
 
-/** @param {{storage: import('@/features/@features').FeaturesStorage}} */
+/** @param {{storage: import('@/@type/features').FeaturesStorage}} */
 export default function Document({ storage }) {
   const { lang } = storage.current;
   const set = getSet(homeId, lang);

@@ -10,12 +10,17 @@ import Link from 'next/link';
 import React from 'react';
 import { BsBoxArrowInRight } from 'react-icons/bs';
 import Section from '@/layouts/Section';
-import { getSet } from '@/globals/sets';
-import { AuthorId } from '@/globals/envs';
 import envs from './envs';
+import fallback from '@/globals/fallback';
 
-function Author({ lang = 'en' }) {
-  const set = getSet(AuthorId, lang);
+/**
+ * @param {{
+ *  storage: import('@/@type/features').FeaturesStorage,
+ *  sets: import('@/@type/sets').SetLang
+ * }}
+ * */
+function Author({ sets }) {
+  const set = sets?.Author || fallback.Author;
   return (
     <Box className="author">
       <Heading
@@ -45,6 +50,12 @@ function Author({ lang = 'en' }) {
         alignItems="center"
         position="relative"
         mt={[3, 4]}
+        // p={4}
+        // backgroundColor={useColorModeValue(
+        //   'blackAlpha.200',
+        //   // 'whiteAlpha.300',
+        // )}
+        // borderRadius="32px"
       >
         <Box>
           <Heading as="h1" fontWeight="bold" fontSize="3xl" m={0}>
@@ -59,6 +70,11 @@ function Author({ lang = 'en' }) {
           mt={{ base: 3, md: 0 }}
           borderRadius="full"
           border="4px solid"
+          borderColor={useColorModeValue(
+            'gray.700',
+            // 'currentColor',
+            'currentColor',
+          )}
           w="132px"
           h="128px"
           backgroundColor="holder"

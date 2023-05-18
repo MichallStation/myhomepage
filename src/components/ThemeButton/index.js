@@ -24,7 +24,6 @@ const style = {
 
 function ThemeButton(props) {
   const { toggleColorMode } = useColorMode();
-
   return (
     <Box display="flex" alignItems="center" {...props}>
       <Button

@@ -13,12 +13,12 @@ if (typeof window !== 'undefined') {
 
 let store;
 
-/** @param {{pageProps: {storage: import('@/features/@features').FeaturesStorage}}}  */
+/** @param {{pageProps: {storage: import('@/@type/features').FeaturesStorage}}}  */
 export default function App({ Component, pageProps, router }) {
   const { storage } = pageProps;
-  const getLayout =
-    Component.getLayout || ((page) => <Page storage={storage}>{page}</Page>);
   store = store || createStore(storage);
+  const getLayout =
+    Component.getLayout || ((page) => <Page {...pageProps}>{page}</Page>);
 
   return (
     <Provider store={store}>

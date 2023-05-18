@@ -75,8 +75,12 @@ function ArticleCard({ set, data, href, revert, ...props }) {
         my={[2, 2, 4]}
         flex={1}
       >
-        <Heading textAlign="center">{data.title}</Heading>
-        <Text textAlign="center">{data.desc}</Text>
+        <Heading as="h3" fontSize="3xl" textAlign="center">
+          {data.title}
+        </Heading>
+        <Text fontSize="lg" textAlign="center">
+          {data.desc}
+        </Text>
         <Box display="flex" justifyContent="center" mt={2}>
           <MotionButton
             as={Link}
@@ -88,8 +92,10 @@ function ArticleCard({ set, data, href, revert, ...props }) {
             h="56px"
             color="chakra-body-text"
             intensity={1.1}
+            border="4px solid"
+            borderColor="gray"
           >
-            <Icon as={KindleIcon} boxSize="48px" />
+            <Icon as={KindleIcon} color="black" boxSize="48px" />
             {/* {set?.read || 'Read'} */}
           </MotionButton>
         </Box>

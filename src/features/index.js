@@ -29,7 +29,7 @@ export function extractDataFromRequest(req) {
 
 /**
  * @param {import('next').NextPageContext} context
- * @returns {import('./@features').FeaturesStorage}
+ * @returns {import('../@type/features').FeaturesStorage}
  * */
 export default function createFeaturesStorage(context) {
   const { req, res, locale } = context;

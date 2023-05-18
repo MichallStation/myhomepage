@@ -8,7 +8,7 @@
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
 
-/** @type {import("../@features").FeaturesStorage} */
+/** @type {import("../../@type/features").FeaturesStorage} */
 const initialValues = {
   current: {
     lang: 'en',
@@ -22,7 +22,7 @@ const initialValues = {
   },
 };
 
-/** @returns {import("../@features").FeaturesStorage} */
+/** @returns {import("../../@type/features").FeaturesStorage} */
 export default function useFeaturesStorage() {
   const [storage, setStorage] = useState(initialValues);
   useEffect(() => {

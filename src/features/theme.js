@@ -87,11 +87,9 @@ const theme = extendTheme({
       // 800: '#a99281',
       // 900: '#a99281',
     },
-    // seconddark: '#a99281',
     pop: '#fdf6ec',
     holder: '#808680',
     holderLight: '#8d948d',
-    // holder: 'rgb(128 134 128 / 20%)',
   },
 });
 

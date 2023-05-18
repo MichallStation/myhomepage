@@ -1,11 +1,18 @@
 import Head from 'next/head';
 import React from 'react';
-import { ENV_HOST_URL, homeId } from '@/globals/envs';
-import { getSet } from '@/globals/sets';
+import { ENV_HOST_URL } from '@/globals/envs';
 import author from '@/globals/author';
+import fallback from '@/globals/fallback';
 
-function SEO({ lang = 'en', title, name, desc, card }) {
-  const set = getSet(homeId, lang);
+/**
+ * @param {{
+ *  storage: import('@/@type/features').FeaturesStorage,
+ *  sets: import('@/@type/sets').SetLang
+ * }}
+ * */
+function SEO({ sets, title, name, desc, card }) {
+  // const set = getSet(homeId, lang);
+  const set = sets?.seo || fallback.home;
   title = title ? `${set.name} - ${title}` : `${set.name} - ${set.title}`;
   name = name ? `${set.name} - ${name}` : set.name;
   return (

@@ -1,0 +1,14 @@
+{
+  "component-storage-sets": {
+    "scope": "javascript, javascriptreact",
+    "prefix": "component-storage-sets",
+    "body": [
+      "/**",
+      " * @param {{",
+      " *  storage: import('@/@type/features').FeaturesStorage,",
+      " *  sets: import('@/@type/sets').SetLang",
+      " * }}",
+      " * */"
+    ]
+  }
+}

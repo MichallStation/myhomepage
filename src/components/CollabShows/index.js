@@ -22,7 +22,7 @@ function CollabShows({ data, ...props }) {
       {data.map(
         (i) =>
           !i?.delete && (
-            <Popover key={i.name}>
+            <Popover key={i?.name || i?.title}>
               <PopoverTrigger>
                 <motion.div
                   whileHover={{ scale: 1.2 }}
@@ -31,7 +31,11 @@ function CollabShows({ data, ...props }) {
                   style={{ display: 'inline-block' }}
                 >
                   <WrapItem as={Button} variant="unstyled" h="100%">
-                    <Avatar name={i.name} title={i.name} src={i.thumbnail} />
+                    <Avatar
+                      name={i?.name || i?.title}
+                      title={i?.name || i?.title}
+                      src={i.thumbnail}
+                    />
                   </WrapItem>
                 </motion.div>
               </PopoverTrigger>
@@ -42,7 +46,7 @@ function CollabShows({ data, ...props }) {
                 borderRadius="32px"
               >
                 <PopoverBody>
-                  <Heading fontSize="lg">{i.name}</Heading>
+                  <Heading fontSize="lg">{i?.name || i?.title}</Heading>
                   <Box display="flex" alignItems="center" mt={2}>
                     <Text mr={2}>{i.role.title}:</Text>
                     <Code

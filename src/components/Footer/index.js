@@ -1,19 +1,14 @@
 import { Box, Text } from '@chakra-ui/react';
 import React from 'react';
-import { getSet } from '@/globals/sets';
-import { FooterId } from '@/globals/envs';
+import fallback from '@/globals/fallback';
 
-function Footer({ lang = 'en' }) {
-  // const set = sets?.[lang] || sets.en;
-  const set = getSet(FooterId, lang);
+function Footer({ sets }) {
+  const set = sets?.Footer || fallback.Footer;
   return (
     <Box as="footer" py={6}>
       <Text as="h3" textAlign="center" fontSize="lg" color="GrayText">
-        {set.title}
+        {set?.title}
       </Text>
-      {/* <Box display="flex" justifyContent="center" alignItems="center">
-        {}
-      </Box> */}
     </Box>
   );
 }

@@ -1,18 +1,15 @@
-import { AnimatePresence, motion, useAnimationControls } from 'framer-motion';
+import { motion, useAnimationControls } from 'framer-motion';
 import React, { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Box, useToast } from '@chakra-ui/react';
-import { DONE, selectball3dStatus } from '@/features/slices/ui';
-import { getSet } from '@/globals/sets';
+import { DONE, selectLoadingFloatStatus } from '@/features/slices/ui';
 import Message from './Message';
-import useLang from '@/features/hooks/useLang';
 import styles from './styles';
-import { BlueId } from '@/globals/envs';
 import envsNavbar from '../Navbar/envs';
 import actions from './actions';
-import BlueLoading from '../BlueLoading';
 import BackgroundImage from '../BackgroundImage';
 import envs from './envs';
+import fallback from '@/globals/fallback';
 
 /** @type {Object<string, import('framer-motion').TargetAndTransition>} * */
 const variants = {
@@ -40,15 +37,14 @@ const actionIds = {
   joke: 'joke',
 };
 
-/** @param {{storage: import('@/features/@features').FeaturesStorage}}  */
-function Blue({ storage }) {
-  const lang = useLang(storage.current.lang);
-  const inTimeWelcome = useSelector(selectball3dStatus) === DONE;
+/** @param {{storage: import('@/@type/features').FeaturesStorage}}  */
+function Blue({ storage, sets }) {
+  const set = sets?.Blue || fallback.Blue;
+  const inTimeWelcome = useSelector(selectLoadingFloatStatus) === DONE;
   const toast = useToast();
   const controls = useAnimationControls();
 
   const isOldguy = storage.prev?.latest;
-  const set = getSet(BlueId, lang);
 
   // Welcome
   useEffect(() => {
@@ -69,7 +65,7 @@ function Blue({ storage }) {
     }, 5000);
     // eslint-disable-next-line consistent-return
     return () => t && clearTimeout(t);
-  }, [inTimeWelcome, set]);
+  }, [inTimeWelcome, storage.current.lang]);
 
   const handleClick = useCallback(() => {
     // Blue introduction
@@ -80,7 +76,7 @@ function Blue({ storage }) {
       toast,
       delay: 3000,
     });
-  }, [set]);
+  }, [storage.current.lang]);
 
   const handleDrag = useCallback(() => {
     // Blue joke
@@ -92,7 +88,7 @@ function Blue({ storage }) {
       position: 'top-left',
       isClosable: true,
     });
-  }, [set]);
+  }, [storage.current.lang]);
 
   return (
     <Box
@@ -127,18 +123,6 @@ function Blue({ storage }) {
           <BackgroundImage src={envs.url} />
         </Box>
       </motion.button>
-      <AnimatePresence initial={false} mode="wait">
-        {!inTimeWelcome && (
-          <motion.div
-            key="blue-loading"
-            initial={false}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <BlueLoading />
-          </motion.div>
-        )}
-      </AnimatePresence>
     </Box>
   );
 }

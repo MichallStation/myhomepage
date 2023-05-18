@@ -14,6 +14,7 @@ import {
   materialLight,
   materialDark,
 } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import Section from '@/layouts/Section';
 import BallDivider from '../BallDivider';
 
 function CustomHeading(props) {
@@ -26,13 +27,15 @@ function CustomText(props) {
   return <Text mb={2} textAlign="justify" {...restProps} />;
 }
 
-function CustomLi(props) {
-  const { node, ...restProps } = props;
+function CustomLi({ node, ordered, ...restProps }) {
+  ordered = ordered === false ? undefined : ordered;
   return (
     <li
       style={{
         textAlign: 'justify',
       }}
+      // eslint-disable-next-line react/no-unknown-property
+      ordered={ordered}
       {...restProps}
     />
   );
@@ -59,6 +62,12 @@ function CustomBlockQuote(props) {
 
 function CustomCode({ node, inline, className, children, ...props }) {
   const match = /language-(\w+)/.exec(className || '');
+  const sheme = useColorModeValue('gray', 'twitter');
+  const theme = useColorModeValue(materialLight, materialDark);
+  const bgCustomValue = useColorModeValue(
+    'var(--chakra-colors-pop)',
+    'var(--chakra-colors-whiteAlpha-200)',
+  );
 
   const handleCopy = useCallback(() => {
     navigator.clipboard.writeText(children);
@@ -79,15 +88,12 @@ function CustomCode({ node, inline, className, children, ...props }) {
       </Button>
       <SyntaxHighlighter
         className="pre-code"
-        style={useColorModeValue(materialLight, materialDark)}
+        style={theme}
         customStyle={{
           borderRadius: '24px',
           padding:
             'var(--chakra-space-4) var(--chakra-space-6) var(--chakra-space-4) var(--chakra-space-6)',
-          background: useColorModeValue(
-            'var(--chakra-colors-pop)',
-            'var(--chakra-colors-whiteAlpha-200)',
-          ),
+          background: bgCustomValue,
           border: '2px solid',
         }}
         language={match[1]}
@@ -97,7 +103,7 @@ function CustomCode({ node, inline, className, children, ...props }) {
       </SyntaxHighlighter>
     </Box>
   ) : (
-    <Code className={className} colorScheme="twitter" {...props}>
+    <Code className={className} colorScheme={sheme} {...props}>
       {children}
     </Code>
   );
@@ -116,6 +122,9 @@ const MarkdownCustomComponents = {
   blockquote: CustomBlockQuote,
   li: CustomLi,
   hr: BallDivider,
+  script: React.Fragment,
+  section: (props) => <Section title={props.children} />,
+  // c: React.Fragment,
 };
 
 export default MarkdownCustomComponents;

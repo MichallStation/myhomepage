@@ -1,8 +1,4 @@
-import {
-  ENV_DB_BASE_URL,
-  ENV_DB_HOST_DEV,
-  ENV_DB_HOST_PROD,
-} from '@/globals/envs';
+import { ENV_DB_BASE_URL } from '@/globals/envs';
 
 export async function fetchAllDataByLang(lang = 'en') {
   let data = null;
@@ -15,10 +11,110 @@ export async function fetchAllDataByLang(lang = 'en') {
   return data;
 }
 
+export async function fetchAllSetByLang(lang = 'en') {
+  let data = null;
+  try {
+    const res = await fetch(`${ENV_DB_BASE_URL}/.data/set/${lang}.json`);
+    data = await res.json();
+  } catch (error) {
+    console.error(error);
+  }
+  return data;
+}
+
+export async function fetchCollectById(id, lang = 'en') {
+  let data = null;
+  try {
+    const res = await fetch(
+      `${ENV_DB_BASE_URL}/.data/collect/${id}/${lang}.json`,
+    );
+    data = await res.json();
+  } catch (error) {
+    console.error(error);
+  }
+  return data;
+}
+
+export async function fetchSetComponentByLang(lang = 'en') {
+  let data = null;
+  try {
+    const res = await fetch(
+      `${ENV_DB_BASE_URL}/.data/set/component/${lang}.json`,
+    );
+    data = await res.json();
+  } catch (error) {
+    console.error(error);
+  }
+  return data;
+}
+
+export async function fetchSetPageByLang(lang = 'en') {
+  let data = null;
+  try {
+    const res = await fetch(`${ENV_DB_BASE_URL}/.data/set/page/${lang}.json`);
+    data = await res.json();
+  } catch (error) {
+    console.error(error);
+  }
+  return data;
+}
+
+/**
+ * Fetch data and markdown
+ * @param {*} url
+ * @param {*} lang
+ * @returns
+ */
+export async function fetchDataByUrl(url, lang = 'en') {
+  try {
+    // const result = {};
+    const resData = await fetch(`${ENV_DB_BASE_URL}${url}/${lang}.json`);
+    const data = await resData.json();
+    let detailData = {};
+
+    if (data?.md) {
+      const resMarkdown = await fetch(data.md);
+      const markdown = await resMarkdown.text();
+      detailData.markdown = markdown;
+    }
+    if (data?.json) {
+      const resJson = await fetch(data.json);
+      const json = await resJson.json();
+      detailData = { ...detailData, ...json };
+    }
+    return { ...data, ...detailData };
+  } catch (error) {
+    console.error(error);
+  }
+  return null;
+}
+
+export async function fetchAllDetailsByLang(lang = 'en') {
+  let data = null;
+  try {
+    const res = await fetch(`${ENV_DB_BASE_URL}/.data/detail/${lang}.json`);
+    data = await res.json();
+  } catch (error) {
+    console.error(error);
+  }
+  return data;
+}
+
 export async function fetchAllArticlesByLang(lang = 'en') {
   let data = null;
   try {
-    const res = await fetch(`${ENV_DB_BASE_URL}/.data/articles/${lang}.json`);
+    const res = await fetch(`${ENV_DB_BASE_URL}/.data/article/${lang}.json`);
+    data = await res.json();
+  } catch (error) {
+    console.error(error);
+  }
+  return data;
+}
+
+export async function fetchAllUsesByLang(lang = 'en') {
+  let data = null;
+  try {
+    const res = await fetch(`${ENV_DB_BASE_URL}/.data/use/${lang}.json`);
     data = await res.json();
   } catch (error) {
     console.error(error);
@@ -29,7 +125,7 @@ export async function fetchAllArticlesByLang(lang = 'en') {
 export async function fetchAllCollabsByLang(lang = 'en') {
   let data = null;
   try {
-    const res = await fetch(`${ENV_DB_BASE_URL}/.data/collabs/${lang}.json`);
+    const res = await fetch(`${ENV_DB_BASE_URL}/.data/collab/${lang}.json`);
     data = await res.json();
   } catch (error) {
     console.error(error);
@@ -40,7 +136,7 @@ export async function fetchAllCollabsByLang(lang = 'en') {
 export async function fetchAllProjectsByLang(lang = 'en') {
   let data = null;
   try {
-    const res = await fetch(`${ENV_DB_BASE_URL}/.data/projs/${lang}.json`);
+    const res = await fetch(`${ENV_DB_BASE_URL}/.data/proj/${lang}.json`);
     data = await res.json();
   } catch (error) {
     console.error(error);
@@ -51,7 +147,7 @@ export async function fetchAllProjectsByLang(lang = 'en') {
 export async function fetchAllWorksByLang(lang = 'en') {
   let data = null;
   try {
-    const res = await fetch(`${ENV_DB_BASE_URL}/.data/works/${lang}.json`);
+    const res = await fetch(`${ENV_DB_BASE_URL}/.data/work/${lang}.json`);
     data = await res.json();
   } catch (error) {
     console.error(error);
@@ -62,7 +158,7 @@ export async function fetchAllWorksByLang(lang = 'en') {
 export async function fetchAllCommunitysByLang(lang = 'en') {
   let data = null;
   try {
-    const res = await fetch(`${ENV_DB_BASE_URL}/.data/communitys/${lang}.json`);
+    const res = await fetch(`${ENV_DB_BASE_URL}/.data/community/${lang}.json`);
     data = await res.json();
   } catch (error) {
     console.error(error);
@@ -70,34 +166,10 @@ export async function fetchAllCommunitysByLang(lang = 'en') {
   return data;
 }
 
-// export async function fetchAllWorksByLang(lang = 'en') {
-//   const res = await fetch(`${ENV_DB_BASE_URL}/works/works.json`);
-//   const data = await res.json();
-//   return data.map((p) => {
-//     const dataLang = p?.[lang] || p.en;
-//     return {
-//       ...p,
-//       ...dataLang,
-//     };
-//   });
-// }
-
-// export async function fetchAllCollabsByLang(lang = 'en') {
-//   const res = await fetch(`${ENV_DB_BASE_URL}/collabs/collabs.json`);
-//   const data = await res.json();
-//   return data.map((p) => {
-//     const dataLang = p?.[lang] || p.en;
-//     return {
-//       ...p,
-//       ...dataLang,
-//     };
-//   });
-// }
-
-// export async function fetchWorkpageByLang(lang = 'en') {
+// export async function fetchProjectById(id, lang = 'en') {
 //   let data = null;
 //   try {
-//     const res = await fetch(`${ENV_DB_BASE_URL}/pages/work/${lang}.json`);
+//     const res = await fetch(`${ENV_DB_BASE_URL}/projs/${id}/${lang}.json`);
 //     data = await res.json();
 //   } catch (error) {
 //     console.error(error);
@@ -105,10 +177,10 @@ export async function fetchAllCommunitysByLang(lang = 'en') {
 //   return data;
 // }
 
-// export async function fetchUsepageByLang(lang = 'en') {
+// export async function fetchWorkById(id, lang = 'en') {
 //   let data = null;
 //   try {
-//     const res = await fetch(`${ENV_DB_BASE_URL}/pages/use/${lang}.json`);
+//     const res = await fetch(`${ENV_DB_BASE_URL}/works/${id}/${lang}.json`);
 //     data = await res.json();
 //   } catch (error) {
 //     console.error(error);
@@ -116,10 +188,10 @@ export async function fetchAllCommunitysByLang(lang = 'en') {
 //   return data;
 // }
 
-// export async function fetchAllArticlesByLang(lang = 'en') {
+// export async function fetchCollabById(id, lang = 'en') {
 //   let data = null;
 //   try {
-//     const res = await fetch(`${ENV_DB_BASE_URL}/pages/articles/${lang}.json`);
+//     const res = await fetch(`${ENV_DB_BASE_URL}/collabs/${id}/${lang}.json`);
 //     data = await res.json();
 //   } catch (error) {
 //     console.error(error);
@@ -127,54 +199,10 @@ export async function fetchAllCommunitysByLang(lang = 'en') {
 //   return data;
 // }
 
-export async function fetchProjectById(id, lang = 'en') {
-  let data = null;
-  try {
-    const res = await fetch(`${ENV_DB_BASE_URL}/projs/${id}/${lang}.json`);
-    data = await res.json();
-  } catch (error) {
-    console.error(error);
-  }
-  return data;
-}
-
-export async function fetchWorkById(id, lang = 'en') {
-  let data = null;
-  try {
-    const res = await fetch(`${ENV_DB_BASE_URL}/works/${id}/${lang}.json`);
-    data = await res.json();
-  } catch (error) {
-    console.error(error);
-  }
-  return data;
-}
-
-export async function fetchCollabById(id, lang = 'en') {
-  let data = null;
-  try {
-    const res = await fetch(`${ENV_DB_BASE_URL}/collabs/${id}/${lang}.json`);
-    data = await res.json();
-  } catch (error) {
-    console.error(error);
-  }
-  return data;
-}
-
-export async function fetchCommunityById(id, lang = 'en') {
-  let data = null;
-  try {
-    const res = await fetch(`${ENV_DB_BASE_URL}/communitys/${id}/${lang}.json`);
-    data = await res.json();
-  } catch (error) {
-    console.error(error);
-  }
-  return data;
-}
-
-// export async function fetchDataByUrl(url, lang = 'en') {
+// export async function fetchCommunityById(id, lang = 'en') {
 //   let data = null;
 //   try {
-//     const res = await fetch(`${ENV_DB_BASE_URL}${url}/${lang}.json`);
+//     const res = await fetch(`${ENV_DB_BASE_URL}/communitys/${id}/${lang}.json`);
 //     data = await res.json();
 //   } catch (error) {
 //     console.error(error);
@@ -183,33 +211,21 @@ export async function fetchCommunityById(id, lang = 'en') {
 // }
 
 export async function fetchArticleById(id, lang = 'en') {
-  try {
-    const data = {};
-    const resData = await fetch(
-      `${ENV_DB_BASE_URL}/articles/${id}/${lang}.json`,
-    );
-    data.article = await resData.json();
+  return fetchDataByUrl(`/article/${id}`, lang);
+}
 
-    if (process.env.NODE_ENV === 'development') {
-      data.article.md = data.article.md.replace(
-        ENV_DB_HOST_PROD,
-        ENV_DB_HOST_DEV,
-      );
-    }
+export async function fetchUseById(id, lang = 'en') {
+  return fetchDataByUrl(`/use/${id}`, lang);
+}
 
-    const resMarkdown = await fetch(data.article.md);
-    data.markdown = await resMarkdown.text();
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
-  return null;
+export async function fetchDetailById(id, type, lang = 'en') {
+  return fetchDataByUrl(`/detail/${type}/${id}`, lang);
 }
 
 export async function fetchArticleHeaderById(id, lang = 'en') {
   try {
     const resData = await fetch(
-      `${ENV_DB_BASE_URL}/articles/${id}/${lang}.json`,
+      `${ENV_DB_BASE_URL}/article/${id}/${lang}.json`,
     );
     const data = await resData.json();
     return data;
@@ -218,27 +234,5 @@ export async function fetchArticleHeaderById(id, lang = 'en') {
   }
   return null;
 }
-
-export async function fetchArticleHeaderByUrl(url, lang = 'en') {
-  try {
-    const resData = await fetch(`${ENV_DB_BASE_URL}/${url}/${lang}.json`);
-    const data = await resData.json();
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
-  return null;
-}
-
-// export async function fetchAllArticleHeaderByIds(ids, lang = 'en') {
-//   const data = [];
-//   // eslint-disable-next-line no-restricted-syntax, no-unreachable-loop
-//   for (const id of ids) {
-//     // eslint-disable-next-line no-await-in-loop
-//     const articleHeader = await fetchArticleHeaderById(id, lang);
-//     data.push(articleHeader);
-//   }
-//   return data;
-// }
 
 export default {};

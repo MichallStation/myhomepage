@@ -37,7 +37,7 @@ function BlueLoading() {
     <Box
       ref={refBox}
       id="blue-loading"
-      zIndex="overlay"
+      zIndex="10001"
       pos="fixed"
       left="0"
       right="0"

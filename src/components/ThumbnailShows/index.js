@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import Card from '../Card';
 
-function ThumbnailShows({ data, type, ...props }) {
+function ThumbnailShows({ baseUrl, data, ...props }) {
   return (
     <SimpleGrid
       columns={[1, 2, 3]}
@@ -20,7 +20,7 @@ function ThumbnailShows({ data, type, ...props }) {
               as={Link}
               w="100%"
               title={i?.name || i?.title}
-              href={i?.url || i?.href || `/work/${type}/${i.id}`}
+              href={i?.url || i?.href || `${baseUrl}/${i.id}`}
               img={i.thumbnail}
               border={i?.thumbnailHighContrast && '2px solid'}
             />

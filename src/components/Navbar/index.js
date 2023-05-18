@@ -33,9 +33,8 @@ const style = {
   },
 };
 
-/** @param {{storage: import('@/features/@features').FeaturesStorage}}  */
-function Navbar({ storage }) {
-  const { lang } = storage.current;
+/** @param {{storage: import('@/@type/features').FeaturesStorage}}  */
+function Navbar({ storage, sets }) {
   const router = useRouter();
   const { setLoading, setDone } = useProgress();
 
@@ -67,10 +66,10 @@ function Navbar({ storage }) {
         <Logo width={envs.logoHeight} />
         <Box display="flex">
           <Box display="flex" alignItems="center">
-            <LanguageButton lang={lang} />
-            <ThemeButton lang={lang} ml={2} />
+            <LanguageButton lang={storage.current.lang} sets={sets} />
+            <ThemeButton lang={storage.current.lang} sets={sets} ml={2} />
           </Box>
-          <NavLink lang={lang} router={router} />
+          <NavLink sets={sets} router={router} />
         </Box>
       </Container>
       <BallProgress />

@@ -1,38 +1,28 @@
-import {
-  errorId,
-  homeId,
-  detailId,
-  workId,
-  useId,
-  articleId,
-  offlineId,
-} from '../envs';
-
 export default {
-  [homeId]: {
+  home: {
     title: 'Homepage - My home',
     name: 'Bluehome(Ltndat)',
     // desc: 'Ltndat - Homepage - My home, Ltndat - Work - My portfolio, Ltndat - Use - My passion, Ltndat - Article - My heart, Le Tran Ngoc Dat - Homepage - My home, Le Tran Ngoc Dat - Work - My portfolio, Le Tran Ngoc Dat - Use - My passion, Le Tran Ngoc Dat - Article - My heart',
     desc: "Welcome. 👋 Hi, I'm @ltndat blue. 🇻🇳 I'm Vietnamese",
   },
-  [workId]: {
+  work: {
     title: 'Workpage - My portfolio',
     name: 'Workpage',
-    projs: {
+    proj: {
       title: 'Projects',
       content: 'The projects highlight that I have been building.',
     },
-    works: {
+    job: {
       title: 'Works',
       content:
         'The works that I have been working, the stages of my developer journey, the things that I have been learning and applying to the real world.',
     },
-    collabs: {
+    collab: {
       title: 'Collaborations',
       content: 'The collaborations/partners on my developer journey.',
     },
   },
-  [detailId]: {
+  detail: {
     title: 'Detail',
     name: 'Detail',
     desc: 'Description',
@@ -47,7 +37,7 @@ export default {
       desc: 'Related articles toward the above content..',
     },
   },
-  [articleId]: {
+  article: {
     title: 'Articles - My heart',
     name: 'Articles',
     tablet: 'Tablet of Contents',
@@ -62,30 +52,28 @@ export default {
         title: 'Kitflow',
       },
     },
-    read: 'Read',
+    btn: 'Read',
   },
-  [useId]: {
+  use: {
     title: 'Usepage - My passion',
     name: 'Use',
     slogan:
       'Mobile lifestyle. My passion, go to everywhere with all in one 🌴.',
-    uses: {},
+    detail: 'Detail',
   },
-  [errorId]: {
-    c404: {
-      title: 'Not found 404 - ⚽',
-      head: 'Oopss, Error!!!!',
-      msg: 'There is something wrong, you found something not have. So, you should go home...',
-      btn: 'Go home',
-    },
-    c500: {
-      title: 'Server problem 500 - ⚽',
-      head: 'Oopss, Server Error!!!!',
-      msg: 'This situation mean server have something wrong. So, you can reload this page...',
-      btn: 'Go home',
-    },
+  404: {
+    title: 'Not found 404 - ⚽',
+    head: 'Oopss, Error!!!!',
+    msg: 'There is something wrong, you found something not have. So, you should go home...',
+    btn: 'Go home',
   },
-  [offlineId]: {
+  500: {
+    title: 'Server problem 500 - ⚽',
+    head: 'Oopss, Server Error!!!!',
+    msg: 'This situation mean server have something wrong. So, you can reload this page...',
+    btn: 'Go home',
+  },
+  offline: {
     title: 'Offline - ⚽',
     head: 'Oopss, you offline!!!!',
     msg: 'This app only run when internet connected. So, you must connected internet to use.',
@@ -95,7 +83,7 @@ export default {
     Home: 'Home',
     Work: 'Work',
     Use: 'Use',
-    Articles: 'Article',
+    Article: 'Article',
     Source: 'Source',
   },
   Author: {
@@ -136,11 +124,11 @@ export default {
       // title: 'Social',
       title: 'On the web',
     },
-    news: {
-      // title: 'Social',
-      title: 'Newspaper',
-      desc: 'Join me on my developer journey. No ads, I will send you something news or tips toward technology and life.',
-    },
+  },
+  News: {
+    // title: 'Social',
+    title: 'Newspaper',
+    desc: 'Join me on my developer journey. No ads, I will send you something news or tips toward technology and life.',
   },
   Footer: {
     title: '© 2023 Ltndat. All Rights Reserved.',

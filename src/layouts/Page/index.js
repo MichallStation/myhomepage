@@ -9,17 +9,16 @@ import Floating from '@/components/Floating';
 /**
  * @param {{
  * children: import('react').ReactElement,
- * storage: import('@/features/@features').FeaturesStorage
+ * storage: import('@/@type/features').FeaturesStorage
  * }}
  * */
-function Page({ children, storage }) {
-  // const { lang = 'en' } = storage?.current
+function Page({ children, storage, sets }) {
   return (
     <>
       <PWA />
-      <Floating storage={storage} />
-      <Navbar storage={storage} />
-      <Ball3d />
+      <Floating storage={storage} sets={sets} />
+      <Navbar storage={storage} sets={sets} />
+      <Ball3d sets={sets} />
       <AnimatePresence
         initial={false}
         mode="wait"

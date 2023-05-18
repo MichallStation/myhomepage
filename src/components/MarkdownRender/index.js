@@ -4,6 +4,7 @@ import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 import rehypeRaw from 'rehype-raw';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
+import shortcodes from 'remark-shortcodes';
 import MarkdownCustomComponents from '../MarkdownCustomComponents';
 
 /** @type {import('react-markdown').Components} */
@@ -18,7 +19,7 @@ function MarkdownRender(props) {
   return (
     <ReactMarkdown
       rehypePlugins={[rehypeRaw, rehypeSlug]}
-      remarkPlugins={[remarkGfm]}
+      remarkPlugins={[remarkGfm, shortcodes]}
       components={MarkdownComponents}
       {...restProps}
     >
