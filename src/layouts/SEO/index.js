@@ -25,14 +25,18 @@ function SEO({ sets, title, name, desc, card }) {
       <meta name="description" content={desc || set.desc} />
       <meta name="author" content={author.name} />
       {/* <meta name="author" content="Le Tran Ngoc Dat" /> */}
-      <meta name="twitter:title" content={author.name} />
+      {/* <meta name="twitter:title" content={author.name} /> */}
+      <meta name="twitter:title" content={name || set.name} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content={`@${author.name}`} />
       <meta name="twitter:creator" content={`@${author.name}`} />
       <meta name="twitter:description" content={desc || set.desc} />
       <meta
         name="twitter:image"
-        content={card || `${ENV_HOST_URL}/cardhat.png`}
+        content={
+          card ||
+          'https://raw.githubusercontent.com/ltndat/myhomepage/main/public/cardhat.png'
+        }
       />
       <meta name="twitter:url" content={ENV_HOST_URL} />
       <meta property="og:site_name" content={author.name} />
@@ -42,7 +46,10 @@ function SEO({ sets, title, name, desc, card }) {
       <meta property="og:url" content={ENV_HOST_URL} />
       <meta
         property="og:image"
-        content={card || `${ENV_HOST_URL}/cardhat.png`}
+        content={
+          card ||
+          'https://raw.githubusercontent.com/ltndat/myhomepage/main/public/cardhat.png'
+        }
       />
       <title>{title}</title>
     </Head>

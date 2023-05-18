@@ -1,7 +1,7 @@
 export default {
   home: {
     title: 'Homepage - My home',
-    name: 'Bluehome(Ltndat)',
+    name: 'My home',
     // desc: 'Ltndat - Homepage - My home, Ltndat - Work - My portfolio, Ltndat - Use - My passion, Ltndat - Article - My heart, Le Tran Ngoc Dat - Homepage - My home, Le Tran Ngoc Dat - Work - My portfolio, Le Tran Ngoc Dat - Use - My passion, Le Tran Ngoc Dat - Article - My heart',
     desc: "Welcome. 👋 Hi, I'm @ltndat blue. 🇻🇳 I'm Vietnamese",
   },

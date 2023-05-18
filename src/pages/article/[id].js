@@ -50,7 +50,7 @@ function ArticlePage({ sets, data }) {
       <SEO
         sets={sets}
         title={`${set.title} - ${data.title}`}
-        name={data?.name || set?.name}
+        name={data?.title || set?.name}
         desc={data?.desc || set?.desc}
         card={data.thumbnail}
       />
