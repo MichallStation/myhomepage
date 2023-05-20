@@ -35,7 +35,7 @@ const style = {
 };
 
 /** @param {{storage: import('@/@type/features').FeaturesStorage}}  */
-function Navbar({ storage }) {
+function Navbar() {
   const router = useRouter();
   const { locale } = router;
   const set = langs[locale || 'en'].Navbar;
