@@ -5,14 +5,14 @@ import {
   SimpleGrid,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 import createFeaturesStorage from '@/features';
 import SEO from '@/layouts/SEO';
 import Footer from '@/components/Footer';
 import UseCard from '@/components/UseCard';
-import { fetchAllUsesByLang, fetchCollectById } from '@/db';
+import { fetchAllUsesByLang } from '@/db';
 import fallback from '@/globals/fallback';
-
-const id = 'use';
+import langs from '@/langs';
 
 // const icons = {
 //   [useWorkflowType]: <MdWorkOutline />,
@@ -20,22 +20,17 @@ const id = 'use';
 //   [useKitflowType]: <VscTools />,
 // };
 
-/**
- * @param {{
- *  storage: import('@/@type/features').FeaturesStorage,
- *  sets: import('@/@type/sets').SetLang
- * }}
- * */
-function Use({ sets, data }) {
-  const set = sets?.use || fallback.use;
+/** @param {{ storage: import('@/@type/features').FeaturesStorage }} */
+function Use({ data }) {
+  const { locale } = useRouter();
+  const set = langs[locale || 'en'].use;
   return (
     <>
       <SEO
-        sets={sets}
         title={set?.title}
         name={set?.name}
         desc={set?.desc}
-        card={set?.thumnail}
+        card={set?.thumbnail}
       />
       <Container
         maxW={{ sm: 'full', md: '3xl' }}
@@ -132,7 +127,7 @@ function Use({ sets, data }) {
             // ),
           )}
         </SimpleGrid>
-        <Footer sets={sets} />
+        <Footer />
       </Container>
     </>
   );
@@ -141,10 +136,9 @@ function Use({ sets, data }) {
 /** @param {import('next').NextPageContext} context */
 export async function getServerSideProps(context) {
   const storage = createFeaturesStorage(context);
-  const sets = await fetchCollectById(id, storage.current.lang);
-  const data = await fetchAllUsesByLang(storage.current.lang);
+  const data = (await fetchAllUsesByLang(storage.lang)) || fallback.use.data;
   return {
-    props: { storage, sets, data },
+    props: { storage, data },
   };
 }
 

@@ -1,30 +1,27 @@
 import React from 'react';
 import { MdOutlineStyle } from 'react-icons/md';
 import { VscBook, VscPreview } from 'react-icons/vsc';
+import { useRouter } from 'next/router';
 import createFeaturesStorage from '@/features';
 import E404 from '@/pages/404';
 import PageDetail from '@/layouts/PageDetail';
 import Section from '@/layouts/Section';
 import DetailInfo from '@/components/DetailInfo';
 import PreviewInfo from '@/components/PreviewInfo';
-import { fetchDetailById, fetchCollectById } from '@/db';
+import { fetchDetailById } from '@/db';
 import SEO from '@/layouts/SEO';
 import Footer from '@/components/Footer';
 import icons from '@/globals/icon';
-import fallback from '@/globals/fallback';
+import langs from '@/langs';
 
 const id = 'proj';
 
-/**
- * @param {{
- *  storage: import('@/@type/features').FeaturesStorage,
- *  sets: import('@/@type/sets').SetLang
- * }}
- * */
-function ProjectDetail({ sets, data }) {
+/** @param {{ storage: import('@/@type/features').FeaturesStorage }} */
+function ProjectDetail({ data }) {
+  const { locale } = useRouter();
   if (!data) return <E404 />;
-  const set = sets?.detail || fallback.detail;
-  const setWork = sets?.work || fallback.work;
+  const set = langs[locale || 'en'].detail;
+  const setWork = langs[locale || 'en'].work;
   const breads = [
     { name: setWork.name, href: '/work', icon: icons.work.Icon },
     {
@@ -42,13 +39,12 @@ function ProjectDetail({ sets, data }) {
   return (
     <>
       <SEO
-        sets={sets}
         title={`${set.title} ${setWork?.[id].title} - ${data.title}`}
         name={data?.title || set?.name}
         desc={data?.desc || set?.desc}
         card={data.thumbnail}
       />
-      <PageDetail sets={sets} data={data} breads={breads}>
+      <PageDetail set={set} data={data} breads={breads}>
         {data?.detail && (
           <Section title={set.detail} id="detail" sep={4} icon={<VscBook />}>
             <DetailInfo data={data.detail} mt={2} />
@@ -74,7 +70,7 @@ function ProjectDetail({ sets, data }) {
             <PreviewInfo data={data.preview} />
           </Section>
         )}
-        <Footer sets={sets} />
+        <Footer />
       </PageDetail>
     </>
   );
@@ -83,14 +79,9 @@ function ProjectDetail({ sets, data }) {
 /** @param {import('next').NextPageContext} context */
 export async function getServerSideProps(context) {
   const storage = createFeaturesStorage(context);
-  const sets = await fetchCollectById(id, storage.current.lang);
-  const data = await fetchDetailById(
-    context.query.id,
-    id,
-    storage.current.lang,
-  );
+  const data = await fetchDetailById(context.query.id, id, storage.lang);
   return {
-    props: { storage, sets, data },
+    props: { storage, data },
   };
 }
 

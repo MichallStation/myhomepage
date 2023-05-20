@@ -1,27 +1,20 @@
 import { Box, Button, Container, Heading } from '@chakra-ui/react';
-import Cookies from 'js-cookie';
 import { BsBoxArrowInLeft } from 'react-icons/bs';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { MdOutlineDangerous } from 'react-icons/md';
+import { useRouter } from 'next/router';
 import SEO from '@/layouts/SEO';
-import { getSet } from '@/globals/sets';
 import Footer from '@/components/Footer';
-import { errorId } from '@/globals/envs';
-import useFeaturesStorage from '@/features/hooks/useFeaturesStorage';
-import Page from '@/layouts/Page';
 import Banner500 from '@/components/ErrorBanner/Banner500';
+import langs from '@/langs';
 
-function Error() {
-  const [lang, setLang] = useState('en');
-  useEffect(() => {
-    setLang(Cookies.get('lang') || 'en');
-  }, []);
-  const set = getSet(errorId, lang)?.c500;
-
+function E500() {
+  const { locale } = useRouter();
+  const set = langs[locale || 'en']['500'];
   return (
     <>
-      <SEO lang={lang} title={set.title} />
+      <SEO title={set.title} />
       <Container
         maxW={{ sm: 'full', md: '3xl' }}
         pos="relative"
@@ -57,27 +50,23 @@ function Error() {
             {set.btn}
           </Button>
         </Box>
-        <Footer lang={lang} />
+        <Footer />
       </Container>
     </>
   );
 }
 
-Error.getLayout = (page) => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const storage = useFeaturesStorage();
-  return <Page storage={storage}>{page}</Page>;
-};
+// E500.getLayout = (page) => {
+//   // eslint-disable-next-line react-hooks/rules-of-hooks
+//   const storage = useFeaturesStorage();
+//   return <Page storage={storage}>{page}</Page>;
+// };
 
 /** @param {import('next').GetStaticPropsContext} context */
 export async function getStaticProps(context) {
   return {
-    // props: {
-    //   storage: createFeaturesStorage(context),
-    //   cookies: context.req.cookies,
-    // },,
     props: context,
   };
 }
 
-export default Error;
+export default E500;

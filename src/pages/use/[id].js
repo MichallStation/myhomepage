@@ -1,14 +1,13 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import createFeaturesStorage from '@/features';
-import { fetchUseById, fetchCollectById } from '@/db';
-import fallback from '@/globals/fallback';
+import { fetchUseById } from '@/db';
 import SEO from '@/layouts/SEO';
 import E404 from '@/pages/404';
 import icon from '@/globals/icon';
 import Footer from '@/components/Footer';
 import PageDetail from '@/layouts/PageDetail';
-
-const id = 'use';
+import langs from '@/langs';
 
 /**
  * @param {{
@@ -16,9 +15,11 @@ const id = 'use';
  *  sets: import('@/@type/sets').SetLang
  * }}
  * */
-function UseDetail({ sets, data }) {
+function UseDetail({ data }) {
+  const { locale } = useRouter();
   if (!data) return <E404 />;
-  const set = sets?.use || fallback.use;
+  const set = langs[locale || 'en'].use;
+  const setDetail = langs[locale || 'en'].detail;
 
   const breads = [
     { name: set.name, href: '/use', icon: icon.use.Icon },
@@ -31,15 +32,14 @@ function UseDetail({ sets, data }) {
   return (
     <>
       <SEO
-        sets={sets}
         title={`${set.title} - ${data.title}`}
         name={data?.title || set?.name}
         desc={data?.desc || set?.desc}
         card={data.thumbnail}
       />
-      <PageDetail sets={sets} data={data} breads={breads}>
+      <PageDetail set={setDetail} data={data} breads={breads}>
         {data.title}
-        <Footer sets={sets} />
+        <Footer />
       </PageDetail>
     </>
   );
@@ -48,10 +48,9 @@ function UseDetail({ sets, data }) {
 /** @param {import('next').NextPageContext} context */
 export async function getServerSideProps(context) {
   const storage = createFeaturesStorage(context);
-  const sets = await fetchCollectById(id, storage.current.lang);
-  const data = await fetchUseById(context.query.id, storage.current.lang);
+  const data = await fetchUseById(context.query.id, storage.lang);
   return {
-    props: { storage, sets, data },
+    props: { storage, data },
   };
 }
 

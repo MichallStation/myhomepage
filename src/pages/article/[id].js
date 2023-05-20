@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { Box, Container } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 import createFeaturesStorage from '@/features';
 import E404 from '@/pages/404';
 import SEO from '@/layouts/SEO';
@@ -8,9 +9,10 @@ import BlueBreadcrumb from '@/components/BlueBreadcrumb';
 import ArticleHeader from '@/components/ArticleHeader';
 import useToc from '@/features/hooks/useTOC';
 import icons from '@/globals/icon';
-import { fetchArticleById, fetchCollectById } from '@/db';
+import { fetchArticleById } from '@/db';
 import MarkdownRender from '@/components/MarkdownRender';
-import fallback from '@/globals/fallback';
+import langs from '@/langs';
+import useClientSide from '@/features/hooks/useClientSide';
 // import useClientSide from '@/features/hooks/useClientSide';
 
 const id = 'article';
@@ -21,14 +23,13 @@ const id = 'article';
  *  sets: import('@/@type/sets').SetLang
  * }}
  * */
-function ArticlePage({ sets, data }) {
+function ArticlePage({ data }) {
+  const { locale } = useRouter();
+  const client = useClientSide();
   const refContent = useRef();
-  const toc = useToc(refContent, [data]);
-  // const clientSide = useClientSide();
-  // const toc = useToc(refContent, [data, clientSide]);
-
+  const toc = useToc(refContent, [data, client]);
   if (!data) return <E404 />;
-  const set = sets?.article || fallback.article;
+  const set = langs[locale || 'en'].article;
   // page = page || articleId;
   // type = type || data.type || 'general';
   const { markdown, ...article } = data;
@@ -48,7 +49,6 @@ function ArticlePage({ sets, data }) {
   return (
     <>
       <SEO
-        sets={sets}
         title={`${set.title} - ${data.title}`}
         name={data?.title || set?.name}
         desc={data?.desc || set?.desc}
@@ -66,15 +66,10 @@ function ArticlePage({ sets, data }) {
         <Box as="article" className="article">
           <ArticleHeader toc={toc} set={set} data={article} />
           <Box ref={refContent} className="article-content">
-            {/* {!clientSide ? (
-              markdown
-            ) : ( */}
-            <MarkdownRender>{markdown}</MarkdownRender>
-            {/* )} */}
+            {markdown && client && <MarkdownRender>{markdown}</MarkdownRender>}
           </Box>
         </Box>
-
-        <Footer sets={sets} />
+        <Footer />
       </Container>
     </>
   );
@@ -83,10 +78,9 @@ function ArticlePage({ sets, data }) {
 /** @param {import('next').NextPageContext} context */
 export async function getServerSideProps(context) {
   const storage = createFeaturesStorage(context);
-  const sets = await fetchCollectById(id, storage.current.lang);
-  const data = await fetchArticleById(context.query.id, storage.current.lang);
+  const data = await fetchArticleById(context.query.id, storage.lang);
   return {
-    props: { storage, sets, data, ...context.query },
+    props: { storage, data },
   };
 }
 

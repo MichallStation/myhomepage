@@ -1,14 +1,14 @@
 import React from 'react';
 import { Container } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 import createFeaturesStorage from '@/features';
-import { fetchAllArticlesByLang, fetchCollectById } from '@/db';
+import { fetchAllArticlesByLang } from '@/db';
 import { articleId } from '@/globals/envs';
 import SEO from '@/layouts/SEO';
 import ArticleCard from '@/components/ArticleCard';
 import Footer from '@/components/Footer';
 import fallback from '@/globals/fallback';
-
-const id = 'article';
+import langs from '@/langs';
 
 /**
  * @param {{
@@ -16,16 +16,16 @@ const id = 'article';
  *  sets: import('@/@type/sets').SetLang
  * }}
  * */
-function Article({ sets, data }) {
-  const set = sets?.article || fallback.article;
+function Article({ data }) {
+  const { locale } = useRouter();
+  const set = langs[locale || 'en'].article;
   return (
     <>
       <SEO
-        sets={sets}
         title={set?.title}
         name={set?.name}
         desc={set?.desc}
-        card={set?.thumnail}
+        card={set?.thumbnail}
       />
       <Container maxW={{ sm: 'full', md: '3xl' }} pos="relative" px={6}>
         {data &&
@@ -40,7 +40,7 @@ function Article({ sets, data }) {
               mt={[6, 8]}
             />
           ))}
-        <Footer sets={sets} />
+        <Footer />
       </Container>
     </>
   );
@@ -49,10 +49,10 @@ function Article({ sets, data }) {
 /** @param {import('next').NextPageContext} context */
 export async function getServerSideProps(context) {
   const storage = createFeaturesStorage(context);
-  const sets = await fetchCollectById(id, storage.current.lang);
-  const data = await fetchAllArticlesByLang(storage.current.lang);
+  const data =
+    (await fetchAllArticlesByLang(storage.lang)) || fallback.article.data;
   return {
-    props: { storage, sets, data },
+    props: { storage, data },
   };
 }
 

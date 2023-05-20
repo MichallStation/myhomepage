@@ -1,10 +1,15 @@
 import { Provider } from 'react-redux';
 import ChakraManager from '@/lib/chakra/Manager';
+import '@fontsource/lobster-two';
+import '@fontsource/merienda';
+import '@fontsource/roboto-mono';
+import '@fontsource/signika-negative';
+import '@fontsource/source-sans-pro';
+import 'animate.css';
 import createStore from '@/features/store';
 import theme from '@/features/theme';
 import '@/styles/globals.css';
 import Page from '@/layouts/Page';
-import 'animate.css';
 
 if (typeof window !== 'undefined') {
   window.history.scrollRestoration = 'manual';

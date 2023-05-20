@@ -47,7 +47,7 @@ function LanguageButton({ lang = 'en' }) {
   return (
     <Menu>
       <MenuButton as={Button} style={style.select}>
-        {lang}
+        {router.locale}
       </MenuButton>
       <MenuList p={2}>
         {langs.map((i) => (

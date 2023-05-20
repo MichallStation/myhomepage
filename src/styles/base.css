@@ -1,0 +1,40 @@
+* {
+  /* touch-action: none; */
+  scroll-behavior: smooth;
+}
+
+[lang="vi"] * {
+  line-height: var(--chakra-lineHeights-tall);
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  background-color: var(--chakra-colors-second);
+  /* background-color: grey; */
+}
+
+#__next {
+  overflow: hidden;
+}
+
+.section ::-webkit-scrollbar,
+.pre-code::-webkit-scrollbar {
+  display: none;
+}
+
+.custom-blockquote>p {
+  margin: 0;
+}
+
+.pre-code * {
+  background: transparent !important;
+}

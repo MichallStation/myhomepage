@@ -17,6 +17,7 @@ function ArticleCard({ set, data, href, revert, ...props }) {
       backgroundRepeat="repeat"
       backgroundPosition="center"
       backgroundImage={envs.bgUrl}
+      backgroundColor="#ddc592"
       p={3}
       pos="relative"
       border="6px dashed"

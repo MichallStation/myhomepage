@@ -1,14 +1,9 @@
 {
-  "component-storage-sets": {
+  "typing-storage": {
     "scope": "javascript, javascriptreact",
-    "prefix": "component-storage-sets",
+    "prefix": "typing-storage",
     "body": [
-      "/**",
-      " * @param {{",
-      " *  storage: import('@/@type/features').FeaturesStorage,",
-      " *  sets: import('@/@type/sets').SetLang",
-      " * }}",
-      " * */"
+      "/** @param {{ storage: import('@/@type/features').FeaturesStorage }} */"
     ]
   }
 }

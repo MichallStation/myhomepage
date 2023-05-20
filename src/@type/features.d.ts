@@ -1,10 +1,12 @@
-export declare type FeaturesStorageItem = {
-  latest?: string;
-  lang?: string;
-  cookie?: string;
-};
-
 export interface FeaturesStorage {
-  current?: FeaturesStorageItem;
-  prev?: FeaturesStorageItem;
+  lang?: string;
+  latest?: string;
+  cookie?: string;
+  cookies?: object;
+  newbie?: boolean;
+  authorization?: string;
+  location?: string;
+  host?: string;
+  origin?: string;
+  token?: string;
 }

@@ -1,28 +1,21 @@
 import { Box, Button, Container, Heading } from '@chakra-ui/react';
-import Cookies from 'js-cookie';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useRouter } from 'next/router';
 import { VscInfo } from 'react-icons/vsc';
 import { IoReload } from 'react-icons/io5';
 import SEO from '@/layouts/SEO';
-import { getSet } from '@/globals/sets';
 import Footer from '@/components/Footer';
-import { offlineId } from '@/globals/envs';
-import useFeaturesStorage from '@/features/hooks/useFeaturesStorage';
-import Page from '@/layouts/Page';
 import OfflineBanner from '@/components/ErrorBanner/OfflineBanner';
+import langs from '@/langs';
+import createFeaturesStorage from '@/features';
 
 function Offline() {
-  const [lang, setLang] = useState('en');
   const router = useRouter();
-  useEffect(() => {
-    setLang(Cookies.get('lang') || 'en');
-  }, []);
-  const set = getSet(offlineId, lang);
-
+  const { locale } = router;
+  const set = langs[locale || 'en'].offline;
   return (
     <>
-      <SEO lang={lang} title={set.title} />
+      <SEO title={set.title} />
       <Container
         maxW={{ sm: 'full', md: '3xl' }}
         pos="relative"
@@ -59,28 +52,25 @@ function Offline() {
             {set.btn}
           </Button>
         </Box>
-        <Footer lang={lang} />
+        <Footer />
       </Container>
     </>
   );
 }
 
-Offline.getLayout = (page) => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const storage = useFeaturesStorage();
-  // return <PageStatic>{page}</PageStatic>;
-  return <Page storage={storage}>{page}</Page>;
-};
+// Offline.getLayout = (page) => {
+//   // eslint-disable-next-line react-hooks/rules-of-hooks
+//   const storage = useFeaturesStorage();
+//   // return <PageStatic>{page}</PageStatic>;
+//   return <Page storage={storage}>{page}</Page>;
+// };
 
 /** @param {import('next').GetStaticPropsContext} context */
 export async function getStaticProps(context) {
-  // console.log(context);
   return {
-    // props: {
-    //   storage: createFeaturesStorage(context),
-    //   cookies: context.req.cookies,
-    // },,
-    props: context,
+    props: {
+      storage: createFeaturesStorage(context),
+    },
   };
 }
 

@@ -4,6 +4,7 @@ import { GiNewspaper } from 'react-icons/gi';
 import { IoIosArrowForward } from 'react-icons/io';
 import MotionButton from '../MotionChakra/MotionButton';
 import Section from '@/layouts/Section';
+import { BackgroundImage } from '@/lib/NextChakra';
 // import envs from '../ArticleCard/envs';
 
 function ArticleHeader({ toc, set, data, ...props }) {
@@ -17,7 +18,7 @@ function ArticleHeader({ toc, set, data, ...props }) {
       p={2}
       {...props}
     >
-      <Box
+      <BackgroundImage
         minH={['200px', '320px', '400px']}
         w="100%"
         backgroundColor="holder"
@@ -88,7 +89,7 @@ function ArticleHeader({ toc, set, data, ...props }) {
           <Section
             title={set.tablet}
             mt={2}
-            titleProps={{ fontFamily: 'handwrite', fontWeight: 'extrabold' }}
+            titleProps={{ fontFamily: 'handwrite', fontWeight: 'bold' }}
             sep={6}
             contentProps={{
               overflowX: 'scroll',

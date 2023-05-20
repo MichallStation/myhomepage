@@ -1,12 +1,14 @@
 import { Button, Text } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import React from 'react';
+import { BackgroundImage } from '@/lib/NextChakra';
 
 /** @param {{props: import('@chakra-ui/react').ButtonProps}}  */
 function Card({ children, title, img, thumbnailHighContrast, ...props }) {
   return (
     <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-      <Button
+      <BackgroundImage
+        as={Button}
         title={title}
         p={0}
         m={0}

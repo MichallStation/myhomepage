@@ -11,6 +11,7 @@ import {
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import React, { useCallback, useState } from 'react';
+import { BackgroundImage } from '@/lib/NextChakra';
 import BallGallery from '../BallGallery';
 
 function PreviewInfo({ data, ...props }) {
@@ -52,7 +53,8 @@ function PreviewInfo({ data, ...props }) {
               whileDrag={{ scale: 1.1, zIndex: 1 }}
               style={{ width: '100%', height: '100%' }}
             >
-              <Button
+              <BackgroundImage
+                as={Button}
                 maxW={['100%', '320px']}
                 minH="160px"
                 h={['80px', '100%']}

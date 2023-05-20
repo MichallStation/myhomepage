@@ -8,6 +8,7 @@ import BallProgress from '../BallProgress';
 import useProgress from '@/features/hooks/useProgress';
 import NavLink from './NavLink';
 import envs from './envs';
+import langs from '@/langs';
 
 /** @type {Object.<string, import('react').CSSProperties>} */
 const style = {
@@ -36,6 +37,8 @@ const style = {
 /** @param {{storage: import('@/@type/features').FeaturesStorage}}  */
 function Navbar({ storage, sets }) {
   const router = useRouter();
+  const { locale } = router;
+  const set = langs[locale || 'en'].Navbar;
   const { setLoading, setDone } = useProgress();
 
   useEffect(() => {
@@ -66,10 +69,10 @@ function Navbar({ storage, sets }) {
         <Logo width={envs.logoHeight} />
         <Box display="flex">
           <Box display="flex" alignItems="center">
-            <LanguageButton lang={storage.current.lang} sets={sets} />
-            <ThemeButton lang={storage.current.lang} sets={sets} ml={2} />
+            <LanguageButton lang={storage.lang} sets={sets} />
+            <ThemeButton lang={storage.lang} sets={sets} ml={2} />
           </Box>
-          <NavLink sets={sets} router={router} />
+          <NavLink set={set} router={router} />
         </Box>
       </Container>
       <BallProgress />

@@ -15,7 +15,6 @@ import {
 } from '@chakra-ui/react';
 import envs, { links } from './envs';
 import icons from '@/globals/icon';
-import fallback from '@/globals/fallback';
 
 export const props = {
   Home: {
@@ -42,9 +41,8 @@ export const props = {
 const pagesRendered = Object.entries(links);
 
 /** @param {{router: import('next/router').NextRouter}}  */
-function NavLink({ sets, router }) {
+function NavLink({ set, router }) {
   const { route: path, query } = router;
-  const set = sets?.Navbar || fallback.Navbar;
 
   const isActive = useCallback(
     /** @param {string} p  */

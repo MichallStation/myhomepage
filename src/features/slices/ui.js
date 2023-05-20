@@ -21,9 +21,6 @@ const initialState = {
   ball3d: {
     status: LOADING,
   },
-  loadingFloat: {
-    status: LOADING,
-  },
 };
 
 export const uiSlice = createSlice({
@@ -55,17 +52,13 @@ export const uiSlice = createSlice({
       // state.toast.value = undefined;
       state.ball3d.status = LOADING;
     },
+    ball3dShows: (state) => {
+      // state.toast.value = undefined;
+      state.ball3d.status = SHOW;
+    },
     ball3dDone: (state) => {
       // state.toast.value = undefined;
       state.ball3d.status = DONE;
-    },
-    loadingFloatLoading: (state) => {
-      // state.toast.value = undefined;
-      state.loadingFloat.status = LOADING;
-    },
-    loadingFloatDone: (state) => {
-      // state.toast.value = undefined;
-      state.loadingFloat.status = DONE;
     },
   },
 });
@@ -78,8 +71,7 @@ export const {
   toastShow,
   ball3dLoading,
   ball3dDone,
-  loadingFloatLoading,
-  loadingFloatDone,
+  ball3dShows,
 } = uiSlice.actions;
 export const selectProgress = (state) => state.ui.progressBar;
 export const selectProgressValue = (state) => state.ui.progressBar.value;
@@ -90,8 +82,5 @@ export const selectToastStatus = (state) => state.ui.toast.status;
 export const selectball3d = (state) => state.ui.ball3d;
 export const selectball3dValue = (state) => state.ui.ball3d.value;
 export const selectball3dStatus = (state) => state.ui.ball3d.status;
-export const selectLoadingFloat = (state) => state.ui.loadingFloat;
-export const selectLoadingFloatValue = (state) => state.ui.loadingFloat.value;
-export const selectLoadingFloatStatus = (state) => state.ui.loadingFloat.status;
 
 export default uiSlice.reducer;

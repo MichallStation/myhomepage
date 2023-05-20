@@ -1,5 +1,5 @@
 import React from 'react';
-import BackgroundImage from '../BackgroundImage';
+import { BackgroundImage } from '@/lib/NextChakra';
 import envs from './envs';
 
 /** @param {import('@chakra-ui/react').BoxProps} props */

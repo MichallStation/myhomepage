@@ -4,9 +4,10 @@ import { BiObjectsHorizontalCenter } from 'react-icons/bi';
 import { IoMailUnreadOutline, IoShareSocialOutline } from 'react-icons/io5';
 import Link from 'next/link';
 import { AiOutlineHeart, AiOutlineSend } from 'react-icons/ai';
+import { useRouter } from 'next/router';
 import Section from '@/layouts/Section';
 import envs from './envs';
-import fallback from '@/globals/fallback';
+import langs from '@/langs';
 
 /** @type {Object<string, import('@chakra-ui/react').ThemeTypings["colorSchemes"]>} */
 const shemes = {
@@ -21,8 +22,9 @@ const shemes = {
  *  sets: import('@/@type/sets').SetLang
  * }}
  * */
-function Bio({ sets }) {
-  const set = sets?.Bio || fallback.Bio;
+function Bio() {
+  const { locale } = useRouter();
+  const set = langs[locale || 'en'].Bio;
   const [inputValue, setInputValue] = useState('');
   const [emailStatus, setEmailStatus] = useState(shemes.normal);
 

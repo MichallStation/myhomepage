@@ -1,9 +1,11 @@
 import { Box, Text } from '@chakra-ui/react';
 import React from 'react';
-import fallback from '@/globals/fallback';
+import { useRouter } from 'next/router';
+import langs from '@/langs';
 
-function Footer({ sets }) {
-  const set = sets?.Footer || fallback.Footer;
+function Footer() {
+  const { locale } = useRouter();
+  const set = langs[locale || 'en'].Footer;
   return (
     <Box as="footer" py={6}>
       <Text as="h3" textAlign="center" fontSize="lg" color="GrayText">

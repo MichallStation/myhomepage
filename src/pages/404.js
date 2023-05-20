@@ -1,27 +1,23 @@
 import { Box, Button, Container, Heading } from '@chakra-ui/react';
-import Cookies from 'js-cookie';
 import { BsBoxArrowInLeft } from 'react-icons/bs';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { MdOutlineDangerous } from 'react-icons/md';
+import { useRouter } from 'next/router';
 import ErrorBanner from '@/components/ErrorBanner';
 import SEO from '@/layouts/SEO';
-import { getSet } from '@/globals/sets';
 import Footer from '@/components/Footer';
-import { errorId } from '@/globals/envs';
-import useFeaturesStorage from '@/features/hooks/useFeaturesStorage';
-import Page from '@/layouts/Page';
+import createFeaturesStorage from '@/features';
+import langs from '@/langs';
 
-function Error() {
-  const [lang, setLang] = useState('en');
-  useEffect(() => {
-    setLang(Cookies.get('lang') || 'en');
-  }, []);
-  const set = getSet(errorId, lang)?.c404;
+/** @param {{ storage: import('@/@type/features').FeaturesStorage }} */
+function E404() {
+  const { locale } = useRouter();
+  const set = langs[locale || 'en']['404'];
 
   return (
     <>
-      <SEO lang={lang} title={set.title} />
+      <SEO title={set.title} />
       <Container
         maxW={{ sm: 'full', md: '3xl' }}
         pos="relative"
@@ -58,29 +54,26 @@ function Error() {
             {set.btn}
           </Button>
         </Box>
-        <Footer lang={lang} />
+        <Footer />
       </Container>
     </>
   );
 }
 
-Error.getLayout = (page) => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const storage = useFeaturesStorage();
-  // return <PageStatic>{page}</PageStatic>;
-  return <Page storage={storage}>{page}</Page>;
-};
+// E404.getLayout = (page) => {
+//   // eslint-disable-next-line react-hooks/rules-of-hooks
+//   const storage = useFeaturesStorage();
+//   // return <PageStatic>{page}</PageStatic>;
+//   return <Page storage={storage}>{page}</Page>;
+// };
 
 /** @param {import('next').GetStaticPropsContext} context */
 export async function getStaticProps(context) {
-  // console.log(context);
   return {
-    // props: {
-    //   storage: createFeaturesStorage(context),
-    //   cookies: context.req.cookies,
-    // },,
-    props: context,
+    props: {
+      storage: createFeaturesStorage(context),
+    },
   };
 }
 
-export default Error;
+export default E404;

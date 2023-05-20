@@ -18,6 +18,14 @@ const nextConfig = {
     defaultLocale: 'home',
     localeDetection: false,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'raw.githubusercontent.com',
+      },
+    ],
+  },
 };
 
 module.exports = withPWA(nextConfig);

@@ -5,8 +5,8 @@ import { Box, Heading } from '@chakra-ui/react';
 /** @type {Object.<string, import('react').CSSProperties>} */
 const style = {
   heading: {
-    letterSpacing: '3px',
-    fontWeight: 'bold',
+    letterSpacing: '4px',
+    fontWeight: 'semibold',
   },
   img: {
     borderRadius: '50%',

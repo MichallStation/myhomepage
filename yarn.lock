@@ -1889,6 +1889,31 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.39.0.tgz#58b536bcc843f4cd1e02a7e6171da5c040f4d44b"
   integrity sha512-kf9RB0Fg7NZfap83B3QOqOGg9QmD9yBudqQXzzOtn3i4y7ZUXe5ONeW34Gwi+TxhH4mvj72R1Zc300KUMa9Bng==
 
+"@fontsource/lobster-two@^4.5.10":
+  version "4.5.10"
+  resolved "https://registry.yarnpkg.com/@fontsource/lobster-two/-/lobster-two-4.5.10.tgz#b3733d33580e8a5b525e8773b804a281b485d8b6"
+  integrity sha512-HtKLdMcOsocoj6ERtoNxM8MaPe9TgpYyQA9KmqKY+vkVmrTbzmS8jV9oUJP/VGNPvwli5ai9xSfxzcFA8hbTXA==
+
+"@fontsource/merienda@^4.5.12":
+  version "4.5.12"
+  resolved "https://registry.yarnpkg.com/@fontsource/merienda/-/merienda-4.5.12.tgz#f18a502fa099d3016992213fcb235c34702c17d8"
+  integrity sha512-0xMb3Vw60roGG87Kl44ZpPfgglfjlVqisfAAZB0jINbUwlW0lrLD14S9H0akCOikWFTtgiJARHB80Q+60YdydQ==
+
+"@fontsource/roboto-mono@^4.5.10":
+  version "4.5.10"
+  resolved "https://registry.yarnpkg.com/@fontsource/roboto-mono/-/roboto-mono-4.5.10.tgz#197fc2d5fa9c25fd7ad9dcccb2705663f2409850"
+  integrity sha512-KrJdmkqz6DszT2wV/bbhXef4r0hV3B0vw2mAqei8A2kRnvq+gcJLmmIeQ94vu9VEXrUQzos5M9lH1TAAXpRphw==
+
+"@fontsource/signika-negative@^4.5.13":
+  version "4.5.13"
+  resolved "https://registry.yarnpkg.com/@fontsource/signika-negative/-/signika-negative-4.5.13.tgz#a683d403f801d205a61477e355619e8ad47f30d9"
+  integrity sha512-avJ8YYXGqR0S5HIrUepiUEWNbvqZcws/YYJ2F2Dk5g2qnujnDr8nk4aVqgLg5oV8PmD3K2p6OxCNX46/hY/2Xw==
+
+"@fontsource/source-sans-pro@^4.5.11":
+  version "4.5.11"
+  resolved "https://registry.yarnpkg.com/@fontsource/source-sans-pro/-/source-sans-pro-4.5.11.tgz#06b3f08ef1a5250d78c8198e5a0482b5d87a4d52"
+  integrity sha512-f7iw44q1EjBv3MNcHCGAgrW/QVyweaEouFsJzykPhTOGnZFSwFJRISToXornOmuAy7xUUGiVdqOLiykgZoYB8A==
+
 "@humanwhocodes/config-array@^0.11.8":
   version "0.11.8"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.8.tgz#03595ac2075a4dc0f191cc2131de14fbd7d410b9"

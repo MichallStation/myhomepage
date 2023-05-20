@@ -1,8 +1,9 @@
 import Head from 'next/head';
 import React from 'react';
+import { useRouter } from 'next/router';
 import { ENV_HOST_URL } from '@/globals/envs';
 import author from '@/globals/author';
-import fallback from '@/globals/fallback';
+import langs from '@/langs';
 
 /**
  * @param {{
@@ -10,9 +11,10 @@ import fallback from '@/globals/fallback';
  *  sets: import('@/@type/sets').SetLang
  * }}
  * */
-function SEO({ sets, title, name, desc, card }) {
+function SEO({ title, name, desc, card }) {
   // const set = getSet(homeId, lang);
-  const set = sets?.seo || fallback.home;
+  const { locale } = useRouter();
+  const set = langs[locale || 'en'].SEO;
   title = title ? `${set.name} - ${title}` : `${set.name} - ${set.title}`;
   name = name ? `${set.name} - ${name}` : set.name;
   return (

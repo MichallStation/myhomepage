@@ -2,7 +2,8 @@ import React from 'react';
 import { BsExplicit, BsPersonVcard } from 'react-icons/bs';
 import { IoFilmOutline } from 'react-icons/io5';
 import { GiNewspaper } from 'react-icons/gi';
-import { fetchCollectById, fetchDetailById } from '@/db';
+import { useRouter } from 'next/router';
+import { fetchDetailById } from '@/db';
 import createFeaturesStorage from '@/features';
 import E404 from '@/pages/404';
 import PageDetail from '@/layouts/PageDetail';
@@ -11,8 +12,8 @@ import DetailInfo from '@/components/DetailInfo';
 import PreviewInfo from '@/components/PreviewInfo';
 import SEO from '@/layouts/SEO';
 import icon from '@/globals/icon';
-import fallback from '@/globals/fallback';
 import Footer from '@/components/Footer';
+import langs from '@/langs';
 // import ThumbnailShows from '@/components/ThumbnailShows';
 
 const id = 'job';
@@ -23,10 +24,11 @@ const id = 'job';
  *  sets: import('@/@type/sets').SetLang
  * }}
  * */
-function JobDetail({ sets, data }) {
+function JobDetail({ data }) {
+  const { locale } = useRouter();
   if (!data) return <E404 />;
-  const set = sets?.detail || fallback.detail;
-  const setWork = sets?.work || fallback.work;
+  const set = langs[locale || 'en'].detail;
+  const setWork = langs[locale || 'en'].work;
   const breads = [
     { name: setWork.name, href: '/work', icon: icon.work.Icon },
     {
@@ -44,13 +46,12 @@ function JobDetail({ sets, data }) {
   return (
     <>
       <SEO
-        sets={sets}
         title={`${set.title} ${setWork?.[id].title} - ${data.title}`}
         name={data?.title || set?.name}
         desc={data?.desc || set?.desc}
         card={data.thumbnail}
       />
-      <PageDetail sets={sets} data={data} breads={breads}>
+      <PageDetail set={set} data={data} breads={breads}>
         {data?.role && (
           <Section title={set.role} id="role" sep={4} icon={<BsPersonVcard />}>
             {data?.role && <DetailInfo data={data.role} mt={2} />}
@@ -84,7 +85,7 @@ function JobDetail({ sets, data }) {
         )} */}
           </Section>
         )}
-        <Footer sets={sets} />
+        <Footer />
       </PageDetail>
     </>
   );
@@ -93,14 +94,9 @@ function JobDetail({ sets, data }) {
 /** @param {import('next').NextPageContext} context */
 export async function getServerSideProps(context) {
   const storage = createFeaturesStorage(context);
-  const sets = await fetchCollectById(id, storage.current.lang);
-  const data = await fetchDetailById(
-    context.query.id,
-    id,
-    storage.current.lang,
-  );
+  const data = await fetchDetailById(context.query.id, id, storage.lang);
   return {
-    props: { storage, sets, data },
+    props: { storage, data },
   };
 }
 

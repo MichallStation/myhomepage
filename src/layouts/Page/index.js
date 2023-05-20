@@ -11,13 +11,13 @@ import PWA from '../PWA';
  * storage: import('@/@type/features').FeaturesStorage
  * }}
  * */
-function Page({ children, storage, sets }) {
+function Page({ children, storage }) {
   return (
     <>
       <PWA />
-      <Floating storage={storage} sets={sets} />
-      <Navbar storage={storage} sets={sets} />
-      <Ball3d sets={sets} />
+      <Floating storage={storage} />
+      <Navbar storage={storage} />
+      <Ball3d />
       <AnimatePresence
         initial={false}
         mode="wait"

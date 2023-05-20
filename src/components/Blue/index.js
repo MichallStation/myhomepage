@@ -1,15 +1,14 @@
 import { motion, useAnimationControls } from 'framer-motion';
 import React, { useCallback, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { Box, useToast } from '@chakra-ui/react';
-import { DONE, selectLoadingFloatStatus } from '@/features/slices/ui';
+import { useRouter } from 'next/router';
 import Message from './Message';
 import styles from './styles';
 import envsNavbar from '../Navbar/envs';
 import actions from './actions';
-import BackgroundImage from '../BackgroundImage';
 import envs from './envs';
-import fallback from '@/globals/fallback';
+import { BackgroundImage } from '@/lib/NextChakra';
+import langs from '@/langs';
 
 /** @type {Object<string, import('framer-motion').TargetAndTransition>} * */
 const variants = {
@@ -19,6 +18,9 @@ const variants = {
     transition: {
       duration: 0.4,
     },
+  },
+  hide: {
+    scale: 0,
   },
   say: {
     scale: 1.4,
@@ -38,34 +40,26 @@ const actionIds = {
 };
 
 /** @param {{storage: import('@/@type/features').FeaturesStorage}}  */
-function Blue({ storage, sets }) {
-  const set = sets?.Blue || fallback.Blue;
-  const inTimeWelcome = useSelector(selectLoadingFloatStatus) === DONE;
+function Blue({ storage }) {
+  const { locale } = useRouter();
+  const set = langs[locale || 'en'].Blue;
   const toast = useToast();
   const controls = useAnimationControls();
-
-  const isOldguy = storage.prev?.latest;
+  const isOldguy = !storage.newbie;
 
   // Welcome
   useEffect(() => {
-    if (!inTimeWelcome) return;
     const t = setTimeout(() => {
-      actions.say({
+      actions.says({
         id: actionIds.welcome,
         mes: isOldguy ? set.welcome.old : set.welcome.newbie,
         controls,
         toast,
       });
-      actions.say({
-        id: actionIds.welcome,
-        mes: isOldguy ? set.welcome.old : set.welcome.newbie,
-        controls,
-        toast,
-      });
-    }, 5000);
+    }, 3000);
     // eslint-disable-next-line consistent-return
     return () => t && clearTimeout(t);
-  }, [inTimeWelcome, storage.current.lang]);
+  }, [storage.lang]);
 
   const handleClick = useCallback(() => {
     // Blue introduction
@@ -76,7 +70,7 @@ function Blue({ storage, sets }) {
       toast,
       delay: 3000,
     });
-  }, [storage.current.lang]);
+  }, [storage.lang]);
 
   const handleDrag = useCallback(() => {
     // Blue joke
@@ -88,7 +82,7 @@ function Blue({ storage, sets }) {
       position: 'top-left',
       isClosable: true,
     });
-  }, [storage.current.lang]);
+  }, [storage.lang]);
 
   return (
     <Box
@@ -103,6 +97,7 @@ function Blue({ storage, sets }) {
       <motion.button
         id="blue"
         type="button"
+        initial="hide"
         drag
         dragConstraints={{
           top: 0,
@@ -110,6 +105,7 @@ function Blue({ storage, sets }) {
           left: 0,
           bottom: 0,
         }}
+        whileInView="nothing"
         whileHover="look"
         whileTap={{ scale: 0.9 }}
         whileDrag={handleDrag}
@@ -120,7 +116,7 @@ function Blue({ storage, sets }) {
         style={styles.blue}
       >
         <Box boxShadow="base" borderRadius="50%">
-          <BackgroundImage src={envs.url} />
+          <BackgroundImage w="44px" h="44px" src={envs.url} />
         </Box>
       </motion.button>
     </Box>

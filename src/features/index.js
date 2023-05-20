@@ -5,84 +5,48 @@
  * Server side rendering
  */
 
-import { expiresDay } from '@/utils/cookie';
-import { isDefaultLocale, setCookieForResponse } from '@/lib/next';
+import { setCookieForResponse } from '@/lib/next';
+import cache from './cache';
 
-// /** @type {import('./@features').FeaturesStorage} */
-export const initialValues = {
-  lang: 'en',
-  latest: Date(),
-};
-
-/** @param {import('next').NextPageContext} ctx */
-export const isFirstTime = (ctx) =>
-  ctx.req.cookies?.latest === undefined &&
-  !ctx.locales.find((i) => ctx.req.cookies?.lang === i);
-
-/** @param {import('next').NextApiRequest} req */
-export function extractDataFromRequest(req) {
-  return {
-    ...req.headers,
-    ...req.cookies,
-  };
-}
+const sendResCookie = async (res, cookieData) =>
+  setCookieForResponse(res, cookieData);
 
 /**
- * @param {import('next').NextPageContext} context
+ * @param {import('next').GetServerSidePropsContext} context
  * @returns {import('../@type/features').FeaturesStorage}
  * */
 export default function createFeaturesStorage(context) {
-  const { req, res, locale } = context;
-  const result = initialValues;
-  if (!req || !res) return result;
-
-  result.latest = Date();
-  /** @type {[import('@/lib/next/@next').Cookie]} */
-  const data = [
-    {
-      name: 'latest',
-      value: result.latest,
-      options: {
-        path: '/',
-        expires: expiresDay(365),
-      },
-    },
-  ];
-
-  if (isFirstTime(context)) {
-    result.lang = 'en';
-    if (!isDefaultLocale(context)) {
-      result.lang = locale;
-    }
-    data.push({
-      name: 'lang',
-      value: result.lang,
-      options: {
-        path: '/',
-        expires: expiresDay(365),
-      },
-    });
-  } else {
-    result.lang = req.cookies?.lang || 'en';
-    if (!isDefaultLocale(context)) {
-      result.lang = locale;
-      if (locale !== req.cookies.lang) {
-        data.push({
-          name: 'lang',
-          value: result.lang,
-          options: {
-            path: '/',
-            expires: expiresDay(365),
-          },
-        });
-      }
-    }
+  const { req, res, locale: lang } = context;
+  const latest = Date();
+  if (!req || !res) {
+    return {
+      lang,
+      latest,
+    };
   }
-  setCookieForResponse(res, data);
 
+  const [cookieData, cacheData] = cache.cookie(req.cookies, lang);
+
+  const { url = '', cookies = {} } = req;
+  const {
+    cookie = '',
+    authorization = '',
+    location = '',
+    host = '',
+    origin = '',
+  } = req.headers;
+
+  sendResCookie(res, cookieData);
   return {
-    // ...result,
-    current: result,
-    prev: extractDataFromRequest(req),
+    ...cacheData,
+    url,
+    cookies,
+    cookie,
+    authorization,
+    location,
+    host,
+    origin,
+    lang,
+    latest,
   };
 }

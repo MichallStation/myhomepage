@@ -5,10 +5,11 @@ import Section from '@/layouts/Section';
 import BlueBreadcrumb from '@/components/BlueBreadcrumb';
 import icons from '@/globals/icon';
 import MarkdownRender from '@/components/MarkdownRender';
-import fallback from '@/globals/fallback';
+import { BackgroundImage } from '@/lib/NextChakra';
+import useClientSide from '@/features/hooks/useClientSide';
 
-function PageDetail({ sets, breads, children, data }) {
-  const set = sets?.detail || fallback.detail;
+function PageDetail({ set, breads, children, data }) {
+  const client = useClientSide();
   return (
     <Container maxW={{ sm: 'full', md: '3xl' }} pos="relative" p={6}>
       <BlueBreadcrumb breads={breads} />
@@ -30,7 +31,7 @@ function PageDetail({ sets, breads, children, data }) {
             display="block"
             mb={4}
           >
-            {data.name}
+            {data?.title || data?.name}
           </Heading>
           <Box
             w="100%"
@@ -47,14 +48,13 @@ function PageDetail({ sets, breads, children, data }) {
               />
             </Box>
             <Box p={1}>
-              <Box
+              <BackgroundImage
+                title={data?.title || data?.name}
+                alt={data?.title || data?.name}
                 minH={['200px', '320px', '400px']}
                 w="100%"
-                backgroundColor="holder"
+                src={data.thumbnail}
                 backgroundSize="cover"
-                backgroundRepeat="no-repeat"
-                backgroundPosition="center"
-                backgroundImage={data.thumbnail}
               />
             </Box>
           </Box>
@@ -62,7 +62,9 @@ function PageDetail({ sets, breads, children, data }) {
         <Section title={set.desc} id="desc" sep={4} icon={<VscLayout />}>
           <Text textAlign="justify">{data.desc}</Text>
         </Section>
-        {data?.markdown && <MarkdownRender>{data.markdown}</MarkdownRender>}
+        {data?.markdown && client && (
+          <MarkdownRender>{data.markdown}</MarkdownRender>
+        )}
         {children}
       </Box>
     </Container>

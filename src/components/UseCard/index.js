@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React from 'react';
 import icons from '@/globals/icon';
 import { articleId } from '@/globals/envs';
+import { BackgroundImage } from '@/lib/NextChakra';
 
 function UseCard({ set, data, href, ...props }) {
   return (
@@ -32,7 +33,7 @@ function UseCard({ set, data, href, ...props }) {
           whileDrag={{ scale: 1.05, zIndex: 1 }}
           style={{ flex: 1, width: '100%', height: '100%' }}
         >
-          <Button
+          <BackgroundImage
             overflow="hidden"
             variant="unstyled"
             display="block"
@@ -60,7 +61,7 @@ function UseCard({ set, data, href, ...props }) {
               bottom={0}
               bgColor="blackAlpha.500"
             />
-          </Button>
+          </BackgroundImage>
         </motion.div>
       </Box>
       <Box

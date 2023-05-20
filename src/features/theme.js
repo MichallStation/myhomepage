@@ -64,7 +64,7 @@ const theme = extendTheme({
   },
   fonts: {
     heading: "'Signika Negative', sans-serif",
-    body: "'Source Sans Pro', sans-serif",
+    body: "'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
     mono: "'Roboto Mono', monospace",
     deco: "'Lobster Two', cursive",
     handwrite: "'Merienda', cursive",

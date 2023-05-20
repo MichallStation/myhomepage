@@ -1,30 +1,23 @@
 import { Container } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 import createFeaturesStorage from '@/features';
 import Author from '@/components/Author';
 import Bio from '@/components/Bio';
 import Footer from '@/components/Footer';
 import SEO from '@/layouts/SEO';
-import { fetchCollectById } from '@/db';
-import fallback from '@/globals/fallback';
+import langs from '@/langs';
 
-const id = 'home';
-
-/**
- * @param {{
- *  storage: import('@/@type/features').FeaturesStorage,
- *  sets: import('@/@type/sets').SetLang
- * }}
- * */
-function Home({ sets }) {
-  const set = sets?.home || fallback.home;
+/** * @param {{ storage: import('@/@type/features').FeaturesStorage  }} * */
+function Home() {
+  const { locale } = useRouter();
+  const set = langs[locale || 'en'].home;
   return (
     <>
       <SEO
-        sets={sets}
         title={set?.title}
         name={set?.name}
         desc={set?.desc}
-        card={set?.thumnail}
+        card={set?.thumbnail}
       />
       <Container
         maxW={{ sm: 'full', md: '3xl' }}
@@ -32,9 +25,9 @@ function Home({ sets }) {
         overflow="hidden"
         px={6}
       >
-        <Author sets={sets} />
-        <Bio sets={sets} />
-        <Footer sets={sets} />
+        <Author />
+        <Bio />
+        <Footer />
       </Container>
     </>
   );
@@ -43,9 +36,8 @@ function Home({ sets }) {
 /** @param {import('next').NextPageContext} context */
 export async function getServerSideProps(context) {
   const storage = createFeaturesStorage(context);
-  const sets = await fetchCollectById(id, storage.current.lang);
   return {
-    props: { storage, sets },
+    props: { storage },
   };
 }
 

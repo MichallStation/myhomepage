@@ -2,12 +2,17 @@ import React, { useCallback, useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { Box } from '@chakra-ui/react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 // import BallSpinner from '../BallSpinner';
 import { useInView } from 'framer-motion';
 import { loadGLTFModel } from '@/lib/three';
 import data from './envs';
-import { ball3dDone } from '@/features/slices/ui';
+import {
+  ball3dDone,
+  ball3dShows,
+  DONE,
+  selectball3dStatus,
+} from '@/features/slices/ui';
 
 const easeOutCirc = (x) => Math.sqrt(1 - (x - 1) ** 4);
 const envs = {
@@ -19,6 +24,7 @@ function Ball3d() {
   const refRenderer = useRef();
   const dispatch = useDispatch();
   const inView = useInView(refContainer);
+  const status = useSelector(selectball3dStatus);
 
   useEffect(() => {
     envs.inView = inView;
@@ -41,14 +47,6 @@ function Ball3d() {
       window.removeEventListener('resize', handleWindowResize, false);
     };
   }, [handleWindowResize]);
-
-  // useEffect(() => {
-  //   console.log(controls);
-  //   if (controls) {
-  //     if (inView) controls.autoRotate = true;
-  //     else controls.autoRotate = false;
-  //   }
-  // }, [inView]);
 
   useEffect(() => {
     const { current: container } = refContainer;
@@ -107,8 +105,13 @@ function Ball3d() {
         camera.position.x = p.x * Math.cos(rotSpeed) + p.z * Math.sin(rotSpeed);
         camera.position.z = p.z * Math.cos(rotSpeed) - p.x * Math.sin(rotSpeed);
         camera.lookAt(target);
-      } else if (envs.inView) {
-        controls.update();
+      } else {
+        if (status !== DONE) {
+          dispatch(ball3dDone());
+        }
+        if (envs.inView) {
+          controls.update();
+        }
       }
 
       renderer.render(scene, camera);
@@ -119,7 +122,7 @@ function Ball3d() {
       receiveShadow: false,
       castShadow: false,
     }).then(() => {
-      dispatch(ball3dDone());
+      dispatch(ball3dShows());
       animate();
     });
 

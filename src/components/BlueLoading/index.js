@@ -1,12 +1,11 @@
 import { Box, useColorModeValue } from '@chakra-ui/react';
-import React, { useCallback, useEffect, useRef } from 'react';
-import BackgroundImage from '../BackgroundImage';
+import React, { useCallback, useEffect } from 'react';
+import { BackgroundImage } from '@/lib/NextChakra';
 import BlueBrand from '../Blue/BlueBrand';
 import envs from '../Blue/envs';
 import MadeBy from '../MadeBy';
 
 function BlueLoading() {
-  const refBox = useRef();
   const handlePreventDefault = useCallback(
     /** @param {Event} e */
     (e) => e.preventDefault(),
@@ -14,28 +13,33 @@ function BlueLoading() {
   );
 
   useEffect(() => {
-    /** @type {{current: HTMLElement}} */
-    const { current: el } = refBox;
-    if (!el) return;
-
-    el.addEventListener('scroll', handlePreventDefault);
-    el.addEventListener('touchmove', handlePreventDefault);
-    el.addEventListener('wheel', handlePreventDefault);
-    el.addEventListener('keydown', handlePreventDefault);
-    el.addEventListener('click', handlePreventDefault);
+    document.addEventListener('scroll', handlePreventDefault, {
+      passive: false,
+    });
+    document.addEventListener('touchmove', handlePreventDefault, {
+      passive: false,
+    });
+    document.addEventListener('wheel', handlePreventDefault, {
+      passive: false,
+    });
+    document.addEventListener('keydown', handlePreventDefault, {
+      passive: false,
+    });
+    document.addEventListener('click', handlePreventDefault, {
+      passive: false,
+    });
     // eslint-disable-next-line consistent-return
     return () => {
-      el.removeEventListener('scroll', handlePreventDefault);
-      el.removeEventListener('touchmove', handlePreventDefault);
-      el.removeEventListener('wheel', handlePreventDefault);
-      el.removeEventListener('keydown', handlePreventDefault);
-      el.removeEventListener('click', handlePreventDefault);
+      document.removeEventListener('scroll', handlePreventDefault);
+      document.removeEventListener('touchmove', handlePreventDefault);
+      document.removeEventListener('wheel', handlePreventDefault);
+      document.removeEventListener('keydown', handlePreventDefault);
+      document.removeEventListener('click', handlePreventDefault);
     };
   }, [handlePreventDefault]);
 
   return (
     <Box
-      ref={refBox}
       id="blue-loading"
       zIndex="10001"
       pos="fixed"

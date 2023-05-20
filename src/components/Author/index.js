@@ -9,9 +9,11 @@ import {
 import Link from 'next/link';
 import React from 'react';
 import { BsBoxArrowInRight } from 'react-icons/bs';
+import { useRouter } from 'next/router';
 import Section from '@/layouts/Section';
 import envs from './envs';
-import fallback from '@/globals/fallback';
+import { BackgroundImage } from '@/lib/NextChakra';
+import langs from '@/langs';
 
 /**
  * @param {{
@@ -19,8 +21,9 @@ import fallback from '@/globals/fallback';
  *  sets: import('@/@type/sets').SetLang
  * }}
  * */
-function Author({ sets }) {
-  const set = sets?.Author || fallback.Author;
+function Author() {
+  const { locale } = useRouter();
+  const set = langs[locale || 'en'].Author;
   return (
     <Box className="author">
       <Heading
@@ -28,13 +31,9 @@ function Author({ sets }) {
         fontSize="xl"
         display="block"
         textAlign="center"
-        // borderRadius="xl"
         position="relative"
         p={3}
-        // borderRadius="32px"
         borderRadius="12px"
-        // py={3}
-        // px={4}
         m={0}
         bottom={0}
         left={0}
@@ -50,12 +49,6 @@ function Author({ sets }) {
         alignItems="center"
         position="relative"
         mt={[3, 4]}
-        // p={4}
-        // backgroundColor={useColorModeValue(
-        //   'blackAlpha.200',
-        //   // 'whiteAlpha.300',
-        // )}
-        // borderRadius="32px"
       >
         <Box>
           <Heading as="h1" fontWeight="bold" fontSize="3xl" m={0}>
@@ -65,23 +58,19 @@ function Author({ sets }) {
             {set.desc}
           </Text>
         </Box>
-        <Box
+        <BackgroundImage
           className="shows-avatar"
           mt={{ base: 3, md: 0 }}
           borderRadius="full"
           border="4px solid"
-          borderColor={useColorModeValue(
-            'gray.700',
-            // 'currentColor',
-            'currentColor',
-          )}
+          borderColor={useColorModeValue('gray.700', 'currentColor')}
           w="132px"
           h="128px"
           backgroundColor="holder"
           backgroundSize="contain"
           backgroundRepeat="no-repeat"
           backgroundPosition="center"
-          backgroundImage={envs.avatarUrl}
+          src={envs.avatarUrl}
         />
       </Box>
       <Section title={set.worktitle} icon={<MdWorkOutline />}>
