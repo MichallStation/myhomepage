@@ -8,6 +8,8 @@ import Footer from '@/components/Footer';
 import OfflineBanner from '@/components/ErrorBanner/OfflineBanner';
 import langs from '@/langs';
 import createFeaturesStorage from '@/features';
+import useFeaturesStorage from '@/features/hooks/useFeaturesStorage';
+import Page from '@/layouts/Page';
 
 function Offline() {
   const router = useRouter();
@@ -58,12 +60,12 @@ function Offline() {
   );
 }
 
-// Offline.getLayout = (page) => {
-//   // eslint-disable-next-line react-hooks/rules-of-hooks
-//   const storage = useFeaturesStorage();
-//   // return <PageStatic>{page}</PageStatic>;
-//   return <Page storage={storage}>{page}</Page>;
-// };
+Offline.getLayout = (page) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const storage = useFeaturesStorage();
+  // return <PageStatic>{page}</PageStatic>;
+  return <Page storage={storage}>{page}</Page>;
+};
 
 /** @param {import('next').GetStaticPropsContext} context */
 export async function getStaticProps(context) {

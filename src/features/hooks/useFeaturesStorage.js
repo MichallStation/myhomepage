@@ -10,16 +10,9 @@ import { useEffect, useState } from 'react';
 
 /** @type {import("../../@type/features").FeaturesStorage} */
 const initialValues = {
-  current: {
-    lang: 'en',
-    latest: Date(),
-    cookie: '',
-  },
-  prev: {
-    lang: 'en',
-    latest: Date(),
-    cookie: '',
-  },
+  lang: 'en',
+  latest: Date(),
+  cookie: '',
 };
 
 /** @returns {import("../../@type/features").FeaturesStorage} */
@@ -27,13 +20,9 @@ export default function useFeaturesStorage() {
   const [storage, setStorage] = useState(initialValues);
   useEffect(() => {
     setStorage({
-      current: {
-        lang: Cookies.get('lang') || 'en',
-        latest: Cookies.get('latest') || Date(),
-      },
-      prev: {
-        cookie: document.cookie,
-      },
+      lang: Cookies.get('lang') || 'en',
+      latest: Cookies.get('latest') || Date(),
+      cookie: document.cookie,
     });
   }, []);
   return storage;

@@ -8,6 +8,8 @@ import SEO from '@/layouts/SEO';
 import Footer from '@/components/Footer';
 import Banner500 from '@/components/ErrorBanner/Banner500';
 import langs from '@/langs';
+import useFeaturesStorage from '@/features/hooks/useFeaturesStorage';
+import Page from '@/layouts/Page';
 
 function E500() {
   const { locale } = useRouter();
@@ -56,11 +58,11 @@ function E500() {
   );
 }
 
-// E500.getLayout = (page) => {
-//   // eslint-disable-next-line react-hooks/rules-of-hooks
-//   const storage = useFeaturesStorage();
-//   return <Page storage={storage}>{page}</Page>;
-// };
+E500.getLayout = (page) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const storage = useFeaturesStorage();
+  return <Page storage={storage}>{page}</Page>;
+};
 
 /** @param {import('next').GetStaticPropsContext} context */
 export async function getStaticProps(context) {

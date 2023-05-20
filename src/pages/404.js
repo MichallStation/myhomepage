@@ -9,6 +9,8 @@ import SEO from '@/layouts/SEO';
 import Footer from '@/components/Footer';
 import createFeaturesStorage from '@/features';
 import langs from '@/langs';
+import useFeaturesStorage from '@/features/hooks/useFeaturesStorage';
+import Page from '@/layouts/Page';
 
 /** @param {{ storage: import('@/@type/features').FeaturesStorage }} */
 function E404() {
@@ -60,12 +62,12 @@ function E404() {
   );
 }
 
-// E404.getLayout = (page) => {
-//   // eslint-disable-next-line react-hooks/rules-of-hooks
-//   const storage = useFeaturesStorage();
-//   // return <PageStatic>{page}</PageStatic>;
-//   return <Page storage={storage}>{page}</Page>;
-// };
+E404.getLayout = (page) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const storage = useFeaturesStorage();
+  // return <PageStatic>{page}</PageStatic>;
+  return <Page storage={storage}>{page}</Page>;
+};
 
 /** @param {import('next').GetStaticPropsContext} context */
 export async function getStaticProps(context) {
