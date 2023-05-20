@@ -24,8 +24,9 @@ const style = {
   },
 };
 
-function LanguageButton({ lang = 'en' }) {
+function LanguageButton() {
   const router = useRouter();
+  const { locale: lang } = router;
   const handleChangeLang = useCallback(
     /** @param {Event} e */
     (e) => {

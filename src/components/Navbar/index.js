@@ -35,7 +35,7 @@ const style = {
 };
 
 /** @param {{storage: import('@/@type/features').FeaturesStorage}}  */
-function Navbar({ storage, sets }) {
+function Navbar({ storage }) {
   const router = useRouter();
   const { locale } = router;
   const set = langs[locale || 'en'].Navbar;
@@ -69,8 +69,8 @@ function Navbar({ storage, sets }) {
         <Logo width={envs.logoHeight} />
         <Box display="flex">
           <Box display="flex" alignItems="center">
-            <LanguageButton lang={storage.lang} sets={sets} />
-            <ThemeButton lang={storage.lang} sets={sets} ml={2} />
+            <LanguageButton />
+            <ThemeButton ml={2} />
           </Box>
           <NavLink set={set} router={router} />
         </Box>
