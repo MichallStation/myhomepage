@@ -31,7 +31,8 @@ const minimizeContent = (content, relative = '') => {
     ...content,
     thumbnail:
       content?.thumbnail && addRemoteLink(content?.thumbnail, relative),
-    json: content?.json && readInternalFile(content?.json, relative),
+    json:
+      content?.json && JSON.parse(readInternalFile(content?.json, relative)),
     md: content?.md && readInternalFile(content?.md, relative),
   };
 };
