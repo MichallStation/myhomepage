@@ -79,6 +79,7 @@ dirs.forEach((name) => {
   ids.map((id) => {
     wid = path.join(w, id);
     langList.forEach((lang) => {
+      const wBuildFolder = path.join(folderJson, id);
       const wlang = path.join(wid, `${lang}.json`);
       if (!existsSync(wlang)) return;
       // console.log(wlang);
@@ -88,6 +89,16 @@ dirs.forEach((name) => {
         ...normalizeContent(content, path.join(name, id)),
         id: content?.id || id,
       };
+
+      if (!existsSync(wBuildFolder))
+        mkdirSync(wBuildFolder, {
+          recursive: true,
+        });
+      writeFileSync(
+        path.join(wBuildFolder, `${lang}.json`),
+        JSON.stringify(content)
+      );
+
       if (!fileJsonContent?.[lang]) fileJsonContent[lang] = [];
       fileJsonContent[lang].push(content);
 
@@ -201,6 +212,7 @@ dirs.forEach((name) => {
     ids.map((id) => {
       const wid = path.join(wlid, id);
       langList.forEach((lang) => {
+        const wBuildFolder = path.join(folderJson, lid, id);
         const wlang = path.join(wid, `${lang}.json`);
         if (!existsSync(wlang)) return;
         // console.log(wlang);
@@ -212,6 +224,16 @@ dirs.forEach((name) => {
           // uuid,
           type: lid,
         };
+
+        if (!existsSync(wBuildFolder))
+          mkdirSync(wBuildFolder, {
+            recursive: true,
+          });
+        writeFileSync(
+          path.join(wBuildFolder, `${lang}.json`),
+          JSON.stringify(content)
+        );
+
         if (!fileJsonContent?.[lang]) fileJsonContent[lang] = [];
         fileJsonContent[lang].push(content);
       });
