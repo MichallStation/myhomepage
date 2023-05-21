@@ -10,11 +10,13 @@ const path = require('node:path');
 // const crypto = require('crypto');
 
 // const uuid = crypto.randomUUID();
-const internalPath = (path) => !path.startsWith('https');
-const addRemoteLink = (path = '', relative) =>
-  internalPath(path)
-    ? `https://raw.githubusercontent.com/ltndat/myhomepage/db/${relative}/${path}`
-    : path;
+const internalPath = (p) => !p.startsWith('https');
+const addRemoteLink = (p = '', relative) =>
+  internalPath(p)
+    ? `https://raw.githubusercontent.com/ltndat/myhomepage/db/${relative}/${p}`
+    : p;
+const readInternalFile = (p = '', relative) =>
+  readFileSync(path.join(workspace, relative, p)).toString();
 const normalizeContent = (content, relative = '') => {
   return {
     ...content,
@@ -24,6 +26,16 @@ const normalizeContent = (content, relative = '') => {
     md: content?.md && addRemoteLink(content?.md, relative),
   };
 };
+const minimizeContent = (content, relative = '') => {
+  return {
+    ...content,
+    thumbnail:
+      content?.thumbnail && addRemoteLink(content?.thumbnail, relative),
+    json: content?.json && readInternalFile(content?.json, relative),
+    md: content?.md && readInternalFile(content?.md, relative),
+  };
+};
+
 const workspace = path.join(__dirname, '..');
 const langList = ['en', 'vi', 'zh'];
 const lsDir = (p) => {
@@ -84,6 +96,11 @@ dirs.forEach((name) => {
       if (!existsSync(wlang)) return;
       // console.log(wlang);
       let content = JSON.parse(readFileSync(wlang).toString());
+      const detailContent = {
+        ...content,
+        ...minimizeContent(content, path.join(name, id)),
+        id: content?.id || id,
+      };
       content = {
         ...content,
         ...normalizeContent(content, path.join(name, id)),
@@ -96,7 +113,7 @@ dirs.forEach((name) => {
         });
       writeFileSync(
         path.join(wBuildFolder, `${lang}.json`),
-        JSON.stringify(content)
+        JSON.stringify(detailContent)
       );
 
       if (!fileJsonContent?.[lang]) fileJsonContent[lang] = [];
@@ -217,6 +234,13 @@ dirs.forEach((name) => {
         if (!existsSync(wlang)) return;
         // console.log(wlang);
         let content = JSON.parse(readFileSync(wlang).toString());
+        const detailContent = {
+          ...content,
+          ...minimizeContent(content, path.join('detail', lid, id)),
+          id: content?.id || id,
+          // uuid,
+          type: lid,
+        };
         content = {
           ...content,
           ...normalizeContent(content, path.join('detail', lid, id)),
@@ -231,7 +255,7 @@ dirs.forEach((name) => {
           });
         writeFileSync(
           path.join(wBuildFolder, `${lang}.json`),
-          JSON.stringify(content)
+          JSON.stringify(detailContent)
         );
 
         if (!fileJsonContent?.[lang]) fileJsonContent[lang] = [];
