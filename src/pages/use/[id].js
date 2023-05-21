@@ -5,7 +5,6 @@ import { fetchUseById } from '@/db';
 import SEO from '@/layouts/SEO';
 import E404 from '@/pages/404';
 import icon from '@/globals/icon';
-import Footer from '@/components/Footer';
 import PageDetail from '@/layouts/PageDetail';
 import langs from '@/langs';
 
@@ -39,7 +38,6 @@ function UseDetail({ data }) {
       />
       <PageDetail set={setDetail} data={data} breads={breads}>
         {data.title}
-        <Footer />
       </PageDetail>
     </>
   );

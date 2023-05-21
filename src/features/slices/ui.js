@@ -4,8 +4,8 @@ export const name = 'ui';
 export const LOADING = 'load';
 export const PROGRESSING = 'progressing';
 export const DONE = 'done';
+export const HIDE = 'hide';
 export const ERROR = 'error';
-
 export const SHOW = 'show';
 export const CLOSE = 'close';
 
@@ -20,6 +20,12 @@ const initialState = {
   },
   ball3d: {
     status: LOADING,
+  },
+  modal: {
+    value: {
+      title: '',
+    },
+    status: HIDE,
   },
 };
 

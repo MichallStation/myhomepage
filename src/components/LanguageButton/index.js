@@ -55,7 +55,8 @@ function LanguageButton() {
           <MenuItem
             key={i}
             as={Button}
-            className={i === lang && 'second-btn'}
+            // className={i === lang && 'second-btn'}
+            bgColor={i === lang && 'second'}
             // as="span"
             value={i}
             style={style.option}

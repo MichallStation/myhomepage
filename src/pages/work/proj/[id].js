@@ -10,7 +10,6 @@ import DetailInfo from '@/components/DetailInfo';
 import PreviewInfo from '@/components/PreviewInfo';
 import { fetchDetailById } from '@/db';
 import SEO from '@/layouts/SEO';
-import Footer from '@/components/Footer';
 import icons from '@/globals/icon';
 import langs from '@/langs';
 
@@ -70,7 +69,6 @@ function ProjectDetail({ data }) {
             <PreviewInfo data={data.preview} />
           </Section>
         )}
-        <Footer />
       </PageDetail>
     </>
   );

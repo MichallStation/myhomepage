@@ -1,10 +1,7 @@
-import { Box, Button, Image, Icon } from '@chakra-ui/react';
-import { AnimatePresence, motion, useAnimationControls } from 'framer-motion';
-import React, { useCallback, useEffect, useState, useRef } from 'react';
-import { BiLeftArrow, BiRightArrow } from 'react-icons/bi';
-import { BsFullscreen } from 'react-icons/bs';
-import { GoPrimitiveDot } from 'react-icons/go';
-import { openFullscreen } from '@/lib/browsers';
+import { Box } from '@chakra-ui/react';
+import { animationControls, motion } from 'framer-motion';
+import React, { useCallback, useEffect, useRef, useMemo } from 'react';
+import { BackgroundImage } from '@/lib/NextChakra';
 
 /** @type {Object<string, import('framer-motion').TargetAndTransition>} * */
 const variants = {
@@ -19,56 +16,48 @@ const variants = {
   view: {
     translateX: 0,
     opacity: 1,
+    scale: 1,
   },
   hide: {
     opacity: 0,
+    scale: 0,
   },
 };
 
-function BallGallery({ data, originIndex = 0, onChange, ...props }) {
-  const [currentIndex, setIndex] = useState(originIndex);
-  // const [fullscreen, setFullscreen] = useState(false);
-  const controls = useAnimationControls();
+function BallGallery({ data, originIndex = 0, onChange, onClose, ...props }) {
+  const dataSort = useMemo(
+    () => [
+      ...data.slice(originIndex, data.length),
+      ...data.slice(0, originIndex),
+    ],
+    [data, originIndex],
+  );
+  // const controls = useAnimationControls();
+  const controls = useMemo(
+    () =>
+      data.reduce(
+        (r, _, index) => ({ ...r, [index]: animationControls() }),
+        {},
+      ),
+    [data],
+  );
   const refContainer = useRef();
-  const currentItem = data[currentIndex];
 
   useEffect(() => {
-    setIndex(originIndex);
-  }, [originIndex]);
+    onChange(data[originIndex]);
+  }, [data, onChange, originIndex]);
 
-  const handlePrev = useCallback(() => {
-    let newIndex = currentIndex - 1;
-    if (currentIndex === 0) newIndex = data.length - 1;
-    controls.start('initLeft');
-    setIndex(() => newIndex);
-    if (onChange) {
-      onChange(newIndex);
-    }
-  }, [controls, currentIndex, data.length, onChange]);
-
-  const handleNext = useCallback(() => {
-    let newIndex = currentIndex + 1;
-    if (currentIndex === data.length - 1) newIndex = 0;
-    controls.start('initRight');
-    setIndex(() => newIndex);
-    if (onChange) {
-      onChange(newIndex);
-    }
-  }, [controls, currentIndex, data.length, onChange]);
-
-  const handleToggleFullscreen = useCallback(() => {
-    /** @type {{current: HTMLElement}}  */
-    const { current: el } = refContainer;
-    if (!el) return;
-    openFullscreen(el);
-    // setSize(sizes.fullscreen);
-    // if (!fullscreen) {
-    //   openFullscreen(el);
-    // } else {
-    //   closeFullscreen(el);
-    // }
-    // setFullscreen((p) => !p);
-  }, []);
+  const handleHide = useCallback(
+    (e) => {
+      let { index: id } = e.target.dataset;
+      if (!id) return;
+      id = Number(id);
+      controls[id].mount();
+      controls[id].start('hide');
+      onChange(dataSort?.[id + 1]);
+    },
+    [controls, dataSort, onChange],
+  );
 
   return (
     <Box
@@ -77,103 +66,48 @@ function BallGallery({ data, originIndex = 0, onChange, ...props }) {
       display="flex"
       alignItems="center"
       justifyContent="center"
+      pos="relative"
       {...props}
     >
-      <Button
-        variant="unstyled"
-        onClick={handlePrev}
-        pos="absolute"
-        top="50%"
-        transform="translateY(-50%)"
-        left={0}
-        p={2}
-        w="56px"
-        h="56px"
-      >
-        <Icon as={BiLeftArrow} boxSize="40px" />
-      </Button>
-      <Button
-        variant="unstyled"
-        onClick={handleNext}
-        pos="absolute"
-        top="50%"
-        transform="translateY(-50%)"
-        right={0}
-        p={2}
-        w="56px"
-        h="56px"
-      >
-        <Icon as={BiRightArrow} boxSize="40px" />
-      </Button>
-      <Box
-        w="100%"
-        h="100%"
-        // display="flex"
-        // alignItems="center"
-        // justifyContent="center"
-      >
-        <Button
-          variant="unstyled"
-          onClick={handleToggleFullscreen}
-          pos="absolute"
-          // top="50%"
-          bottom={0}
-          // transform="translateY(-50%)"
-          right={0}
-          p={2}
-          w="56px"
-          h="56px"
+      {dataSort.map((i, index) => (
+        <motion.div
+          key={i.thumbnail}
+          animate={controls[index]}
+          variants={variants}
+          transition={{ duration: 0.4 }}
+          drag
+          dragDirectionLock
+          onDragEnd={handleHide}
+          onWheel={handleHide}
+          data-index={index}
+          style={{
+            width: '100%',
+            height: '100%',
+            overflowX: 'auto',
+            position: 'absolute',
+            zIndex: data.length - index,
+            touchAction: 'none',
+          }}
         >
-          <Icon as={BsFullscreen} boxSize="36px" />
-        </Button>
-        <AnimatePresence initial={false} mode="wait">
-          <motion.div
-            key={currentItem.thumbnail}
-            animate={controls}
-            variants={variants}
-            transition={{ duration: 0.4 }}
-            exit={{}}
-            style={{
-              width: '100%',
-              height: '100%',
-            }}
-          >
-            <Image
-              key={currentItem.thumbnail}
-              src={currentItem.thumbnail}
-              title={currentItem.title}
-              data-index={currentIndex}
-              // borderRadius="lg"
-              objectFit="contain"
-              // objectFit="cover"
-              ref={refContainer}
-              w="100%"
-              h="60vh"
-              // h={size.h}
-              // w={size.w}
-              // h="60vh"
-              // backgroundSize="contain"
-            />
-          </motion.div>
-        </AnimatePresence>
-      </Box>
-      <Box
-        pos="absolute"
-        bottom={0}
-        left={0}
-        right={0}
-        display="flex"
-        justifyContent="center"
-      >
-        {data.map((item, i) => (
-          <Icon
-            key={item.id}
-            color={i === currentIndex ? 'white' : 'gray'}
-            as={GoPrimitiveDot}
-            boxSize="24px"
+          <BackgroundImage
+            pointerEvents="none"
+            borderRadius="24px"
+            bgColor="gray"
+            border="4px dotted"
+            borderColor="white"
+            key={i.thumbnail}
+            src={i.thumbnail}
+            title={i.title}
+            // borderRadius="lg"
+            objectFit="contain"
+            // objectFit="cover"
+            ref={refContainer}
+            // w="100%"
+            w="100%"
+            h="100%"
           />
-        ))}
-      </Box>
+        </motion.div>
+      ))}
     </Box>
   );
 }

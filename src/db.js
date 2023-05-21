@@ -164,50 +164,6 @@ export async function fetchAllCommunitysByLang(lang = 'en') {
   return data;
 }
 
-// export async function fetchProjectById(id, lang = 'en') {
-//   let data = null;
-//   try {
-//     const res = await fetch(`${ENV_DB_BASE_URL}/projs/${id}/${lang}.json`);
-//     data = await res.json();
-//   } catch (error) {
-//     console.error(error);
-//   }
-//   return data;
-// }
-
-// export async function fetchWorkById(id, lang = 'en') {
-//   let data = null;
-//   try {
-//     const res = await fetch(`${ENV_DB_BASE_URL}/works/${id}/${lang}.json`);
-//     data = await res.json();
-//   } catch (error) {
-//     console.error(error);
-//   }
-//   return data;
-// }
-
-// export async function fetchCollabById(id, lang = 'en') {
-//   let data = null;
-//   try {
-//     const res = await fetch(`${ENV_DB_BASE_URL}/collabs/${id}/${lang}.json`);
-//     data = await res.json();
-//   } catch (error) {
-//     console.error(error);
-//   }
-//   return data;
-// }
-
-// export async function fetchCommunityById(id, lang = 'en') {
-//   let data = null;
-//   try {
-//     const res = await fetch(`${ENV_DB_BASE_URL}/communitys/${id}/${lang}.json`);
-//     data = await res.json();
-//   } catch (error) {
-//     console.error(error);
-//   }
-//   return data;
-// }
-
 export async function fetchArticleById(id, lang = 'en') {
   return fetchDataByUrl(`/article/${id}`, lang);
 }
@@ -218,19 +174,6 @@ export async function fetchUseById(id, lang = 'en') {
 
 export async function fetchDetailById(id, type, lang = 'en') {
   return fetchDataByUrl(`/detail/${type}/${id}`, lang);
-}
-
-export async function fetchArticleHeaderById(id, lang = 'en') {
-  try {
-    const resData = await fetch(
-      `${ENV_DB_BASE_URL}/article/${id}/${lang}.json`,
-    );
-    const data = await resData.json();
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
-  return null;
 }
 
 export default {};

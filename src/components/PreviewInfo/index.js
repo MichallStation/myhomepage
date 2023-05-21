@@ -8,6 +8,9 @@ import {
   ModalBody,
   useColorModeValue,
   ModalHeader,
+  Heading,
+  ModalCloseButton,
+  Box,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import React, { useCallback, useState } from 'react';
@@ -21,9 +24,12 @@ function PreviewInfo({ data, ...props }) {
 
   const handleChange = useCallback(
     (i) => {
-      setModalTitle(data[i]?.title);
+      setModalTitle(i?.title);
+      if (!i) {
+        onClose();
+      }
     },
-    [data],
+    [onClose],
   );
 
   const handleClick = useCallback(
@@ -76,31 +82,67 @@ function PreviewInfo({ data, ...props }) {
           ))}
       </SimpleGrid>
       <Modal
-        blockScrollOnMount={false}
+        // blockScrollOnMount={false}
         isOpen={isOpen}
         onClose={onClose}
         isCentered
         size="3xl"
         motionPreset="slideInBottom"
       >
-        <ModalOverlay bg="blackAlpha.800" />
+        <ModalOverlay bg="blackAlpha.500" />
         <ModalContent
-          backgroundColor={useColorModeValue(
-            'whiteAlpha.300',
-            'whiteAlpha.300',
-            // 'blackAlpha.300',
-          )}
+          // backgroundColor={useColorModeValue(
+          //   'whiteAlpha.300',
+          //   'whiteAlpha.300',
+          //   // 'blackAlpha.300',
+          // )}
+          bgColor="transparent"
           backdropFilter="blur(10px)"
           overflow="hidden"
           h="80vh"
           pos="relative"
         >
-          <ModalHeader>{modalTitle}</ModalHeader>
-          <ModalBody p={2}>
+          <ModalHeader
+            display="flex"
+            alignItems="center"
+            // color="whiteAlpha.900"
+            pos="relative"
+            p={0}
+            px={2}
+          >
+            <Box flex={1}>
+              <Heading
+                fontSize={['xl', '2xl']}
+                fontFamily="handwrite"
+                display="contents"
+                backgroundColor={useColorModeValue(
+                  'whiteAlpha.300',
+                  'whiteAlpha.300',
+                  // 'blackAlpha.300',
+                )}
+                p={2}
+                borderRadius="24px"
+                // textAlign="center"
+              >
+                {modalTitle}
+              </Heading>
+            </Box>
+            <ModalCloseButton
+              ml={2}
+              bgColor="gray"
+              borderRadius="full"
+              pos="unset"
+              // top="50%"
+              boxSize="44px"
+              // transform="translateY(-50%)"
+            />
+          </ModalHeader>
+          <ModalBody bg="transparent" p={2}>
             <BallGallery
               data={data}
               originIndex={index}
               onChange={handleChange}
+              onClose={onClose}
             />
           </ModalBody>
         </ModalContent>

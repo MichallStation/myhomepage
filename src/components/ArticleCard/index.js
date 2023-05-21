@@ -1,10 +1,11 @@
-import { Box, Icon, Button, Heading, Text } from '@chakra-ui/react';
+import { Box, Icon, Heading, Text } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import React from 'react';
 import envs from './envs';
 import MotionButton from '../MotionChakra/MotionButton';
 import { KindleIcon } from '../icons';
+import { BackgroundImage } from '@/lib/NextChakra';
 
 function ArticleCard({ set, data, href, revert, ...props }) {
   return (
@@ -35,7 +36,7 @@ function ArticleCard({ set, data, href, revert, ...props }) {
         whileDrag={{ scale: 1.05, zIndex: 1 }}
         style={{ flex: 1, width: '100%', height: '100%' }}
       >
-        <Button
+        <BackgroundImage
           overflow="hidden"
           variant="unstyled"
           display="flex"
@@ -67,7 +68,7 @@ function ArticleCard({ set, data, href, revert, ...props }) {
             bgColor="blackAlpha.500"
             // bgColor="blackAlpha.300"
           />
-        </Button>
+        </BackgroundImage>
       </motion.div>
       <Box
         className="article-card-content"
@@ -76,10 +77,10 @@ function ArticleCard({ set, data, href, revert, ...props }) {
         my={[2, 2, 4]}
         flex={1}
       >
-        <Heading as="h3" fontSize="3xl" textAlign="center">
+        <Heading as="h3" fontSize={['2xl', '3xl']} textAlign="center">
           {data.title}
         </Heading>
-        <Text fontSize="lg" textAlign="center">
+        <Text fontSize={['md', 'lg']} textAlign="center">
           {data.desc}
         </Text>
         <Box display="flex" justifyContent="center" mt={2}>

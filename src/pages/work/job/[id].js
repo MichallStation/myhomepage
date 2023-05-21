@@ -1,7 +1,6 @@
 import React from 'react';
 import { BsExplicit, BsPersonVcard } from 'react-icons/bs';
 import { IoFilmOutline } from 'react-icons/io5';
-import { GiNewspaper } from 'react-icons/gi';
 import { useRouter } from 'next/router';
 import { fetchDetailById } from '@/db';
 import createFeaturesStorage from '@/features';
@@ -12,7 +11,6 @@ import DetailInfo from '@/components/DetailInfo';
 import PreviewInfo from '@/components/PreviewInfo';
 import SEO from '@/layouts/SEO';
 import icon from '@/globals/icon';
-import Footer from '@/components/Footer';
 import langs from '@/langs';
 // import ThumbnailShows from '@/components/ThumbnailShows';
 
@@ -72,20 +70,6 @@ function JobDetail({ data }) {
             <PreviewInfo data={data.moments} />
           </Section>
         )}
-        {data?.articles && (
-          <Section
-            title={set.articles.title}
-            id="article"
-            sep={4}
-            icon={<GiNewspaper />}
-          >
-            {data?.articlesDesc || set.articles.desc}
-            {/* {data?.articles && (
-          <PreviewLinkShows data={data?.articles} lang={lang} mt={4} />
-        )} */}
-          </Section>
-        )}
-        <Footer />
       </PageDetail>
     </>
   );

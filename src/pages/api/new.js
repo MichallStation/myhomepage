@@ -1,11 +1,11 @@
-const { API_DATA, API_TOKEN } = process.env;
+const { API_SERVER, API_TOKEN } = process.env;
 
 /** @param {import("next").NextApiRequest} req @param {import("next").NextApiResponse} res */
 export default async function handler(req, res) {
   const { method } = req;
   if (method === 'POST') {
     try {
-      const data = await fetch(API_DATA, {
+      const data = await fetch(`${API_SERVER}/new`, {
         headers: new Headers({
           Authorization: `Token ${API_TOKEN}`,
           token: API_TOKEN,

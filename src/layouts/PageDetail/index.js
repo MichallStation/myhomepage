@@ -1,12 +1,14 @@
 import React from 'react';
 import { Box, Container, Heading, Text, Icon } from '@chakra-ui/react';
 import { VscLayout } from 'react-icons/vsc';
+import { GiNewspaper } from 'react-icons/gi';
 import Section from '@/layouts/Section';
 import BlueBreadcrumb from '@/components/BlueBreadcrumb';
 import icons from '@/globals/icon';
 import MarkdownRender from '@/components/MarkdownRender';
 import { BackgroundImage } from '@/lib/NextChakra';
 import useClientSide from '@/features/hooks/useClientSide';
+import Footer from '@/components/Footer';
 
 function PageDetail({ set, breads, children, data }) {
   const client = useClientSide();
@@ -66,6 +68,20 @@ function PageDetail({ set, breads, children, data }) {
           <MarkdownRender>{data.markdown}</MarkdownRender>
         )}
         {children}
+        {data?.articles && (
+          <Section
+            title={set.articles.title}
+            id="article"
+            sep={4}
+            icon={<GiNewspaper />}
+          >
+            {data?.articlesDesc || set.articles.desc}
+            {/* {data?.articles && (
+          <PreviewLinkShows data={data?.articles} lang={lang} mt={4} />
+        )} */}
+          </Section>
+        )}
+        <Footer />
       </Box>
     </Container>
   );
