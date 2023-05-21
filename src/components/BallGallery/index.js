@@ -13,16 +13,7 @@ import { openFullscreen } from '@/lib/browsers';
 
 /** @type {Object<string, import('framer-motion').TargetAndTransition>} * */
 const variants = {
-  initLeft: {
-    // translateX: '-100%',
-    opacity: 0,
-  },
-  initRight: {
-    // translateX: '100%',
-    opacity: 0,
-  },
   view: {
-    // translateX: 0,
     opacity: 1,
     scale: 1,
   },
@@ -102,7 +93,7 @@ function BallGallery({ data, originIndex = 0, onChange, onClose, ...props }) {
             key={currentItem.thumbnail}
             animate={controls[currentIndex]}
             variants={variants}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.2 }}
             drag
             dragDirectionLock
             initial="hide"

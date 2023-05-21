@@ -94,7 +94,7 @@ function NavLink({ set, router }) {
         ))}
       </List>
       <Box display={{ base: 'block', md: 'none' }} ml={2}>
-        <Menu isLazy>
+        <Menu isLazy closeOnSelect closeOnBlur={false}>
           <MenuButton title="Menu" as={Button} p={2} w="48px">
             <Icon
               as={AiOutlineMenu}

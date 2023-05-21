@@ -1,33 +1,34 @@
 import { Box, useColorModeValue } from '@chakra-ui/react';
-import React, { useCallback, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { BackgroundImage } from '@/lib/NextChakra';
 import BlueBrand from '../Blue/BlueBrand';
 import envs from '../Blue/envs';
 import MadeBy from '../MadeBy';
+import { isClientSide } from '@/globals/envs';
+
+const handlePreventDefault = (e) => e.preventDefault();
+
+if (isClientSide) {
+  document.addEventListener('scroll', handlePreventDefault, {
+    passive: false,
+  });
+  document.addEventListener('touchmove', handlePreventDefault, {
+    passive: false,
+  });
+  document.addEventListener('wheel', handlePreventDefault, {
+    passive: false,
+  });
+  document.addEventListener('keydown', handlePreventDefault, {
+    passive: false,
+  });
+  document.addEventListener('click', handlePreventDefault, {
+    passive: false,
+  });
+}
 
 function BlueLoading() {
-  const handlePreventDefault = useCallback(
-    /** @param {Event} e */
-    (e) => e.preventDefault(),
-    [],
-  );
-
+  // eslint-disable-next-line arrow-body-style
   useEffect(() => {
-    document.addEventListener('scroll', handlePreventDefault, {
-      passive: false,
-    });
-    document.addEventListener('touchmove', handlePreventDefault, {
-      passive: false,
-    });
-    document.addEventListener('wheel', handlePreventDefault, {
-      passive: false,
-    });
-    document.addEventListener('keydown', handlePreventDefault, {
-      passive: false,
-    });
-    document.addEventListener('click', handlePreventDefault, {
-      passive: false,
-    });
     // eslint-disable-next-line consistent-return
     return () => {
       document.removeEventListener('scroll', handlePreventDefault);
@@ -36,7 +37,7 @@ function BlueLoading() {
       document.removeEventListener('keydown', handlePreventDefault);
       document.removeEventListener('click', handlePreventDefault);
     };
-  }, [handlePreventDefault]);
+  }, []);
 
   return (
     <Box

@@ -39,7 +39,7 @@ export const useKitflowType = 'kitflow';
 export const useDevflowType = 'devflow';
 export const articleGeneralType = 'general';
 
-export const isServerSide = typeof window === 'undefined';
+export const isClientSide = typeof window !== 'undefined';
 
 export const ENV_HOST_URL = process.env.NEXT_PUBLIC_URL;
 export const ENV_DB_HOST_DEV = 'http://localhost:5000';
