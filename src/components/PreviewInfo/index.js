@@ -97,7 +97,7 @@ function PreviewInfo({ data, ...props }) {
           //   // 'blackAlpha.300',
           // )}
           bgColor="transparent"
-          backdropFilter="blur(10px)"
+          // backdropFilter="blur(10px)"
           overflow="hidden"
           h="80vh"
           pos="relative"
