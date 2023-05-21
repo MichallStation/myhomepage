@@ -68,18 +68,16 @@ export async function fetchSetPageByLang(lang = 'en') {
 export async function fetchDataByUrl(url, lang = 'en') {
   try {
     // const result = {};
-    const resData = await fetch(`${ENV_DB_BASE_URL}${url}/${lang}.json`);
+    const resData = await fetch(`${ENV_DB_BASE_URL}/.data/${url}/${lang}.json`);
     const data = await resData.json();
     let detailData = {};
 
     if (data?.md) {
-      const resMarkdown = await fetch(data.md);
-      const markdown = await resMarkdown.text();
-      detailData.markdown = markdown;
+      const { md } = data;
+      detailData.markdown = md;
     }
     if (data?.json) {
-      const resJson = await fetch(data.json);
-      const json = await resJson.json();
+      const { json } = data;
       detailData = { ...detailData, ...json };
     }
     return { ...data, ...detailData };
