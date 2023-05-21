@@ -1,7 +1,7 @@
 {
   "type": "tech",
-  "title": "Bài viết",
-  "desc": "Diễn giải bài viết.",
+  "title": "Cửa sổ dòng lệnh",
+  "desc": "Cầu nối với các hệ điều hành của tôi.",
   "md": "vi.md",
   "thumbnail": "thumbnail.jpg"
 }
