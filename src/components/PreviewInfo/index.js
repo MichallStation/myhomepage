@@ -89,7 +89,10 @@ function PreviewInfo({ data, ...props }) {
         size="3xl"
         motionPreset="slideInBottom"
       >
-        <ModalOverlay bg="blackAlpha.500" />
+        <ModalOverlay
+          // bg="blackAlpha.500"
+          bg="blackAlpha.800"
+        />
         <ModalContent
           // backgroundColor={useColorModeValue(
           //   'whiteAlpha.300',
@@ -105,7 +108,7 @@ function PreviewInfo({ data, ...props }) {
           <ModalHeader
             display="flex"
             alignItems="center"
-            // color="whiteAlpha.900"
+            color="whiteAlpha.900"
             pos="relative"
             p={0}
             px={2}
