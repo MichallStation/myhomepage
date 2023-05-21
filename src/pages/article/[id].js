@@ -29,7 +29,7 @@ function ArticlePage({ data }) {
   const refContent = useRef();
   const toc = useToc(refContent, [data, client]);
   if (!data) return <E404 />;
-  const set = langs[locale || 'en'].article;
+  const set = langs[locale].article;
   // page = page || articleId;
   // type = type || data.type || 'general';
   const { markdown, ...article } = data;

@@ -1,9 +1,4 @@
-export interface LangGlobal {
-  home: {}
-}
-
-export interface LangStorage {
-  en?: LangGlobal;
-  vi?: LangGlobal;
-  zh?: LangGlobal;
+export interface LangSet {
+  home?: object;
+  404?: object;
 }

@@ -5,7 +5,7 @@ import langs from '@/langs';
 
 function Footer() {
   const { locale } = useRouter();
-  const set = langs[locale || 'en'].Footer;
+  const set = langs[locale].Footer;
   return (
     <Box as="footer" py={6}>
       <Text as="h3" textAlign="center" fontSize="lg" color="GrayText">

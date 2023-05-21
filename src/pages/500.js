@@ -8,12 +8,11 @@ import SEO from '@/layouts/SEO';
 import Footer from '@/components/Footer';
 import Banner500 from '@/components/ErrorBanner/Banner500';
 import langs from '@/langs';
-import useFeaturesStorage from '@/features/hooks/useFeaturesStorage';
-import Page from '@/layouts/Page';
+import PageStatic from '@/layouts/PageStatic';
 
 function E500() {
   const { locale } = useRouter();
-  const set = langs[locale || 'en']['500'];
+  const set = langs[locale]['500'];
   return (
     <>
       <SEO title={set.title} />
@@ -58,11 +57,7 @@ function E500() {
   );
 }
 
-E500.getLayout = (page) => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const storage = useFeaturesStorage();
-  return <Page storage={storage}>{page}</Page>;
-};
+E500.getLayout = (page) => <PageStatic>{page}</PageStatic>;
 
 /** @param {import('next').GetStaticPropsContext} context */
 export async function getStaticProps(context) {

@@ -27,8 +27,8 @@ const id = 'job';
 function JobDetail({ data }) {
   const { locale } = useRouter();
   if (!data) return <E404 />;
-  const set = langs[locale || 'en'].detail;
-  const setWork = langs[locale || 'en'].work;
+  const set = langs[locale].detail;
+  const setWork = langs[locale].work;
   const breads = [
     { name: setWork.name, href: '/work', icon: icon.work.Icon },
     {

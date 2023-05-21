@@ -10,7 +10,7 @@ import langs from '@/langs';
 /** * @param {{ storage: import('@/@type/features').FeaturesStorage  }} * */
 function Home() {
   const { locale } = useRouter();
-  const set = langs[locale || 'en'].home;
+  const set = langs[locale].home;
   return (
     <>
       <SEO

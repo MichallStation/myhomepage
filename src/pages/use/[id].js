@@ -18,8 +18,8 @@ import langs from '@/langs';
 function UseDetail({ data }) {
   const { locale } = useRouter();
   if (!data) return <E404 />;
-  const set = langs[locale || 'en'].use;
-  const setDetail = langs[locale || 'en'].detail;
+  const set = langs[locale].use;
+  const setDetail = langs[locale].detail;
 
   const breads = [
     { name: set.name, href: '/use', icon: icon.use.Icon },

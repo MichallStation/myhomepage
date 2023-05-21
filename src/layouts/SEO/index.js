@@ -14,7 +14,7 @@ import langs from '@/langs';
 function SEO({ title, name, desc, card }) {
   // const set = getSet(homeId, lang);
   const { locale } = useRouter();
-  const set = langs[locale || 'en'].SEO;
+  const set = langs[locale].SEO;
   title = title ? `${set.name} - ${title}` : `${set.name} - ${set.title}`;
   name = name ? `${set.name} - ${name}` : set.name;
   return (

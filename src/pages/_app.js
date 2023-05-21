@@ -21,13 +21,13 @@ let store;
 /** @param {{pageProps: {storage: import('@/@type/features').FeaturesStorage}}}  */
 export default function App({ Component, pageProps, router }) {
   const { storage } = pageProps;
-  store = store || createStore(storage);
   const getLayout =
     Component.getLayout || ((page) => <Page {...pageProps}>{page}</Page>);
+  store = store || createStore(storage);
 
   return (
     <Provider store={store}>
-      <ChakraManager cookie={storage?.prev?.cookie || ''} theme={theme}>
+      <ChakraManager cookie={storage?.cookie || ''} theme={theme}>
         {getLayout(<Component {...pageProps} key={router.route} />)}
       </ChakraManager>
     </Provider>

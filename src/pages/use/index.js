@@ -23,7 +23,7 @@ import langs from '@/langs';
 /** @param {{ storage: import('@/@type/features').FeaturesStorage }} */
 function Use({ data }) {
   const { locale } = useRouter();
-  const set = langs[locale || 'en'].use;
+  const set = langs[locale].use;
   return (
     <>
       <SEO

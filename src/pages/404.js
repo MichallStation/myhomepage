@@ -9,14 +9,12 @@ import SEO from '@/layouts/SEO';
 import Footer from '@/components/Footer';
 import createFeaturesStorage from '@/features';
 import langs from '@/langs';
-import useFeaturesStorage from '@/features/hooks/useFeaturesStorage';
-import Page from '@/layouts/Page';
+import PageStatic from '@/layouts/PageStatic';
 
 /** @param {{ storage: import('@/@type/features').FeaturesStorage }} */
 function E404() {
   const { locale } = useRouter();
-  const set = langs[locale || 'en']['404'];
-
+  const set = langs[locale]['404'];
   return (
     <>
       <SEO title={set.title} />
@@ -62,12 +60,7 @@ function E404() {
   );
 }
 
-E404.getLayout = (page) => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const storage = useFeaturesStorage();
-  // return <PageStatic>{page}</PageStatic>;
-  return <Page storage={storage}>{page}</Page>;
-};
+E404.getLayout = (page) => <PageStatic>{page}</PageStatic>;
 
 /** @param {import('next').GetStaticPropsContext} context */
 export async function getStaticProps(context) {

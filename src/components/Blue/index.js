@@ -42,7 +42,7 @@ const actionIds = {
 /** @param {{storage: import('@/@type/features').FeaturesStorage}}  */
 function Blue({ storage }) {
   const { locale } = useRouter();
-  const set = langs[locale || 'en'].Blue;
+  const set = langs[locale].Blue;
   const toast = useToast();
   const controls = useAnimationControls();
   const isOldguy = !storage.newbie;

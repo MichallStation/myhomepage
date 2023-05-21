@@ -38,7 +38,7 @@ const style = {
 function Navbar() {
   const router = useRouter();
   const { locale } = router;
-  const set = langs[locale || 'en'].Navbar;
+  const set = langs[locale].Navbar;
   const { setLoading, setDone } = useProgress();
 
   useEffect(() => {

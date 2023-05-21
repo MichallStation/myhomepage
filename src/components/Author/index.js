@@ -23,7 +23,7 @@ import langs from '@/langs';
  * */
 function Author() {
   const { locale } = useRouter();
-  const set = langs[locale || 'en'].Author;
+  const set = langs[locale].Author;
   return (
     <Box className="author">
       <Heading

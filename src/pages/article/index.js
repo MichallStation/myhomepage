@@ -18,7 +18,7 @@ import langs from '@/langs';
  * */
 function Article({ data }) {
   const { locale } = useRouter();
-  const set = langs[locale || 'en'].article;
+  const set = langs[locale].article;
   return (
     <>
       <SEO

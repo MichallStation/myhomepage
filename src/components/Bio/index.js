@@ -24,7 +24,7 @@ const shemes = {
  * */
 function Bio() {
   const { locale } = useRouter();
-  const set = langs[locale || 'en'].Bio;
+  const set = langs[locale].Bio;
   const [inputValue, setInputValue] = useState('');
   const [emailStatus, setEmailStatus] = useState(shemes.normal);
 

@@ -26,7 +26,6 @@ export default function createFeaturesStorage(context) {
   }
 
   const [cookieData, cacheData] = cache.cookie(req.cookies, lang);
-
   const { url = '', cookies = {} } = req;
   const {
     cookie = '',
