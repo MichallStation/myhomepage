@@ -1,9 +1,9 @@
 import { Box } from '@chakra-ui/react';
 import Image from 'next/image';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 /** @param {import('@chakra-ui/react').BoxProps} props */
-function BackgroundImage(props) {
+const BackgroundImage = forwardRef((props, ref) => {
   const {
     src,
     backgroundImage,
@@ -28,6 +28,7 @@ function BackgroundImage(props) {
       {...restProps}
     >
       <Image
+        ref={ref}
         fill
         alt={alt}
         title={title}
@@ -44,6 +45,6 @@ function BackgroundImage(props) {
       {children}
     </Box>
   );
-}
+});
 
 export default BackgroundImage;

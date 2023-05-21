@@ -1,20 +1,28 @@
-import { Box } from '@chakra-ui/react';
-import { animationControls, motion } from 'framer-motion';
-import React, { useCallback, useEffect, useRef, useMemo } from 'react';
+import { Box, Icon } from '@chakra-ui/react';
+import { AnimatePresence, animationControls, motion } from 'framer-motion';
+import React, {
+  useCallback,
+  useEffect,
+  useRef,
+  useMemo,
+  useState,
+} from 'react';
+import { GoPrimitiveDot } from 'react-icons/go';
 import { BackgroundImage } from '@/lib/NextChakra';
+import { openFullscreen } from '@/lib/browsers';
 
 /** @type {Object<string, import('framer-motion').TargetAndTransition>} * */
 const variants = {
   initLeft: {
-    translateX: '-100%',
+    // translateX: '-100%',
     opacity: 0,
   },
   initRight: {
-    translateX: '100%',
+    // translateX: '100%',
     opacity: 0,
   },
   view: {
-    translateX: 0,
+    // translateX: 0,
     opacity: 1,
     scale: 1,
   },
@@ -32,6 +40,11 @@ function BallGallery({ data, originIndex = 0, onChange, onClose, ...props }) {
     ],
     [data, originIndex],
   );
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const currentItem = useMemo(
+    () => dataSort[currentIndex],
+    [currentIndex, dataSort],
+  );
   // const controls = useAnimationControls();
   const controls = useMemo(
     () =>
@@ -41,23 +54,36 @@ function BallGallery({ data, originIndex = 0, onChange, onClose, ...props }) {
       ),
     [data],
   );
-  const refContainer = useRef();
+  const refCurrent = useRef();
 
   useEffect(() => {
     onChange(data[originIndex]);
   }, [data, onChange, originIndex]);
 
-  const handleHide = useCallback(
-    (e) => {
-      let { index: id } = e.target.dataset;
-      if (!id) return;
-      id = Number(id);
-      controls[id].mount();
-      controls[id].start('hide');
-      onChange(dataSort?.[id + 1]);
-    },
-    [controls, dataSort, onChange],
-  );
+  const handleHide = useCallback(() => {
+    controls[currentIndex].mount();
+    controls[currentIndex].start('hide');
+    onChange(dataSort?.[currentIndex + 1]);
+    setCurrentIndex((p) => p + 1);
+  }, [controls, currentIndex, dataSort, onChange]);
+
+  // const handleWheel = useCallback(
+  //   /** @param {WheelEvent} e */
+  //   (e) => {
+  //     const y = Math.abs(e.deltaY);
+  //     const x = Math.abs(e.deltaX);
+  //     if (y > 200 || x > 200) {
+  //       handleHide();
+  //     }
+  //   },
+  //   [handleHide],
+  // );
+
+  const handleFullScreen = useCallback(() => {
+    const { current } = refCurrent;
+    if (!current) return;
+    openFullscreen(current);
+  }, []);
 
   return (
     <Box
@@ -69,45 +95,72 @@ function BallGallery({ data, originIndex = 0, onChange, onClose, ...props }) {
       pos="relative"
       {...props}
     >
-      {dataSort.map((i, index) => (
-        <motion.div
-          key={i.thumbnail}
-          animate={controls[index]}
-          variants={variants}
-          transition={{ duration: 0.4 }}
-          drag
-          dragDirectionLock
-          onDragEnd={handleHide}
-          onWheel={handleHide}
-          data-index={index}
-          style={{
-            width: '100%',
-            height: '100%',
-            overflowX: 'auto',
-            position: 'absolute',
-            zIndex: data.length - index,
-            touchAction: 'none',
-          }}
-        >
-          <BackgroundImage
-            pointerEvents="none"
-            borderRadius="24px"
-            bgColor="gray"
-            border="4px dotted"
-            borderColor="white"
-            key={i.thumbnail}
-            src={i.thumbnail}
-            title={i.title}
-            // borderRadius="lg"
-            objectFit="contain"
-            // objectFit="cover"
-            ref={refContainer}
-            // w="100%"
-            w="100%"
-            h="100%"
+      {/* {dataSort.map((i, index) => ( */}
+      {currentItem && (
+        <AnimatePresence initial={false} mode="popLayout">
+          <motion.div
+            key={currentItem.thumbnail}
+            animate={controls[currentIndex]}
+            variants={variants}
+            transition={{ duration: 0.4 }}
+            drag
+            dragDirectionLock
+            initial="hide"
+            whileInView="view"
+            // onDragStart={handleShow}
+            onDoubleClick={handleFullScreen}
+            onDragEnd={handleHide}
+            onWheel={handleHide}
+            // onWheel={handleWheel}
+            // data-index={index}
+            exit="hide"
+            style={{
+              width: '100%',
+              height: '100%',
+              overflowX: 'auto',
+              position: 'absolute',
+              // zIndex: data.length - index,
+              touchAction: 'none',
+            }}
+          >
+            <BackgroundImage
+              ref={refCurrent}
+              pointerEvents="none"
+              borderRadius="24px"
+              bgColor="gray"
+              border="4px dotted"
+              borderColor="white"
+              key={currentItem.thumbnail}
+              src={currentItem.thumbnail}
+              title={currentItem.title}
+              // borderRadius="lg"
+              objectFit="contain"
+              // objectFit="cover"
+              // w="100%"
+              w="100%"
+              h="100%"
+            />
+          </motion.div>
+        </AnimatePresence>
+      )}
+      <Box
+        pos="absolute"
+        bottom={0}
+        left={0}
+        right={0}
+        display="flex"
+        justifyContent="center"
+      >
+        {dataSort.map((item, i) => (
+          <Icon
+            key={item.id}
+            color={i === currentIndex ? 'second' : 'chakra-body-text'}
+            as={GoPrimitiveDot}
+            boxSize="24px"
           />
-        </motion.div>
-      ))}
+        ))}
+      </Box>
+      {/* ))} */}
     </Box>
   );
 }

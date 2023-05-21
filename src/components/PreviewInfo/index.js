@@ -82,7 +82,7 @@ function PreviewInfo({ data, ...props }) {
           ))}
       </SimpleGrid>
       <Modal
-        // blockScrollOnMount={false}
+        blockScrollOnMount
         isOpen={isOpen}
         onClose={onClose}
         isCentered
