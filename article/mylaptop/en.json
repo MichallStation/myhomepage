@@ -2,6 +2,6 @@
   "type": "work",
   "title": "My laptop",
   "desc": "How could I do all things on only one laptop?",
-  "md": "https://raw.githubusercontent.com/ltndat/myhomepage/db/article/mylaptop/en.md",
-  "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/article/mylaptop/thumbnail.jpg"
+  "md": "en.md",
+  "thumbnail": "thumbnail.jpg"
 }

@@ -10,6 +10,20 @@ const path = require('node:path');
 // const crypto = require('crypto');
 
 // const uuid = crypto.randomUUID();
+const internalPath = (path) => !path.startsWith('https');
+const addRemoteLink = (path = '', relative) =>
+  internalPath(path)
+    ? `https://raw.githubusercontent.com/ltndat/myhomepage/db/${relative}/${path}`
+    : path;
+const normalizeContent = (content, relative = '') => {
+  return {
+    ...content,
+    thumbnail:
+      content?.thumbnail && addRemoteLink(content?.thumbnail, relative),
+    json: content?.json && addRemoteLink(content?.json, relative),
+    md: content?.md && addRemoteLink(content?.md, relative),
+  };
+};
 const workspace = path.join(__dirname, '..');
 const langList = ['en', 'vi', 'zh'];
 const lsDir = (p) => {
@@ -71,8 +85,8 @@ dirs.forEach((name) => {
       let content = JSON.parse(readFileSync(wlang).toString());
       content = {
         ...content,
+        ...normalizeContent(content, path.join(name, id)),
         id: content?.id || id,
-        // uuid,
       };
       if (!fileJsonContent?.[lang]) fileJsonContent[lang] = [];
       fileJsonContent[lang].push(content);
@@ -101,63 +115,63 @@ dirs.forEach((name) => {
 (() => {
   // let folderJson = path.join(distFolder, 'set');
   const wroot = path.join(workspace, 'set');
-  const gJson = {};
-  const dirs = lsDir(wroot);
-  dirs.forEach((_w) => {
-    const folderJson = path.join(distFolder, 'set', _w);
-    const w = path.join(wroot, _w);
-    const fileJsonContent = {};
-    const setFileContent = {};
-    langList.forEach((lang) => {
-      setFileContent[lang] = {};
-    });
-
-    lsDir(w).forEach((id) => {
-      wid = path.join(w, id);
-
-      langList.forEach((lang) => {
-        const wlang = path.join(wid, `${lang}.json`);
-        if (!existsSync(wlang)) return;
-        // console.log(wlang);
-        let content = JSON.parse(readFileSync(wlang).toString());
-        // console.log(content);
-
-        if (!fileJsonContent?.[lang]) fileJsonContent[lang] = {};
-        fileJsonContent[lang][id] = content;
-      });
-    });
-
-    if (!existsSync(folderJson))
-      mkdirSync(folderJson, {
-        recursive: true,
-      });
-    for (const lang in fileJsonContent) {
-      if (Object.hasOwnProperty.call(fileJsonContent, lang)) {
-        const data = fileJsonContent[lang];
-        const fileJson = `${lang}.json`;
-        const distFile = path.join(folderJson, fileJson);
-        writeFileSync(distFile, JSON.stringify(data));
-      }
-    }
-    gJson[_w] = fileJsonContent;
-  });
-
-  const gSetFileContent = {};
+  // const gJson = {};
+  // const dirs = lsDir(wroot);
+  // dirs.forEach((_w) => {
   const folderJson = path.join(distFolder, 'set');
+  const w = path.join(wroot);
+  const fileJsonContent = {};
+  const setFileContent = {};
   langList.forEach((lang) => {
-    gSetFileContent[lang] = {};
+    setFileContent[lang] = {};
   });
-  Object.entries(gJson).forEach(([id, langSet]) => {
-    Object.entries(langSet).forEach(([lang, set]) => {
-      gSetFileContent[lang][id] = set;
+
+  lsDir(w).forEach((id) => {
+    wid = path.join(w, id);
+
+    langList.forEach((lang) => {
+      const wlang = path.join(wid, `${lang}.json`);
+      if (!existsSync(wlang)) return;
+      // console.log(wlang);
+      let content = JSON.parse(readFileSync(wlang).toString());
+      // console.log(content);
+
+      if (!fileJsonContent?.[lang]) fileJsonContent[lang] = {};
+      fileJsonContent[lang][id] = content;
     });
   });
-  Object.entries(gSetFileContent).forEach(([lang, set]) => {
-    const data = set;
-    const fileJson = `${lang}.json`;
-    const distFile = path.join(folderJson, fileJson);
-    writeFileSync(distFile, JSON.stringify(data));
-  });
+
+  if (!existsSync(folderJson))
+    mkdirSync(folderJson, {
+      recursive: true,
+    });
+  for (const lang in fileJsonContent) {
+    if (Object.hasOwnProperty.call(fileJsonContent, lang)) {
+      const data = fileJsonContent[lang];
+      const fileJson = `${lang}.json`;
+      const distFile = path.join(folderJson, fileJson);
+      writeFileSync(distFile, JSON.stringify(data));
+    }
+  }
+  // gJson[_w] = fileJsonContent;
+  // });
+
+  // const gSetFileContent = {};
+  // const folderJson = path.join(distFolder, 'set');
+  // langList.forEach((lang) => {
+  //   gSetFileContent[lang] = {};
+  // });
+  // Object.entries(gJson).forEach(([id, langSet]) => {
+  //   Object.entries(langSet).forEach(([lang, set]) => {
+  //     gSetFileContent[lang][id] = set;
+  //   });
+  // });
+  // Object.entries(gSetFileContent).forEach(([lang, set]) => {
+  //   const data = set;
+  //   const fileJson = `${lang}.json`;
+  //   const distFile = path.join(folderJson, fileJson);
+  //   writeFileSync(distFile, JSON.stringify(data));
+  // });
 })();
 
 // Build details (collection)
@@ -193,6 +207,7 @@ dirs.forEach((name) => {
         let content = JSON.parse(readFileSync(wlang).toString());
         content = {
           ...content,
+          ...normalizeContent(content, path.join('detail', lid, id)),
           id: content?.id || id,
           // uuid,
           type: lid,

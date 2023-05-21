@@ -2,6 +2,6 @@
   "type": "work",
   "title": "Dell Xps 9550",
   "desc": "Good quality, thin and light, workstation laptop",
-  "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/use/laptop/thumbnail.jpg",
-  "md": "https://raw.githubusercontent.com/ltndat/myhomepage/db/use/laptop/en.md"
+  "thumbnail": "thumbnail.jpg",
+  "md": "en.md"
 }
