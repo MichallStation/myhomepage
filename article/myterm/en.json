@@ -1,7 +1,7 @@
 {
   "type": "tech",
-  "title": "Article",
-  "desc": "Description of article.",
+  "title": "My terminal",
+  "desc": "My operating system bridge.",
   "md": "en.md",
   "thumbnail": "thumbnail.png"
 }
