@@ -1,5 +1,5 @@
-import React from 'react';
 import Link from 'next/link';
+import React from 'react';
 import { Box, Heading } from '@chakra-ui/react';
 
 /** @type {Object.<string, import('react').CSSProperties>} */

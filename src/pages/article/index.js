@@ -1,14 +1,12 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 import { Container } from '@chakra-ui/react';
-import { useRouter } from 'next/router';
-import createFeaturesStorage from '@/features';
-import { fetchAllArticlesByLang } from '@/db';
+import { fallback, langs } from '@/globals';
 import { articleId } from '@/globals/envs';
-import SEO from '@/layouts/SEO';
-import ArticleCard from '@/components/ArticleCard';
-import Footer from '@/components/Footer';
-import fallback from '@/globals/fallback';
-import langs from '@/langs';
+import { fetchAllArticlesByLang } from '@/db';
+import createFeaturesStorage from '@/features';
+import { SEO } from '@/layouts';
+import { ArticleCard, Footer } from '@/components';
 
 /**
  * @param {{

@@ -1,6 +1,6 @@
-import { SimpleGrid } from '@chakra-ui/react';
 import Link from 'next/link';
 import React from 'react';
+import { SimpleGrid } from '@chakra-ui/react';
 import Card from '../Card';
 
 function ThumbnailShows({ baseUrl, data, ...props }) {

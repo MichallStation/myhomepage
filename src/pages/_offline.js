@@ -1,14 +1,12 @@
-import { Box, Button, Container, Heading } from '@chakra-ui/react';
-import React from 'react';
 import { useRouter } from 'next/router';
+import React from 'react';
+import { Box, Button, Container, Heading } from '@chakra-ui/react';
 import { VscInfo } from 'react-icons/vsc';
 import { IoReload } from 'react-icons/io5';
-import SEO from '@/layouts/SEO';
-import Footer from '@/components/Footer';
-import OfflineBanner from '@/components/ErrorBanner/OfflineBanner';
-import langs from '@/langs';
+import { langs } from '@/globals';
 import createFeaturesStorage from '@/features';
-import PageStatic from '@/layouts/PageStatic';
+import { PageStatic, SEO } from '@/layouts';
+import { Footer, OfflineBanner } from '@/components';
 
 function Offline() {
   const router = useRouter();

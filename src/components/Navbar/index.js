@@ -1,14 +1,14 @@
 import { Router, useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import { Box, Container } from '@chakra-ui/react';
+import { useProgress } from '@/features/hooks';
+import langs from '@/globals/langs';
 import Logo from '../Brand';
 import ThemeButton from '../ThemeButton';
 import LanguageButton from '../LanguageButton';
 import BallProgress from '../BallProgress';
-import useProgress from '@/features/hooks/useProgress';
 import NavLink from './NavLink';
 import envs from './envs';
-import langs from '@/langs';
 
 /** @type {Object.<string, import('react').CSSProperties>} */
 const style = {

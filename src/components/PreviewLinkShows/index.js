@@ -1,7 +1,7 @@
+import Link from 'next/link';
 import React from 'react';
 import { LinkPreview } from '@dhaiwat10/react-link-preview';
 import { SimpleGrid } from '@chakra-ui/react';
-import Link from 'next/link';
 import CardInternal from '../CardInternal';
 
 /** @param {string} url */

@@ -1,18 +1,13 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 import { BsExplicit, BsPersonVcard } from 'react-icons/bs';
 import { IoFilmOutline } from 'react-icons/io5';
-import { useRouter } from 'next/router';
+import { icon, langs } from '@/globals';
 import { fetchDetailById } from '@/db';
 import createFeaturesStorage from '@/features';
 import E404 from '@/pages/404';
-import PageDetail from '@/layouts/PageDetail';
-import Section from '@/layouts/Section';
-import DetailInfo from '@/components/DetailInfo';
-import PreviewInfo from '@/components/PreviewInfo';
-import SEO from '@/layouts/SEO';
-import icon from '@/globals/icon';
-import langs from '@/langs';
-// import ThumbnailShows from '@/components/ThumbnailShows';
+import { PageDetail, Section, SEO } from '@/layouts';
+import { DetailInfo, PreviewInfo } from '@/components';
 
 const id = 'job';
 

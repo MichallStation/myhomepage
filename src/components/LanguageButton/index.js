@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import React, { useCallback } from 'react';
 import {
   Button,
@@ -7,10 +8,9 @@ import {
   MenuList,
   Text,
 } from '@chakra-ui/react';
-import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
-import { langs } from '@/globals/sets';
-import { expiresDay } from '@/utils/cookie';
+import { expiresDay } from '@/lib/cookie';
+import { list as langList } from '@/globals/langs';
 import envs from './envs';
 
 /** @type {Object.<string, import('react').CSSProperties>} */
@@ -51,7 +51,7 @@ function LanguageButton() {
         {router.locale}
       </MenuButton>
       <MenuList p={2}>
-        {langs.map((i) => (
+        {langList.map((i) => (
           <MenuItem
             key={i}
             as={Button}

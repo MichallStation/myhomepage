@@ -11,8 +11,8 @@ import {
   Heading,
 } from '@chakra-ui/react';
 import { FaArrowsAltH } from 'react-icons/fa';
-import ColorCard from '../ColorCard';
-import { BackgroundImage } from '@/lib/NextChakra';
+import { ColorCard } from '@/lib/chakra';
+import { BackgroundImage } from '@/lib/next-chakra';
 
 /** @type {Object<string, import('@chakra-ui/react').ThemeTypings["colorSchemes"]>} */
 const schemes = {

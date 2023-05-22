@@ -1,14 +1,12 @@
-import { Box, Button, Container, Heading } from '@chakra-ui/react';
-import { BsBoxArrowInLeft } from 'react-icons/bs';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import React from 'react';
+import { Box, Button, Container, Heading } from '@chakra-ui/react';
+import { BsBoxArrowInLeft } from 'react-icons/bs';
 import { MdOutlineDangerous } from 'react-icons/md';
-import { useRouter } from 'next/router';
-import SEO from '@/layouts/SEO';
-import Footer from '@/components/Footer';
-import Banner500 from '@/components/ErrorBanner/Banner500';
-import langs from '@/langs';
-import PageStatic from '@/layouts/PageStatic';
+import { langs } from '@/globals';
+import { PageStatic, SEO } from '@/layouts';
+import { Banner500, Footer } from '@/components';
 
 function E500() {
   const { locale } = useRouter();

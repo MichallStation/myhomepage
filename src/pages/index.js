@@ -1,11 +1,9 @@
-import { Container } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
+import { Container } from '@chakra-ui/react';
+import { langs } from '@/globals';
 import createFeaturesStorage from '@/features';
-import Author from '@/components/Author';
-import Bio from '@/components/Bio';
-import Footer from '@/components/Footer';
-import SEO from '@/layouts/SEO';
-import langs from '@/langs';
+import { SEO } from '@/layouts';
+import { Author, Bio, Footer } from '@/components';
 
 /** * @param {{ storage: import('@/@type/features').FeaturesStorage  }} * */
 function Home() {

@@ -1,7 +1,7 @@
-import { Box, Text } from '@chakra-ui/react';
-import React from 'react';
 import { useRouter } from 'next/router';
-import langs from '@/langs';
+import React from 'react';
+import { Box, Text } from '@chakra-ui/react';
+import langs from '@/globals/langs';
 
 function Footer() {
   const { locale } = useRouter();

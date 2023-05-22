@@ -2,10 +2,9 @@ import React from 'react';
 import { Box, Heading, Text, useColorModeValue, Icon } from '@chakra-ui/react';
 import { GiNewspaper } from 'react-icons/gi';
 import { IoIosArrowForward } from 'react-icons/io';
-import MotionButton from '../MotionChakra/MotionButton';
-import Section from '@/layouts/Section';
-import { BackgroundImage } from '@/lib/NextChakra';
-// import envs from '../ArticleCard/envs';
+import { MotionButton } from '@/lib/motion-chakra';
+import { BackgroundImage } from '@/lib/next-chakra';
+import { Section } from '@/layouts';
 
 function ArticleHeader({ toc, set, data, ...props }) {
   return (
@@ -133,7 +132,7 @@ function ArticleHeader({ toc, set, data, ...props }) {
       </Box>
       {/* <Box pos="relative" className="article-thumbnail" mt={1}> */}
       {/* <PreviewInfo data={data.images} /> */}
-      {/* <BallGallery data={data.images} /> */}
+      {/* <Gallery data={data.images} /> */}
       {/* </Box> */}
     </Box>
   );

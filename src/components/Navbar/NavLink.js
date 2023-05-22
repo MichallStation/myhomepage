@@ -1,6 +1,6 @@
+import Link from 'next/link';
 import React, { useCallback } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
-import Link from 'next/link';
 import {
   Box,
   Button,
@@ -13,8 +13,8 @@ import {
   Text,
   Icon,
 } from '@chakra-ui/react';
-import envs, { links } from './envs';
 import icons from '@/globals/icon';
+import envs, { links } from './envs';
 
 export const props = {
   Home: {

@@ -1,15 +1,13 @@
-import { Box, Button, Container, Heading } from '@chakra-ui/react';
-import { BsBoxArrowInLeft } from 'react-icons/bs';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import React from 'react';
+import { Box, Button, Container, Heading } from '@chakra-ui/react';
+import { BsBoxArrowInLeft } from 'react-icons/bs';
 import { MdOutlineDangerous } from 'react-icons/md';
-import { useRouter } from 'next/router';
-import ErrorBanner from '@/components/ErrorBanner';
-import SEO from '@/layouts/SEO';
-import Footer from '@/components/Footer';
+import { langs } from '@/globals';
 import createFeaturesStorage from '@/features';
-import langs from '@/langs';
-import PageStatic from '@/layouts/PageStatic';
+import { PageStatic, SEO } from '@/layouts';
+import { ErrorBanner, Footer } from '@/components';
 
 /** @param {{ storage: import('@/@type/features').FeaturesStorage }} */
 function E404() {

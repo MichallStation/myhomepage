@@ -18,7 +18,7 @@ const initialState = {
     value: undefined,
     status: CLOSE,
   },
-  ball3d: {
+  blue3d: {
     status: LOADING,
   },
   modal: {
@@ -54,17 +54,17 @@ export const uiSlice = createSlice({
       state.toast.value = undefined;
       state.toast.status = CLOSE;
     },
-    ball3dLoading: (state) => {
+    blue3dLoading: (state) => {
       // state.toast.value = undefined;
-      state.ball3d.status = LOADING;
+      state.blue3d.status = LOADING;
     },
-    ball3dShows: (state) => {
+    blue3dShows: (state) => {
       // state.toast.value = undefined;
-      state.ball3d.status = SHOW;
+      state.blue3d.status = SHOW;
     },
-    ball3dDone: (state) => {
+    blue3dDone: (state) => {
       // state.toast.value = undefined;
-      state.ball3d.status = DONE;
+      state.blue3d.status = DONE;
     },
   },
 });
@@ -75,9 +75,9 @@ export const {
   progressBarDone,
   toastClose,
   toastShow,
-  ball3dLoading,
-  ball3dDone,
-  ball3dShows,
+  blue3dLoading,
+  blue3dDone,
+  blue3dShows,
 } = uiSlice.actions;
 export const selectProgress = (state) => state.ui.progressBar;
 export const selectProgressValue = (state) => state.ui.progressBar.value;
@@ -85,8 +85,8 @@ export const selectProgressStatus = (state) => state.ui.progressBar.status;
 export const selectToast = (state) => state.ui.toast;
 export const selectToastValue = (state) => state.ui.toast.value;
 export const selectToastStatus = (state) => state.ui.toast.status;
-export const selectball3d = (state) => state.ui.ball3d;
-export const selectball3dValue = (state) => state.ui.ball3d.value;
-export const selectball3dStatus = (state) => state.ui.ball3d.status;
+export const selectblue3d = (state) => state.ui.blue3d;
+export const selectblue3dValue = (state) => state.ui.blue3d.value;
+export const selectblue3dStatus = (state) => state.ui.blue3d.status;
 
 export default uiSlice.reducer;

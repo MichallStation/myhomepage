@@ -1,5 +1,5 @@
-import { Box, Heading, useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
+import { Box, Heading, useColorModeValue } from '@chakra-ui/react';
 
 function Section({
   title,

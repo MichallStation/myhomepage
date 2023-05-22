@@ -7,7 +7,7 @@ import {
 import { BiBookReader, BiObjectsHorizontalCenter } from 'react-icons/bi';
 import { GiNewspaper } from 'react-icons/gi';
 import { IoShareSocialOutline } from 'react-icons/io5';
-import { MdWorkOutline } from 'react-icons/md';
+import { MdOutlineArticle, MdWorkOutline } from 'react-icons/md';
 import { FiPackage } from 'react-icons/fi';
 import {
   VscCode,
@@ -16,7 +16,6 @@ import {
   VscProject,
   VscTools,
 } from 'react-icons/vsc';
-import { FaHashtag } from 'react-icons/fa';
 import { PagePostIcon } from '@/components/icons';
 
 export default {
@@ -59,7 +58,7 @@ export default {
       Icon: VscTools,
     },
     common: {
-      Icon: FaHashtag,
+      Icon: MdOutlineArticle,
     },
     read: {
       Icon: BiBookReader,

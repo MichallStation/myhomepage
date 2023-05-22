@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 import {
   Container,
@@ -5,14 +6,11 @@ import {
   SimpleGrid,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { useRouter } from 'next/router';
-import createFeaturesStorage from '@/features';
-import SEO from '@/layouts/SEO';
-import Footer from '@/components/Footer';
-import UseCard from '@/components/UseCard';
+import { fallback, langs } from '@/globals';
 import { fetchAllUsesByLang } from '@/db';
-import fallback from '@/globals/fallback';
-import langs from '@/langs';
+import createFeaturesStorage from '@/features';
+import { SEO } from '@/layouts';
+import { Footer, UseCard } from '@/components';
 
 // const icons = {
 //   [useWorkflowType]: <MdWorkOutline />,

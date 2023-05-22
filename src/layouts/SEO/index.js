@@ -1,14 +1,12 @@
 import Head from 'next/head';
-import React from 'react';
 import { useRouter } from 'next/router';
+import React from 'react';
+import { author, langs } from '@/globals';
 import { ENV_HOST_URL } from '@/globals/envs';
-import author from '@/globals/author';
-import langs from '@/langs';
 
 /**
  * @param {{
  *  storage: import('@/@type/features').FeaturesStorage,
- *  sets: import('@/@type/sets').SetLang
  * }}
  * */
 function SEO({ title, name, desc, card }) {

@@ -1,12 +1,10 @@
-import React from 'react';
 import { useRouter } from 'next/router';
-import createFeaturesStorage from '@/features';
+import React from 'react';
+import { icon, langs } from '@/globals';
 import { fetchUseById } from '@/db';
-import SEO from '@/layouts/SEO';
+import createFeaturesStorage from '@/features';
 import E404 from '@/pages/404';
-import icon from '@/globals/icon';
-import PageDetail from '@/layouts/PageDetail';
-import langs from '@/langs';
+import { PageDetail, SEO } from '@/layouts';
 
 /**
  * @param {{

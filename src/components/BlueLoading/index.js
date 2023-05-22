@@ -1,10 +1,10 @@
-import { Box, useColorModeValue } from '@chakra-ui/react';
 import React, { useEffect } from 'react';
-import { BackgroundImage } from '@/lib/NextChakra';
-import BlueBrand from '../Blue/BlueBrand';
-import envs from '../Blue/envs';
-import MadeBy from '../MadeBy';
+import { Box, useColorModeValue } from '@chakra-ui/react';
+import { BackgroundImage } from '@/lib/next-chakra';
 import { isClientSide } from '@/globals/envs';
+import BlueBrand from '../Blue/BlueBrand';
+import MadeBy from '../MadeBy';
+import envs from '../Blue/envs';
 
 const handlePreventDefault = (e) => e.preventDefault();
 

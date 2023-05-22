@@ -1,10 +1,10 @@
-import { Box, Icon, Button, Heading, Text } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import React from 'react';
+import { Box, Icon, Button, Heading, Text } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
+import { BackgroundImage } from '@/lib/next-chakra';
 import icons from '@/globals/icon';
 import { articleId } from '@/globals/envs';
-import { BackgroundImage } from '@/lib/NextChakra';
 
 function UseCard({ set, data, href, ...props }) {
   return (

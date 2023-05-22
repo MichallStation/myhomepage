@@ -1,11 +1,11 @@
-import { Box, Icon, Heading, Text } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import React from 'react';
-import envs from './envs';
-import MotionButton from '../MotionChakra/MotionButton';
+import { Box, Icon, Heading, Text } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
+import { MotionButton } from '@/lib/motion-chakra';
+import { BackgroundImage } from '@/lib/next-chakra';
 import { KindleIcon } from '../icons';
-import { BackgroundImage } from '@/lib/NextChakra';
+import envs from './envs';
 
 function ArticleCard({ set, data, href, revert, ...props }) {
   return (

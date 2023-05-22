@@ -1,7 +1,7 @@
+import React from 'react';
 import { Button, Text } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import React from 'react';
-import { BackgroundImage } from '@/lib/NextChakra';
+import { BackgroundImage } from '@/lib/next-chakra';
 
 /** @param {{props: import('@chakra-ui/react').ButtonProps}}  */
 function Card({ children, title, img, thumbnailHighContrast, ...props }) {

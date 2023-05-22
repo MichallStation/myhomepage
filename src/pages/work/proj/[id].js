@@ -1,17 +1,13 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 import { MdOutlineStyle } from 'react-icons/md';
 import { VscBook, VscPreview } from 'react-icons/vsc';
-import { useRouter } from 'next/router';
+import { icon, langs } from '@/globals';
 import createFeaturesStorage from '@/features';
-import E404 from '@/pages/404';
-import PageDetail from '@/layouts/PageDetail';
-import Section from '@/layouts/Section';
-import DetailInfo from '@/components/DetailInfo';
-import PreviewInfo from '@/components/PreviewInfo';
 import { fetchDetailById } from '@/db';
-import SEO from '@/layouts/SEO';
-import icons from '@/globals/icon';
-import langs from '@/langs';
+import E404 from '@/pages/404';
+import { PageDetail, Section, SEO } from '@/layouts';
+import { DetailInfo, PreviewInfo } from '@/components';
 
 const id = 'proj';
 
@@ -22,16 +18,16 @@ function ProjectDetail({ data }) {
   const set = langs[locale].detail;
   const setWork = langs[locale].work;
   const breads = [
-    { name: setWork.name, href: '/work', icon: icons.work.Icon },
+    { name: setWork.name, href: '/work', icon: icon.work.Icon },
     {
       name: setWork?.[id].title,
       href: `/work#${id}`,
-      icon: icons.work?.[id]?.Icon,
+      icon: icon.work?.[id]?.Icon,
     },
     {
       name: data?.title || data?.name,
       href: '#',
-      icon: icons.detail.Icon,
+      icon: icon.detail.Icon,
     },
   ];
 

@@ -1,18 +1,13 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 import { Container } from '@chakra-ui/react';
 import { VscOutput, VscPerson, VscProject } from 'react-icons/vsc';
-import { useRouter } from 'next/router';
+import { fallback, langs } from '@/globals';
 import createFeaturesStorage from '@/features';
-import SEO from '@/layouts/SEO';
-import Section from '@/layouts/Section';
-import BallDivider from '@/components/BallDivider';
-import Footer from '@/components/Footer';
-import ThumbnailShows from '@/components/ThumbnailShows';
-import CollabShows from '@/components/CollabShows';
 import { fetchAllDetailsByLang } from '@/db';
+import { Section, SEO } from '@/layouts';
+import { CollabShows, Divider, Footer, ThumbnailShows } from '@/components';
 import { CommunityIcon } from '@/components/icons';
-import fallback from '@/globals/fallback';
-import langs from '@/langs';
 
 /** @param {{ storage: import('@/@type/features').FeaturesStorage  }} */
 function Work({ data }) {
@@ -33,19 +28,19 @@ function Work({ data }) {
             <ThumbnailShows baseUrl="/work/proj" data={data?.proj} mt={4} />
           )}
         </Section>
-        <BallDivider mt={4} />
+        <Divider mt={4} />
         <Section id="job" title={set.job.title} icon={<VscOutput />}>
           {set.job.content}
           {data?.job && (
             <ThumbnailShows baseUrl="/work/job" data={data?.job} mt={4} />
           )}
         </Section>
-        <BallDivider mt={4} />
+        <Divider mt={4} />
         <Section id="collab" title={set.collab.title} icon={<VscPerson />}>
           {set.collab.content}
           {data?.collab && <CollabShows data={data?.collab} mt={4} />}
         </Section>
-        <BallDivider mt={4} />
+        <Divider mt={4} />
         <Section
           id="community"
           title={set.community.title}
@@ -60,7 +55,7 @@ function Work({ data }) {
             />
           )}
         </Section>
-        <BallDivider mt={4} />
+        <Divider mt={4} />
         <Footer />
       </Container>
     </>

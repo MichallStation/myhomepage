@@ -1,10 +1,8 @@
-const runtimeCaching = require('next-pwa/cache');
 const withPWA = require('next-pwa')({
   dest: 'public',
-  register: true,
+  // register: true,
+  register: false,
   skipWaiting: true,
-  runtimeCaching,
-  navigateFallback: '/',
   reloadOnOnline: false,
   disable: process.env.NODE_ENV === 'development',
 });
@@ -24,6 +22,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'raw.githubusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.fbcdn.net',
       },
     ],
   },

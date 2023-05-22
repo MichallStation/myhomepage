@@ -1,3 +1,4 @@
+import React, { useCallback, useState } from 'react';
 import {
   SimpleGrid,
   useDisclosure,
@@ -13,9 +14,8 @@ import {
   Box,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import React, { useCallback, useState } from 'react';
-import { BackgroundImage } from '@/lib/NextChakra';
-import BallGallery from '../BallGallery';
+import { BackgroundImage } from '@/lib/next-chakra';
+import { Gallery } from '@/lib/motion-chakra-react-icons';
 
 function PreviewInfo({ data, ...props }) {
   const [index, setIndex] = useState(0);
@@ -141,7 +141,7 @@ function PreviewInfo({ data, ...props }) {
             />
           </ModalHeader>
           <ModalBody bg="transparent" p={2}>
-            <BallGallery
+            <Gallery
               data={data}
               originIndex={index}
               onChange={handleChange}

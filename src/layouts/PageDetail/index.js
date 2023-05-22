@@ -2,19 +2,16 @@ import React from 'react';
 import { Box, Container, Heading, Text, Icon } from '@chakra-ui/react';
 import { VscLayout } from 'react-icons/vsc';
 import { GiNewspaper } from 'react-icons/gi';
-import Section from '@/layouts/Section';
-import BlueBreadcrumb from '@/components/BlueBreadcrumb';
-import icons from '@/globals/icon';
-import MarkdownRender from '@/components/MarkdownRender';
-import { BackgroundImage } from '@/lib/NextChakra';
-import useClientSide from '@/features/hooks/useClientSide';
-import Footer from '@/components/Footer';
+import { BackgroundImage } from '@/lib/next-chakra';
+import { icon } from '@/globals';
+import { Section } from '@/layouts';
+import { Breadcrumb, Footer, MarkdownRender } from '@/components';
 
 function PageDetail({ set, breads, children, data }) {
-  const client = useClientSide();
+  // const client = useClientSide();
   return (
     <Container maxW={{ sm: 'full', md: '3xl' }} pos="relative" p={6}>
-      <BlueBreadcrumb breads={breads} />
+      <Breadcrumb breads={breads} />
       <Box as="article" id={data.id} mt={4}>
         <Box
           id="thumbnail"
@@ -45,7 +42,7 @@ function PageDetail({ set, breads, children, data }) {
             <Box display="flex" justifyContent="center">
               <Icon
                 className="animate__animated animate__flip animate__infinite animate__slow"
-                as={icons.detail.Icon}
+                as={icon.detail.Icon}
                 boxSize="24px"
               />
             </Box>
@@ -64,9 +61,9 @@ function PageDetail({ set, breads, children, data }) {
         <Section title={set.desc} id="desc" sep={4} icon={<VscLayout />}>
           <Text textAlign="justify">{data.desc}</Text>
         </Section>
-        {data?.markdown && client && (
-          <MarkdownRender>{data.markdown}</MarkdownRender>
-        )}
+        {/* {data?.markdown && client && ( */}
+        <MarkdownRender>{data.markdown}</MarkdownRender>
+        {/* )} */}
         {children}
         {data?.articles && (
           <Section

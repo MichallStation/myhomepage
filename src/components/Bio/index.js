@@ -5,9 +5,9 @@ import { IoMailUnreadOutline, IoShareSocialOutline } from 'react-icons/io5';
 import Link from 'next/link';
 import { AiOutlineHeart, AiOutlineSend } from 'react-icons/ai';
 import { useRouter } from 'next/router';
-import Section from '@/layouts/Section';
+import { Section } from '@/layouts';
 import envs from './envs';
-import langs from '@/langs';
+import langs from '@/globals/langs';
 
 /** @type {Object<string, import('@chakra-ui/react').ThemeTypings["colorSchemes"]>} */
 const shemes = {
@@ -19,7 +19,6 @@ const shemes = {
 /**
  * @param {{
  *  storage: import('@/@type/features').FeaturesStorage,
- *  sets: import('@/@type/sets').SetLang
  * }}
  * */
 function Bio() {

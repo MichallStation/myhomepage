@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Avatar,
   Box,
@@ -12,8 +13,8 @@ import {
   Wrap,
   WrapItem,
 } from '@chakra-ui/react';
-import React from 'react';
 import { motion } from 'framer-motion';
+import { BackgroundImage } from '@/lib/next-chakra';
 // import data from './data';
 
 function CollabShows({ data, ...props }) {
@@ -31,7 +32,9 @@ function CollabShows({ data, ...props }) {
                   style={{ display: 'inline-block' }}
                 >
                   <WrapItem as={Button} variant="unstyled" h="100%">
-                    <Avatar
+                    <BackgroundImage
+                      as={Avatar}
+                      backgroundColor="holder"
                       name={i?.name || i?.title}
                       title={i?.name || i?.title}
                       src={i.thumbnail}

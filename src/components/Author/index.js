@@ -1,4 +1,6 @@
-import { MdWorkOutline } from 'react-icons/md';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import React from 'react';
 import {
   Box,
   Button,
@@ -6,19 +8,16 @@ import {
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
-import Link from 'next/link';
-import React from 'react';
+import { MdWorkOutline } from 'react-icons/md';
 import { BsBoxArrowInRight } from 'react-icons/bs';
-import { useRouter } from 'next/router';
-import Section from '@/layouts/Section';
+import { Section } from '@/layouts';
+import { BackgroundImage } from '@/lib/next-chakra';
+import langs from '@/globals/langs';
 import envs from './envs';
-import { BackgroundImage } from '@/lib/NextChakra';
-import langs from '@/langs';
 
 /**
  * @param {{
  *  storage: import('@/@type/features').FeaturesStorage,
- *  sets: import('@/@type/sets').SetLang
  * }}
  * */
 function Author() {

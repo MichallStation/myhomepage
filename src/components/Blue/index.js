@@ -1,14 +1,14 @@
-import { motion, useAnimationControls } from 'framer-motion';
+import { useRouter } from 'next/router';
 import React, { useCallback, useEffect } from 'react';
 import { Box, useToast } from '@chakra-ui/react';
-import { useRouter } from 'next/router';
+import { motion, useAnimationControls } from 'framer-motion';
+import { BackgroundImage } from '@/lib/next-chakra';
+import langs from '@/globals/langs';
 import Message from './Message';
 import styles from './styles';
 import envsNavbar from '../Navbar/envs';
 import actions from './actions';
 import envs from './envs';
-import { BackgroundImage } from '@/lib/NextChakra';
-import langs from '@/langs';
 
 /** @type {Object<string, import('framer-motion').TargetAndTransition>} * */
 const variants = {

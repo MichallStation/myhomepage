@@ -2,7 +2,7 @@ import { serialize } from 'cookie';
 
 /**
  * @param {import('next').NextApiResponse} res
- * @param {[import('./@next').Cookie]} values
+ * @param {[import('../../@type/cookie').Cookie]} values
  * */
 export function setCookieForResponse(res, values) {
   return res.setHeader(

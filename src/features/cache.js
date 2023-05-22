@@ -1,9 +1,9 @@
-import { expiresDay } from '@/utils/cookie';
+import { expiresDay } from '@/lib/cookie';
 
 function cookie(cookies, lang) {
   const latest = Date();
   const firstTime = cookies?.latest === undefined;
-  /** @type {[import('@/lib/next/@next').Cookie]} */
+  /** @type {[import('@/@type/cookie').Cookie]} */
   const cookieData = [
     {
       name: 'latest',

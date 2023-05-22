@@ -5,7 +5,7 @@ import rehypeRaw from 'rehype-raw';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import shortcodes from 'remark-shortcodes';
-import MarkdownCustomComponents from '../MarkdownCustomComponents';
+import { MarkdownCustomComponents } from '@/lib/react-markdown-chakra';
 
 /** @type {import('react-markdown').Components} */
 const MarkdownComponents = {
