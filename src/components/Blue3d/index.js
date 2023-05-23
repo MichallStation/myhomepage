@@ -9,6 +9,8 @@ import {
   blue3dDone,
   blue3dShows,
   DONE,
+  LOADING,
+  PAUSE,
   selectblue3dStatus,
 } from '@/features/slices/ui';
 import data from './envs';
@@ -16,6 +18,7 @@ import data from './envs';
 const easeOutCirc = (x) => Math.sqrt(1 - (x - 1) ** 4);
 const envs = {
   inView: true,
+  status: LOADING,
 };
 
 function Blue3d() {
@@ -24,10 +27,8 @@ function Blue3d() {
   const dispatch = useDispatch();
   const inView = useInView(refContainer);
   const status = useSelector(selectblue3dStatus);
-
-  useEffect(() => {
-    envs.inView = inView;
-  }, [inView]);
+  envs.inView = status !== PAUSE && inView;
+  envs.status = status;
 
   const handleWindowResize = useCallback(() => {
     const { current: rendererEl } = refRenderer;
@@ -94,6 +95,7 @@ function Blue3d() {
     let frame = 0;
     const animate = () => {
       req = requestAnimationFrame(animate);
+      if (!envs.inView) return;
       frame = frame <= 100 ? frame + 1 : frame;
 
       if (frame <= 100) {
@@ -105,12 +107,10 @@ function Blue3d() {
         camera.position.z = p.z * Math.cos(rotSpeed) - p.x * Math.sin(rotSpeed);
         camera.lookAt(target);
       } else {
-        if (status !== DONE) {
+        if (envs.status !== DONE) {
           dispatch(blue3dDone());
         }
-        if (envs.inView) {
-          controls.update();
-        }
+        controls.update();
       }
 
       renderer.render(scene, camera);

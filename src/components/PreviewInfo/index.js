@@ -10,34 +10,46 @@ import {
   useColorModeValue,
   ModalHeader,
   Heading,
-  ModalCloseButton,
   Box,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
+import { useDispatch } from 'react-redux';
 import { BackgroundImage } from '@/lib/next-chakra';
 import { Gallery } from '@/lib/motion-chakra-react-icons';
+import { blue3dDone, blue3dPause } from '@/features/slices/ui';
 
 function PreviewInfo({ data, ...props }) {
   const [index, setIndex] = useState(0);
   const [modalTitle, setModalTitle] = useState(data[0]?.title);
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const dispatch = useDispatch();
+
+  const handleOpen = useCallback(() => {
+    dispatch(blue3dPause());
+    onOpen();
+  }, [dispatch, onOpen]);
+
+  const handleCLose = useCallback(() => {
+    onClose();
+    dispatch(blue3dDone());
+  }, [dispatch, onClose]);
 
   const handleChange = useCallback(
     (i) => {
       setModalTitle(i?.title);
       if (!i) {
-        onClose();
+        handleCLose();
       }
     },
-    [onClose],
+    [handleCLose],
   );
 
   const handleClick = useCallback(
     (e) => {
       setIndex(Number(e.target.dataset.index));
-      onOpen();
+      handleOpen();
     },
-    [onOpen],
+    [handleOpen],
   );
 
   return (
@@ -82,35 +94,47 @@ function PreviewInfo({ data, ...props }) {
           ))}
       </SimpleGrid>
       <Modal
-        blockScrollOnMount
+        blockScrollOnMount={false}
         isOpen={isOpen}
-        onClose={onClose}
+        onClose={handleCLose}
         isCentered
         size="3xl"
-        motionPreset="slideInBottom"
+        motionPreset="none"
       >
         <ModalOverlay
           // bg="blackAlpha.500"
           bg="blackAlpha.800"
+          motionProps={{
+            initial: {
+              scaleY: 0,
+              opacity: 0,
+            },
+            whileInView: {
+              scaleY: 1,
+              opacity: 1,
+            },
+            exit: {
+              scaleY: 0,
+              opacity: 0,
+            },
+            transition: { duration: 0.25 },
+          }}
         />
         <ModalContent
-          // backgroundColor={useColorModeValue(
-          //   'whiteAlpha.300',
-          //   'whiteAlpha.300',
-          //   // 'blackAlpha.300',
-          // )}
           bgColor="transparent"
-          // backdropFilter="blur(10px)"
           overflow="hidden"
-          h="80vh"
           pos="relative"
+          // h={['100%', '80%']}
+          h="80%"
+          m={0}
         >
           <ModalHeader
             display="flex"
             alignItems="center"
             color="whiteAlpha.900"
             pos="relative"
-            p={0}
+            // p={2}
+            py={0}
             px={2}
           >
             <Box flex={1}>
@@ -130,22 +154,23 @@ function PreviewInfo({ data, ...props }) {
                 {modalTitle}
               </Heading>
             </Box>
-            <ModalCloseButton
+            {/* <ModalCloseButton
               ml={2}
-              bgColor="gray"
+              // bgColor="gray"
+              bgColor="red"
               borderRadius="full"
               pos="unset"
               // top="50%"
               boxSize="44px"
               // transform="translateY(-50%)"
-            />
+            /> */}
           </ModalHeader>
-          <ModalBody bg="transparent" p={2}>
+          <ModalBody display="flex" alignItems="center" bg="transparent" p={2}>
             <Gallery
               data={data}
               originIndex={index}
               onChange={handleChange}
-              onClose={onClose}
+              onClose={handleCLose}
             />
           </ModalBody>
         </ModalContent>

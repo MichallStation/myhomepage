@@ -1,15 +1,9 @@
-import { Box, Icon } from '@chakra-ui/react';
-import { AnimatePresence, animationControls, motion } from 'framer-motion';
-import React, {
-  useCallback,
-  useEffect,
-  useRef,
-  useMemo,
-  useState,
-} from 'react';
+import { Box, CloseButton, Icon, useCallbackRef } from '@chakra-ui/react';
+import { AnimatePresence, animationControls } from 'framer-motion';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { GoPrimitiveDot } from 'react-icons/go';
 import { BackgroundImage } from '@/lib/next-chakra';
-import { openFullscreen } from '@/lib/browser';
+import { MotionDiv } from '@/lib/framer-motion';
 
 /** @type {Object<string, import('framer-motion').TargetAndTransition>} * */
 const variants = {
@@ -23,58 +17,64 @@ const variants = {
   },
 };
 
+// FIXME: Trackpad WheelEvent is dispatch every new component mounted
 function Gallery({ data, originIndex = 0, onChange, onClose, ...props }) {
-  const dataSort = useMemo(
-    () => [
-      ...data.slice(originIndex, data.length),
-      ...data.slice(0, originIndex),
-    ],
-    [data, originIndex],
-  );
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const currentItem = useMemo(
-    () => dataSort[currentIndex],
-    [currentIndex, dataSort],
-  );
-  // const controls = useAnimationControls();
+  const [currentIndex, setCurrentIndex] = useState(originIndex);
+  const [fullscreen, setFullscreen] = useState(false);
+  const currentItem = useMemo(() => data[currentIndex], [currentIndex, data]);
   const controls = useMemo(
     () =>
       data.reduce(
-        (r, _, index) => ({ ...r, [index]: animationControls() }),
+        (args, _, index) => ({ ...args, [index]: animationControls() }),
         {},
       ),
     [data],
   );
-  const refCurrent = useRef();
 
   useEffect(() => {
     onChange(data[originIndex]);
   }, [data, onChange, originIndex]);
 
-  const handleHide = useCallback(() => {
-    controls[currentIndex].mount();
-    controls[currentIndex].start('hide');
-    onChange(dataSort?.[currentIndex + 1]);
-    setCurrentIndex((p) => p + 1);
-  }, [controls, currentIndex, dataSort, onChange]);
+  // const handleHide = useCallback(() => {
+  //   controls[currentIndex].mount();
+  //   controls[currentIndex].start('hide');
+  //   // onChange(dataSort?.[currentIndex + 1]);
+  //   setCurrentIndex((p) => p + 1);
+  // }, [controls, currentIndex, dataSort, onChange]);
 
-  // const handleWheel = useCallback(
-  //   /** @param {WheelEvent} e */
-  //   (e) => {
-  //     const y = Math.abs(e.deltaY);
-  //     const x = Math.abs(e.deltaX);
-  //     if (y > 200 || x > 200) {
-  //       handleHide();
-  //     }
-  //   },
-  //   [handleHide],
-  // );
+  const handleNext = useCallback(() => {
+    if (currentIndex < data.length - 1) {
+      controls[currentIndex].mount();
+      controls[currentIndex].start('hide');
+      setCurrentIndex((p) => p + 1);
+    }
+    onChange(data?.[currentIndex + 1]);
+  }, [controls, currentIndex, data, onChange]);
+
+  const handlePrev = useCallback(() => {
+    if (currentIndex > 0) {
+      controls[currentIndex].mount();
+      controls[currentIndex].start('hide');
+      setCurrentIndex((p) => p - 1);
+    }
+    onChange(data?.[currentIndex - 1]);
+  }, [controls, currentIndex, data, onChange]);
+
+  const [refCurrent, setRefCurrent] = useState();
+  const refCallbackCurrent = useCallbackRef(
+    (current) => {
+      if (current !== null) {
+        setRefCurrent(current);
+      }
+    },
+    [currentIndex],
+  );
 
   const handleFullScreen = useCallback(() => {
-    const { current } = refCurrent;
-    if (!current) return;
-    openFullscreen(current);
-  }, [currentIndex]);
+    if (!refCurrent) return;
+    // openFullscreen(refCurrent);
+    setFullscreen(true);
+  }, [refCurrent]);
 
   return (
     <Box
@@ -86,37 +86,39 @@ function Gallery({ data, originIndex = 0, onChange, onClose, ...props }) {
       pos="relative"
       {...props}
     >
-      {/* {dataSort.map((i, index) => ( */}
       {currentItem && (
-        <AnimatePresence initial={false} mode="popLayout">
-          <motion.div
+        <AnimatePresence
+          // initial={false}
+          mode="popLayout"
+        >
+          <MotionDiv
             key={currentItem.thumbnail}
             animate={controls[currentIndex]}
             variants={variants}
-            transition={{ duration: 0.2 }}
-            // transition={{ duration: 0.3 }}
+            transition={{ duration: 0.25 }}
             drag
-            dragDirectionLock
             initial="hide"
             whileInView="view"
-            // onDragStart={handleShow}
             onDoubleClick={handleFullScreen}
-            onDragEnd={handleHide}
-            onWheel={handleHide}
-            // onWheel={handleWheel}
-            // data-index={index}
+            onNavigateLeft={handlePrev}
+            onNavigateRight={handleNext}
+            onNavigateUp={handleNext}
+            onNavigateDown={handlePrev}
+            onDragLeft={handleNext}
+            onDragRight={handlePrev}
+            onDragUp={handleNext}
+            onDragDown={handlePrev}
             exit="hide"
             style={{
               width: '100%',
               height: '100%',
               overflowX: 'auto',
               position: 'absolute',
-              // zIndex: data.length - index,
               touchAction: 'none',
             }}
           >
             <BackgroundImage
-              ref={refCurrent}
+              ref={refCallbackCurrent}
               pointerEvents="none"
               borderRadius="24px"
               bgColor="gray"
@@ -125,14 +127,11 @@ function Gallery({ data, originIndex = 0, onChange, onClose, ...props }) {
               key={currentItem.thumbnail}
               src={currentItem.thumbnail}
               title={currentItem.title}
-              // borderRadius="lg"
               objectFit="contain"
-              // objectFit="cover"
-              // w="100%"
               w="100%"
               h="100%"
             />
-          </motion.div>
+          </MotionDiv>
         </AnimatePresence>
       )}
       <Box
@@ -143,16 +142,48 @@ function Gallery({ data, originIndex = 0, onChange, onClose, ...props }) {
         display="flex"
         justifyContent="center"
       >
-        {dataSort.map((item, i) => (
+        {data.map((item, i) => (
           <Icon
-            key={item.id}
+            key={item.title}
             color={i === currentIndex ? 'second' : 'chakra-body-text'}
             as={GoPrimitiveDot}
             boxSize="24px"
+            // borderRadius="full"
+            // shadow="dark-lg"
           />
         ))}
       </Box>
       {/* ))} */}
+      {currentItem && fullscreen && (
+        <Box
+          pos="fixed"
+          w="100vw"
+          h="100vh"
+          top={0}
+          left={0}
+          bg="black"
+          zIndex={99999}
+        >
+          <BackgroundImage
+            src={currentItem.thumbnail}
+            objectFit="contain"
+            w="100%"
+            h="100%"
+            onDoubleClick={() => setFullscreen(false)}
+          />
+          <CloseButton
+            pos="absolute"
+            top={4}
+            right={4}
+            colorScheme="red"
+            bgColor="red"
+            borderRadius="full"
+            size="lg"
+            shadow="base"
+            onClick={() => setFullscreen(false)}
+          />
+        </Box>
+      )}
     </Box>
   );
 }

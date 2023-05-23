@@ -1,6 +1,6 @@
 * {
-  /* touch-action: none; */
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: #a9928182;
 }
 
 [lang="vi"] * {

@@ -7,6 +7,7 @@ export const DONE = 'done';
 export const HIDE = 'hide';
 export const ERROR = 'error';
 export const SHOW = 'show';
+export const PAUSE = 'pause';
 export const CLOSE = 'close';
 
 const initialState = {
@@ -62,6 +63,10 @@ export const uiSlice = createSlice({
       // state.toast.value = undefined;
       state.blue3d.status = SHOW;
     },
+    blue3dPause: (state) => {
+      // state.toast.value = undefined;
+      state.blue3d.status = PAUSE;
+    },
     blue3dDone: (state) => {
       // state.toast.value = undefined;
       state.blue3d.status = DONE;
@@ -78,6 +83,7 @@ export const {
   blue3dLoading,
   blue3dDone,
   blue3dShows,
+  blue3dPause,
 } = uiSlice.actions;
 export const selectProgress = (state) => state.ui.progressBar;
 export const selectProgressValue = (state) => state.ui.progressBar.value;

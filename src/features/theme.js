@@ -88,8 +88,8 @@ const theme = extendTheme({
       // 900: '#a99281',
     },
     pop: '#fdf6ec',
-    // holder: '#808680',
-    holder: 'rgb(135 135 135 / 60%)',
+    holder: '#808680',
+    // holder: 'rgb(135 135 135 / 60%)',
     holderLight: '#8d948d',
   },
 });

@@ -2,7 +2,7 @@ import React from 'react';
 import { Box } from '@chakra-ui/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
-import { DONE, LOADING, selectblue3dStatus } from '@/features/slices/ui';
+import { LOADING, SHOW, selectblue3dStatus } from '@/features/slices/ui';
 import { useClientSide } from '@/features/hooks';
 import Blue from '../Blue';
 import BlueLoading from '../BlueLoading';
@@ -25,7 +25,9 @@ function Floating({ storage }) {
           </motion.div>
         )}
       </AnimatePresence>
-      {client && status === DONE && <Blue storage={storage} />}
+      {client && ![LOADING, SHOW].includes(status) && (
+        <Blue storage={storage} />
+      )}
     </Box>
   );
 }
