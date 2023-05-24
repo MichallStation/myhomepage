@@ -9,7 +9,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import Cookies from 'js-cookie';
-import { expiresDay } from '@/lib/cookie';
+import { expireDays } from '@/lib/browser/cookie';
 import { list as langList } from '@/globals/langs';
 import envs from './envs';
 
@@ -39,7 +39,7 @@ function LanguageButton() {
       });
       Cookies.set('lang', e.target.value, {
         path: '/',
-        expires: expiresDay(365),
+        expires: expireDays(365),
       });
     },
     [lang, router],

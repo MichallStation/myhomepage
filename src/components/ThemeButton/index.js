@@ -16,7 +16,7 @@ const style = {
 //   // update storage (cookies/localStorage)
 //   Cookies.set('chakra-ui-color-mode', newValue, {
 //     path: '/',
-//     expires: expiresDay(365),
+//     expires: expireDays(365),
 //   });
 //   localStorage.setItem('chakra-ui-color-mode', newValue);
 //   toggleColorMode();

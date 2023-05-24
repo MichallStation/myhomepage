@@ -1,9 +1,9 @@
 import { Provider } from 'react-redux';
-import '@fontsource/lobster-two';
-import '@fontsource/merienda';
-import '@fontsource/roboto-mono';
-import '@fontsource/signika-negative';
-import '@fontsource/source-sans-pro';
+// import '@fontsource/lobster-two';
+// import '@fontsource/merienda';
+// import '@fontsource/roboto-mono';
+// import '@fontsource/signika-negative';
+// import '@fontsource/source-sans-pro';
 import 'animate.css';
 import { Manager } from '@/lib/chakra';
 import createStore from '@/features/store';

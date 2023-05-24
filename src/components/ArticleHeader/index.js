@@ -49,7 +49,7 @@ function ArticleHeader({ toc, set, data, ...props }) {
             <Icon
               className="animate__animated animate__flip animate__infinite animate__slow"
               as={GiNewspaper}
-              boxSize="48px"
+              boxSize="36px"
               backgroundColor={useColorModeValue(
                 'blackAlpha.300',
                 'whiteAlpha.400',

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   SimpleGrid,
   useDisclosure,
@@ -13,26 +13,43 @@ import {
   Box,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { BackgroundImage } from '@/lib/next-chakra';
 import { Gallery } from '@/lib/motion-chakra-react-icons';
-import { blue3dDone, blue3dPause } from '@/features/slices/ui';
+import {
+  blue3dDone,
+  blue3dPause,
+  selectblue3dStatus,
+  PAUSE,
+} from '@/features/slices/ui';
+import { disableScale, enableScale } from '@/lib/browser/dom';
 
 function PreviewInfo({ data, ...props }) {
   const [index, setIndex] = useState(0);
   const [modalTitle, setModalTitle] = useState(data[0]?.title);
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [modalBlockMode, setModalBlockMode] = useState(true);
   const dispatch = useDispatch();
+  const blue3dStatus = useSelector(selectblue3dStatus);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const handleOpen = useCallback(() => {
-    dispatch(blue3dPause());
-    onOpen();
-  }, [dispatch, onOpen]);
+  useEffect(
+    () => () => {
+      if (blue3dStatus === PAUSE) dispatch(blue3dDone());
+    },
+    [blue3dStatus, dispatch],
+  );
 
   const handleCLose = useCallback(() => {
     onClose();
     dispatch(blue3dDone());
+    enableScale();
   }, [dispatch, onClose]);
+
+  const handleOpen = useCallback(() => {
+    dispatch(blue3dPause());
+    disableScale();
+    onOpen();
+  }, [dispatch, onOpen]);
 
   const handleChange = useCallback(
     (i) => {
@@ -51,6 +68,16 @@ function PreviewInfo({ data, ...props }) {
     },
     [handleOpen],
   );
+
+  const handleCloseFullscreen = useCallback(() => {
+    disableScale();
+    setModalBlockMode(true);
+  }, []);
+
+  const handleOpenFullscreen = useCallback(() => {
+    enableScale();
+    setModalBlockMode(false);
+  }, []);
 
   return (
     <>
@@ -94,7 +121,7 @@ function PreviewInfo({ data, ...props }) {
           ))}
       </SimpleGrid>
       <Modal
-        blockScrollOnMount={false}
+        blockScrollOnMount={modalBlockMode}
         isOpen={isOpen}
         onClose={handleCLose}
         isCentered
@@ -171,6 +198,8 @@ function PreviewInfo({ data, ...props }) {
               originIndex={index}
               onChange={handleChange}
               onClose={handleCLose}
+              onOpenFullscreen={handleOpenFullscreen}
+              onCloseFullscreen={handleCloseFullscreen}
             />
           </ModalBody>
         </ModalContent>

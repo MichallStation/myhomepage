@@ -1,4 +1,4 @@
-import { expiresDay } from '@/lib/cookie';
+import { expireDays } from '@/lib/browser/cookie';
 
 function cookie(cookies, lang) {
   const latest = Date();
@@ -10,7 +10,7 @@ function cookie(cookies, lang) {
       value: latest,
       options: {
         path: '/',
-        expires: expiresDay(365),
+        expires: expireDays(365),
       },
     },
   ];
@@ -20,7 +20,7 @@ function cookie(cookies, lang) {
       value: lang,
       options: {
         path: '/',
-        expires: expiresDay(365),
+        expires: expireDays(365),
       },
     });
   }

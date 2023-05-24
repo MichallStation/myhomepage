@@ -86,7 +86,7 @@ function ArticleCard({ set, data, href, revert, ...props }) {
         <Box display="flex" justifyContent="center" mt={2}>
           <MotionButton
             as={Link}
-            colorScheme="seconds"
+            bgColor="second"
             py={1}
             px={2}
             fontFamily="handwrite"

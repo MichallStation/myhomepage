@@ -74,7 +74,7 @@ function CustomBlockQuote(props) {
 
 function CustomCode({ node, inline, className, children, ...props }) {
   const match = /language-(\w+)/.exec(className || '');
-  const sheme = useColorModeValue('gray', 'twitter');
+  const sheme = useColorModeValue('seconds', 'twitter');
   const theme = useColorModeValue(materialLight, materialDark);
   const bgCustomValue = useColorModeValue(
     'var(--chakra-colors-pop)',

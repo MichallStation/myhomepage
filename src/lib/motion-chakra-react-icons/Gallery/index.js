@@ -3,7 +3,7 @@ import { AnimatePresence, animationControls } from 'framer-motion';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { GoPrimitiveDot } from 'react-icons/go';
 import { BackgroundImage } from '@/lib/next-chakra';
-import { MotionDiv } from '@/lib/framer-motion';
+import { MotionDiv } from '@/lib/ux-motion';
 
 /** @type {Object<string, import('framer-motion').TargetAndTransition>} * */
 const variants = {
@@ -18,7 +18,14 @@ const variants = {
 };
 
 // FIXME: Trackpad WheelEvent is dispatch every new component mounted
-function Gallery({ data, originIndex = 0, onChange, onClose, ...props }) {
+function Gallery({
+  data,
+  originIndex = 0,
+  onChange,
+  onOpenFullscreen,
+  onCloseFullscreen,
+  ...props
+}) {
   const [currentIndex, setCurrentIndex] = useState(originIndex);
   const [fullscreen, setFullscreen] = useState(false);
   const currentItem = useMemo(() => data[currentIndex], [currentIndex, data]);
@@ -34,13 +41,6 @@ function Gallery({ data, originIndex = 0, onChange, onClose, ...props }) {
   useEffect(() => {
     onChange(data[originIndex]);
   }, [data, onChange, originIndex]);
-
-  // const handleHide = useCallback(() => {
-  //   controls[currentIndex].mount();
-  //   controls[currentIndex].start('hide');
-  //   // onChange(dataSort?.[currentIndex + 1]);
-  //   setCurrentIndex((p) => p + 1);
-  // }, [controls, currentIndex, dataSort, onChange]);
 
   const handleNext = useCallback(() => {
     if (currentIndex < data.length - 1) {
@@ -70,11 +70,16 @@ function Gallery({ data, originIndex = 0, onChange, onClose, ...props }) {
     [currentIndex],
   );
 
-  const handleFullScreen = useCallback(() => {
+  const handleOpenFullscreen = useCallback(() => {
     if (!refCurrent) return;
-    // openFullscreen(refCurrent);
+    if (typeof onOpenFullscreen === 'function') onOpenFullscreen();
     setFullscreen(true);
-  }, [refCurrent]);
+  }, [onOpenFullscreen, refCurrent]);
+
+  const handleCloseFullscreen = useCallback(() => {
+    setFullscreen(false);
+    if (typeof onOpenFullscreen === 'function') onCloseFullscreen();
+  }, [onCloseFullscreen, onOpenFullscreen]);
 
   return (
     <Box
@@ -99,11 +104,11 @@ function Gallery({ data, originIndex = 0, onChange, onClose, ...props }) {
             drag
             initial="hide"
             whileInView="view"
-            onDoubleClick={handleFullScreen}
+            onDoubleClick={handleOpenFullscreen}
             onNavigateLeft={handlePrev}
             onNavigateRight={handleNext}
-            onNavigateUp={handleNext}
-            onNavigateDown={handlePrev}
+            onNavigateUp={handlePrev}
+            onNavigateDown={handleNext}
             onDragLeft={handleNext}
             onDragRight={handlePrev}
             onDragUp={handleNext}
@@ -153,7 +158,6 @@ function Gallery({ data, originIndex = 0, onChange, onClose, ...props }) {
           />
         ))}
       </Box>
-      {/* ))} */}
       {currentItem && fullscreen && (
         <Box
           pos="fixed"
@@ -169,7 +173,7 @@ function Gallery({ data, originIndex = 0, onChange, onClose, ...props }) {
             objectFit="contain"
             w="100%"
             h="100%"
-            onDoubleClick={() => setFullscreen(false)}
+            onDoubleClick={handleCloseFullscreen}
           />
           <CloseButton
             pos="absolute"
@@ -180,7 +184,7 @@ function Gallery({ data, originIndex = 0, onChange, onClose, ...props }) {
             borderRadius="full"
             size="lg"
             shadow="base"
-            onClick={() => setFullscreen(false)}
+            onClick={handleCloseFullscreen}
           />
         </Box>
       )}

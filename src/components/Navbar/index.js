@@ -9,6 +9,7 @@ import LanguageButton from '../LanguageButton';
 import BallProgress from '../BallProgress';
 import NavLink from './NavLink';
 import envs from './envs';
+import { hapticFeedback } from '@/lib/browser/hard';
 
 /** @type {Object.<string, import('react').CSSProperties>} */
 const style = {
@@ -42,7 +43,10 @@ function Navbar() {
   const { setLoading, setDone } = useProgress();
 
   useEffect(() => {
-    const handleChangeStart = (url) => url !== router.pathname && setLoading();
+    const handleChangeStart = (url) => {
+      hapticFeedback();
+      return url !== router.pathname && setLoading();
+    };
     const handleChangeComplete = () => setDone();
 
     Router.events.on('routeChangeStart', handleChangeStart);

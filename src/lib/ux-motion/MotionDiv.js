@@ -1,11 +1,15 @@
-import { motion } from 'framer-motion';
 import React, { useCallback } from 'react';
+import { motion } from 'framer-motion';
 
 const envs = {
   eventedObserver: undefined,
   isEvented: false,
   latest: '',
 };
+
+// function $call(func, ...args) {
+//   if (typeof func === 'function') return func(...args);
+// }
 
 /** @param {import("framer-motion").MotionProps} props */
 function MotionDiv({
