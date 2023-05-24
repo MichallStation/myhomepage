@@ -1,4 +1,4 @@
-## Tại sao lại là máy tính xách tay 💻
+### Tại sao lại là máy tính xách tay 💻
 
 - Đầu tiên, tôi là một người rất ưa chuộng việc đi lại, thậm chí ở trong chính ngôi nhà của tôi. Tôi vẫn luôn thay đổi liên tục phong cách làm việc của mình. Đây là lí do chính tôi sử dụng máy tính xách tay bởi sự tiện lợi của nó.
 - Tôi tin rằng mỗi đồ dùng đều có điểm mạnh và điểm yếu riêng của nó. Phong cách của tôi là tách biệt mọi thứ với nhau để luôn đạt được hiểu quả tối ưu. Các bạn có thể tìm hiểu nó trong các bài viết của tôi.
@@ -6,7 +6,7 @@
 
 ---
 
-## Thông số kỹ thuật
+### Thông số kỹ thuật
 
 - Model: Dell Xps 9550.
 - Màn hình: 15.6 inches, độ phân giải 4K 3840x2160.
@@ -15,7 +15,7 @@
 
 ---
 
-## Hệ điều hành
+### Hệ điều hành
 
 Tôi đã tự cấu hình và cài đặt chiếc máy tính xách tay của tôi chạy hầu hết các hệ điều hành phổ biến để phục vụ cho công tác phát triển và thử nghiệm sản phẩm kỹ thuật số trước khi ra mắt sản phẩm/dịch vụ cho cộng đồng hoặc khách hàng.
 
@@ -29,7 +29,7 @@ Tất cả hệ điều hành trên chiếc máy tính của tôi bao gồm.
 
 ---
 
-## Cầu nối với các hệ điều hành 🌉
+### Cầu nối với các hệ điều hành 🌉
 
 Việc sử dụng nhiều hệ điều hành hoặc phần mềm khác nhau chắc chắn các bạn sẽ thấy rằng, mọi thao tác trên chúng điều không giống nhau.
 
@@ -47,7 +47,7 @@ Tôi luôn luôn bắt đầu với một hệ điều hành bằng cách sử d
 
 ---
 
-## Windows của tôi
+### Windows của tôi
 
 Luôn luôn là sự lựa chọn hàng đầu và phổ biến nhất cho tất cả mọi người bởi giao diện quen thuộc và tồn tại lâu đời của hệ điều hành windows.
 
@@ -55,7 +55,7 @@ Tôi sử dụng windows là hệ điều hành chính cho chiếc máy tính c�
 
 ---
 
-## MacOS của tôi
+### MacOS của tôi
 
 Hệ điều hành phổ biến chỉ đứng sau `cửa sổ`, là sự lựa chọn hàng đầu của những ai yêu thích hệ sinh thái Apple.
 
@@ -68,7 +68,7 @@ Tôi chỉ sử dụng hệ điều hành MacOS trên chiếc máy tính của m
 
 ---
 
-## ChromeOS của tôi
+### ChromeOS của tôi
 
 Hệ điều hành ưa thích nhất của tôi. Tôi là fan của ứng dụng web vì sự gọn nhẹ của nó. Việc trải nghiệm ứng dụng web trên `ChromeOS` là một sự khác biệt lớn so với các nền tảng còn lại.
 
@@ -85,7 +85,7 @@ Tôi chỉ sử dụng hệ điều hành `ChromeOS` trên chiếc máy tính c�
 
 ---
 
-## Linux của tôi
+### Linux của tôi
 
 Nổi tiếng là mã nguồn mở và hoàn toàn miễn phí. `Linux` và các bản phân phối `Linux` trong đó có `Ubuntu`, `Ubuntu` được sử dụng rộng rãi đặc biệt thường được các hãng sử dụng làm hệ điều hành cho phía máy chủ.
 
@@ -95,7 +95,7 @@ Nổi tiếng là mã nguồn mở và hoàn toàn miễn phí. `Linux` và các
 
 ---
 
-## Những thắc mắc thường gặp ❓
+### Những thắc mắc thường gặp ❓
 
 - Làm thế nào để tôi có thể cấu hình chiếc máy tính của mình chạy song song các hệ điều hành `Windows`, `MacOS`, `Linux` và `ChromeOS`?
 
