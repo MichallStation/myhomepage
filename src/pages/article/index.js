@@ -94,9 +94,10 @@ function Article({ data }) {
         card={set?.thumbnail}
       />
       <Container maxW={{ sm: 'full', md: '3xl' }} pos="relative" px={6}>
-        <Box as="nav" className="nav-filter" overflowX="scroll">
+        <Box as="nav" display="flex" className="nav-filter" overflowX="scroll">
           {tags.map((tag) => (
             <Button
+              minW="120px"
               borderRadius="24px"
               leftIcon={
                 searchList?.[tag] ? (
