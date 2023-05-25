@@ -21,6 +21,7 @@ import {
   blue3dPause,
   selectblue3dStatus,
   PAUSE,
+  DONE,
 } from '@/features/slices/ui';
 import { disableScale, enableScale } from '@/lib/browser/dom';
 
@@ -34,14 +35,14 @@ function PreviewInfo({ data, ...props }) {
 
   useEffect(
     () => () => {
-      if (blue3dStatus === PAUSE) dispatch(blue3dDone());
+      if (blue3dStatus !== DONE) dispatch(blue3dDone());
     },
     [blue3dStatus, dispatch],
   );
 
   const handleCLose = useCallback(() => {
     onClose();
-    if (blue3dStatus === PAUSE) dispatch(blue3dDone());
+    if (blue3dStatus !== DONE) dispatch(blue3dDone());
     enableScale();
   }, [blue3dStatus, dispatch, onClose]);
 
