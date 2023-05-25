@@ -84,7 +84,7 @@ function CollabShows({ data, ...props }) {
       {data.map(
         (i) =>
           !i?.delete && (
-            <Popover key={i?.name || i?.title}>
+            <Popover key={i?.name || i?.title} isLazy>
               <PopoverTrigger>
                 <motion.div
                   whileHover={{ scale: 1.2 }}
