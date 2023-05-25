@@ -10,6 +10,7 @@ const path = require('node:path');
 // const crypto = require('crypto');
 
 // const uuid = crypto.randomUUID();
+const reInternalLinkOrImage = /\[*\w*\]\(\.\/*\w*\.*\w*\)/;
 const internalPath = (p) => !p.startsWith('https');
 const addRemoteLink = (p = '', relative) =>
   internalPath(p)

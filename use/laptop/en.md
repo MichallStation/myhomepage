@@ -1,1 +1,3 @@
 # EN
+
+![blue](./thumbnail.jpg)
