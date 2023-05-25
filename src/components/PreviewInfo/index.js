@@ -41,15 +41,15 @@ function PreviewInfo({ data, ...props }) {
 
   const handleCLose = useCallback(() => {
     onClose();
-    dispatch(blue3dDone());
+    if (blue3dStatus === PAUSE) dispatch(blue3dDone());
     enableScale();
-  }, [dispatch, onClose]);
+  }, [blue3dStatus, dispatch, onClose]);
 
   const handleOpen = useCallback(() => {
-    dispatch(blue3dPause());
+    if (blue3dStatus !== PAUSE) dispatch(blue3dPause());
     disableScale();
     onOpen();
-  }, [dispatch, onOpen]);
+  }, [blue3dStatus, dispatch, onOpen]);
 
   const handleChange = useCallback(
     (i) => {
