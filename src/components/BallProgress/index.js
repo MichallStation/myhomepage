@@ -17,7 +17,7 @@ function BallProgress(props) {
         className="progress-bar"
         role="progressbar"
         size="xs"
-        colorScheme="seconds"
+        colorScheme="secondSolid"
         borderRadius="md"
         left="4px"
         right="4px"

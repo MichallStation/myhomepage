@@ -46,7 +46,10 @@ function LanguageButton() {
   );
 
   return (
-    <Menu isLazy closeOnSelect closeOnBlur={false}>
+    <Menu
+      isLazy
+      // closeOnSelect closeOnBlur={false}
+    >
       <MenuButton as={Button} style={style.select}>
         {router.locale}
       </MenuButton>

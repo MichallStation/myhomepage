@@ -27,7 +27,9 @@
 }
 
 .section ::-webkit-scrollbar,
-.pre-code::-webkit-scrollbar {
+.pre-code::-webkit-scrollbar,
+.nav-filter::-webkit-scrollbar,
+.scroll-x::-webkit-scrollbar {
   display: none;
 }
 

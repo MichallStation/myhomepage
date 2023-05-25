@@ -72,7 +72,7 @@ function PageDetail({ set, breads, children, data }) {
             sep={4}
             icon={<GiNewspaper />}
           >
-            {data?.articlesDesc || set.articles.desc}
+            {/* {data?.articlesDesc || set.articles.desc} */}
             {/* {data?.articles && (
           <PreviewLinkShows data={data?.articles} lang={lang} mt={4} />
         )} */}

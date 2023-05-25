@@ -5,7 +5,7 @@
  * Server side rendering
  */
 
-import { setCookieForResponse } from '@/lib/next';
+import { setCookieForResponse } from '@/lib/next/ssr';
 import cache from './cache';
 
 const sendResCookie = async (res, cookieData) =>

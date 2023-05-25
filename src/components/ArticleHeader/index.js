@@ -17,21 +17,11 @@ function ArticleHeader({ toc, set, data, ...props }) {
       p={2}
       {...props}
     >
-      <BackgroundImage
-        minH={['200px', '320px', '400px']}
-        w="100%"
-        backgroundColor="holder"
-        backgroundSize="cover"
-        backgroundRepeat="no-repeat"
-        backgroundPosition="center"
-        backgroundImage={data.thumbnail}
-      />
       <Box
         className="article-body"
         display="flex"
         minH={['', '460px']}
         flexDirection={['column', 'row']}
-        mt={1}
       >
         <Box
           className="header-heading"
@@ -75,8 +65,8 @@ function ArticleHeader({ toc, set, data, ...props }) {
           // backgroundPosition="center"
           // backgroundImage={envs.bgUrl}
           // color="gray.800"
-          // backgroundColor={useColorModeValue('gray', 'gray')}
-          // backgroundColor={useColorModeValue('holderLight', 'holder')}
+          // backgroundColor={useColorModeValue('blackAlpha.200', '')}
+          // backgroundColor={useColorModeValue('holder', '')}
           // color={useColorModeValue('black')}
           py={2}
           px={4}
@@ -130,6 +120,19 @@ function ArticleHeader({ toc, set, data, ...props }) {
           </Section>
         </Box>
       </Box>
+
+      <BackgroundImage
+        // mt={1}
+        border={['2px dotted', '4px dotted']}
+        color="white"
+        minH={['200px', '320px', '400px']}
+        w="100%"
+        backgroundColor="holder"
+        backgroundSize="cover"
+        backgroundRepeat="no-repeat"
+        backgroundPosition="center"
+        backgroundImage={data.thumbnail}
+      />
       {/* <Box pos="relative" className="article-thumbnail" mt={1}> */}
       {/* <PreviewInfo data={data.images} /> */}
       {/* <Gallery data={data.images} /> */}

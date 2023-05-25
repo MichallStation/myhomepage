@@ -12,7 +12,8 @@ export default {
     exp: 'Kinh nghiệm',
     desc: 'Mô tả',
     detail: 'Chi tiết',
-    moments: 'Khoảnh khắc',
+    // memory: 'Kỷ yếu',
+    memory: 'Khoảnh khắc',
     preview: 'Xem trước',
     articles: {
       title: 'Bài viết liên quan',

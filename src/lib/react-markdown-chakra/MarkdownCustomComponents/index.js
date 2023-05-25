@@ -15,6 +15,7 @@ import {
   materialLight,
   materialDark,
 } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { Link } from '@/lib/next';
 import { Section } from '@/layouts';
 
 /** @param {import('@chakra-ui/react').DividerProps} props */
@@ -60,10 +61,11 @@ function CustomBlockQuote(props) {
       as="blockquote"
       className="custom-blockquote"
       colorScheme="gray"
-      backgroundColor={useColorModeValue('blackAlpha.100', 'whiteAlpha.200')}
+      backgroundColor={useColorModeValue('gray.600', 'whiteAlpha.200')}
       borderRadius="0 24px 24px 0"
       borderLeft="4px solid"
-      color={useColorModeValue('GrayText', '')}
+      borderColor={useColorModeValue('second', '')}
+      color={useColorModeValue('whiteAlpha.800', '')}
       py={4}
       px={6}
       mt={2}
@@ -115,7 +117,12 @@ function CustomCode({ node, inline, className, children, ...props }) {
       </SyntaxHighlighter>
     </Box>
   ) : (
-    <Code className={className} colorScheme={sheme} {...props}>
+    <Code
+      className={className}
+      colorScheme={sheme}
+      border="1px dashed"
+      {...props}
+    >
       {children}
     </Code>
   );
@@ -136,6 +143,7 @@ const MarkdownCustomComponents = {
   hr: CustomDivider,
   script: React.Fragment,
   section: (props) => <Section title={props.children} />,
+  a: Link,
   // c: React.Fragment,
 };
 

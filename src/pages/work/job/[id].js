@@ -55,14 +55,14 @@ function JobDetail({ data }) {
             <DetailInfo data={data.exp} mt={2} />
           </Section>
         )}
-        {data?.moments && (
+        {data?.memory && (
           <Section
-            title={set.moments}
-            id="moment"
+            title={set.memory}
+            id="memory"
             sep={4}
             icon={<IoFilmOutline />}
           >
-            <PreviewInfo data={data.moments} />
+            <PreviewInfo data={data.memory} />
           </Section>
         )}
       </PageDetail>

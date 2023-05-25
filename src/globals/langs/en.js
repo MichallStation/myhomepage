@@ -12,7 +12,7 @@ export default {
     role: 'Role',
     exp: 'Experience',
     detail: 'Detail',
-    moments: 'Moments',
+    memory: 'Memory',
     preview: 'Preview',
     articles: {
       title: 'Related articles',
