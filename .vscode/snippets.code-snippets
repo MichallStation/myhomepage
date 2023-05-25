@@ -1,0 +1,9 @@
+{
+  "typing-storage": {
+    "scope": "javascript, javascriptreact",
+    "prefix": "typing-storage",
+    "body": [
+      "/** @param {{ storage: import('@/@type/features').FeaturesStorage }} */"
+    ]
+  }
+}
