@@ -5,14 +5,8 @@
     "title": "Vai trò",
     "content": "Trợ lý"
   },
-  "info": [
-    {
-      "title": "Trang chủ",
-      "content": "https://ltndat.com"
-    },
-    {
-      "title": "Twitter",
-      "content": "https://twitter.com/ltndat"
-    }
-  ]
+  "social": {
+    "web": "https://ltndat.com",
+    "twitter": "ltndat"
+  }
 }
