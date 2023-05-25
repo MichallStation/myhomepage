@@ -5,10 +5,6 @@
       "thumbnail": "https://raw.githubusercontent.com/ltndat/myhomepage/db/detail/job/freelancer/poster.png"
     }
   ],
-  "articles": [
-    "/articles/mylaptop",
-    "https://myhomepage-ten.vercel.app/vi/work/works/freelance"
-  ],
   "role": [
     {
       "id": "create",
