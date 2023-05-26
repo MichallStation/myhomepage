@@ -1,42 +1,42 @@
 import React, { useEffect } from 'react';
 import { Box, useColorModeValue } from '@chakra-ui/react';
 import { BackgroundImage } from '@/lib/next-chakra';
-// import { isClientSide } from '@/globals/envs';
+import { isClientSide } from '@/globals/envs';
 import BlueBrand from '../Blue/BlueBrand';
 import MadeBy from '../MadeBy';
 import envs from '../Blue/envs';
 
-// const handlePreventDefault = (e) => e.preventDefault();
+const handlePreventDefault = (e) => e.preventDefault();
 
-// if (isClientSide) {
-//   document.addEventListener('scroll', handlePreventDefault, {
-//     passive: false,
-//   });
-//   document.addEventListener('touchmove', handlePreventDefault, {
-//     passive: false,
-//   });
-//   document.addEventListener('wheel', handlePreventDefault, {
-//     passive: false,
-//   });
-//   document.addEventListener('keydown', handlePreventDefault, {
-//     passive: false,
-//   });
-//   document.addEventListener('click', handlePreventDefault, {
-//     passive: false,
-//   });
-// }
+if (isClientSide) {
+  document.addEventListener('scroll', handlePreventDefault, {
+    passive: false,
+  });
+  document.addEventListener('touchmove', handlePreventDefault, {
+    passive: false,
+  });
+  document.addEventListener('wheel', handlePreventDefault, {
+    passive: false,
+  });
+  document.addEventListener('keydown', handlePreventDefault, {
+    passive: false,
+  });
+  document.addEventListener('click', handlePreventDefault, {
+    passive: false,
+  });
+}
 
 function BlueLoading() {
   // eslint-disable-next-line arrow-body-style
   useEffect(() => {
     // eslint-disable-next-line consistent-return
-    // return () => {
-    //   document.removeEventListener('scroll', window.blockInputHandler);
-    //   document.removeEventListener('touchmove', window.blockInputHandler);
-    //   document.removeEventListener('wheel', window.blockInputHandler);
-    //   document.removeEventListener('keydown', window.blockInputHandler);
-    //   document.removeEventListener('click', window.blockInputHandler);
-    // };
+    return () => {
+      document.removeEventListener('scroll', window.blockInputHandler);
+      document.removeEventListener('touchmove', window.blockInputHandler);
+      document.removeEventListener('wheel', window.blockInputHandler);
+      document.removeEventListener('keydown', window.blockInputHandler);
+      document.removeEventListener('click', window.blockInputHandler);
+    };
   }, []);
 
   return (
