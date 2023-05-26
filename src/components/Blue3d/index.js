@@ -121,8 +121,8 @@ function Blue3d() {
       receiveShadow: false,
       castShadow: false,
     }).then(() => {
-      animate();
       dispatch(blue3dShows());
+      animate();
     });
 
     container.appendChild(renderer.domElement);
