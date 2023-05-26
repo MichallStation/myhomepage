@@ -62,8 +62,12 @@ function Navbar() {
       id="navbar"
       path={router.asPath}
       as="nav"
-      style={style.nav}
       zIndex="docked"
+      left={0}
+      right={0}
+      top={0}
+      backdropFilter="blur(10px)"
+      pos="fixed"
     >
       <Container
         maxW={{ sm: 'full', md: '4xl' }}

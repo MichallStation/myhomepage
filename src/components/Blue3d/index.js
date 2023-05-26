@@ -97,7 +97,7 @@ function Blue3d() {
       req = requestAnimationFrame(animate);
       if (!envs.inView) {
         // Disable show rotate when load not in  view
-        if (frame === 0) frame = 99;
+        if (frame < 99) frame = 99;
         // Disable render, gpu performance for others
         else return;
       }

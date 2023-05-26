@@ -16,7 +16,8 @@ const style = {
 
 /** @param {import('@chakra-ui/react').BoxProps} props */
 function Brand(props) {
-  const { title = 'Ltndat', ...restProps } = props;
+  // const { title = 'Ltndat', ...restProps } = props;
+  const { title = 'Blue', ...restProps } = props;
 
   return (
     <Box

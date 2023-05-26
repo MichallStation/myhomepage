@@ -95,38 +95,40 @@ function Article({ data }) {
       />
       <Container maxW={{ sm: 'full', md: '3xl' }} pos="relative" px={6}>
         <Box as="nav" display="flex" className="nav-filter" overflowX="scroll">
-          {tags.map((tag) => (
-            <Button
-              minW="120px"
-              borderRadius="24px"
-              leftIcon={
-                searchList?.[tag] ? (
-                  <Icon
-                    as={AiOutlineCloseCircle}
-                    boxSize="20px"
-                    pointerEvents="none"
-                  />
-                ) : (
-                  <Icon as={TiTag} boxSize="20px" pointerEvents="none" />
-                )
-              }
-              bgColor={searchList?.[tag] && 'second'}
-              data-tag={tag}
-              onClick={handleOnClick}
-              _hover={{
-                bgColor: searchList?.[tag] && 'second',
-              }}
-              _focus={{
-                bgColor: searchList?.[tag] && 'second',
-              }}
-              mr={2}
-              px={4}
-              py={0}
-              // minH="36px"
-            >
-              {tag.replace(tag[0], tag.charAt(0).toUpperCase())}
-            </Button>
-          ))}
+          <Box minW="md">
+            {tags.map((tag) => (
+              <Button
+                minW="90px"
+                borderRadius="24px"
+                leftIcon={
+                  searchList?.[tag] ? (
+                    <Icon
+                      as={AiOutlineCloseCircle}
+                      boxSize="20px"
+                      pointerEvents="none"
+                    />
+                  ) : (
+                    <Icon as={TiTag} boxSize="20px" pointerEvents="none" />
+                  )
+                }
+                bgColor={searchList?.[tag] && 'second'}
+                data-tag={tag}
+                onClick={handleOnClick}
+                _hover={{
+                  bgColor: searchList?.[tag] && 'second',
+                }}
+                _focus={{
+                  bgColor: searchList?.[tag] && 'second',
+                }}
+                mr={2}
+                px={4}
+                py={0}
+                // minH="36px"
+              >
+                {tag.replace(tag[0], tag.charAt(0).toUpperCase())}
+              </Button>
+            ))}
+          </Box>
         </Box>
         <Box className="article-dashboard" minH="40vh">
           {filteredData &&

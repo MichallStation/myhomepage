@@ -12,7 +12,14 @@ function Floating({ storage }) {
   const status = useSelector(selectblue3dStatus);
   const client = useClientSide();
   return (
-    <Box id="floating" pos="relative" left={0} right={0} top={0} bottom={0}>
+    <Box
+      id="floating"
+      pos="relative"
+      left="-120px"
+      right="-120px"
+      top="-120px"
+      bottom="-120px"
+    >
       <AnimatePresence initial={false} mode="wait">
         {status === LOADING && (
           <motion.div

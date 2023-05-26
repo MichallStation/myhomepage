@@ -49,10 +49,10 @@ function BlueLoading() {
       id="blue-loading"
       zIndex="10001"
       pos="fixed"
-      left="0"
-      right="0"
-      top="0"
-      bottom="0"
+      left="-120px"
+      right="-120px"
+      top="-120px"
+      bottom="-120px"
       display="flex"
       alignItems="center"
       justifyContent="center"
@@ -70,6 +70,7 @@ function BlueLoading() {
         pos="absolute"
         bottom={[4, 8]}
         flexDir="column"
+        mb="120px"
       >
         <BlueBrand ml={1} w={['66px', '72px']} mb={-3} />
         <MadeBy ml={2} w="108px" />
