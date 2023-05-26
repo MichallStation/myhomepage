@@ -10,7 +10,6 @@ import {
   blue3dShows,
   DONE,
   LOADING,
-  PAUSE,
   selectblue3dStatus,
   SHOW,
 } from '@/features/slices/ui';
