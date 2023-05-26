@@ -1,12 +1,17 @@
 import React, { useEffect } from 'react';
 import { Box, useColorModeValue } from '@chakra-ui/react';
 import { BackgroundImage } from '@/lib/next-chakra';
-import { isClientSide } from '@/globals/envs';
 import BlueBrand from '../Blue/BlueBrand';
 import MadeBy from '../MadeBy';
 import envs from '../Blue/envs';
+import { isClientSide } from '@/globals/envs';
 
-const handlePreventDefault = (e) => e.preventDefault();
+const handlePreventDefault =
+  /** @param {Event} e */
+  (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
 
 if (isClientSide) {
   document.addEventListener('scroll', handlePreventDefault, {

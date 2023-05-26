@@ -95,7 +95,12 @@ function Blue3d() {
     let frame = 0;
     const animate = () => {
       req = requestAnimationFrame(animate);
-      if (!envs.inView) return;
+      if (!envs.inView) {
+        // Disable show rotate when load not in  view
+        if (frame === 0) frame = 99;
+        // Disable render, gpu performance for others
+        else return;
+      }
       frame = frame <= 100 ? frame + 1 : frame;
 
       if (frame <= 100) {
