@@ -28,7 +28,7 @@ function Blue3d() {
   const dispatch = useDispatch();
   const inView = useInView(refContainer);
   const status = useSelector(selectblue3dStatus);
-  envs.inView = ![PAUSE, SHOW].includes(status) && inView;
+  envs.inView = [LOADING, SHOW].includes(status) || inView;
   envs.status = status;
 
   const handleWindowResize = useCallback(() => {
