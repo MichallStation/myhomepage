@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Box, useColorModeValue } from '@chakra-ui/react';
 import { BackgroundImage } from '@/lib/next-chakra';
-import { isClientSide } from '@/globals/envs';
 import BlueBrand from '../Blue/BlueBrand';
 import MadeBy from '../MadeBy';
 import envs from '../Blue/envs';
