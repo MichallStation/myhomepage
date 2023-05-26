@@ -12,6 +12,7 @@ import {
   LOADING,
   PAUSE,
   selectblue3dStatus,
+  SHOW,
 } from '@/features/slices/ui';
 import data from './envs';
 
@@ -27,7 +28,7 @@ function Blue3d() {
   const dispatch = useDispatch();
   const inView = useInView(refContainer);
   const status = useSelector(selectblue3dStatus);
-  envs.inView = status !== PAUSE && inView;
+  envs.inView = ![PAUSE, SHOW].includes(status) && inView;
   envs.status = status;
 
   const handleWindowResize = useCallback(() => {
@@ -121,8 +122,8 @@ function Blue3d() {
       receiveShadow: false,
       castShadow: false,
     }).then(() => {
-      animate();
       dispatch(blue3dShows());
+      animate();
     });
 
     container.appendChild(renderer.domElement);

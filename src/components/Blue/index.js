@@ -56,7 +56,7 @@ function Blue({ storage }) {
         controls,
         toast,
       });
-    }, 3000);
+    }, 5000);
     // eslint-disable-next-line consistent-return
     return () => t && clearTimeout(t);
   }, [storage.lang]);
