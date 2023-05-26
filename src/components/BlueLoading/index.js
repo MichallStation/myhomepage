@@ -31,11 +31,11 @@ function BlueLoading() {
   useEffect(() => {
     // eslint-disable-next-line consistent-return
     return () => {
-      document.removeEventListener('scroll', window.blockInputHandler);
-      document.removeEventListener('touchmove', window.blockInputHandler);
-      document.removeEventListener('wheel', window.blockInputHandler);
-      document.removeEventListener('keydown', window.blockInputHandler);
-      document.removeEventListener('click', window.blockInputHandler);
+      document.removeEventListener('scroll', handlePreventDefault);
+      document.removeEventListener('touchmove', handlePreventDefault);
+      document.removeEventListener('wheel', handlePreventDefault);
+      document.removeEventListener('keydown', handlePreventDefault);
+      document.removeEventListener('click', handlePreventDefault);
     };
   }, []);
 
