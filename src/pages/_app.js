@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import PullToRefresh from 'pulltorefreshjs';
 // import '@fontsource/lobster-two';
@@ -7,6 +8,9 @@ import PullToRefresh from 'pulltorefreshjs';
 // import '@fontsource/signika-negative';
 // import '@fontsource/source-sans-pro';
 import 'animate.css';
+import { TiArrowUpOutline } from 'react-icons/ti';
+import { ImSpinner2 } from 'react-icons/im';
+import { Icon } from '@chakra-ui/react';
 import { Manager } from '@/lib/chakra';
 import createStore from '@/features/store';
 import theme from '@/features/theme';
@@ -45,6 +49,10 @@ export default function App({ Component, pageProps, router }) {
         // window.location.reload();
         router.replace(router.asPath);
       },
+      iconArrow: renderToString(<Icon icon={TiArrowUpOutline} />),
+      iconRefreshing: renderToString(
+        <Icon icon={ImSpinner2} className="rotate-center" />,
+      ),
     });
     return () => {
       PullToRefresh.destroyAll();
