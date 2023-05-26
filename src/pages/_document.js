@@ -2,6 +2,25 @@ import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
 import { ColorModeScript } from '@chakra-ui/react';
 import theme from '@/features/theme';
 
+if (typeof window !== 'undefined') {
+  window.blockInputHandler = (e) => e.preventDefault();
+  document.addEventListener('scroll', window.blockInputHandler, {
+    passive: false,
+  });
+  document.addEventListener('touchmove', window.blockInputHandler, {
+    passive: false,
+  });
+  document.addEventListener('wheel', window.blockInputHandler, {
+    passive: false,
+  });
+  document.addEventListener('keydown', window.blockInputHandler, {
+    passive: false,
+  });
+  document.addEventListener('click', window.blockInputHandler, {
+    passive: false,
+  });
+}
+
 /** @param {{storage: import('@/@type/features').FeaturesStorage}} */
 export default function Document({ lang }) {
   return (
