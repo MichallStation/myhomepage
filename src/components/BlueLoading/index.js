@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Box, useColorModeValue } from '@chakra-ui/react';
 import { BackgroundImage } from '@/lib/next-chakra';
 import { isClientSide } from '@/globals/envs';
@@ -6,41 +6,48 @@ import BlueBrand from '../Blue/BlueBrand';
 import MadeBy from '../MadeBy';
 import envs from '../Blue/envs';
 
-const handlePreventDefault = (e) => e.preventDefault();
-
-if (isClientSide) {
-  document.addEventListener('scroll', handlePreventDefault, {
-    passive: false,
-  });
-  document.addEventListener('touchmove', handlePreventDefault, {
-    passive: false,
-  });
-  document.addEventListener('wheel', handlePreventDefault, {
-    passive: false,
-  });
-  document.addEventListener('keydown', handlePreventDefault, {
-    passive: false,
-  });
-  document.addEventListener('click', handlePreventDefault, {
-    passive: false,
-  });
-}
+const handlePreventDefault =
+  /** @param {Event} e */
+  (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
 
 function BlueLoading() {
+  const ref = useRef();
+
   // eslint-disable-next-line arrow-body-style
   useEffect(() => {
+    const { current } = ref;
+    if (!current) return;
+    current.addEventListener('scroll', handlePreventDefault, {
+      passive: false,
+    });
+    current.addEventListener('touchmove', handlePreventDefault, {
+      passive: false,
+    });
+    current.addEventListener('wheel', handlePreventDefault, {
+      passive: false,
+    });
+    current.addEventListener('keydown', handlePreventDefault, {
+      passive: false,
+    });
+    current.addEventListener('click', handlePreventDefault, {
+      passive: false,
+    });
     // eslint-disable-next-line consistent-return
     return () => {
-      document.removeEventListener('scroll', handlePreventDefault);
-      document.removeEventListener('touchmove', handlePreventDefault);
-      document.removeEventListener('wheel', handlePreventDefault);
-      document.removeEventListener('keydown', handlePreventDefault);
-      document.removeEventListener('click', handlePreventDefault);
+      current.removeEventListener('scroll', handlePreventDefault);
+      current.removeEventListener('touchmove', handlePreventDefault);
+      current.removeEventListener('wheel', handlePreventDefault);
+      current.removeEventListener('keydown', handlePreventDefault);
+      current.removeEventListener('click', handlePreventDefault);
     };
   }, []);
 
   return (
     <Box
+      ref={ref}
       id="blue-loading"
       zIndex="10001"
       pos="fixed"
