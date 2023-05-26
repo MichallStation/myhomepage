@@ -30,14 +30,13 @@ function BlueLoading() {
   // eslint-disable-next-line arrow-body-style
   useEffect(() => {
     // eslint-disable-next-line consistent-return
-    return () => {
-      if (!window?.blockInputHandler) return;
-      document.removeEventListener('scroll', window.blockInputHandler);
-      document.removeEventListener('touchmove', window.blockInputHandler);
-      document.removeEventListener('wheel', window.blockInputHandler);
-      document.removeEventListener('keydown', window.blockInputHandler);
-      document.removeEventListener('click', window.blockInputHandler);
-    };
+    // return () => {
+    //   document.removeEventListener('scroll', window.blockInputHandler);
+    //   document.removeEventListener('touchmove', window.blockInputHandler);
+    //   document.removeEventListener('wheel', window.blockInputHandler);
+    //   document.removeEventListener('keydown', window.blockInputHandler);
+    //   document.removeEventListener('click', window.blockInputHandler);
+    // };
   }, []);
 
   return (
@@ -55,6 +54,10 @@ function BlueLoading() {
       flexDirection="column"
       backgroundColor={useColorModeValue('light', 'dark')}
       userSelect="none"
+      style={{
+        touchAction: 'none',
+        msTouchAction: '-ms-none',
+      }}
     >
       <BackgroundImage w="80px" h="80px" src={envs.url} />
       <Box
