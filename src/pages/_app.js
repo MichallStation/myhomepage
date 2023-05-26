@@ -1,4 +1,6 @@
+import { useEffect } from 'react';
 import { Provider } from 'react-redux';
+import PullToRefresh from 'pulltorefreshjs';
 // import '@fontsource/lobster-two';
 // import '@fontsource/merienda';
 // import '@fontsource/roboto-mono';
@@ -19,9 +21,13 @@ if (typeof window !== 'undefined') {
 
 let store;
 
-/** @param {{pageProps: {storage: import('@/@type/features').FeaturesStorage}}}  */
+/**
+ * @param {{
+ * pageProps: {storage: import('@/@type/features').FeaturesStorage}
+ * router: import('next/router').NextRouter
+ * }}
+ * */
 export default function App({ Component, pageProps, router }) {
-  // const storage = useFeaturesStorage(pageProps?.storage);
   const { storage } = pageProps;
   const getLayout =
     Component.getLayout ||
@@ -31,6 +37,19 @@ export default function App({ Component, pageProps, router }) {
       </Page>
     ));
   store = store || createStore(storage);
+
+  useEffect(() => {
+    PullToRefresh.init({
+      mainElement: 'body',
+      onRefresh() {
+        // window.location.reload();
+        router.replace(router.asPath);
+      },
+    });
+    return () => {
+      PullToRefresh.destroyAll();
+    };
+  }, [router]);
 
   return (
     <Provider store={store}>

@@ -9,19 +9,19 @@ import envs from '../Blue/envs';
 const handlePreventDefault = (e) => e.preventDefault();
 
 if (isClientSide) {
-  window.addEventListener('scroll', handlePreventDefault, {
+  document.addEventListener('scroll', handlePreventDefault, {
     passive: false,
   });
-  window.addEventListener('touchmove', handlePreventDefault, {
+  document.addEventListener('touchmove', handlePreventDefault, {
     passive: false,
   });
-  window.addEventListener('wheel', handlePreventDefault, {
+  document.addEventListener('wheel', handlePreventDefault, {
     passive: false,
   });
-  window.addEventListener('keydown', handlePreventDefault, {
+  document.addEventListener('keydown', handlePreventDefault, {
     passive: false,
   });
-  window.addEventListener('click', handlePreventDefault, {
+  document.addEventListener('click', handlePreventDefault, {
     passive: false,
   });
 }
@@ -31,11 +31,11 @@ function BlueLoading() {
   useEffect(() => {
     // eslint-disable-next-line consistent-return
     return () => {
-      window.removeEventListener('scroll', handlePreventDefault);
-      window.removeEventListener('touchmove', handlePreventDefault);
-      window.removeEventListener('wheel', handlePreventDefault);
-      window.removeEventListener('keydown', handlePreventDefault);
-      window.removeEventListener('click', handlePreventDefault);
+      document.removeEventListener('scroll', handlePreventDefault);
+      document.removeEventListener('touchmove', handlePreventDefault);
+      document.removeEventListener('wheel', handlePreventDefault);
+      document.removeEventListener('keydown', handlePreventDefault);
+      document.removeEventListener('click', handlePreventDefault);
     };
   }, []);
 
