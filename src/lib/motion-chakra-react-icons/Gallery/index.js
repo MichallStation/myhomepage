@@ -104,7 +104,8 @@ function Gallery({
             drag
             initial="hide"
             whileInView="view"
-            onDoubleClick={handleOpenFullscreen}
+            // onDoubleClick={handleOpenFullscreen}
+            onClick={handleOpenFullscreen}
             onNavigateLeft={handlePrev}
             onNavigateRight={handleNext}
             onNavigateUp={handlePrev}
@@ -173,7 +174,8 @@ function Gallery({
             objectFit="contain"
             w="100%"
             h="100%"
-            onDoubleClick={handleCloseFullscreen}
+            // onDoubleClick={handleCloseFullscreen}
+            onClick={handleCloseFullscreen}
           />
           <CloseButton
             pos="absolute"

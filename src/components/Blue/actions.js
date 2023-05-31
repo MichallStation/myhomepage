@@ -18,11 +18,11 @@ function say({ id, mes, controls, toast }) {
   });
 }
 
-function says({ id, mes, controls, toast, delay = 1000, duration = 5000 }) {
+function says({ id, mes, controls, toast, delay = 3000, duration = 5000 }) {
   mes = typeof mes === 'string' ? [mes] : mes;
   mes.forEach((mesO, i) => {
     const idMes = `${id}${i}`;
-    if (toast.isActive(idMes)) return;
+    if (!mesO || toast.isActive(idMes)) return;
     if (i === 0) {
       say({
         id: idMes,
@@ -41,7 +41,7 @@ function says({ id, mes, controls, toast, delay = 1000, duration = 5000 }) {
             duration,
             controls,
           }),
-        delay,
+        delay * i,
       );
   });
 }

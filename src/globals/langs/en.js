@@ -86,6 +86,7 @@ export default {
   Author: {
     welcome: "Hello, I'm app developer based in Vietnam!",
     name: 'Le Tran Ngoc Dat',
+    shortname: 'Ltndat',
     desc: 'Developer (Front End / Back End / Fullstack)',
     worktitle: 'Work',
     workcontent:
@@ -128,11 +129,17 @@ export default {
   Blue: {
     name: 'Blue',
     welcome: {
-      newbie: 'Hi, Welcome guys.',
-      old: 'Hi, Welcome back guys.',
+      newbie: [
+        'Hello, friend.',
+        "I'm Blue. I'm Dat's assistant. 🧐",
+        '',
+        "This is Bluehome (Dat's homepage).",
+        'He is waiting for you to connect. 😀',
+      ],
+      old: 'Hi, Welcome back my dear fellow. 😉',
     },
-    intro: ["Hi, I'm Blue. I'm Dat's assistant."],
-    joke: "You'll see me everywhere Dat's worked.",
+    intro: ["Hi, I'm Blue. I'm Dat's assistant. 🧐"],
+    joke: "You'll see me everywhere Dat's worked. 😤",
   },
   Brand: {},
   Card: {},

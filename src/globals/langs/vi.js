@@ -91,6 +91,8 @@ export default {
   Author: {
     welcome: 'Xin chào, Tôi là nhà phát triển ứng dụng tại Việt Nam!',
     name: 'Lê Trần Ngọc Đạt',
+
+    shortname: 'Ltndat',
     desc: 'Nhà phát triển (Front End / Back End / Fullstack)',
     worktitle: 'Công việc',
     workcontent:
@@ -112,7 +114,7 @@ export default {
     love: {
       title: 'Tôi',
       content: [
-        { name: 'Nghệ thuật', href: 'https://google.com' },
+        { name: 'Nghệ thuật' },
         { name: 'Âm nhạc' },
         { name: 'Bóng đá' },
         { name: 'Guitar' },
@@ -133,12 +135,17 @@ export default {
   Blue: {
     name: 'Blue',
     welcome: {
-      newbie: 'Hú, xin chào bạn mới.',
-      old: 'Hú, chào mừng bạn trở lại.',
+      newbie: [
+        'Hi, bạn thân mến.',
+        'Tôi là Blue. Tôi là trợ lý của Đạt. 🧐',
+        '',
+        'Đây là Bluehome (Nhà của Đạt).',
+        'Cậu ấy luôn mong đợi bạn kết nối. 😀',
+      ],
+      old: 'Hú, chào mừng trở lại, bạn thân mến. 😉',
     },
-    intro: ['Hi, Tôi là Blue. Tôi là trợ lý của Đạt.'],
-    joke: 'Bạn sẽ thấy tôi ở mọi nơi mà Đạt từng làm việc.',
-    guide: { home: 'Bạn đang ở tại', work: '' },
+    intro: ['Hi, Tôi là Blue. Tôi là trợ lý của Đạt. 🧐'],
+    joke: 'Bạn sẽ thấy tôi ở mọi nơi mà Đạt từng làm việc. 😤',
   },
   Brand: {},
   Card: {},
