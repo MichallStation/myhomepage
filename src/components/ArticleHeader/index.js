@@ -51,7 +51,7 @@ function ArticleHeader({ toc, set, data, ...props }) {
           <Heading textAlign="center" fontSize="3xl" mt={4}>
             {data.title}
           </Heading>
-          <Text textAlign="center" mt={2}>
+          <Text fontSize="lg" textAlign="center" mt={2}>
             {data.desc}
           </Text>
         </Box>

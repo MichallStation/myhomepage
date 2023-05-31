@@ -80,7 +80,7 @@ function ArticleCard({ set, data, href, revert, ...props }) {
         <Heading as="h3" fontSize={['2xl', '3xl']} textAlign="center">
           {data.title}
         </Heading>
-        <Text fontSize={['md', 'lg']} textAlign="center">
+        <Text fontSize="lg" textAlign="center">
           {data.desc}
         </Text>
         <Box display="flex" justifyContent="center" mt={2}>
