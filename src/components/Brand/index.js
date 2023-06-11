@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { Box, Heading } from '@chakra-ui/react';
+import { BackgroundImage } from '@/lib/next-chakra';
 
 /** @type {Object.<string, import('react').CSSProperties>} */
 const style = {
@@ -16,8 +17,8 @@ const style = {
 
 /** @param {import('@chakra-ui/react').BoxProps} props */
 function Brand(props) {
-  // const { title = 'Ltndat', ...restProps } = props;
-  const { title = 'Blue', ...restProps } = props;
+  const { title = 'ltndat', ...restProps } = props;
+  // const { title = 'Blue', ...restProps } = props;
 
   return (
     <Box
@@ -31,16 +32,10 @@ function Brand(props) {
       tabIndex={-1}
       {...restProps}
     >
-      {/* <Image
-        className="brand-img"
-        src="/blue.png"
-        alt="Blue"
-        style={style.img}
-        width="44px"
-      /> */}
+      <BackgroundImage src="/beard.png" />
       {/* <Heading fontFamily="deco" fontSize="3xl" ml={2} style={style.heading}> */}
       {/* <Icon className="brand-icon" as={IoFootball} boxSize="24px" mr={1} /> */}
-      <Heading fontFamily="deco" fontSize="3xl" style={style.heading}>
+      <Heading ml={1} fontFamily="deco" fontSize="3xl" style={style.heading}>
         {title}
       </Heading>
     </Box>
