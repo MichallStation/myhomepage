@@ -66,7 +66,7 @@ function BlueLoading() {
         msTouchAction: '-ms-none',
       }}
     >
-      <BackgroundImage w="80px" h="80px" src={envs.url} />
+      <BackgroundImage w="80px" h="80px" src={envs.beardUrl} />
       <Box
         left={0}
         right={0}
